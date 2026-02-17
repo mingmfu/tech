@@ -23,7 +23,10 @@
             --accent-os-glow: rgba(16, 185, 129, 0.3);
             --accent-pl: #f59e0b;
             --accent-pl-glow: rgba(245, 158, 11, 0.3);
+            --accent-hot: #ec4899;
+            --accent-hot-glow: rgba(236, 72, 153, 0.3);
             --border: #2a2a3a;
+            --gradient-hot: linear-gradient(135deg, #ec4899, #f43f5e);
             --gradient-ai: linear-gradient(135deg, #3b82f6, #8b5cf6);
             --gradient-gfx: linear-gradient(135deg, #8b5cf6, #ec4899);
             --gradient-os: linear-gradient(135deg, #10b981, #06b6d4);
@@ -115,6 +118,46 @@
         .nav-btn.gfx:hover, .nav-btn.gfx.active { color: var(--accent-gfx); }
         .nav-btn.os:hover, .nav-btn.os.active { color: var(--accent-os); }
         .nav-btn.pl:hover, .nav-btn.pl.active { color: var(--accent-pl); }
+        .nav-btn.hot:hover, .nav-btn.hot.active { color: var(--accent-hot); }
+        .nav-btn.frontier:hover, .nav-btn.frontier.active { color: #a855f7; }
+
+        /* Dropdown Menu */
+        .nav-dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            margin-top: 0.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.5rem;
+            min-width: 180px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            z-index: 200;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+            animation: fadeIn 0.2s ease;
+        }
+
+        .dropdown-menu .nav-btn {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            margin: 0.25rem 0;
+        }
+
+        .dropdown-menu .nav-btn:hover {
+            background: var(--bg-hover);
+            border-radius: 8px;
+        }
 
         /* Hero Section */
         .hero {
@@ -248,6 +291,7 @@
         .section-title.gfx { color: var(--accent-gfx); }
         .section-title.os { color: var(--accent-os); }
         .section-title.pl { color: var(--accent-pl); }
+        .section-title.hot { color: var(--accent-hot); }
 
         .update-time {
             font-size: 0.875rem;
@@ -299,6 +343,7 @@
         .card.gfx:hover::before { background: var(--accent-gfx); box-shadow: 0 0 20px var(--accent-gfx-glow); }
         .card.os:hover::before { background: var(--accent-os); box-shadow: 0 0 20px var(--accent-os-glow); }
         .card.pl:hover::before { background: var(--accent-pl); box-shadow: 0 0 20px var(--accent-pl-glow); }
+        .card.hot:hover::before { background: var(--accent-hot); box-shadow: 0 0 20px var(--accent-hot-glow); }
 
         .card-header {
             display: flex;
@@ -322,6 +367,7 @@
         .card-tag.gfx { background: rgba(139, 92, 246, 0.15); color: var(--accent-gfx); }
         .card-tag.os { background: rgba(16, 185, 129, 0.15); color: var(--accent-os); }
         .card-tag.pl { background: rgba(245, 158, 11, 0.15); color: var(--accent-pl); }
+        .card-tag.hot { background: rgba(236, 72, 153, 0.15); color: var(--accent-hot); }
 
         .card-date {
             font-size: 0.75rem;
@@ -374,6 +420,7 @@
         .card-link.gfx { color: var(--accent-gfx); }
         .card-link.os { color: var(--accent-os); }
         .card-link.pl { color: var(--accent-pl); }
+        .card-link.hot { color: var(--accent-hot); }
 
         /* Featured Card */
         .featured-card {
@@ -611,10 +658,21 @@
                 <div class="logo-text">TechInsight Hub</div>
             </div>
             <nav>
-                <button class="nav-btn ai active" onclick="showSection('ai')">🤖 AI</button>
-                <button class="nav-btn gfx" onclick="showSection('gfx')">🎨 图形</button>
-                <button class="nav-btn os" onclick="showSection('os')">🖥️ 操作系统</button>
-                <button class="nav-btn pl" onclick="showSection('pl')">⚡ 编译器 & PL</button>
+                <!-- 一级目录: AI热点 -->
+                <button class="nav-btn hot active" onclick="showSection('hot')">🔥 AI热点</button>
+                
+                <!-- 一级目录: 前沿技术 (带下拉) -->
+                <div class="nav-dropdown">
+                    <button class="nav-btn frontier" onclick="toggleDropdown()">
+                        🔬 前沿技术 ▼
+                    </button>
+                    <div class="dropdown-menu" id="frontierDropdown">
+                        <button class="nav-btn ai" onclick="showSection('ai'); closeDropdown()">🤖 AI学术</button>
+                        <button class="nav-btn gfx" onclick="showSection('gfx'); closeDropdown()">🎨 图形</button>
+                        <button class="nav-btn os" onclick="showSection('os'); closeDropdown()">🖥️ 操作系统</button>
+                        <button class="nav-btn pl" onclick="showSection('pl'); closeDropdown()">⚡ 编译器 & PL</button>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -640,18 +698,209 @@
                 <div class="stat-label">技术突破</div>
             </div>
             <div class="stat">
-                <div class="stat-value">4</div>
+                <div class="stat-value">5</div>
                 <div class="stat-label">核心领域</div>
             </div>
         </div>
     </section>
 
     <main>
-        <!-- AI Section -->
-        <section id="ai" class="section active">
+        <!-- AI Hot News Section (First Priority) -->
+        <section id="hot" class="section active">
+            <div class="section-header">
+                <h2 class="section-title hot">
+                    <span>◉</span> AI热点 · 产业前沿
+                </h2>
+                <span class="update-time">最后更新: 刚刚</span>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Featured: DeepSeek Impact -->
+                <article class="card featured-card hot">
+                    <div class="featured-content">
+                        <span class="card-tag hot">FEATURED · 产业地震</span>
+                        <h2>DeepSeek-R1 引发全球AI格局重构</h2>
+                        <p>中国AI公司DeepSeek开源的R1推理模型以1/10的训练成本达到OpenAI o1水平，导致美股AI芯片股暴跌万亿美元，引发全球科技界对AI"军备竞赛"成本合理性的深度反思。</p>
+                        <div class="featured-tags">
+                            <span class="featured-tag">DeepSeek</span>
+                            <span class="featured-tag">OpenAI</span>
+                            <span class="featured-tag">产业变革</span>
+                            <span class="featured-tag">开源胜利</span>
+                        </div>
+                        <a href="https://techcrunch.com/2025/01/27/deepseek-ai-china-openai/" class="card-link hot" target="_blank">深度分析 →</a>
+                    </div>
+                    <div class="featured-visual">
+                        <div class="code-preview">
+                            <div><span class="comment">// 训练成本对比 (单位: 百万美元)</span></div>
+                            <div>GPT-4:     <span class="string">$100M+</span>  <span class="comment">// 估算</span></div>
+                            <div>OpenAI o1: <span class="string">$??M</span>    <span class="comment">// 未公开</span></div>
+                            <div>DeepSeek-R1: <span class="keyword">$5.6M</span> <span class="comment">// 官方公布</span></div>
+                            <div> </div>
+                            <div><span class="keyword">efficiency_ratio</span> = <span class="string">"20x cheaper"</span></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Cards Row 1 -->
+                <article class="card hot">
+                    <div class="card-header">
+                        <span class="card-tag hot">模型发布</span>
+                        <span class="card-date">Feb 17</span>
+                    </div>
+                    <h3>OpenAI 发布 o3-mini：推理模型平民化</h3>
+                    <p>OpenAI 推出更轻量级的 o3-mini 模型，价格降低 90%，让更多开发者能够使用推理能力。这是 OpenAI 对 DeepSeek 的直接回应，价格战正式打响。</p>
+                    <div class="card-meta">
+                        <span>💰 $1.10/M tokens</span>
+                        <span>⚡ 比 o1 快 3 倍</span>
+                    </div>
+                    <a href="https://openai.com/index/openai-o3-mini/" class="card-link hot" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card hot">
+                    <div class="card-header">
+                        <span class="card-tag hot">投资动态</span>
+                        <span class="card-date">Feb 16</span>
+                    </div>
+                    <h3>Stargate Project：美国 5000 亿美元 AI 基建计划</h3>
+                    <p>特朗普宣布与 OpenAI、Oracle、SoftBank 合作的 Stargate 项目，计划投资 5000 亿美元建设美国 AI 基础设施。首批 1000 亿美元将在德克萨斯州建设数据中心。</p>
+                    <div class="card-meta">
+                        <span>🇺🇸 美国政府</span>
+                        <span>🏗️ 基础设施</span>
+                    </div>
+                    <a href="https://www.theverge.com/2025/1/21/24349258/openai-oracle-softbank-stargate-ai-infrastructure-trump-500-billion" class="card-link hot" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card hot">
+                    <div class="card-header">
+                        <span class="card-tag hot">AI Agent</span>
+                        <span class="card-date">Feb 15</span>
+                    </div>
+                    <h3>Anthropic 推出 Claude Computer Use API</h3>
+                    <p>Claude 现在可以直接控制计算机：看屏幕、移动鼠标、点击按钮、输入文字。这是 AI Agent 能力的重大突破，让 AI 真正能够"使用"计算机完成复杂任务。</p>
+                    <div class="card-meta">
+                        <span>🤖 Computer Use</span>
+                        <span>🖱️ GUI 自动化</span>
+                    </div>
+                    <a href="https://www.anthropic.com/news/3-5-models-and-computer-use" class="card-link hot" target="_blank">查看详情 →</a>
+                </article>
+
+                <!-- News Cards Row 2 -->
+                <article class="card hot">
+                    <div class="card-header">
+                        <span class="card-tag hot">芯片竞争</span>
+                        <span class="card-date">Feb 14</span>
+                    </div>
+                    <h3>NVIDIA 面临反垄断调查</h3>
+                    <p>美国、欧盟、中国同时对 NVIDIA 展开反垄断调查。DeepSeek 证明不依赖最先进的 GPU 也能训练出顶级模型，对 NVIDIA 的"算力护城河"构成挑战。</p>
+                    <div class="card-meta">
+                        <span>📉 股价波动</span>
+                        <span>⚖️ 监管压力</span>
+                    </div>
+                    <a href="https://www.reuters.com/technology/us-expands-probe-nvidias-ai-chip-business-2025-02-13/" class="card-link hot" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card hot">
+                    <div class="card-header">
+                        <span class="card-tag hot">中国AI</span>
+                        <span class="card-date">Feb 13</span>
+                    </div>
+                    <h3>字节跳动发布豆包1.5 Pro</h3>
+                    <p>豆包大模型家族迎来重大更新，1.5 Pro 版本在理解、生成、代码、数学等维度全面超越 GPT-4o，且价格极具竞争力。字节AI战略全面加速。</p>
+                    <div class="card-meta">
+                        <span>🔥 ByteDance</span>
+                        <span>🇨🇳 国产大模型</span>
+                    </div>
+                    <a href="https://www.doubao.com/" class="card-link hot" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card hot">
+                    <div class="card-header">
+                        <span class="card-tag hot">产品发布</span>
+                        <span class="card-date">Feb 12</span>
+                    </div>
+                    <h3>Perplexity 推出 Deep Research</h3>
+                    <p>Perplexity 发布 Deep Research 功能，能够自动进行多轮搜索、分析信息、生成深度研究报告。直接对标 Google Gemini Deep Research。</p>
+                    <div class="card-meta">
+                        <span>🔍 搜索革命</span>
+                        <span>📊 自动研究</span>
+                    </div>
+                    <a href="https://www.perplexity.ai/hub/blog/introducing-perplexity-deep-research" class="card-link hot" target="_blank">查看详情 →</a>
+                </article>
+
+                <!-- News Cards Row 3 -->
+                <article class="card hot">
+                    <div class="card-header">
+                        <span class="card-tag hot">开源生态</span>
+                        <span class="card-date">Feb 11</span>
+                    </div>
+                    <h3>Hugging Face 推出 ZeroGPU：免费 GPU 算力计划</h3>
+                    <p>Hugging Face 宣布为开源社区提供免费 A100 GPU 算力，开发者可以在 Spaces 上免费运行 Gradio 应用。这是对 AI 算力民主化的重要贡献。</p>
+                    <div class="card-meta">
+                        <span>🤗 Hugging Face</span>
+                        <span>💻 免费算力</span>
+                    </div>
+                    <a href="https://huggingface.co/docs/transformers/perf_infer_gpu_one" class="card-link hot" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card hot">
+                    <div class="card-header">
+                        <span class="card-tag hot">监管政策</span>
+                        <span class="card-date">Feb 10</span>
+                    </div>
+                    <h3>欧盟 AI 法案正式生效：全球首个全面 AI 监管法规</h3>
+                    <p>EU AI Act 正式开始实施，对高风险 AI 系统实施严格监管。违规企业最高面临全球营收 7% 的罚款。这对全球 AI 产业合规提出新要求。</p>
+                    <div class="card-meta">
+                        <span>🇪🇺 EU AI Act</span>
+                        <span>⚖️ 合规要求</span>
+                    </div>
+                    <a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" class="card-link hot" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card hot">
+                    <div class="card-header">
+                        <span class="card-tag hot">人才动态</span>
+                        <span class="card-date">Feb 09</span>
+                    </div>
+                    <h3>AI 人才大战白热化：顶级研究员年薪破千万美元</h3>
+                    <p>OpenAI、Google、Meta、xAI 等公司为争夺顶尖 AI 研究人员开出天价薪酬。个别顶级科学家年薪高达 2000 万美元（含股票）。</p>
+                    <div class="card-meta">
+                        <span>💰 天价薪酬</span>
+                        <span>🧠 人才争夺</span>
+                    </div>
+                    <a href="https://www.businessinsider.com/ai-talent-war-openai-google-meta-salaries-2025-2" class="card-link hot" target="_blank">查看详情 →</a>
+                </article>
+            </div>
+
+            <div class="timeline" style="margin-top: 3rem;">
+                <div class="timeline-item hot">
+                    <div class="timeline-date">2025年2月</div>
+                    <div class="timeline-content">
+                        <h4>DeepSeek 冲击波：AI 产业格局重塑</h4>
+                        <p>DeepSeek-R1 的发布证明了中国在 AI 领域的实力，打破了"只有硅谷巨头才能做出顶级模型"的迷思。全球 AI 产业进入"效率优先"新阶段。</p>
+                    </div>
+                </div>
+                <div class="timeline-item hot">
+                    <div class="timeline-date">2025年初</div>
+                    <div class="timeline-content">
+                        <h4>AI Agent 元年开启</h4>
+                        <p>从 Claude Computer Use 到 OpenAI Operator，AI Agent 从概念走向实用。2025 年有望成为 AI 真正"做事"的第一年。</p>
+                    </div>
+                </div>
+                <div class="timeline-item hot">
+                    <div class="timeline-date">2024-2025</div>
+                    <div class="timeline-content">
+                        <h4>开源 vs 闭源：AI 发展模式之争</h4>
+                        <p>Meta (Llama)、DeepSeek、Mistral 等开源阵营与 OpenAI、Anthropic 闭源阵营的竞争日趋激烈。开源模型的快速进步正在缩小与闭源模型的差距。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Academic Section -->
+        <section id="ai" class="section">
             <div class="section-header">
                 <h2 class="section-title ai">
-                    <span>◉</span> 人工智能 (AI)
+                    <span>◉</span> 人工智能 (AI学术)
                 </h2>
                 <span class="update-time">最后更新: 2小时前</span>
             </div>
@@ -1084,12 +1333,33 @@
             </div>
             <div class="footer-copyright">
                 <p>TechInsight Hub © 2025 · 每日更新前沿技术洞察</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;">数据来源: arXiv, GitHub, SIGGRAPH, PLDI, OSDI, SOSP 等</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">数据来源: arXiv, TechCrunch, The Verge, 36氪, 机器之心, GitHub, SIGGRAPH, PLDI 等</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Toggle dropdown menu
+        function toggleDropdown() {
+            const dropdown = document.getElementById('frontierDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdown menu
+        function closeDropdown() {
+            const dropdown = document.getElementById('frontierDropdown');
+            dropdown.classList.remove('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('frontierDropdown');
+            const frontierBtn = document.querySelector('.nav-btn.frontier');
+            if (!frontierBtn.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
         function showSection(sectionId) {
             // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
@@ -1103,7 +1373,13 @@
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            
+            // Set active button
+            if (sectionId === 'hot') {
+                document.querySelector('.nav-btn.hot').classList.add('active');
+            } else {
+                document.querySelector('.nav-btn.frontier').classList.add('active');
+            }
             
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
