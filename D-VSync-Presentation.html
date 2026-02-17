@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-VSync - ASPLOS 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+        }
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+        }
+        .slide.active { display: flex; }
+        .slide-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out;
+        }
+        .blob-1 { 
+            width: 400px; height: 400px; 
+            background: #3b82f6; 
+            top: -100px; right: -100px; 
+            animation-delay: 0s;
+        }
+        .blob-2 { 
+            width: 300px; height: 300px; 
+            background: #8b5cf6; 
+            bottom: -50px; left: -50px; 
+            animation-delay: -5s;
+        }
+        .blob-3 { 
+            width: 250px; height: 250px; 
+            background: #06b6d4; 
+            top: 50%; left: 50%; 
+            transform: translate(-50%, -50%);
+            animation-delay: -10s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            25% { transform: translate(30px, -30px) scale(1.1); }
+            50% { transform: translate(-20px, 20px) scale(0.9); }
+            75% { transform: translate(20px, 30px) scale(1.05); }
+        }
+        .content { 
+            position: relative; 
+            z-index: 1; 
+            text-align: center;
+            max-width: 90%;
+        }
+        .title-xl { 
+            font-size: 3.5rem; 
+            font-weight: 900; 
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+        .title-lg { 
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        .title-md { 
+            font-size: 2rem; 
+            font-weight: 600; 
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        .text-lg { 
+            font-size: 1.25rem; 
+            font-weight: 300;
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+        .text-md {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+        .highlight { 
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+            background-clip: text;
+        }
+        .number-display {
+            font-size: 6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            transition: width 0.3s ease;
+            z-index: 100;
+        }
+        .nav-dots {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 100;
+        }
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .nav-dot.active {
+            background: #3b82f6;
+            width: 24px;
+            border-radius: 4px;
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 0.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #06b6d4, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slide 1: 封面 -->
+    <div class="slide active">
+        <div class="slide-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="content">
+            <div class="text-lg mb-4 tracking-widest">ASPLOS 2025</div>
+            <h1 class="title-xl">D-VSync</h1>
+            <p class="title-md highlight">解耦渲染与显示</p>
+            <p class="text-lg mt-8">Decoupled Rendering and Displaying<br>for Smartphone Graphics</p>
+            <div class="mt-12 text-md">
+                <p>Yuanpei Wu, Dong Du, Chao Xu, Yubin Xia</p>
+                <p>Ming Fu, Binyu Zang, Haibo Chen</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 2: 问题 -->
+    <div class="slide">
+        <div class="slide-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="content">
+            <div class="icon-circle">⚡</div>
+            <h2 class="title-lg">渲染与显示<br>紧密耦合</h2>
+            <p class="text-lg mt-6">智能手机图形 pipeline 中<br>渲染和显示被迫同步运行</p>
+            <p class="text-lg mt-4 highlight">导致性能瓶颈和功耗浪费</p>
+        </div>
+    </div>
+
+    <!-- Slide 3: 洞察 -->
+    <div class="slide">
+        <div class="slide-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="content">
+            <div class="icon-circle">💡</div>
+            <h2 class="title-lg">核心洞察</h2>
+            <p class="title-xl highlight mt-8">渲染 ≠ 显示</p>
+            <p class="text-lg mt-6">两者本该有各自的节奏<br>不必强制同步</p>
+        </div>
+    </div>
+
+    <!-- Slide 4: 解决方案 -->
+    <div class="slide">
+        <div class="slide-bg">
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="content">
+            <h2 class="title-lg">D-VSync</h2>
+            <p class="title-md highlight">解耦架构</p>
+            <p class="text-lg mt-6">让渲染和显示独立运行<br>各自发挥最佳性能</p>
+            <div class="mt-8 flex justify-center gap-4">
+                <div class="stat-card">
+                    <div class="text-md">渲染线程</div>
+                </div>
+                <div class="stat-card">
+                    <div class="text-md">显示线程</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: 创新1 -->
+    <div class="slide">
+        <div class="slide-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+        <div class="content">
+            <div class="text-lg mb-4 highlight">创新 1</div>
+            <h2 class="title-lg">双线程分离</h2>
+            <p class="text-lg mt-6">渲染线程专注计算<br>显示线程专注输出</p>
+            <p class="text-lg mt-4 highlight">互不阻塞</p>
+        </div>
+    </div>
+
+    <!-- Slide 6: 创新2 -->
+    <div class="slide">
+        <div class="slide-bg">
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="content">
+            <div class="text-lg mb-4 highlight">创新 2</div>
+            <h2 class="title-lg">智能预测</h2>
+            <p class="text-lg mt-6">动态预测显示时机<br>精准控制渲染节奏</p>
+            <p class="text-lg mt-4 highlight">零延迟感知</p>
+        </div>
+    </div>
+
+    <!-- Slide 7: 创新3 -->
+    <div class="slide">
+        <div class="slide-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="content">
+            <div class="text-lg mb-4 highlight">创新 3</div>
+            <h2 class="title-lg">功耗优化</h2>
+            <p class="text-lg mt-6">消除冗余渲染<br>按需计算，精准投递</p>
+            <p class="text-lg mt-4 highlight">显著省电</p>
+        </div>
+    </div>
+
+    <!-- Slide 8: 性能提升 -->
+    <div class="slide">
+        <div class="slide-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="content">
+            <h2 class="title-md">性能提升</h2>
+            <div class="number-display">25%</div>
+            <p class="text-lg mt-4">帧率显著提升<br>流畅度大幅改善</p>
+        </div>
+    </div>
+
+    <!-- Slide 9: 功耗降低 -->
+    <div class="slide">
+        <div class="slide-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="content">
+            <h2 class="title-md">功耗降低</h2>
+            <div class="number-display">18%</div>
+            <p class="text-lg mt-4">电量消耗减少<br>续航时间更长</p>
+        </div>
+    </div>
+
+    <!-- Slide 10: 影响 -->
+    <div class="slide">
+        <div class="slide-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="content">
+            <div class="icon-circle">🚀</div>
+            <h2 class="title-lg">重新定义<br>移动图形</h2>
+            <p class="text-lg mt-6">D-VSync 为智能手机图形<br>开辟了新的架构范式</p>
+            <p class="text-lg mt-4 highlight">更高效 · 更省电 · 更流畅</p>
+        </div>
+    </div>
+
+    <!-- Slide 11: 结尾 -->
+    <div class="slide">
+        <div class="slide-bg">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+        </div>
+        <div class="content">
+            <h1 class="title-xl gradient-text">D-VSync</h1>
+            <p class="title-md mt-6">解耦渲染与显示</p>
+            <div class="mt-12">
+                <p class="text-lg">ASPLOS 2025</p>
+                <p class="text-md mt-4">March 2025</p>
+            </div>
+            <p class="text-lg mt-8 highlight">Thank You</p>
+        </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation dots -->
+    <div class="nav-dots" id="navDots"></div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let currentSlide = 0;
+
+        // Create nav dots
+        const navDotsContainer = document.getElementById('navDots');
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'nav-dot' + (index === 0 ? ' active' : '');
+            dot.onclick = () => goToSlide(index);
+            navDotsContainer.appendChild(dot);
+        });
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update dots
+            document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+            
+            // Update progress bar
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function goToSlide(index) {
+            if (index >= 0 && index < totalSlides) {
+                currentSlide = index;
+                updateSlide();
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // Touch navigation
+        let touchStartX = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        });
+
+        // Initialize
+        updateSlide();
+    </script>
+</body>
+</html>
