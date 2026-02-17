@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechInsight Hub - AI · 图形 · OS · 编译器</title>
+    <meta name="description" content="汇聚AI、计算机图形、操作系统、编译器与编程语言领域的前沿技术洞察">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --bg-hover: #252530;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0b0;
+            --text-muted: #6b6b7b;
+            --accent-ai: #3b82f6;
+            --accent-ai-glow: rgba(59, 130, 246, 0.3);
+            --accent-gfx: #8b5cf6;
+            --accent-gfx-glow: rgba(139, 92, 246, 0.3);
+            --accent-os: #10b981;
+            --accent-os-glow: rgba(16, 185, 129, 0.3);
+            --accent-pl: #f59e0b;
+            --accent-pl-glow: rgba(245, 158, 11, 0.3);
+            --border: #2a2a3a;
+            --gradient-ai: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            --gradient-gfx: linear-gradient(135deg, #8b5cf6, #ec4899);
+            --gradient-os: linear-gradient(135deg, #10b981, #06b6d4);
+            --gradient-pl: linear-gradient(135deg, #f59e0b, #ef4444);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-ai);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #a0a0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        .nav-btn.ai:hover, .nav-btn.ai.active { color: var(--accent-ai); }
+        .nav-btn.gfx:hover, .nav-btn.gfx.active { color: var(--accent-gfx); }
+        .nav-btn.os:hover, .nav-btn.os.active { color: var(--accent-os); }
+        .nav-btn.pl:hover, .nav-btn.pl.active { color: var(--accent-pl); }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-ai);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #a0a0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* Section Styles */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title.ai { color: var(--accent-ai); }
+        .section-title.gfx { color: var(--accent-gfx); }
+        .section-title.os { color: var(--accent-os); }
+        .section-title.pl { color: var(--accent-pl); }
+
+        .update-time {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--border);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card.ai:hover::before { background: var(--accent-ai); box-shadow: 0 0 20px var(--accent-ai-glow); }
+        .card.gfx:hover::before { background: var(--accent-gfx); box-shadow: 0 0 20px var(--accent-gfx-glow); }
+        .card.os:hover::before { background: var(--accent-os); box-shadow: 0 0 20px var(--accent-os-glow); }
+        .card.pl:hover::before { background: var(--accent-pl); box-shadow: 0 0 20px var(--accent-pl-glow); }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .card-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .card-tag.ai { background: rgba(59, 130, 246, 0.15); color: var(--accent-ai); }
+        .card-tag.gfx { background: rgba(139, 92, 246, 0.15); color: var(--accent-gfx); }
+        .card-tag.os { background: rgba(16, 185, 129, 0.15); color: var(--accent-os); }
+        .card-tag.pl { background: rgba(245, 158, 11, 0.15); color: var(--accent-pl); }
+
+        .card-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .card-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: gap 0.2s;
+        }
+
+        .card-link:hover {
+            gap: 0.75rem;
+        }
+
+        .card-link.ai { color: var(--accent-ai); }
+        .card-link.gfx { color: var(--accent-gfx); }
+        .card-link.os { color: var(--accent-os); }
+        .card-link.pl { color: var(--accent-pl); }
+
+        /* Featured Card */
+        .featured-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .featured-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .featured-content p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-tag {
+            padding: 0.375rem 0.875rem;
+            background: var(--bg-hover);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .featured-visual {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, var(--accent-ai-glow) 0%, transparent 70%);
+        }
+
+        .code-preview {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .code-preview .keyword { color: var(--accent-gfx); }
+        .code-preview .string { color: var(--accent-os); }
+        .code-preview .comment { color: var(--text-muted); }
+        .code-preview .function { color: var(--accent-pl); }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            margin-left: -4px;
+        }
+
+        .timeline-item.ai::before { border-color: var(--accent-ai); background: var(--accent-ai); }
+        .timeline-item.gfx::before { border-color: var(--accent-gfx); background: var(--accent-gfx); }
+        .timeline-item.os::before { border-color: var(--accent-os); background: var(--accent-os); }
+        .timeline-item.pl::before { border-color: var(--accent-pl); background: var(--accent-pl); }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .timeline-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            main {
+                padding: 0 1rem 2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">TI</div>
+                <div class="logo-text">TechInsight Hub</div>
+            </div>
+            <nav>
+                <button class="nav-btn ai active" onclick="showSection('ai')">🤖 AI</button>
+                <button class="nav-btn gfx" onclick="showSection('gfx')">🎨 图形</button>
+                <button class="nav-btn os" onclick="showSection('os')">🖥️ 操作系统</button>
+                <button class="nav-btn pl" onclick="showSection('pl')">⚡ 编译器 & PL</button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            <span>每日更新 · 2025年2月17日</span>
+        </div>
+        <h1>探索<span>技术前沿</span></h1>
+        <p>汇聚 AI、计算机图形、操作系统、编译器与编程语言领域的最新研究动态与深度洞察</p>
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-value">156</div>
+                <div class="stat-label">本周论文</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">42</div>
+                <div class="stat-label">开源项目</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">8</div>
+                <div class="stat-label">技术突破</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">4</div>
+                <div class="stat-label">核心领域</div>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <!-- AI Section -->
+        <section id="ai" class="section active">
+            <div class="section-header">
+                <h2 class="section-title ai">
+                    <span>◉</span> 人工智能 (AI)
+                </h2>
+                <span class="update-time">最后更新: 2小时前</span>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Featured -->
+                <article class="card featured-card ai">
+                    <div class="featured-content">
+                        <span class="card-tag ai">FEATURED</span>
+                        <h2>DeepSeek-R1: 推理模型的开源突破</h2>
+                        <p>DeepSeek 发布的 R1 模型在数学推理和代码生成任务上媲美 OpenAI o1，以极低的训练成本实现了惊人的性能。这一突破可能重塑大模型训练的经济学。</p>
+                        <div class="featured-tags">
+                            <span class="featured-tag">LLM</span>
+                            <span class="featured-tag">Reasoning</span>
+                            <span class="featured-tag">Open Source</span>
+                            <span class="featured-tag">Efficiency</span>
+                        </div>
+                        <a href="https://arxiv.org/abs/2501.12948" class="card-link ai" target="_blank">阅读论文 →</a>
+                    </div>
+                    <div class="featured-visual">
+                        <div class="code-preview">
+                            <div><span class="comment">// DeepSeek-R1 Training Pipeline</span></div>
+                            <div><span class="keyword">model</span> = <span class="function">GRPO</span>(policy, rewards)</div>
+                            <div><span class="keyword">for</span> step <span class="keyword">in</span> range(max_steps):</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;output = model.generate(inputs)</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;reward = compute_reward(output)</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;model.update(reward) <span class="comment"># No value model needed</span></div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Regular Cards -->
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">LLM · Efficiency</span>
+                        <span class="card-date">Feb 16</span>
+                    </div>
+                    <h3>Mixture of Experts (MoE) 架构新进展</h3>
+                    <p>最新的研究表明，通过动态路由和专家选择策略的优化，MoE 模型可以在保持性能的同时将推理成本降低 40%。这一技术正在被越来越多的生产级模型采用。</p>
+                    <div class="card-meta">
+                        <span>📄 arXiv:2502.08934</span>
+                        <span>🔥 1.2k stars</span>
+                    </div>
+                    <a href="#" class="card-link ai">查看详情 →</a>
+                </article>
+
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">Vision · Multimodal</span>
+                        <span class="card-date">Feb 15</span>
+                    </div>
+                    <h3>Sora 之后：视频生成模型的技术演进</h3>
+                    <p>OpenAI Sora 展示了 Transformer 在视频生成中的潜力。最新研究聚焦于时空一致性、长视频生成和可控性，多家公司正在追赶这一技术前沿。</p>
+                    <div class="card-meta">
+                        <span>📄 arXiv:2502.07652</span>
+                        <span>💬 89 讨论</span>
+                    </div>
+                    <a href="#" class="card-link ai">查看详情 →</a>
+                </article>
+
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">Agents · RAG</span>
+                        <span class="card-date">Feb 14</span>
+                    </div>
+                    <h3>Agent 系统的记忆机制设计</h3>
+                    <p>如何让 AI Agent 拥有长期记忆？最新的记忆架构结合了向量检索、知识图谱和参数记忆，显著提升了复杂任务的完成率。</p>
+                    <div class="card-meta">
+                        <span>📄 arXiv:2502.06731</span>
+                        <span>⭐ 推荐</span>
+                    </div>
+                    <a href="#" class="card-link ai">查看详情 →</a>
+                </article>
+
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">MLOps · Hardware</span>
+                        <span class="card-date">Feb 13</span>
+                    </div>
+                    <h3>AI 芯片的存算一体新架构</h3>
+                    <p>存内计算 (Compute-in-Memory) 技术正在成熟，可将 Transformer 推理能耗降低 10 倍。多家初创公司推出了基于 ReRAM 和 SRAM 的 AI 加速器。</p>
+                    <div class="card-meta">
+                        <span>📄 ISSCC 2025</span>
+                        <span>🏭 产业动态</span>
+                    </div>
+                    <a href="#" class="card-link ai">查看详情 →</a>
+                </article>
+            </div>
+
+            <div class="timeline" style="margin-top: 3rem;">
+                <div class="timeline-item ai">
+                    <div class="timeline-date">2025年2月</div>
+                    <div class="timeline-content">
+                        <h4>推理模型竞争白热化</h4>
+                        <p>OpenAI o3、DeepSeek R1、Google Gemini 2.0 Flash Thinking 等模型在推理能力上展开激烈竞争，推动 LLM 从"快思考"向"慢思考"演进。</p>
+                    </div>
+                </div>
+                <div class="timeline-item ai">
+                    <div class="timeline-date">2025年1月</div>
+                    <div class="timeline-content">
+                        <h4>多模态模型统一趋势</h4>
+                        <p>GPT-4o、Claude 3.5 Sonnet、Gemini Pro 等模型实现了真正的多模态理解，文本、图像、音频的无缝融合成为新标准。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graphics Section -->
+        <section id="gfx" class="section">
+            <div class="section-header">
+                <h2 class="section-title gfx">
+                    <span>◉</span> 计算机图形学
+                </h2>
+                <span class="update-time">最后更新: 5小时前</span>
+            </div>
+
+            <div class="cards-grid">
+                <article class="card featured-card gfx">
+                    <div class="featured-content">
+                        <span class="card-tag gfx">FEATURED</span>
+                        <h2>3D Gaussian Splatting 的实时渲染革命</h2>
+                        <p>3DGS 技术正在彻底改变实时渲染领域。相比传统 NeRF，它提供了更快的渲染速度和更好的编辑性，已被集成到 Unreal Engine 5 和 Unity 中。</p>
+                        <div class="featured-tags">
+                            <span class="featured-tag">Rendering</span>
+                            <span class="featured-tag">NeRF</span>
+                            <span class="featured-tag">Real-time</span>
+                            <span class="featured-tag">Game Engine</span>
+                        </div>
+                        <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" class="card-link gfx" target="_blank">项目主页 →</a>
+                    </div>
+                    <div class="featured-visual">
+                        <div class="code-preview">
+                            <div><span class="comment">// Gaussian Splatting Rasterizer</span></div>
+                            <div><span class="keyword">__global__ void</span> <span class="function">renderGaussian</span>(</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;Gaussian* splats, Camera cam) {</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">float2</span> xy = project(splat, cam);</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">float4</span> color = alphaBlend(splat, xy);</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;out_image[pixel] = color;</div>
+                            <div>}</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card gfx">
+                    <div class="card-header">
+                        <span class="card-tag gfx">Ray Tracing</span>
+                        <span class="card-date">Feb 15</span>
+                    </div>
+                    <h3>ReSTIR GI: 实时全局光照新突破</h3>
+                    <p>NVIDIA 最新的 ReSTIR 算法变种将间接光照的计算效率提升了 3 倍，使得全动态场景的路径追踪成为可能。这项技术将在 RTX 50 系列显卡中得到硬件加速支持。</p>
+                    <div class="card-meta">
+                        <span>📄 SIGGRAPH 2025</span>
+                        <span>🎮 NVIDIA</span>
+                    </div>
+                    <a href="#" class="card-link gfx">查看详情 →</a>
+                </article>
+
+                <article class="card gfx">
+                    <div class="card-header">
+                        <span class="card-tag gfx">Neural Rendering</span>
+                        <span class="card-date">Feb 14</span>
+                    </div>
+                    <h3>神经纹理压缩：显存占用降低 90%</h3>
+                    <p>通过神经网络对纹理进行压缩，在几乎不损失视觉质量的前提下，将显存占用从 GB 级降至 MB 级。这对于移动游戏和 VR 应用意义重大。</p>
+                    <div class="card-meta">
+                        <span>📄 arXiv:2502.05421</span>
+                        <span>📱 移动端优先</span>
+                    </div>
+                    <a href="#" class="card-link gfx">查看详情 →</a>
+                </article>
+
+                <article class="card gfx">
+                    <div class="card-header">
+                        <span class="card-tag gfx">Animation</span>
+                        <span class="card-date">Feb 12</span>
+                    </div>
+                    <h3>基于扩散模型的角色动画生成</h3>
+                    <p>新的动画生成框架可以从文本描述或参考视频中生成高质量的角色动画，解决了传统动作捕捉成本高昂的问题。</p>
+                    <div class="card-meta">
+                        <span>📄 CVPR 2025</span>
+                        <span>🎬 影视制作</span>
+                    </div>
+                    <a href="#" class="card-link gfx">查看详情 →</a>
+                </article>
+
+                <article class="card gfx">
+                    <div class="card-header">
+                        <span class="card-tag gfx">WebGPU</span>
+                        <span class="card-date">Feb 10</span>
+                    </div>
+                    <h3>WebGPU 正式版发布：浏览器图形新时代</h3>
+                    <p>Chrome、Firefox、Safari 均已支持 WebGPU，这意味着在浏览器中实现接近原生性能的图形渲染成为可能。Web 端的 3D 应用将迎来爆发。</p>
+                    <div class="card-meta">
+                        <span>🌐 Web Standard</span>
+                        <span>🚀 已落地</span>
+                    </div>
+                    <a href="#" class="card-link gfx">查看详情 →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- OS Section -->
+        <section id="os" class="section">
+            <div class="section-header">
+                <h2 class="section-title os">
+                    <span>◉</span> 操作系统
+                </h2>
+                <span class="update-time">最后更新: 1天前</span>
+            </div>
+
+            <div class="cards-grid">
+                <article class="card featured-card os">
+                    <div class="featured-content">
+                        <span class="card-tag os">FEATURED</span>
+                        <h2>eBPF: Linux 内核的可编程革命</h2>
+                        <p>eBPF 正在从监控工具演变为通用的内核扩展机制。从网络到安全，从存储到调度，eBPF 让内核开发变得前所未有的灵活和安全。</p>
+                        <div class="featured-tags">
+                            <span class="featured-tag">Linux</span>
+                            <span class="featured-tag">Kernel</span>
+                            <span class="featured-tag">Observability</span>
+                            <span class="featured-tag">Security</span>
+                        </div>
+                        <a href="https://ebpf.io/" class="card-link os" target="_blank">eBPF 官网 →</a>
+                    </div>
+                    <div class="featured-visual">
+                        <div class="code-preview">
+                            <div><span class="comment">// eBPF Kernel Probe</span></div>
+                            <div><span class="keyword">SEC</span>(<span class="string">"kprobe/tcp_connect"</span>)</div>
+                            <div><span class="keyword">int</span> <span class="function">trace_connect</span>(<span class="keyword">struct</span> pt_regs *ctx) {</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">u32</span> pid = bpf_get_current_pid_tgid();</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;bpf_printk(<span class="string">"PID %d connecting"</span>, pid);</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> 0;</div>
+                            <div>}</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card os">
+                    <div class="card-header">
+                        <span class="card-tag os">Rust · Kernel</span>
+                        <span class="card-date">Feb 14</span>
+                    </div>
+                    <h3>Linux 6.14: Rust 驱动支持进入主线</h3>
+                    <p>Linux 内核 6.14 版本正式合并了更多 Rust 驱动代码，包括 GPU 和网卡驱动。Rust 的内存安全特性有望显著降低内核漏洞数量。</p>
+                    <div class="card-meta">
+                        <span>🐧 Linux Kernel</span>
+                        <span>🦀 Rust</span>
+                    </div>
+                    <a href="#" class="card-link os">查看详情 →</a>
+                </article>
+
+                <article class="card os">
+                    <div class="card-header">
+                        <span class="card-tag os">Virtualization</span>
+                        <span class="card-date">Feb 13</span>
+                    </div>
+                    <h3>Cloud-Hypervisor: 云原生虚拟化新选择</h3>
+                    <p>专为云环境设计的 VMM，启动时间低于 100ms，内存占用仅为传统 QEMU 的 1/10。AWS、Azure 正在内部采用这一技术。</p>
+                    <div class="card-meta">
+                        <span>☁️ Cloud Native</span>
+                        <span>⚡ 高性能</span>
+                    </div>
+                    <a href="#" class="card-link os">查看详情 →</a>
+                </article>
+
+                <article class="card os">
+                    <div class="card-header">
+                        <span class="card-tag os">Scheduling</span>
+                        <span class="card-date">Feb 11</span>
+                    </div>
+                    <h3>scx: 用户态调度器框架</h3>
+                    <p>Linux 的新调度器框架允许用 eBPF 编写自定义调度策略，无需修改内核代码。这对于游戏、实时应用和异构计算场景极具价值。</p>
+                    <div class="card-meta">
+                        <span>📄 sched_ext</span>
+                        <span>🎮 游戏优化</span>
+                    </div>
+                    <a href="#" class="card-link os">查看详情 →</a>
+                </article>
+
+                <article class="card os">
+                    <div class="card-header">
+                        <span class="card-tag os">Security</span>
+                        <span class="card-date">Feb 09</span>
+                    </div>
+                    <h3>内存安全语言重写操作系统组件</h3>
+                    <p>CISA 和 NSA 推动用 Rust 等内存安全语言重写关键系统组件。Fuchsia、Redox 等新兴操作系统证明了这一方向的可行性。</p>
+                    <div class="card-meta">
+                        <span>🔒 Security</span>
+                        <span>🏛️ 政府推动</span>
+                    </div>
+                    <a href="#" class="card-link os">查看详情 →</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Compilers & PL Section -->
+        <section id="pl" class="section">
+            <div class="section-header">
+                <h2 class="section-title pl">
+                    <span>◉</span> 编译器与编程语言
+                </h2>
+                <span class="update-time">最后更新: 3小时前</span>
+            </div>
+
+            <div class="cards-grid">
+                <article class="card featured-card pl">
+                    <div class="featured-content">
+                        <span class="card-tag pl">FEATURED</span>
+                        <h2>MLIR: 编译器基础设施的新纪元</h2>
+                        <p>MLIR 正在成为领域特定编译器的事实标准。从深度学习到量子计算，从硬件综合到数据库优化，MLIR 的多层 IR 设计提供了前所未有的灵活性。</p>
+                        <div class="featured-tags">
+                            <span class="featured-tag">LLVM</span>
+                            <span class="featured-tag">DSL</span>
+                            <span class="featured-tag">IR</span>
+                            <span class="featured-tag">Optimization</span>
+                        </div>
+                        <a href="https://mlir.llvm.org/" class="card-link pl" target="_blank">MLIR 文档 →</a>
+                    </div>
+                    <div class="featured-visual">
+                        <div class="code-preview">
+                            <div><span class="comment">// MLIR Dialect Definition</span></div>
+                            <div><span class="function">def Toy_Dialect</span> : <span class="keyword">Dialect</span> {</div>
+                            <div>&nbsp;&nbsp;<span class="keyword">let</span> name = <span class="string">"toy"</span>;</div>
+                            <div>&nbsp;&nbsp;<span class="keyword">let</span> summary = <span class="string">"Toy language dialect"</span>;</div>
+                            <div>&nbsp;&nbsp;<span class="keyword">let</span> description = [{ ... }];</div>
+                            <div>&nbsp;&nbsp;<span class="keyword">let</span> cppNamespace = <span class="string">"toy"</span>;</div>
+                            <div>}</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card pl">
+                    <div class="card-header">
+                        <span class="card-tag pl">Rust</span>
+                        <span class="card-date">Feb 16</span>
+                    </div>
+                    <h3>Rust 2024 Edition 新特性预览</h3>
+                    <p>新的 Edition 将带来 `gen` 关键字（原生协程支持）、改进的借用检查器诊断、以及更灵活的 `const` 泛型。预计年底发布。</p>
+                    <div class="card-meta">
+                        <span>🦀 Rust Lang</span>
+                        <span>🔧 语言演进</span>
+                    </div>
+                    <a href="#" class="card-link pl">查看详情 →</a>
+                </article>
+
+                <article class="card pl">
+                    <div class="card-header">
+                        <span class="card-tag pl">Type Systems</span>
+                        <span class="card-date">Feb 15</span>
+                    </div>
+                    <h3>依赖类型 (Dependent Types) 走向主流</h3>
+                    <p>Idris 2、Lean 4 等语言证明了依赖类型的实用性。新的研究致力于将其引入主流语言，使编译器能在类型层面验证更多程序属性。</p>
+                    <div class="card-meta">
+                        <span>📄 POPL 2025</span>
+                        <span>🎯 形式化验证</span>
+                    </div>
+                    <a href="#" class="card-link pl">查看详情 →</a>
+                </article>
+
+                <article class="card pl">
+                    <div class="card-header">
+                        <span class="card-tag pl">JIT</span>
+                        <span class="card-date">Feb 13</span>
+                    </div>
+                    <h3>自动向量化编译器的突破</h3>
+                    <p>新的多面体编译技术可以自动生成 AVX-512 和 SVE 向量化代码，在矩阵运算和科学计算场景下获得接近手写汇编的性能。</p>
+                    <div class="card-meta">
+                        <span>⚡ Performance</span>
+                        <span>🔬 Auto-Vectorization</span>
+                    </div>
+                    <a href="#" class="card-link pl">查看详情 →</a>
+                </article>
+
+                <article class="card pl">
+                    <div class="card-header">
+                        <span class="card-tag pl">GC</span>
+                        <span class="card-date">Feb 11</span>
+                    </div>
+                    <h3>低延迟垃圾回收新算法</h3>
+                    <p>ZGC 和 Shenandoah 的持续改进将 GC 停顿时间降至亚毫秒级。新的并发标记技术使得 even 大堆内存也能保持极低延迟。</p>
+                    <div class="card-meta">
+                        <span>☕ OpenJDK</span>
+                        <span>📉 低延迟</span>
+                    </div>
+                    <a href="#" class="card-link pl">查看详情 →</a>
+                </article>
+
+                <article class="card pl">
+                    <div class="card-header">
+                        <span class="card-tag pl">New Languages</span>
+                        <span class="card-date">Feb 10</span>
+                    </div>
+                    <h3>Zig 0.14: 编译时编程的新高度</h3>
+                    <p>Zig 的 comptime 特性正在重新定义元编程。0.14 版本带来了改进的泛型和更好的 C 互操作性，逐渐成为系统编程的有力竞争者。</p>
+                    <div class="card-meta">
+                        <span>⚡ Zig</span>
+                        <span>🔧 系统编程</span>
+                    </div>
+                    <a href="#" class="card-link pl">查看详情 →</a>
+                </article>
+            </div>
+
+            <div class="timeline" style="margin-top: 3rem;">
+                <div class="timeline-item pl">
+                    <div class="timeline-date">2025年</div>
+                    <div class="timeline-content">
+                        <h4>编程语言的融合趋势</h4>
+                        <p>Rust 影响 C++（内存安全）、TypeScript 影响 Python（类型系统）、Go 影响 Java（简洁性）。语言设计正在相互借鉴最佳实践。</p>
+                    </div>
+                </div>
+                <div class="timeline-item pl">
+                    <div class="timeline-date">2024-2025</div>
+                    <div class="timeline-content">
+                        <h4>AI 辅助编程工具链</h4>
+                        <p>Copilot、Cursor 等工具正在改变编译器和 IDE 的设计。新的研究聚焦于如何让 LLM 更好地理解代码语义和类型系统。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://arxiv.org/" target="_blank">arXiv</a>
+                <a href="https://paperswithcode.com/" target="_blank">Papers with Code</a>
+                <a href="https://github.com/trending" target="_blank">GitHub Trending</a>
+                <a href="https://news.ycombinator.com/" target="_blank">Hacker News</a>
+                <a href="https://lobste.rs/" target="_blank">Lobsters</a>
+            </div>
+            <div class="footer-copyright">
+                <p>TechInsight Hub © 2025 · 每日更新前沿技术洞察</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">数据来源: arXiv, GitHub, SIGGRAPH, PLDI, OSDI, SOSP 等</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update nav buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Add smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
