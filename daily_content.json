@@ -1,0 +1,39 @@
+{
+  "news": [
+    {
+      "title": "Rethinking High-School Science Fairs",
+      "date": "Feb 13",
+      "tag": "热点讨论",
+      "summary": "来自Hacker News的最新动态",
+      "meta": [
+        "🔥 Hacker News",
+        "⭐ 47"
+      ],
+      "url": "https://asteriskmag.com/issues/13/rethinking-high-school-science-fairs"
+    },
+    {
+      "title": "Neurons outside the brain",
+      "date": "Feb 16",
+      "tag": "开源项目",
+      "summary": "来自Hacker News的最新动态",
+      "meta": [
+        "🔥 Hacker News",
+        "⭐ 125"
+      ],
+      "url": "https://essays.debugyourpain.com/p/you-are-not-just-your-brain"
+    },
+    {
+      "title": "Show HN: Scanned 1927-1945 Daily USFS Work Diary",
+      "date": "Feb 16",
+      "tag": "研究突破",
+      "summary": "来自Hacker News的最新动态",
+      "meta": [
+        "🔥 Hacker News",
+        "⭐ 107"
+      ],
+      "url": "https://forestrydiary.com/"
+    }
+  ],
+  "papers": [],
+  "updated_at": "2026-02-17T07:41:43.797809"
+}
