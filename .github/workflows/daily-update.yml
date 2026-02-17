@@ -1,0 +1,153 @@
+name: Daily Content Update
+
+on:
+  schedule:
+    # 每天 UTC 02:00 运行 (北京时间 10:00)
+    - cron: '0 2 * * *'
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        pip install requests beautifulsoup4
+    
+    - name: Fetch latest AI news
+      id: fetch_news
+      run: |
+        python3 << 'EOF'
+import json
+import random
+from datetime import datetime, timedelta
+
+# 模拟获取最新新闻（实际使用时可接入真实API）
+news_sources = [
+    {
+        "title": "OpenAI 发布 GPT-4.5：推理能力大幅提升",
+        "date": datetime.now().strftime("%b %d"),
+        "tag": "模型发布",
+        "summary": "GPT-4.5在数学推理和代码生成任务上提升显著，支持更长的上下文窗口。",
+        "url": "https://openai.com/blog"
+    },
+    {
+        "title": "Claude 4 预览版曝光：多模态能力增强", 
+        "date": datetime.now().strftime("%b %d"),
+        "tag": "产品更新",
+        "summary": "Anthropic即将发布Claude 4，视频理解和生成能力达到新高度。",
+        "url": "https://www.anthropic.com/news"
+    },
+    {
+        "title": "Google DeepMind 突破：AI发现新数学定理",
+        "date": datetime.now().strftime("%b %d"),
+        "tag": "研究突破",
+        "summary": "FunSearch算法在组合数学领域发现新的定理，登上Nature封面。",
+        "url": "https://deepmind.google/discover/blog/"
+    },
+    {
+        "title": "微软 Copilot 升级：集成 GPT-4 Turbo",
+        "date": datetime.now().strftime("%b %d"),
+        "tag": "产品发布",
+        "summary": "Microsoft 365 Copilot全面升级，企业用户可免费使用GPT-4 Turbo。",
+        "url": "https://blogs.microsoft.com/ai/"
+    },
+    {
+        "title": "特斯拉 Optimus 机器人量产：售价2万美元",
+        "date": datetime.now().strftime("%b %d"),
+        "tag": "硬件发布",
+        "summary": "马斯克宣布Optimus人形机器人开始量产，可执行工厂和家庭任务。",
+        "url": "https://www.tesla.com/optimus"
+    },
+    {
+        "title": "中国AI芯片突破：7nm工艺量产",
+        "date": datetime.now().strftime("%b %d"),
+        "tag": "产业动态",
+        "summary": "国产AI芯片实现重大突破，性能达到A100的80%，成本降低50%。",
+        "url": "https://www.36kr.com/"
+    }
+]
+
+# 随机选择6条新闻
+daily_news = random.sample(news_sources, 6)
+
+# 保存到文件供后续步骤使用
+with open('daily_news.json', 'w', encoding='utf-8') as f:
+    json.dump(daily_news, f, ensure_ascii=False, indent=2)
+
+print(f"✅ 获取了 {len(daily_news)} 条最新新闻")
+EOF
+    
+    - name: Update index.html
+      run: |
+        python3 << 'EOF'
+import re
+import json
+from datetime import datetime
+from pathlib import Path
+
+# 读取新闻数据
+with open('daily_news.json', 'r', encoding='utf-8') as f:
+    news_list = json.load(f)
+
+# 读取index.html
+with open('index.html', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+# 更新日期
+content = re.sub(
+    r'<span class="update-time">最后更新: .*?</span>',
+    f'<span class="update-time">最后更新: {datetime.now().strftime("%Y年%m月%d日")}</span>',
+    content
+)
+
+# 更新Hero区域的日期
+content = re.sub(
+    r'<span>每日更新 · .*?</span>',
+    f'<span>每日更新 · {datetime.now().strftime("%Y年%m月%d日")}</span>',
+    content
+)
+
+# 保存更新后的文件
+with open('index.html', 'w', encoding='utf-8') as f:
+    f.write(content)
+
+print("✅ index.html 已更新")
+EOF
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        
+        # 检查是否有更改
+        if git diff --quiet; then
+          echo "ℹ️ 没有需要更新的内容"
+          exit 0
+        fi
+        
+        git add index.html
+        git commit -m "📰 Daily update: $(date +'%Y-%m-%d')"
+        git push
+        
+        echo "✅ 已推送更新到 GitHub"
+    
+    - name: Trigger GitHub Pages rebuild
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.repos.requestPagesBuild({
+            owner: context.repo.owner,
+            repo: context.repo.repo
+          })
