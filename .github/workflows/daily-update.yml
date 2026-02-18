@@ -84,12 +84,7 @@ EOF
           exit 0
         fi
         
-        git commit -m "📰 Daily update: $(date +'%Y-%m-%d')
-
-Data sources:
-- Hacker News (AI-related top stories)
-- arXiv (cs.AI, cs.LG, cs.CL latest papers)
-- GitHub (Trending AI/ML repositories)"
+        git commit -m "📰 Daily update: $(date +'%Y-%m-%d') - HN, arXiv, GitHub"
         
         git push
         
