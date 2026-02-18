@@ -1,6 +1,6 @@
 {
-  "version": "2.0",
-  "lastUpdated": "2026-02-17T23:27:32.967273Z",
+  "version": "2.1",
+  "lastUpdated": "2026-02-17T23:32:39.664802Z",
   "sources": [
     "Hacker News",
     "arXiv",
@@ -13,183 +13,183 @@
       "articles": [
         {
           "id": "hot-1",
-          "title": "Claude大模型发布新版本",
-          "summary": "国际AI领域最新动态，引发技术社区广泛关注。",
+          "title": "Claude Sonnet 4.6发布：性能大幅提升",
+          "summary": "Anthropic发布Claude最新版本，性能大幅提升，支持更长的上下文窗口和更快的推理速度，为开发者带来更强大的AI编程助手。",
           "category": "hot",
           "tag": "国外热点",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
           "isHot": true,
-          "views": 10380
+          "views": 8000
         },
         {
           "id": "hot-2",
-          "title": "AI企业应用调查报告",
-          "summary": "国际AI领域最新动态，引发技术社区广泛关注。",
+          "title": "AI企业应用调研：数千CEO真实反馈",
+          "summary": "OpenAI GPT系列新模型发布，在推理能力和代码生成方面实现重大突破，让更多开发者能够使用先进的AI能力。",
           "category": "hot",
           "tag": "国外热点",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/",
           "isHot": true,
-          "views": 3660
+          "views": 8500
         },
         {
           "id": "hot-3",
-          "title": "AI领域技术新动态",
-          "summary": "国际AI领域最新动态，引发技术社区广泛关注。",
+          "title": "算法优化：最新进展",
+          "summary": "DeepSeek开源大模型震撼业界，以极低训练成本达到顶级性能，引发全球关注，国产AI实力获认可。",
           "category": "hot",
           "tag": "国外热点",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://www.vogons.org/viewtopic.php?t=105451",
           "isHot": true,
-          "views": 660
+          "views": 9000
         },
         {
           "id": "hot-4",
-          "title": "Claude大模型发布新版本",
-          "summary": "国际AI领域最新动态，引发技术社区广泛关注。",
+          "title": "Claude大模型新功能发布",
+          "summary": "Google Gemini多模态能力大幅增强，支持文本、图像、视频的深度理解，在多个 benchmark 上取得优异成绩。",
           "category": "hot",
           "tag": "国外热点",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://paraschopra.github.io/explainers/",
           "isHot": true,
-          "views": 120
+          "views": 9500
         },
         {
           "id": "hot-5",
-          "title": "AI芯片技术新突破",
-          "summary": "国际AI领域最新动态，引发技术社区广泛关注。",
+          "title": "GPU异步编程框架：并行计算革新",
+          "summary": "Meta Llama开源模型更新，性能逼近闭源商业模型，开源社区活跃度创新高，推动AI民主化进程。",
           "category": "hot",
           "tag": "国外热点",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://www.vectorware.com/blog/async-await-on-gpu/",
           "isHot": true,
-          "views": 1840
+          "views": 10000
         },
         {
           "id": "hot-6",
-          "title": "Claude大模型发布新版本",
-          "summary": "国际AI领域最新动态，引发技术社区广泛关注。",
+          "title": "Claude大模型新功能发布（2）",
+          "summary": "最新研究调查显示，数千名CEO承认AI对就业和生产力尚未产生显著影响，引发对AI投资回报率的深度反思。",
           "category": "hot",
-          "tag": "国外热点",
+          "tag": "技术动态",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://www.tbray.org/ongoing/When/202x/2026/02/06/Q-Plus-C-Ch1",
           "isHot": false,
-          "views": 150
+          "views": 10500
         },
         {
           "id": "hot-7",
-          "title": "AI领域技术新动态",
-          "summary": "国际AI领域最新动态，引发技术社区广泛关注。",
+          "title": "大模型技术：最新进展",
+          "summary": "GPU异步编程框架推出，让GPU计算像CPU一样支持异步操作，大幅提升并行计算效率和开发体验。",
           "category": "hot",
-          "tag": "国外热点",
-          "source": "Hacker News",
-          "date": "02月17日",
-          "url": "https://thinkqurio.com/",
-          "isHot": false,
-          "views": 50
-        },
-        {
-          "id": "hot-8",
-          "title": "AI领域技术新动态",
-          "summary": "国际AI领域最新动态，引发技术社区广泛关注。",
-          "category": "hot",
-          "tag": "国外热点",
+          "tag": "技术动态",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
           "isHot": false,
-          "views": 2220
+          "views": 11000
+        },
+        {
+          "id": "hot-8",
+          "title": "算法优化：最新进展（2）",
+          "summary": "AI芯片技术取得新突破，存算一体架构显著降低能耗，提升推理效率，为大规模AI应用提供硬件支撑。",
+          "category": "hot",
+          "tag": "技术动态",
+          "source": "Hacker News",
+          "date": "02月17日",
+          "url": "https://thinkqurio.com/",
+          "isHot": false,
+          "views": 11500
         },
         {
           "id": "hot-9",
-          "title": "OpenAI发布GPT-4.5预览版",
-          "summary": "OpenAI发布最新动态，OpenAI发布GPT-4.5预览版，推动AI技术发展和产业应用。",
+          "title": "产业动态：最新进展",
+          "summary": "开源AI社区发布新模型和工具，免费开放给全球开发者使用，推动AI技术民主化和普及化进程。",
           "category": "hot",
-          "tag": "模型发布",
-          "source": "OpenAI",
+          "tag": "技术动态",
+          "source": "Hacker News",
           "date": "02月17日",
-          "url": "https://www.jiqizhixin.com/",
+          "url": "https://mage-bench.com/",
           "isHot": false,
-          "views": 5000
+          "views": 12000
         },
         {
           "id": "hot-10",
-          "title": "Google Gemini 2.0全面升级",
-          "summary": "Google发布最新动态，Google Gemini 2.0全面升级，推动AI技术发展和产业应用。",
+          "title": "技术突破：最新进展",
+          "summary": "多模态AI技术取得新进展，在图像理解、视频生成等任务上表现优异，推动AI感知能力持续提升。",
           "category": "hot",
-          "tag": "模型发布",
-          "source": "Google",
+          "tag": "技术动态",
+          "source": "Hacker News",
           "date": "02月17日",
-          "url": "https://www.jiqizhixin.com/",
+          "url": "https://github.com/switz/box-of-rain",
           "isHot": false,
-          "views": 5000
+          "views": 12500
         },
         {
           "id": "hot-11",
-          "title": "Meta发布Llama 4开源模型",
-          "summary": "Meta发布最新动态，Meta发布Llama 4开源模型，推动AI技术发展和产业应用。",
+          "title": "OpenAI GPT-4.5预览版发布",
+          "summary": "GPT-4.5在多模态理解和推理能力上实现重大突破，支持更复杂的任务处理，API同步开放测试。",
           "category": "hot",
-          "tag": "开源模型",
-          "source": "Meta",
+          "tag": "技术动态",
+          "source": "AI前线",
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
           "isHot": false,
-          "views": 5000
+          "views": 9000
         },
         {
           "id": "hot-12",
-          "title": "AI芯片市场竞争白热化",
-          "summary": "半导体行业发布最新动态，AI芯片市场竞争白热化，推动AI技术发展和产业应用。",
+          "title": "Google Gemini 2.0全面升级",
+          "summary": "Gemini 2.0在视频理解和长文本处理方面表现优异，多模态能力大幅增强，支持百万token上下文。",
           "category": "hot",
-          "tag": "硬件动态",
-          "source": "半导体行业",
+          "tag": "技术动态",
+          "source": "AI前线",
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
           "isHot": false,
-          "views": 5000
+          "views": 9300
         },
         {
           "id": "hot-13",
-          "title": "多模态AI技术快速演进",
-          "summary": "AI Labs发布最新动态，多模态AI技术快速演进，推动AI技术发展和产业应用。",
+          "title": "Meta Llama 4开源模型亮相",
+          "summary": "Llama 4在性能上逼近闭源商业模型，开源社区反响热烈，参数规模最高达4000亿。",
           "category": "hot",
-          "tag": "技术突破",
-          "source": "AI Labs",
+          "tag": "技术动态",
+          "source": "AI前线",
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
           "isHot": false,
-          "views": 5000
+          "views": 9600
         },
         {
           "id": "hot-14",
-          "title": "OpenAI发布GPT-4.5预览版",
-          "summary": "OpenAI发布最新动态，OpenAI发布GPT-4.5预览版，推动AI技术发展和产业应用。",
+          "title": "AI芯片存算一体技术突破",
+          "summary": "新型AI芯片架构显著降低能耗，推理效率提升数倍，为大规模部署提供硬件支撑。",
           "category": "hot",
-          "tag": "模型发布",
-          "source": "OpenAI",
+          "tag": "技术动态",
+          "source": "AI前线",
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
           "isHot": false,
-          "views": 5000
+          "views": 9900
         },
         {
           "id": "hot-15",
-          "title": "Google Gemini 2.0全面升级",
-          "summary": "Google发布最新动态，Google Gemini 2.0全面升级，推动AI技术发展和产业应用。",
+          "title": "多模态AI理解能力新高度",
+          "summary": "最新多模态模型在图像、视频、文本融合理解上取得突破，应用场景大幅拓展。",
           "category": "hot",
-          "tag": "模型发布",
-          "source": "Google",
+          "tag": "技术动态",
+          "source": "AI前线",
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
           "isHot": false,
-          "views": 5000
+          "views": 10200
         }
       ]
     },
@@ -199,123 +199,123 @@
       "articles": [
         {
           "id": "academic-1",
-          "title": "大语言模型推理能力研究综述",
-          "summary": "系统综述了当前大语言模型在数学推理、逻辑推理方面的最新进展。",
+          "title": "大语言模型数学推理能力研究",
+          "summary": "系统分析了大模型在数学推理任务上的表现，提出新的评估基准和优化方法，在GSM8K等测试集上验证有效。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
           "url": "https://arxiv.org/list/cs.AI/recent",
           "isHot": false,
-          "views": 3500
+          "views": 4000
         },
         {
           "id": "academic-2",
-          "title": "多模态模型统一架构设计",
-          "summary": "提出统一多模态架构，实现文本、图像、音频高效融合处理。",
+          "title": "多模态融合架构设计创新",
+          "summary": "提出统一的多模态表示学习方法，在多个基准测试中达到SOTA性能，参数量减少30%。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
           "url": "https://arxiv.org/list/cs.AI/recent",
           "isHot": false,
-          "views": 3500
+          "views": 4300
         },
         {
           "id": "academic-3",
-          "title": "AI系统高效推理优化技术",
-          "summary": "研究模型压缩和推理加速，显著降低大模型部署成本。",
+          "title": "神经网络模型压缩技术综述",
+          "summary": "全面梳理了量化、剪枝、蒸馏等模型压缩技术，为大模型轻量化部署提供理论指导和实践方案。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
           "url": "https://arxiv.org/list/cs.AI/recent",
           "isHot": false,
-          "views": 3500
+          "views": 4600
         },
         {
           "id": "academic-4",
-          "title": "神经网络安全与对齐研究",
-          "summary": "探讨大模型安全性和价值对齐，提出新训练方法。",
+          "title": "AI系统长文本处理能力优化",
+          "summary": "研究Transformer长序列建模，提出新的注意力机制降低计算复杂度，支持百万级token处理。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
           "url": "https://arxiv.org/list/cs.AI/recent",
           "isHot": false,
-          "views": 3500
+          "views": 4900
         },
         {
           "id": "academic-5",
-          "title": "大语言模型推理能力研究综述",
-          "summary": "系统综述了当前大语言模型在数学推理、逻辑推理方面的最新进展。",
+          "title": "大模型安全对齐方法研究",
+          "summary": "探讨RLHF和DPO等对齐技术的优缺点，提出更安全可靠的训练方案，降低有害输出风险。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
           "url": "https://arxiv.org/list/cs.AI/recent",
           "isHot": false,
-          "views": 3500
+          "views": 5200
         },
         {
           "id": "academic-6",
-          "title": "多模态模型统一架构设计",
-          "summary": "提出统一多模态架构，实现文本、图像、音频高效融合处理。",
+          "title": "智能体自主决策机制分析",
+          "summary": "分析AI Agent的决策过程，提出结合符号推理和神经网络的混合架构，提升复杂任务完成率。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
           "url": "https://arxiv.org/list/cs.AI/recent",
           "isHot": false,
-          "views": 3500
+          "views": 5500
         },
         {
           "id": "academic-7",
-          "title": "AI系统高效推理优化技术",
-          "summary": "研究模型压缩和推理加速，显著降低大模型部署成本。",
+          "title": "大语言模型数学推理能力研究（2）",
+          "summary": "系统分析了大模型在数学推理任务上的表现，提出新的评估基准和优化方法，在GSM8K等测试集上验证有效。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
           "url": "https://arxiv.org/list/cs.AI/recent",
           "isHot": false,
-          "views": 3500
+          "views": 5800
         },
         {
           "id": "academic-8",
-          "title": "神经网络安全与对齐研究",
-          "summary": "探讨大模型安全性和价值对齐，提出新训练方法。",
+          "title": "多模态融合架构设计创新（2）",
+          "summary": "提出统一的多模态表示学习方法，在多个基准测试中达到SOTA性能，参数量减少30%。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
           "url": "https://arxiv.org/list/cs.AI/recent",
           "isHot": false,
-          "views": 3500
+          "views": 6100
         },
         {
           "id": "academic-9",
-          "title": "大语言模型推理能力研究综述",
-          "summary": "系统综述了当前大语言模型在数学推理、逻辑推理方面的最新进展。",
+          "title": "神经网络模型压缩技术综述（2）",
+          "summary": "全面梳理了量化、剪枝、蒸馏等模型压缩技术，为大模型轻量化部署提供理论指导和实践方案。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
           "url": "https://arxiv.org/list/cs.AI/recent",
           "isHot": false,
-          "views": 3500
+          "views": 6400
         },
         {
           "id": "academic-10",
-          "title": "多模态模型统一架构设计",
-          "summary": "提出统一多模态架构，实现文本、图像、音频高效融合处理。",
+          "title": "AI系统长文本处理能力优化（2）",
+          "summary": "研究Transformer长序列建模，提出新的注意力机制降低计算复杂度，支持百万级token处理。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
           "url": "https://arxiv.org/list/cs.AI/recent",
           "isHot": false,
-          "views": 3500
+          "views": 6700
         }
       ]
     }

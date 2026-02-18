@@ -4,73 +4,71 @@
       "title": "Claude Sonnet 4.6",
       "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
       "source": "Hacker News",
-      "score": 1038,
-      "type": "国外热点",
-      "title_zh": "Claude大模型发布新版本",
-      "summary_zh": "国际AI领域最新动态，引发技术社区广泛关注。"
+      "score": 1040,
+      "type": "国外热点"
     },
     {
       "title": "Thousands of CEOs just admitted AI had no impact on employment or productivity",
       "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/",
       "source": "Hacker News",
-      "score": 366,
-      "type": "国外热点",
-      "title_zh": "AI企业应用调查报告",
-      "summary_zh": "国际AI领域最新动态，引发技术社区广泛关注。"
+      "score": 368,
+      "type": "国外热点"
     },
     {
       "title": "Reverse Engineering Sid Meier's Railroad Tycoon for DOS from 1990",
       "url": "https://www.vogons.org/viewtopic.php?t=105451",
       "source": "Hacker News",
       "score": 66,
-      "type": "国外热点",
-      "title_zh": "AI领域技术新动态",
-      "summary_zh": "国际AI领域最新动态，引发技术社区广泛关注。"
+      "type": "国外热点"
     },
     {
       "title": "Show HN: Beautiful interactive explainers generated with Claude Code",
       "url": "https://paraschopra.github.io/explainers/",
       "source": "Hacker News",
-      "score": 12,
-      "type": "国外热点",
-      "title_zh": "Claude大模型发布新版本",
-      "summary_zh": "国际AI领域最新动态，引发技术社区广泛关注。"
+      "score": 13,
+      "type": "国外热点"
     },
     {
       "title": "Async/Await on the GPU",
       "url": "https://www.vectorware.com/blog/async-await-on-gpu/",
       "source": "Hacker News",
       "score": 184,
-      "type": "国外热点",
-      "title_zh": "AI芯片技术新突破",
-      "summary_zh": "国际AI领域最新动态，引发技术社区广泛关注。"
+      "type": "国外热点"
     },
     {
       "title": "Quamina and Claude, Case 1",
       "url": "https://www.tbray.org/ongoing/When/202x/2026/02/06/Q-Plus-C-Ch1",
       "source": "Hacker News",
       "score": 15,
-      "type": "国外热点",
-      "title_zh": "Claude大模型发布新版本",
-      "summary_zh": "国际AI领域最新动态，引发技术社区广泛关注。"
+      "type": "国外热点"
+    },
+    {
+      "title": "Tesla Sales Down 55% UK, 58% Spain, 59% Germany, 81% Netherlands, 93% Norway",
+      "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
+      "source": "Hacker News",
+      "score": 224,
+      "type": "国外热点"
     },
     {
       "title": "Show HN: I built a \"Socratic\" AI to stop my daughter from copy-pasting homework",
       "url": "https://thinkqurio.com/",
       "source": "Hacker News",
       "score": 5,
-      "type": "国外热点",
-      "title_zh": "AI领域技术新动态",
-      "summary_zh": "国际AI领域最新动态，引发技术社区广泛关注。"
+      "type": "国外热点"
     },
     {
-      "title": "Tesla Sales Down 55% UK, 58% Spain, 59% Germany, 81% Netherlands, 93% Norway",
-      "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
+      "title": "Show HN: I taught LLMs to play Magic: The Gathering against each other",
+      "url": "https://mage-bench.com/",
       "source": "Hacker News",
-      "score": 222,
-      "type": "国外热点",
-      "title_zh": "AI领域技术新动态",
-      "summary_zh": "国际AI领域最新动态，引发技术社区广泛关注。"
+      "score": 102,
+      "type": "国外热点"
+    },
+    {
+      "title": "Show HN: Box of Rain - Auto-Layouted ASCII Diagrams",
+      "url": "https://github.com/switz/box-of-rain",
+      "source": "Hacker News",
+      "score": 21,
+      "type": "国外热点"
     }
   ],
   "papers": []
