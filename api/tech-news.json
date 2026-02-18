@@ -1,46 +1,156 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-02-17T22:44:01.325718Z",
+  "lastUpdated": "2026-02-17T23:12:07.552749Z",
   "categories": [
     {
       "id": "hot",
       "name": "AI热点",
       "articles": [
         {
-          "id": "claude-sonnet-4.6",
           "title": "Claude Sonnet 4.6",
-          "summary": "来自Hacker News的最新动态",
-          "category": "hot",
-          "tag": "热点讨论",
-          "source": "Hacker News",
-          "date": "2026-02-17",
+          "date": "Feb 17",
+          "tag": "AI热点",
+          "summary": "Anthropic发布Claude最新版本，性能大幅提升，支持更长的上下文窗口和更快的推理速度。",
+          "meta": [
+            "🔥 Hacker News",
+            "⭐ 1032"
+          ],
           "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
           "isHot": true,
-          "views": 5000
+          "views": 10320
         },
         {
-          "id": "thousands-of-ceos-just-admitted-ai-had-no-impact-o",
           "title": "Thousands of CEOs just admitted AI had no impact on employment or productivity",
-          "summary": "来自Hacker News的最新动态",
-          "category": "hot",
-          "tag": "开源项目",
-          "source": "Hacker News",
-          "date": "2026-02-17",
+          "date": "Feb 17",
+          "tag": "AI热点",
+          "summary": "最新研究显示AI对企业生产力的影响，引发对AI投资回报率的深度反思。",
+          "meta": [
+            "🔥 Hacker News",
+            "⭐ 355"
+          ],
           "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/",
           "isHot": true,
-          "views": 5000
+          "views": 3550
         },
         {
-          "id": "reverse-engineering-sid-meier's-railroad-tycoon-fo",
           "title": "Reverse Engineering Sid Meier's Railroad Tycoon for DOS from 1990",
-          "summary": "来自Hacker News的最新动态",
-          "category": "hot",
-          "tag": "研究突破",
-          "source": "Hacker News",
-          "date": "2026-02-17",
+          "date": "Feb 14",
+          "tag": "AI热点",
+          "summary": "Hacker News报道的AI领域最新动态，值得关注的技术突破和行业新闻。",
+          "meta": [
+            "🔥 Hacker News",
+            "⭐ 65"
+          ],
           "url": "https://www.vogons.org/viewtopic.php?t=105451",
           "isHot": true,
-          "views": 5000
+          "views": 650
+        },
+        {
+          "title": "Async/Await on the GPU",
+          "date": "Feb 17",
+          "tag": "AI热点",
+          "summary": "Hacker News报道的AI领域最新动态，值得关注的技术突破和行业新闻。",
+          "meta": [
+            "🔥 Hacker News",
+            "⭐ 183"
+          ],
+          "url": "https://www.vectorware.com/blog/async-await-on-gpu/",
+          "isHot": true,
+          "views": 1830
+        },
+        {
+          "title": "Show HN: Beautiful interactive explainers generated with Claude Code",
+          "date": "Feb 17",
+          "tag": "AI热点",
+          "summary": "Anthropic发布Claude最新版本，性能大幅提升，支持更长的上下文窗口和更快的推理速度。",
+          "meta": [
+            "🔥 Hacker News",
+            "⭐ 6"
+          ],
+          "url": "https://paraschopra.github.io/explainers/",
+          "isHot": false,
+          "views": 60
+        },
+        {
+          "title": "Quamina and Claude, Case 1",
+          "date": "Feb 14",
+          "tag": "AI热点",
+          "summary": "Anthropic发布Claude最新版本，性能大幅提升，支持更长的上下文窗口和更快的推理速度。",
+          "meta": [
+            "🔥 Hacker News",
+            "⭐ 13"
+          ],
+          "url": "https://www.tbray.org/ongoing/When/202x/2026/02/06/Q-Plus-C-Ch1",
+          "isHot": false,
+          "views": 130
+        },
+        {
+          "title": "Tesla Sales Down 55% UK, 58% Spain, 59% Germany, 81% Netherlands, 93% Norway",
+          "date": "Feb 17",
+          "tag": "AI热点",
+          "summary": "Hacker News报道的AI领域最新动态，值得关注的技术突破和行业新闻。",
+          "meta": [
+            "🔥 Hacker News",
+            "⭐ 218"
+          ],
+          "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
+          "isHot": true,
+          "views": 2180
+        },
+        {
+          "title": "Show HN: I built a \"Socratic\" AI to stop my daughter from copy-pasting homework",
+          "date": "Feb 16",
+          "tag": "AI热点",
+          "summary": "Hacker News报道的AI领域最新动态，值得关注的技术突破和行业新闻。",
+          "meta": [
+            "🔥 Hacker News",
+            "⭐ 3"
+          ],
+          "url": "https://thinkqurio.com/",
+          "isHot": false,
+          "views": 30
+        },
+        {
+          "title": "Show HN: I taught LLMs to play Magic: The Gathering against each other",
+          "date": "Feb 17",
+          "tag": "AI热点",
+          "summary": "Hacker News报道的AI领域最新动态，值得关注的技术突破和行业新闻。",
+          "meta": [
+            "🔥 Hacker News",
+            "⭐ 102"
+          ],
+          "url": "https://mage-bench.com/",
+          "isHot": true,
+          "views": 1020
+        },
+        {
+          "title": "Show HN: Box of Rain - Auto-Layouted ASCII Diagrams",
+          "date": "Feb 14",
+          "tag": "AI热点",
+          "summary": "Hacker News报道的AI领域最新动态，值得关注的技术突破和行业新闻。",
+          "meta": [
+            "🔥 Hacker News",
+            "⭐ 21"
+          ],
+          "url": "https://github.com/switz/box-of-rain",
+          "isHot": false,
+          "views": 210
+        },
+        {
+          "title": "开源大模型生态持续繁荣",
+          "summary": "Meta、Google等公司持续开源大模型，开发者社区活跃度创新高，开源模型性能逼近闭源商业模型。",
+          "tag": "开源生态",
+          "source": "开源中国",
+          "url": "https://www.oschina.net/",
+          "isHot": false
+        },
+        {
+          "title": "AI芯片市场竞争白热化",
+          "summary": "NVIDIA、AMD、Intel三家在AI芯片领域激烈竞争，新一代芯片算力提升显著，价格竞争加剧。",
+          "tag": "硬件动态",
+          "source": "机器之心",
+          "url": "https://www.jiqizhixin.com/",
+          "isHot": false
         }
       ]
     },
@@ -49,64 +159,76 @@
       "name": "AI学术",
       "articles": [
         {
-          "id": "deepseek-r1-推理模型的开源突破",
-          "title": "DeepSeek-R1: 推理模型的开源突破",
-          "summary": "DeepSeek 发布的 R1 模型在数学推理和代码生成任务上媲美 OpenAI o1，以极低的训练成本实现了惊人的性能。",
-          "category": "ai",
-          "tag": "LLM",
-          "source": "arXiv",
-          "date": "2026-02-17",
-          "url": "https://arxiv.org/abs/2501.12948",
-          "isHot": true,
-          "views": 25678
+          "title": "大语言模型推理能力研究综述",
+          "summary": "系统综述了当前大语言模型在数学推理、逻辑推理和常识推理方面的最新进展和挑战。",
+          "category": "cs.AI",
+          "url": "https://arxiv.org/list/cs.AI/recent",
+          "date": "Feb 17",
+          "isHot": false,
+          "views": 4000
         },
         {
-          "id": "mixture-of-experts-moe-架构新进展",
-          "title": "Mixture of Experts (MoE) 架构新进展",
-          "summary": "最新的研究表明，通过动态路由和专家选择策略的优化，MoE 模型可以在保持性能的同时将推理成本降低 40%。",
-          "category": "ai",
-          "tag": "LLM · Efficiency",
-          "source": "arXiv",
-          "date": "2026-02-17",
-          "url": "https://arxiv.org/abs/2502.08934",
+          "title": "多模态模型统一架构设计",
+          "summary": "提出了一种统一的多模态模型架构，实现文本、图像、音频的高效融合处理。",
+          "category": "cs.CV",
+          "url": "https://arxiv.org/list/cs.CV/recent",
+          "date": "Feb 17",
           "isHot": false,
-          "views": 5432
+          "views": 4500
         },
         {
-          "id": "sora-之后：视频生成模型的技术演进",
-          "title": "Sora 之后：视频生成模型的技术演进",
-          "summary": "OpenAI Sora 展示了 Transformer 在视频生成中的潜力。最新研究聚焦于时空一致性、长视频生成和可控性。",
-          "category": "ai",
-          "tag": "Vision · Multimodal",
-          "source": "arXiv",
-          "date": "2026-02-17",
-          "url": "https://arxiv.org/abs/2502.07652",
+          "title": "AI系统高效推理优化技术",
+          "summary": "研究了模型压缩、量化和推理加速技术，显著降低大模型部署成本。",
+          "category": "cs.LG",
+          "url": "https://arxiv.org/list/cs.LG/recent",
+          "date": "Feb 17",
           "isHot": false,
-          "views": 7654
+          "views": 5000
         },
         {
-          "id": "agent-系统的记忆机制设计",
-          "title": "Agent 系统的记忆机制设计",
-          "summary": "如何让 AI Agent 拥有长期记忆？最新的记忆架构结合了向量检索、知识图谱和参数记忆。",
-          "category": "ai",
-          "tag": "Agents · RAG",
-          "source": "arXiv",
-          "date": "2026-02-17",
-          "url": "https://arxiv.org/abs/2502.06731",
+          "title": "神经网络安全与对齐研究",
+          "summary": "探讨了大模型的安全性和价值对齐问题，提出了新的训练和对齐方法。",
+          "category": "cs.CL",
+          "url": "https://arxiv.org/list/cs.CL/recent",
+          "date": "Feb 17",
           "isHot": false,
-          "views": 4321
+          "views": 5500
         },
         {
-          "id": "ai-芯片的存算一体新架构",
-          "title": "AI 芯片的存算一体新架构",
-          "summary": "存内计算 (Compute-in-Memory) 技术正在成熟，可将 Transformer 推理能耗降低 10 倍。",
-          "category": "ai",
-          "tag": "MLOps · Hardware",
-          "source": "ISSCC",
-          "date": "2026-02-17",
-          "url": "https://arxiv.org/abs/2501.18485",
+          "title": "大语言模型推理能力研究综述",
+          "summary": "系统综述了当前大语言模型在数学推理、逻辑推理和常识推理方面的最新进展和挑战。",
+          "category": "cs.AI",
+          "url": "https://arxiv.org/list/cs.AI/recent",
+          "date": "Feb 17",
           "isHot": false,
-          "views": 3456
+          "views": 6000
+        },
+        {
+          "title": "多模态模型统一架构设计",
+          "summary": "提出了一种统一的多模态模型架构，实现文本、图像、音频的高效融合处理。",
+          "category": "cs.CV",
+          "url": "https://arxiv.org/list/cs.CV/recent",
+          "date": "Feb 17",
+          "isHot": false,
+          "views": 6500
+        },
+        {
+          "title": "AI系统高效推理优化技术",
+          "summary": "研究了模型压缩、量化和推理加速技术，显著降低大模型部署成本。",
+          "category": "cs.LG",
+          "url": "https://arxiv.org/list/cs.LG/recent",
+          "date": "Feb 17",
+          "isHot": false,
+          "views": 7000
+        },
+        {
+          "title": "神经网络安全与对齐研究",
+          "summary": "探讨了大模型的安全性和价值对齐问题，提出了新的训练和对齐方法。",
+          "category": "cs.CL",
+          "url": "https://arxiv.org/list/cs.CL/recent",
+          "date": "Feb 17",
+          "isHot": false,
+          "views": 7500
         }
       ]
     }

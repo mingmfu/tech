@@ -2,38 +2,75 @@
   "news": [
     {
       "title": "Claude Sonnet 4.6",
-      "date": "Feb 17",
-      "tag": "热点讨论",
-      "summary": "来自Hacker News的最新动态",
-      "meta": [
-        "🔥 Hacker News",
-        "⭐ 917"
-      ],
-      "url": "https://www.anthropic.com/news/claude-sonnet-4-6"
+      "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
+      "source": "Hacker News",
+      "score": 1032,
+      "date": "Feb 17"
     },
     {
       "title": "Thousands of CEOs just admitted AI had no impact on employment or productivity",
-      "date": "Feb 17",
-      "tag": "开源项目",
-      "summary": "来自Hacker News的最新动态",
-      "meta": [
-        "🔥 Hacker News",
-        "⭐ 145"
-      ],
-      "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/"
+      "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/",
+      "source": "Hacker News",
+      "score": 355,
+      "date": "Feb 17"
     },
     {
       "title": "Reverse Engineering Sid Meier's Railroad Tycoon for DOS from 1990",
-      "date": "Feb 14",
-      "tag": "研究突破",
-      "summary": "来自Hacker News的最新动态",
-      "meta": [
-        "🔥 Hacker News",
-        "⭐ 22"
-      ],
-      "url": "https://www.vogons.org/viewtopic.php?t=105451"
+      "url": "https://www.vogons.org/viewtopic.php?t=105451",
+      "source": "Hacker News",
+      "score": 65,
+      "date": "Feb 14"
+    },
+    {
+      "title": "Async/Await on the GPU",
+      "url": "https://www.vectorware.com/blog/async-await-on-gpu/",
+      "source": "Hacker News",
+      "score": 183,
+      "date": "Feb 17"
+    },
+    {
+      "title": "Show HN: Beautiful interactive explainers generated with Claude Code",
+      "url": "https://paraschopra.github.io/explainers/",
+      "source": "Hacker News",
+      "score": 6,
+      "date": "Feb 17"
+    },
+    {
+      "title": "Quamina and Claude, Case 1",
+      "url": "https://www.tbray.org/ongoing/When/202x/2026/02/06/Q-Plus-C-Ch1",
+      "source": "Hacker News",
+      "score": 13,
+      "date": "Feb 14"
+    },
+    {
+      "title": "Tesla Sales Down 55% UK, 58% Spain, 59% Germany, 81% Netherlands, 93% Norway",
+      "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
+      "source": "Hacker News",
+      "score": 218,
+      "date": "Feb 17"
+    },
+    {
+      "title": "Show HN: I built a \"Socratic\" AI to stop my daughter from copy-pasting homework",
+      "url": "https://thinkqurio.com/",
+      "source": "Hacker News",
+      "score": 3,
+      "date": "Feb 16"
+    },
+    {
+      "title": "Show HN: I taught LLMs to play Magic: The Gathering against each other",
+      "url": "https://mage-bench.com/",
+      "source": "Hacker News",
+      "score": 102,
+      "date": "Feb 17"
+    },
+    {
+      "title": "Show HN: Box of Rain - Auto-Layouted ASCII Diagrams",
+      "url": "https://github.com/switz/box-of-rain",
+      "source": "Hacker News",
+      "score": 21,
+      "date": "Feb 14"
     }
   ],
   "papers": [],
-  "updated_at": "2026-02-17T19:28:19.288374"
+  "updated_at": "2026-02-17T23:11:50.594140"
 }
