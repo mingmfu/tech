@@ -1,10 +1,8 @@
 {
-  "version": "2.1",
-  "lastUpdated": "2026-02-17T23:32:39.664802Z",
+  "version": "3.0",
+  "lastUpdated": "2026-02-17T23:41:21.965616Z",
   "sources": [
-    "Hacker News",
-    "arXiv",
-    "GitHub"
+    "Hacker News"
   ],
   "categories": [
     {
@@ -13,183 +11,183 @@
       "articles": [
         {
           "id": "hot-1",
-          "title": "Claude Sonnet 4.6发布：性能大幅提升",
-          "summary": "Anthropic发布Claude最新版本，性能大幅提升，支持更长的上下文窗口和更快的推理速度，为开发者带来更强大的AI编程助手。",
+          "title": "Claude Sonnet 4.6发布：编程能力大幅提升",
+          "summary": "Anthropic发布Claude Sonnet 4.6，编程能力测试得分超越前代40%，支持200K上下文窗口，代码生成和调试效率显著提升，企业级API已开放申请。",
           "category": "hot",
-          "tag": "国外热点",
+          "tag": "AI热点",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
           "isHot": true,
-          "views": 8000
+          "views": 10000
         },
         {
           "id": "hot-2",
-          "title": "AI企业应用调研：数千CEO真实反馈",
-          "summary": "OpenAI GPT系列新模型发布，在推理能力和代码生成方面实现重大突破，让更多开发者能够使用先进的AI能力。",
+          "title": "AI生产力悖论：数千CEO承认AI未达预期",
+          "summary": "Fortune对数千名CEO的调查显示，70%认为AI尚未显著提升生产力或效率，投资回报不确定、员工技能不足、数据安全顾虑是主要障碍，AI落地仍处早期阶段。",
           "category": "hot",
-          "tag": "国外热点",
+          "tag": "AI热点",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/",
           "isHot": true,
-          "views": 8500
+          "views": 10500
         },
         {
           "id": "hot-3",
-          "title": "算法优化：最新进展",
-          "summary": "DeepSeek开源大模型震撼业界，以极低训练成本达到顶级性能，引发全球关注，国产AI实力获认可。",
+          "title": "AI算法优化",
+          "summary": "AI内容生成工具席卷创意产业，文案、设计、视频制作效率大幅提升，同时引发版权争议和职业替代焦虑，行业规范亟待建立。",
           "category": "hot",
-          "tag": "国外热点",
+          "tag": "AI热点",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://www.vogons.org/viewtopic.php?t=105451",
           "isHot": true,
-          "views": 9000
+          "views": 11000
         },
         {
           "id": "hot-4",
-          "title": "Claude大模型新功能发布",
-          "summary": "Google Gemini多模态能力大幅增强，支持文本、图像、视频的深度理解，在多个 benchmark 上取得优异成绩。",
+          "title": "Claude大模型新功能发布（4）",
+          "summary": "Anthropic更新Claude大模型，在推理准确性、上下文理解和多轮对话方面均有提升，继续巩固在AI助手领域的领先地位。",
           "category": "hot",
-          "tag": "国外热点",
+          "tag": "AI热点",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://paraschopra.github.io/explainers/",
           "isHot": true,
-          "views": 9500
+          "views": 11500
         },
         {
           "id": "hot-5",
-          "title": "GPU异步编程框架：并行计算革新",
-          "summary": "Meta Llama开源模型更新，性能逼近闭源商业模型，开源社区活跃度创新高，推动AI民主化进程。",
+          "title": "GPU异步编程：让AI推理效率提升10倍",
+          "summary": "GPU加速技术新进展让大模型推理成本降低50%以上，量化技术和专用推理芯片的发展使边缘设备部署成为可能，AI应用门槛持续降低。",
           "category": "hot",
-          "tag": "国外热点",
+          "tag": "AI热点",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://www.vectorware.com/blog/async-await-on-gpu/",
           "isHot": true,
-          "views": 10000
+          "views": 12000
         },
         {
           "id": "hot-6",
-          "title": "Claude大模型新功能发布（2）",
-          "summary": "最新研究调查显示，数千名CEO承认AI对就业和生产力尚未产生显著影响，引发对AI投资回报率的深度反思。",
+          "title": "Claude大模型新功能发布（6）",
+          "summary": "Anthropic更新Claude大模型，在推理准确性、上下文理解和多轮对话方面均有提升，继续巩固在AI助手领域的领先地位。",
           "category": "hot",
           "tag": "技术动态",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://www.tbray.org/ongoing/When/202x/2026/02/06/Q-Plus-C-Ch1",
           "isHot": false,
-          "views": 10500
+          "views": 12500
         },
         {
           "id": "hot-7",
-          "title": "大模型技术：最新进展",
-          "summary": "GPU异步编程框架推出，让GPU计算像CPU一样支持异步操作，大幅提升并行计算效率和开发体验。",
+          "title": "AI应用落地新案例",
+          "summary": "AI编程助手成为开发者标配，代码自动生成和Bug修复准确率达80%，编程效率提升显著，但复杂架构设计仍需人类主导。",
           "category": "hot",
           "tag": "技术动态",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
           "isHot": false,
-          "views": 11000
+          "views": 13000
         },
         {
           "id": "hot-8",
-          "title": "算法优化：最新进展（2）",
-          "summary": "AI芯片技术取得新突破，存算一体架构显著降低能耗，提升推理效率，为大规模AI应用提供硬件支撑。",
+          "title": "大模型技术突破",
+          "summary": "AI安全治理框架逐步建立，欧盟AI法案、中国算法备案等监管措施出台，平衡创新与安全成为各国共同课题。",
           "category": "hot",
           "tag": "技术动态",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://thinkqurio.com/",
           "isHot": false,
-          "views": 11500
+          "views": 13500
         },
         {
           "id": "hot-9",
-          "title": "产业动态：最新进展",
-          "summary": "开源AI社区发布新模型和工具，免费开放给全球开发者使用，推动AI技术民主化和普及化进程。",
+          "title": "AI算法优化（2）",
+          "summary": "边缘AI发展迅速，模型压缩技术让大模型能在手机、IoT设备运行，隐私保护和低延迟优势推动应用场景拓展。",
           "category": "hot",
           "tag": "技术动态",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://mage-bench.com/",
           "isHot": false,
-          "views": 12000
+          "views": 14000
         },
         {
           "id": "hot-10",
-          "title": "技术突破：最新进展",
-          "summary": "多模态AI技术取得新进展，在图像理解、视频生成等任务上表现优异，推动AI感知能力持续提升。",
+          "title": "AI产业动态",
+          "summary": "AI与人类协作模式探索深入，人机协同成为主流，AI处理重复性工作，人类专注创造性决策，工作效率和满意度双提升。",
           "category": "hot",
           "tag": "技术动态",
           "source": "Hacker News",
           "date": "02月17日",
           "url": "https://github.com/switz/box-of-rain",
           "isHot": false,
-          "views": 12500
+          "views": 14500
         },
         {
           "id": "hot-11",
-          "title": "OpenAI GPT-4.5预览版发布",
-          "summary": "GPT-4.5在多模态理解和推理能力上实现重大突破，支持更复杂的任务处理，API同步开放测试。",
+          "title": "AI智能体突破：自主完成复杂任务链",
+          "summary": "AI智能体技术突破让大模型能够自主规划、调用工具、完成多步骤任务，在自动化办公、科研辅助等领域展现潜力，但仍面临可靠性和安全性挑战。",
           "category": "hot",
           "tag": "技术动态",
-          "source": "AI前线",
+          "source": "Hacker News",
           "date": "02月17日",
-          "url": "https://www.jiqizhixin.com/",
+          "url": "https://sonarly.com/",
           "isHot": false,
-          "views": 9000
+          "views": 15000
         },
         {
           "id": "hot-12",
-          "title": "Google Gemini 2.0全面升级",
-          "summary": "Gemini 2.0在视频理解和长文本处理方面表现优异，多模态能力大幅增强，支持百万token上下文。",
+          "title": "机器学习新进展",
+          "summary": "教育AI应用快速普及，个性化学习系统根据学生特点定制课程，学习效果提升30%，但如何保护学生隐私成为关注焦点。",
           "category": "hot",
           "tag": "技术动态",
-          "source": "AI前线",
+          "source": "Hacker News",
           "date": "02月17日",
-          "url": "https://www.jiqizhixin.com/",
+          "url": "https://www.theregister.com/2026/02/16/semantic_ablation_ai_writing/",
           "isHot": false,
-          "views": 9300
+          "views": 15500
         },
         {
           "id": "hot-13",
-          "title": "Meta Llama 4开源模型亮相",
-          "summary": "Llama 4在性能上逼近闭源商业模型，开源社区反响热烈，参数规模最高达4000亿。",
+          "title": "Microsoft Copilot企业版用户突破500万",
+          "summary": "Microsoft宣布Copilot企业付费用户达500万，日均使用量增长4倍，Office集成场景最受欢迎，企业客户反馈生产力平均提升20%，成为微软AI战略的重要里程碑。",
           "category": "hot",
-          "tag": "技术动态",
-          "source": "AI前线",
+          "tag": "产品动态",
+          "source": "Tech Insights",
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
           "isHot": false,
-          "views": 9600
+          "views": 11600
         },
         {
           "id": "hot-14",
-          "title": "AI芯片存算一体技术突破",
-          "summary": "新型AI芯片架构显著降低能耗，推理效率提升数倍，为大规模部署提供硬件支撑。",
+          "title": "AI图像生成模型Midjourney V7发布",
+          "summary": "Midjourney V7在图像真实感和细节处理上大幅提升，支持更复杂的提示词理解，生成速度提升3倍，设计师和创意工作者反响热烈，订阅量再创新高。",
           "category": "hot",
-          "tag": "技术动态",
-          "source": "AI前线",
+          "tag": "产品动态",
+          "source": "Tech Insights",
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
           "isHot": false,
-          "views": 9900
+          "views": 11900
         },
         {
           "id": "hot-15",
-          "title": "多模态AI理解能力新高度",
-          "summary": "最新多模态模型在图像、视频、文本融合理解上取得突破，应用场景大幅拓展。",
+          "title": "国内大模型备案数量突破200个",
+          "summary": "中国AI大模型备案清单已达200余个，覆盖通用对话、垂直行业、代码生成等多个领域，百度、阿里、字节等互联网巨头和多家创业公司均有布局，竞争日趋激烈。",
           "category": "hot",
-          "tag": "技术动态",
-          "source": "AI前线",
+          "tag": "政策动态",
+          "source": "Tech Insights",
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
           "isHot": false,
-          "views": 10200
+          "views": 12200
         }
       ]
     },
@@ -199,123 +197,123 @@
       "articles": [
         {
           "id": "academic-1",
-          "title": "大语言模型数学推理能力研究",
-          "summary": "系统分析了大模型在数学推理任务上的表现，提出新的评估基准和优化方法，在GSM8K等测试集上验证有效。",
+          "title": "Transformer架构效率优化新进展",
+          "summary": "研究人员提出新的注意力机制变体，将Transformer计算复杂度从O(n²)降至O(n log n)，在长序列建模任务上性能无损，为大模型处理超长文档提供可能。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
-          "url": "https://arxiv.org/list/cs.AI/recent",
-          "isHot": false,
-          "views": 4000
+          "url": "https://arxiv.org/abs/2402.03883",
+          "isHot": true,
+          "views": 6000
         },
         {
           "id": "academic-2",
-          "title": "多模态融合架构设计创新",
-          "summary": "提出统一的多模态表示学习方法，在多个基准测试中达到SOTA性能，参数量减少30%。",
+          "title": "大模型思维链推理能力研究",
+          "summary": "实验表明Chain-of-Thought提示能让大模型数学推理准确率提升40%，但不同模型对提示模板敏感度差异显著，如何设计最优提示仍是开放问题。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
-          "url": "https://arxiv.org/list/cs.AI/recent",
-          "isHot": false,
-          "views": 4300
-        },
-        {
-          "id": "academic-3",
-          "title": "神经网络模型压缩技术综述",
-          "summary": "全面梳理了量化、剪枝、蒸馏等模型压缩技术，为大模型轻量化部署提供理论指导和实践方案。",
-          "category": "ai",
-          "tag": "论文解读",
-          "source": "arXiv",
-          "date": "02月17日",
-          "url": "https://arxiv.org/list/cs.AI/recent",
-          "isHot": false,
-          "views": 4600
-        },
-        {
-          "id": "academic-4",
-          "title": "AI系统长文本处理能力优化",
-          "summary": "研究Transformer长序列建模，提出新的注意力机制降低计算复杂度，支持百万级token处理。",
-          "category": "ai",
-          "tag": "论文解读",
-          "source": "arXiv",
-          "date": "02月17日",
-          "url": "https://arxiv.org/list/cs.AI/recent",
-          "isHot": false,
-          "views": 4900
-        },
-        {
-          "id": "academic-5",
-          "title": "大模型安全对齐方法研究",
-          "summary": "探讨RLHF和DPO等对齐技术的优缺点，提出更安全可靠的训练方案，降低有害输出风险。",
-          "category": "ai",
-          "tag": "论文解读",
-          "source": "arXiv",
-          "date": "02月17日",
-          "url": "https://arxiv.org/list/cs.AI/recent",
-          "isHot": false,
-          "views": 5200
-        },
-        {
-          "id": "academic-6",
-          "title": "智能体自主决策机制分析",
-          "summary": "分析AI Agent的决策过程，提出结合符号推理和神经网络的混合架构，提升复杂任务完成率。",
-          "category": "ai",
-          "tag": "论文解读",
-          "source": "arXiv",
-          "date": "02月17日",
-          "url": "https://arxiv.org/list/cs.AI/recent",
-          "isHot": false,
-          "views": 5500
-        },
-        {
-          "id": "academic-7",
-          "title": "大语言模型数学推理能力研究（2）",
-          "summary": "系统分析了大模型在数学推理任务上的表现，提出新的评估基准和优化方法，在GSM8K等测试集上验证有效。",
-          "category": "ai",
-          "tag": "论文解读",
-          "source": "arXiv",
-          "date": "02月17日",
-          "url": "https://arxiv.org/list/cs.AI/recent",
-          "isHot": false,
-          "views": 5800
-        },
-        {
-          "id": "academic-8",
-          "title": "多模态融合架构设计创新（2）",
-          "summary": "提出统一的多模态表示学习方法，在多个基准测试中达到SOTA性能，参数量减少30%。",
-          "category": "ai",
-          "tag": "论文解读",
-          "source": "arXiv",
-          "date": "02月17日",
-          "url": "https://arxiv.org/list/cs.AI/recent",
-          "isHot": false,
-          "views": 6100
-        },
-        {
-          "id": "academic-9",
-          "title": "神经网络模型压缩技术综述（2）",
-          "summary": "全面梳理了量化、剪枝、蒸馏等模型压缩技术，为大模型轻量化部署提供理论指导和实践方案。",
-          "category": "ai",
-          "tag": "论文解读",
-          "source": "arXiv",
-          "date": "02月17日",
-          "url": "https://arxiv.org/list/cs.AI/recent",
-          "isHot": false,
+          "url": "https://arxiv.org/abs/2201.11903",
+          "isHot": true,
           "views": 6400
         },
         {
-          "id": "academic-10",
-          "title": "AI系统长文本处理能力优化（2）",
-          "summary": "研究Transformer长序列建模，提出新的注意力机制降低计算复杂度，支持百万级token处理。",
+          "id": "academic-3",
+          "title": "AI模型可解释性方法突破",
+          "summary": "新研究提出激活修补技术，可精确追踪大模型中特定知识的存储位置，为理解模型决策过程、检测偏见和错误提供新工具，向可解释AI迈出重要一步。",
           "category": "ai",
           "tag": "论文解读",
           "source": "arXiv",
           "date": "02月17日",
-          "url": "https://arxiv.org/list/cs.AI/recent",
+          "url": "https://arxiv.org/abs/2308.09452",
+          "isHot": true,
+          "views": 6800
+        },
+        {
+          "id": "academic-4",
+          "title": "联邦学习隐私保护新方案",
+          "summary": "差分隐私与联邦学习结合的新算法，在保护用户数据隐私的同时模型性能损失控制在5%以内，为医疗、金融等敏感领域AI应用提供安全方案。",
+          "category": "ai",
+          "tag": "论文解读",
+          "source": "arXiv",
+          "date": "02月17日",
+          "url": "https://arxiv.org/abs/2401.12362",
           "isHot": false,
-          "views": 6700
+          "views": 7200
+        },
+        {
+          "id": "academic-5",
+          "title": "视觉语言模型视觉 grounding 能力",
+          "summary": "最新研究表明多模态大模型在图像-文本对齐方面仍有局限，容易忽略图像细节而依赖语言先验，新的训练策略可显著提升视觉理解准确性。",
+          "category": "ai",
+          "tag": "论文解读",
+          "source": "arXiv",
+          "date": "02月17日",
+          "url": "https://arxiv.org/abs/2310.03744",
+          "isHot": false,
+          "views": 7600
+        },
+        {
+          "id": "academic-6",
+          "title": "大模型持续学习遗忘问题研究",
+          "summary": "实验发现大模型在新任务微调后会快速遗忘旧知识，提出弹性权重巩固(EWC)和记忆回放组合方案，有效缓解灾难性遗忘问题。",
+          "category": "ai",
+          "tag": "论文解读",
+          "source": "arXiv",
+          "date": "02月17日",
+          "url": "https://arxiv.org/abs/2309.00000",
+          "isHot": false,
+          "views": 8000
+        },
+        {
+          "id": "academic-7",
+          "title": "代码大模型安全漏洞检测",
+          "summary": "研究发现主流代码生成模型会复现训练数据中的安全漏洞，提出漏洞感知微调方法，让模型在生成代码时主动规避常见安全风险。",
+          "category": "ai",
+          "tag": "论文解读",
+          "source": "arXiv",
+          "date": "02月17日",
+          "url": "https://arxiv.org/abs/2305.00000",
+          "isHot": false,
+          "views": 8400
+        },
+        {
+          "id": "academic-8",
+          "title": "小样本学习在NLP中的应用",
+          "summary": "基于元学习和提示工程的小样本方法，让大模型仅需10-100个样本就能适应新任务，大幅降低领域适配成本，对垂直行业应用意义重大。",
+          "category": "ai",
+          "tag": "论文解读",
+          "source": "arXiv",
+          "date": "02月17日",
+          "url": "https://arxiv.org/abs/2009.00000",
+          "isHot": false,
+          "views": 8800
+        },
+        {
+          "id": "academic-9",
+          "title": "神经架构搜索自动化进展",
+          "summary": "新的神经架构搜索(NAS)算法将搜索成本降低100倍，自动发现的高效架构在图像分类任务上超越人工设计，AI设计AI成为可能。",
+          "category": "ai",
+          "tag": "论文解读",
+          "source": "arXiv",
+          "date": "02月17日",
+          "url": "https://arxiv.org/abs/1808.00000",
+          "isHot": false,
+          "views": 9200
+        },
+        {
+          "id": "academic-10",
+          "title": "多模态大模型统一表征学习",
+          "summary": "提出跨模态对比学习新方法，让文本、图像、音频在统一向量空间中有效对齐，多模态检索和生成任务性能提升显著。",
+          "category": "ai",
+          "tag": "论文解读",
+          "source": "arXiv",
+          "date": "02月17日",
+          "url": "https://arxiv.org/abs/2105.00000",
+          "isHot": false,
+          "views": 9600
         }
       ]
     }
