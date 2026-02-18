@@ -28,12 +28,15 @@ jobs:
       - name: Update index.html
         run: python3 scripts/update_from_data.py
       
+      - name: Generate API data
+        run: python3 scripts/generate_api_data.py
+      
       - name: Commit and push
         id: commit
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add index.html daily_content.json
+          git add index.html daily_content.json api/tech-news.json
           if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
             echo "No changes to commit"

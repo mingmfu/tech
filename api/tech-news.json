@@ -1,0 +1,114 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-17T22:44:01.325718Z",
+  "categories": [
+    {
+      "id": "hot",
+      "name": "AI热点",
+      "articles": [
+        {
+          "id": "claude-sonnet-4.6",
+          "title": "Claude Sonnet 4.6",
+          "summary": "来自Hacker News的最新动态",
+          "category": "hot",
+          "tag": "热点讨论",
+          "source": "Hacker News",
+          "date": "2026-02-17",
+          "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
+          "isHot": true,
+          "views": 5000
+        },
+        {
+          "id": "thousands-of-ceos-just-admitted-ai-had-no-impact-o",
+          "title": "Thousands of CEOs just admitted AI had no impact on employment or productivity",
+          "summary": "来自Hacker News的最新动态",
+          "category": "hot",
+          "tag": "开源项目",
+          "source": "Hacker News",
+          "date": "2026-02-17",
+          "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/",
+          "isHot": true,
+          "views": 5000
+        },
+        {
+          "id": "reverse-engineering-sid-meier's-railroad-tycoon-fo",
+          "title": "Reverse Engineering Sid Meier's Railroad Tycoon for DOS from 1990",
+          "summary": "来自Hacker News的最新动态",
+          "category": "hot",
+          "tag": "研究突破",
+          "source": "Hacker News",
+          "date": "2026-02-17",
+          "url": "https://www.vogons.org/viewtopic.php?t=105451",
+          "isHot": true,
+          "views": 5000
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "name": "AI学术",
+      "articles": [
+        {
+          "id": "deepseek-r1-推理模型的开源突破",
+          "title": "DeepSeek-R1: 推理模型的开源突破",
+          "summary": "DeepSeek 发布的 R1 模型在数学推理和代码生成任务上媲美 OpenAI o1，以极低的训练成本实现了惊人的性能。",
+          "category": "ai",
+          "tag": "LLM",
+          "source": "arXiv",
+          "date": "2026-02-17",
+          "url": "https://arxiv.org/abs/2501.12948",
+          "isHot": true,
+          "views": 25678
+        },
+        {
+          "id": "mixture-of-experts-moe-架构新进展",
+          "title": "Mixture of Experts (MoE) 架构新进展",
+          "summary": "最新的研究表明，通过动态路由和专家选择策略的优化，MoE 模型可以在保持性能的同时将推理成本降低 40%。",
+          "category": "ai",
+          "tag": "LLM · Efficiency",
+          "source": "arXiv",
+          "date": "2026-02-17",
+          "url": "https://arxiv.org/abs/2502.08934",
+          "isHot": false,
+          "views": 5432
+        },
+        {
+          "id": "sora-之后：视频生成模型的技术演进",
+          "title": "Sora 之后：视频生成模型的技术演进",
+          "summary": "OpenAI Sora 展示了 Transformer 在视频生成中的潜力。最新研究聚焦于时空一致性、长视频生成和可控性。",
+          "category": "ai",
+          "tag": "Vision · Multimodal",
+          "source": "arXiv",
+          "date": "2026-02-17",
+          "url": "https://arxiv.org/abs/2502.07652",
+          "isHot": false,
+          "views": 7654
+        },
+        {
+          "id": "agent-系统的记忆机制设计",
+          "title": "Agent 系统的记忆机制设计",
+          "summary": "如何让 AI Agent 拥有长期记忆？最新的记忆架构结合了向量检索、知识图谱和参数记忆。",
+          "category": "ai",
+          "tag": "Agents · RAG",
+          "source": "arXiv",
+          "date": "2026-02-17",
+          "url": "https://arxiv.org/abs/2502.06731",
+          "isHot": false,
+          "views": 4321
+        },
+        {
+          "id": "ai-芯片的存算一体新架构",
+          "title": "AI 芯片的存算一体新架构",
+          "summary": "存内计算 (Compute-in-Memory) 技术正在成熟，可将 Transformer 推理能耗降低 10 倍。",
+          "category": "ai",
+          "tag": "MLOps · Hardware",
+          "source": "ISSCC",
+          "date": "2026-02-17",
+          "url": "https://arxiv.org/abs/2501.18485",
+          "isHot": false,
+          "views": 3456
+        }
+      ]
+    }
+  ]
+}

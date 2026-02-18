@@ -1,0 +1,138 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-17T08:00:00Z",
+  "categories": [
+    {
+      "id": "hot",
+      "name": "AI热点",
+      "articles": [
+        {
+          "id": "deepseek-r1-impact",
+          "title": "DeepSeek-R1 引发全球AI格局重构",
+          "summary": "中国AI公司DeepSeek开源的R1推理模型以1/10的训练成本达到OpenAI o1水平，导致美股AI芯片股暴跌万亿美元，引发全球科技界对AI军备竞赛成本合理性的深度反思。",
+          "category": "hot",
+          "tag": "产业地震",
+          "source": "TechCrunch",
+          "date": "2025-01-27",
+          "url": "https://techcrunch.com/2025/01/27/deepseek-ai-china-openai/",
+          "isHot": true,
+          "views": 15234
+        },
+        {
+          "id": "claude-sonnet-4-6",
+          "title": "Claude Sonnet 4.6 发布：性能大幅提升",
+          "summary": "Anthropic发布Claude Sonnet 4.6，性能大幅提升，支持更长的上下文窗口和更快的推理速度，为开发者带来更强大的AI编程助手。",
+          "category": "hot",
+          "tag": "模型发布",
+          "source": "Anthropic",
+          "date": "2026-02-17",
+          "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
+          "isHot": false,
+          "views": 8234
+        },
+        {
+          "id": "ai-productivity-paradox",
+          "title": "AI生产力悖论：数千CEO承认AI未提升效率",
+          "summary": "Fortune报道，数千名CEO承认AI对就业和生产力没有显著影响。引发对AI投资回报率的深度反思，企业AI应用仍面临实际落地难题。",
+          "category": "hot",
+          "tag": "投资动态",
+          "source": "Fortune",
+          "date": "2026-02-16",
+          "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study/",
+          "isHot": true,
+          "views": 12456
+        },
+        {
+          "id": "nvidia-antitrust",
+          "title": "NVIDIA 面临全球反垄断调查",
+          "summary": "美国、欧盟、中国同时对 NVIDIA 展开反垄断调查。DeepSeek 证明不依赖最先进的 GPU 也能训练出顶级模型，对 NVIDIA 的算力护城河构成挑战。",
+          "category": "hot",
+          "tag": "芯片竞争",
+          "source": "Reuters",
+          "date": "2026-02-14",
+          "url": "https://www.reuters.com/technology/us-expands-probe-nvidias-ai-chip-business/",
+          "isHot": true,
+          "views": 18543
+        },
+        {
+          "id": "bytedance-doubao-1-5",
+          "title": "字节跳动发布豆包1.5 Pro：全面超越GPT-4o",
+          "summary": "豆包大模型家族迎来重大更新，1.5 Pro 版本在理解、生成、代码、数学等维度全面超越 GPT-4o，且价格极具竞争力。字节AI战略全面加速。",
+          "category": "hot",
+          "tag": "中国AI",
+          "source": "ByteDance",
+          "date": "2026-02-13",
+          "url": "https://www.doubao.com/",
+          "isHot": false,
+          "views": 9876
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "name": "AI学术",
+      "articles": [
+        {
+          "id": "deepseek-r1-paper",
+          "title": "DeepSeek-R1: 推理模型的开源突破",
+          "summary": "DeepSeek 发布的 R1 模型在数学推理和代码生成任务上媲美 OpenAI o1，以极低的训练成本实现了惊人的性能。这一突破可能重塑大模型训练的经济学。",
+          "category": "ai",
+          "tag": "LLM",
+          "source": "arXiv",
+          "date": "2025-01-20",
+          "url": "https://arxiv.org/abs/2501.12948",
+          "isHot": true,
+          "views": 25678
+        },
+        {
+          "id": "moe-architecture-progress",
+          "title": "Mixture of Experts (MoE) 架构新进展",
+          "summary": "最新的研究表明，通过动态路由和专家选择策略的优化，MoE 模型可以在保持性能的同时将推理成本降低 40%。这一技术正在被越来越多的生产级模型采用。",
+          "category": "ai",
+          "tag": "LLM · Efficiency",
+          "source": "arXiv",
+          "date": "2026-02-16",
+          "url": "https://arxiv.org/abs/2502.08934",
+          "isHot": false,
+          "views": 5432
+        },
+        {
+          "id": "sora-video-generation",
+          "title": "Sora 之后：视频生成模型的技术演进",
+          "summary": "OpenAI Sora 展示了 Transformer 在视频生成中的潜力。最新研究聚焦于时空一致性、长视频生成和可控性，多家公司正在追赶这一技术前沿。",
+          "category": "ai",
+          "tag": "Vision · Multimodal",
+          "source": "arXiv",
+          "date": "2026-02-15",
+          "url": "https://arxiv.org/abs/2502.07652",
+          "isHot": false,
+          "views": 7654
+        },
+        {
+          "id": "agent-memory-mechanism",
+          "title": "Agent 系统的记忆机制设计",
+          "summary": "如何让 AI Agent 拥有长期记忆？最新的记忆架构结合了向量检索、知识图谱和参数记忆，显著提升了复杂任务的完成率。",
+          "category": "ai",
+          "tag": "Agents · RAG",
+          "source": "arXiv",
+          "date": "2026-02-14",
+          "url": "https://arxiv.org/abs/2502.06731",
+          "isHot": false,
+          "views": 4321
+        },
+        {
+          "id": "compute-in-memory",
+          "title": "AI 芯片的存算一体新架构",
+          "summary": "存内计算 (Compute-in-Memory) 技术正在成熟，可将 Transformer 推理能耗降低 10 倍。多家初创公司推出了基于 ReRAM 和 SRAM 的 AI 加速器。",
+          "category": "ai",
+          "tag": "MLOps · Hardware",
+          "source": "ISSCC",
+          "date": "2026-02-13",
+          "url": "https://arxiv.org/abs/2501.18485",
+          "isHot": false,
+          "views": 3456
+        }
+      ]
+    }
+  ]
+}
