@@ -7,7 +7,7 @@
       "summary": "来自Hacker News的最新动态",
       "meta": [
         "🔥 Hacker News",
-        "⭐ 890"
+        "⭐ 917"
       ],
       "url": "https://www.anthropic.com/news/claude-sonnet-4-6"
     },
@@ -18,22 +18,22 @@
       "summary": "来自Hacker News的最新动态",
       "meta": [
         "🔥 Hacker News",
-        "⭐ 57"
+        "⭐ 145"
       ],
       "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/"
     },
     {
-      "title": "Async/Await on the GPU",
-      "date": "Feb 17",
+      "title": "Reverse Engineering Sid Meier's Railroad Tycoon for DOS from 1990",
+      "date": "Feb 14",
       "tag": "研究突破",
       "summary": "来自Hacker News的最新动态",
       "meta": [
         "🔥 Hacker News",
-        "⭐ 158"
+        "⭐ 22"
       ],
-      "url": "https://www.vectorware.com/blog/async-await-on-gpu/"
+      "url": "https://www.vogons.org/viewtopic.php?t=105451"
     }
   ],
   "papers": [],
-  "updated_at": "2026-02-17T18:35:59.296354"
+  "updated_at": "2026-02-17T19:28:19.288374"
 }
