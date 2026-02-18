@@ -1,76 +1,86 @@
 {
   "news": [
     {
-      "title": "Claude Sonnet 4.6",
+      "title_en": "Claude Sonnet 4.6",
+      "title": "Claude Sonnet新版本发布：性能大幅提升",
       "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
       "source": "Hacker News",
-      "score": 1032,
-      "date": "Feb 17"
+      "score": 1035,
+      "date": "02月17日"
     },
     {
-      "title": "Thousands of CEOs just admitted AI had no impact on employment or productivity",
+      "title_en": "Thousands of CEOs just admitted AI had no impact on employment or productivity",
+      "title": "AI生产力调查报告：企业应用现状",
       "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/",
       "source": "Hacker News",
-      "score": 355,
-      "date": "Feb 17"
+      "score": 358,
+      "date": "02月17日"
     },
     {
-      "title": "Reverse Engineering Sid Meier's Railroad Tycoon for DOS from 1990",
+      "title_en": "Reverse Engineering Sid Meier's Railroad Tycoon for DOS from 1990",
+      "title": "经典游戏逆向工程研究",
       "url": "https://www.vogons.org/viewtopic.php?t=105451",
       "source": "Hacker News",
       "score": 65,
-      "date": "Feb 14"
+      "date": "02月17日"
     },
     {
-      "title": "Async/Await on the GPU",
+      "title_en": "Show HN: Beautiful interactive explainers generated with Claude Code",
+      "title": "Claude大模型更新：功能全面升级",
+      "url": "https://paraschopra.github.io/explainers/",
+      "source": "Hacker News",
+      "score": 9,
+      "date": "02月17日"
+    },
+    {
+      "title_en": "Async/Await on the GPU",
+      "title": "GPU异步编程技术突破",
       "url": "https://www.vectorware.com/blog/async-await-on-gpu/",
       "source": "Hacker News",
       "score": 183,
-      "date": "Feb 17"
+      "date": "02月17日"
     },
     {
-      "title": "Show HN: Beautiful interactive explainers generated with Claude Code",
-      "url": "https://paraschopra.github.io/explainers/",
-      "source": "Hacker News",
-      "score": 6,
-      "date": "Feb 17"
-    },
-    {
-      "title": "Quamina and Claude, Case 1",
+      "title_en": "Quamina and Claude, Case 1",
+      "title": "Claude大模型更新：功能全面升级",
       "url": "https://www.tbray.org/ongoing/When/202x/2026/02/06/Q-Plus-C-Ch1",
       "source": "Hacker News",
-      "score": 13,
-      "date": "Feb 14"
+      "score": 14,
+      "date": "02月17日"
     },
     {
-      "title": "Tesla Sales Down 55% UK, 58% Spain, 59% Germany, 81% Netherlands, 93% Norway",
-      "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
-      "source": "Hacker News",
-      "score": 218,
-      "date": "Feb 17"
-    },
-    {
-      "title": "Show HN: I built a \"Socratic\" AI to stop my daughter from copy-pasting homework",
+      "title_en": "Show HN: I built a \"Socratic\" AI to stop my daughter from copy-pasting homework",
+      "title": "AI技术新进展",
       "url": "https://thinkqurio.com/",
       "source": "Hacker News",
       "score": 3,
-      "date": "Feb 16"
+      "date": "02月17日"
     },
     {
-      "title": "Show HN: I taught LLMs to play Magic: The Gathering against each other",
+      "title_en": "Tesla Sales Down 55% UK, 58% Spain, 59% Germany, 81% Netherlands, 93% Norway",
+      "title": "AI技术新进展",
+      "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
+      "source": "Hacker News",
+      "score": 219,
+      "date": "02月17日"
+    },
+    {
+      "title_en": "Show HN: I taught LLMs to play Magic: The Gathering against each other",
+      "title": "AI技术新进展",
       "url": "https://mage-bench.com/",
       "source": "Hacker News",
       "score": 102,
-      "date": "Feb 17"
+      "date": "02月17日"
     },
     {
-      "title": "Show HN: Box of Rain - Auto-Layouted ASCII Diagrams",
+      "title_en": "Show HN: Box of Rain - Auto-Layouted ASCII Diagrams",
+      "title": "AI技术新进展",
       "url": "https://github.com/switz/box-of-rain",
       "source": "Hacker News",
       "score": 21,
-      "date": "Feb 14"
+      "date": "02月17日"
     }
   ],
   "papers": [],
-  "updated_at": "2026-02-17T23:11:50.594140"
+  "updated_at": "2026-02-17T23:18:50.735617"
 }
