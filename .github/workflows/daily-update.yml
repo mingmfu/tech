@@ -2,99 +2,49 @@ name: Daily Content Update (Production)
 
 on:
   schedule:
-    # 每天 UTC 02:00 运行 (北京时间 10:00)
     - cron: '0 2 * * *'
   workflow_dispatch:
 
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-    
-    - name: Setup Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
-    
-    - name: Install dependencies
-      run: |
-        pip install requests
-    
-    - name: Fetch real data from multiple sources
-      run: |
-        python3 scripts/fetch_real_data.py
-    
-    - name: Update index.html
-      run: |
-        python3 << 'EOF'
-import json
-import re
-from datetime import datetime
-from pathlib import Path
-
-# 读取获取的真实数据
-with open('daily_content.json', 'r', encoding='utf-8') as f:
-    data = json.load(f)
-
-news_list = data['news']
-papers = data['papers']
-
-# 读取index.html
-with open('index.html', 'r', encoding='utf-8') as f:
-    html = f.read()
-
-today = datetime.now()
-
-# 更新日期
-html = re.sub(
-    r'<span class="update-time">最后更新: .*?</span>',
-    f'<span class="update-time">最后更新: {today.strftime("%Y年%m月%d日")}</span>',
-    html
-)
-
-html = re.sub(
-    r'<span>每日更新 · .*?</span>',
-    f'<span>每日更新 · {today.strftime("%Y年%m月%d日")}</span>',
-    html
-)
-
-# 保存
-with open('index.html', 'w', encoding='utf-8') as f:
-    f.write(html)
-
-print(f"✅ 已更新: {len(news_list)} 条新闻, {len(papers)} 篇论文")
-EOF
-
-    - name: Commit and push changes
-      run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        
-        # 添加数据文件和HTML
-        git add index.html daily_content.json
-        
-        # 检查是否有更改
-        if git diff --cached --quiet; then
-          echo "ℹ️ 没有需要更新的内容"
-          exit 0
-        fi
-        
-        git commit -m "📰 Daily update: $(date +'%Y-%m-%d') - HN, arXiv, GitHub"
-        
-        git push
-        
-        echo "✅ 已推送更新"
-    
-    - name: Trigger GitHub Pages rebuild
-      uses: actions/github-script@v7
-      with:
-        script: |
-          github.rest.repos.requestPagesBuild({
-            owner: context.repo.owner,
-            repo: context.repo.repo
-          })
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: pip install requests
+      
+      - name: Fetch real data
+        run: python3 scripts/fetch_real_data.py
+      
+      - name: Update index.html
+        run: python3 scripts/update_from_data.py
+      
+      - name: Commit and push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add index.html daily_content.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "📰 Daily update: $(date +'%Y-%m-%d')"
+          git push
+      
+      - name: Trigger Pages rebuild
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.repos.requestPagesBuild({
+              owner: context.repo.owner,
+              repo: context.repo.repo
+            })
