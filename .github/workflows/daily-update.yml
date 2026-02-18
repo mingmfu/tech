@@ -69,7 +69,7 @@ with open('index.html', 'w', encoding='utf-8') as f:
 
 print(f"✅ 已更新: {len(news_list)} 条新闻, {len(papers)} 篇论文")
 EOF
-    
+
     - name: Commit and push changes
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
