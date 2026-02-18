@@ -1,39 +1,39 @@
 {
   "news": [
     {
-      "title": "Rethinking High-School Science Fairs",
-      "date": "Feb 13",
+      "title": "Claude Sonnet 4.6",
+      "date": "Feb 17",
       "tag": "热点讨论",
       "summary": "来自Hacker News的最新动态",
       "meta": [
         "🔥 Hacker News",
-        "⭐ 47"
+        "⭐ 890"
       ],
-      "url": "https://asteriskmag.com/issues/13/rethinking-high-school-science-fairs"
+      "url": "https://www.anthropic.com/news/claude-sonnet-4-6"
     },
     {
-      "title": "Neurons outside the brain",
-      "date": "Feb 16",
+      "title": "Thousands of CEOs just admitted AI had no impact on employment or productivity",
+      "date": "Feb 17",
       "tag": "开源项目",
       "summary": "来自Hacker News的最新动态",
       "meta": [
         "🔥 Hacker News",
-        "⭐ 125"
+        "⭐ 57"
       ],
-      "url": "https://essays.debugyourpain.com/p/you-are-not-just-your-brain"
+      "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/"
     },
     {
-      "title": "Show HN: Scanned 1927-1945 Daily USFS Work Diary",
-      "date": "Feb 16",
+      "title": "Async/Await on the GPU",
+      "date": "Feb 17",
       "tag": "研究突破",
       "summary": "来自Hacker News的最新动态",
       "meta": [
         "🔥 Hacker News",
-        "⭐ 107"
+        "⭐ 158"
       ],
-      "url": "https://forestrydiary.com/"
+      "url": "https://www.vectorware.com/blog/async-await-on-gpu/"
     }
   ],
   "papers": [],
-  "updated_at": "2026-02-17T07:41:43.797809"
+  "updated_at": "2026-02-17T18:35:59.296354"
 }
