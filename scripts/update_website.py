@@ -106,15 +106,43 @@ def update_website():
     hot_articles = data['categories'][0]['articles']
     ai_articles = data['categories'][1]['articles']
     
-    today = datetime.now().strftime('%Y年%m月%d日')
+    # 从JSON的lastUpdated获取日期，确保与JSON一致
+    last_updated = data.get('lastUpdated', datetime.now().isoformat())
+    if isinstance(last_updated, str):
+        # 解析ISO格式日期
+        try:
+            dt = datetime.fromisoformat(last_updated.replace('Z', '+00:00'))
+            today = dt.strftime('%Y年%m月%d日')
+        except:
+            today = datetime.now().strftime('%Y年%m月%d日')
+    else:
+        today = datetime.now().strftime('%Y年%m月%d日')
+    
+    # 同时获取当前时间用于显示
+    now = datetime.now()
+    current_time = now.strftime('%Y-%m-%d %H:%M:%S')
+    
+    print(f"📅 JSON最后更新: {last_updated}")
+    print(f"📅 网站显示日期: {today}")
+    print(f"⏰ 当前时间: {current_time}")
     
     # 读取当前index.html
     print("📝 读取 index.html...")
     with open('index.html', 'r', encoding='utf-8') as f:
         html = f.read()
     
-    # 更新日期
-    print("📅 更新日期...")
+    # 更新所有日期显示
+    print("📅 更新所有日期显示...")
+    
+    # 1. 更新 hero-badge 中的日期
+    html = re.sub(r'(<div class="hero-badge">.*?<span>每日更新 · )\d{4}年\d{2}月\d{2}日(</span>)', 
+                  rf'\g<1>{today}\g<2>', html, flags=re.DOTALL)
+    
+    # 2. 更新 section-header 中的最后更新日期
+    html = re.sub(r'(<span class="update-time">最后更新: )\d{4}年\d{2}月\d{2}日(</span>)', 
+                  rf'\g<1>{today}\g<2>', html)
+    
+    # 3. 备用：直接替换所有日期格式
     html = re.sub(r'最后更新: \d{4}年\d{2}月\d{2}日', f'最后更新: {today}', html)
     html = re.sub(r'每日更新 · \d{4}年\d{2}月\d{2}日', f'每日更新 · {today}', html)
     
