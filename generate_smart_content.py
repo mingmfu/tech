@@ -313,9 +313,120 @@ def generate_core_summary(title_en, index=0):
     
     return default_summaries[index % len(default_summaries)]
 
+def get_topic_category(title_en):
+    """获取新闻主题分类"""
+    t = title_en.lower()
+    
+    if 'claude' in t:
+        return 'claude', 'Claude模型动态'
+    if 'openai' in t or 'gpt' in t or 'chatgpt' in t:
+        return 'openai', 'OpenAI/GPT模型'
+    if 'deepseek' in t:
+        return 'deepseek', 'DeepSeek模型'
+    if 'gemini' in t or 'google' in t:
+        return 'gemini', 'Google Gemini模型'
+    if 'llama' in t or 'meta' in t:
+        return 'llama', 'Meta Llama模型'
+    if 'nvidia' in t or 'gpu' in t or 'chip' in t:
+        return 'hardware', 'AI芯片硬件'
+    if 'ceo' in t or 'productivity' in t or 'enterprise' in t or 'business' in t:
+        return 'enterprise', '企业AI应用'
+    if 'job' in t or 'employment' in t or 'worker' in t:
+        return 'employment', 'AI与就业'
+    if 'funding' in t or 'investment' in t or 'billion' in t:
+        return 'investment', 'AI投资融资'
+    if 'open source' in t or 'github' in t:
+        return 'opensource', '开源AI'
+    if 'agent' in t or 'autonomous' in t:
+        return 'agent', 'AI智能体'
+    if 'multimodal' in t:
+        return 'multimodal', '多模态AI'
+    if 'safety' in t or 'alignment' in t:
+        return 'safety', 'AI安全'
+    
+    return 'other', 'AI综合动态'
+
+def merge_same_topic_news(news_list):
+    """将相同主题的新闻聚合成一条"""
+    topic_groups = {}
+    
+    for news in news_list:
+        topic_key, topic_name = get_topic_category(news['title'])
+        if topic_key not in topic_groups:
+            topic_groups[topic_key] = {
+                'name': topic_name,
+                'articles': [],
+                'sources': set(),
+                'total_score': 0
+            }
+        topic_groups[topic_key]['articles'].append(news)
+        topic_groups[topic_key]['sources'].add(news.get('source', 'News'))
+        topic_groups[topic_key]['total_score'] += news.get('score', 0)
+    
+    merged_news = []
+    for topic_key, group in topic_groups.items():
+        articles = group['articles']
+        if len(articles) == 1:
+            # 单条新闻直接使用
+            merged_news.append(articles[0])
+        else:
+            # 多条新闻聚合
+            # 选择热度最高的作为代表
+            main_article = max(articles, key=lambda x: x.get('score', 0))
+            
+            # 生成聚合标题
+            if topic_key == 'claude':
+                title = 'Claude模型系列更新：多项功能升级'
+            elif topic_key == 'openai':
+                title = 'OpenAI产品线更新：模型能力全面提升'
+            elif topic_key == 'deepseek':
+                title = 'DeepSeek大模型进展：国产AI持续突破'
+            elif topic_key == 'gemini':
+                title = 'Google Gemini生态更新：多模态能力增强'
+            elif topic_key == 'llama':
+                title = 'Llama开源模型动态：社区生态繁荣'
+            elif topic_key == 'hardware':
+                title = 'AI硬件技术进展：算力与效率双提升'
+            elif topic_key == 'enterprise':
+                title = '企业AI应用现状：从试点到规模化的挑战'
+            elif topic_key == 'employment':
+                title = 'AI对就业市场影响：结构性调整持续深化'
+            elif topic_key == 'investment':
+                title = 'AI领域投资动态：资本聚焦应用层创新'
+            elif topic_key == 'opensource':
+                title = '开源AI社区进展：开源生态日趋成熟'
+            elif topic_key == 'agent':
+                title = 'AI智能体技术突破：自主能力持续提升'
+            elif topic_key == 'multimodal':
+                title = '多模态AI技术进展：感知理解能力增强'
+            elif topic_key == 'safety':
+                title = 'AI安全研究进展：对齐与治理受关注'
+            else:
+                title = f"{group['name']}：最新动态汇总"
+            
+            # 生成聚合摘要
+            summary = generate_core_summary(main_article['title'], 0)
+            if len(articles) > 1:
+                sources_str = '、'.join(list(group['sources'])[:3])
+                summary = f"【多篇相关报道】{summary[:80]}... 相关讨论来自{sources_str}等平台，热度持续攀升。"
+            
+            merged_news.append({
+                'title': main_article['title'],  # 保留原始标题用于摘要生成
+                'merged_title': title,  # 聚合后的标题
+                'summary': summary,
+                'url': main_article['url'],
+                'source': main_article['source'],
+                'score': group['total_score'],
+                'type': '国外热点',
+                'article_count': len(articles)
+            })
+    
+    # 按热度排序
+    merged_news.sort(key=lambda x: x.get('score', 0), reverse=True)
+    return merged_news
 def main():
     print("=" * 60)
-    print("🚀 TechInsight Hub - 智能摘要生成版")
+    print("🚀 TechInsight Hub - 智能摘要生成版（主题聚合）")
     print("=" * 60)
     print()
     
@@ -323,12 +434,17 @@ def main():
     
     # 获取数据
     print("🔄 获取最新AI内容...\n")
-    all_news = fetcher.fetch_hackernews(limit=12)
-    all_papers = fetcher.fetch_arxiv(limit=10)  # 获取真实arXiv论文
+    all_news = fetcher.fetch_hackernews(limit=15)
+    all_papers = fetcher.fetch_arxiv(limit=10)
+    
+    # 主题聚合：将相同主题的新闻合并
+    print("🔄 聚合相同主题新闻...")
+    merged_news = merge_same_topic_news(all_news)
+    print(f"   原始新闻: {len(all_news)} 条 -> 聚合后: {len(merged_news)} 条\n")
     
     # 生成API JSON
     api_data = {
-        "version": "3.0",
+        "version": "3.1",
         "lastUpdated": datetime.now().isoformat() + "Z",
         "sources": ["Hacker News"],
         "categories": [
@@ -345,27 +461,21 @@ def main():
         ]
     }
     
-    # 生成15条热点
-    seen_titles = set()
+    # 生成热点（使用聚合后的新闻）
     hot_articles = []
     
-    for i, news in enumerate(all_news):
+    for i, news in enumerate(merged_news):
         if len(hot_articles) >= 15:
             break
         
-        # 生成智能标题
-        base_title = generate_smart_title(news['title'], len(hot_articles))
-        
-        # 确保标题唯一
-        title = base_title
-        counter = 2
-        while title in seen_titles:
-            title = f"{base_title}（{counter}）"
-            counter += 1
-        seen_titles.add(title)
+        # 使用聚合标题（如果有）或生成新标题
+        if 'merged_title' in news:
+            title = news['merged_title']
+        else:
+            title = generate_smart_title(news['title'], i)
         
         # 生成核心观点摘要
-        summary = generate_core_summary(news['title'], len(hot_articles))
+        summary = news.get('summary') or generate_core_summary(news['title'], i)
         
         article = {
             "id": f"hot-{len(hot_articles)+1}",
@@ -411,20 +521,12 @@ def main():
     ]
     
     while len(hot_articles) < 15:
-        idx = (len(hot_articles) - len(all_news)) % len(default_articles)
+        idx = (len(hot_articles) - len(merged_news)) % len(default_articles)
         d = default_articles[idx]
-        
-        base_title = d['title']
-        title = base_title
-        counter = 2
-        while title in seen_titles:
-            title = f"{base_title}（{counter}）"
-            counter += 1
-        seen_titles.add(title)
         
         article = {
             "id": f"hot-{len(hot_articles)+1}",
-            "title": title,
+            "title": d['title'],
             "summary": d['summary'],
             "category": "hot",
             "tag": d['tag'],

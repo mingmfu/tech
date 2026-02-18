@@ -1,6 +1,6 @@
 {
-  "version": "3.0",
-  "lastUpdated": "2026-02-17T23:41:21.965616Z",
+  "version": "3.1",
+  "lastUpdated": "2026-02-17T23:44:26.371003Z",
   "sources": [
     "Hacker News"
   ],
@@ -11,8 +11,8 @@
       "articles": [
         {
           "id": "hot-1",
-          "title": "Claude Sonnet 4.6发布：编程能力大幅提升",
-          "summary": "Anthropic发布Claude Sonnet 4.6，编程能力测试得分超越前代40%，支持200K上下文窗口，代码生成和调试效率显著提升，企业级API已开放申请。",
+          "title": "Claude模型系列更新：多项功能升级",
+          "summary": "【多篇相关报道】Anthropic发布Claude Sonnet 4.6，编程能力测试得分超越前代40%，支持200K上下文窗口，代码生成和调试效率显著提升，企业级API已开放... 相关讨论来自Hacker News等平台，热度持续攀升。",
           "category": "hot",
           "tag": "AI热点",
           "source": "Hacker News",
@@ -23,6 +23,18 @@
         },
         {
           "id": "hot-2",
+          "title": "AI综合动态：最新动态汇总",
+          "summary": "【多篇相关报道】AI技术在医疗诊断领域取得突破，影像识别准确率超越资深医生，辅助诊断系统已在多家医院试点，有望缓解医疗资源紧张问题。... 相关讨论来自Hacker News等平台，热度持续攀升。",
+          "category": "hot",
+          "tag": "AI热点",
+          "source": "Hacker News",
+          "date": "02月17日",
+          "url": "https://www.theregister.com/2026/02/16/semantic_ablation_ai_writing/",
+          "isHot": true,
+          "views": 10500
+        },
+        {
+          "id": "hot-3",
           "title": "AI生产力悖论：数千CEO承认AI未达预期",
           "summary": "Fortune对数千名CEO的调查显示，70%认为AI尚未显著提升生产力或效率，投资回报不确定、员工技能不足、数据安全顾虑是主要障碍，AI落地仍处早期阶段。",
           "category": "hot",
@@ -31,34 +43,10 @@
           "date": "02月17日",
           "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/",
           "isHot": true,
-          "views": 10500
-        },
-        {
-          "id": "hot-3",
-          "title": "AI算法优化",
-          "summary": "AI内容生成工具席卷创意产业，文案、设计、视频制作效率大幅提升，同时引发版权争议和职业替代焦虑，行业规范亟待建立。",
-          "category": "hot",
-          "tag": "AI热点",
-          "source": "Hacker News",
-          "date": "02月17日",
-          "url": "https://www.vogons.org/viewtopic.php?t=105451",
-          "isHot": true,
           "views": 11000
         },
         {
           "id": "hot-4",
-          "title": "Claude大模型新功能发布（4）",
-          "summary": "Anthropic更新Claude大模型，在推理准确性、上下文理解和多轮对话方面均有提升，继续巩固在AI助手领域的领先地位。",
-          "category": "hot",
-          "tag": "AI热点",
-          "source": "Hacker News",
-          "date": "02月17日",
-          "url": "https://paraschopra.github.io/explainers/",
-          "isHot": true,
-          "views": 11500
-        },
-        {
-          "id": "hot-5",
           "title": "GPU异步编程：让AI推理效率提升10倍",
           "summary": "GPU加速技术新进展让大模型推理成本降低50%以上，量化技术和专用推理芯片的发展使边缘设备部署成为可能，AI应用门槛持续降低。",
           "category": "hot",
@@ -67,94 +55,22 @@
           "date": "02月17日",
           "url": "https://www.vectorware.com/blog/async-await-on-gpu/",
           "isHot": true,
+          "views": 11500
+        },
+        {
+          "id": "hot-5",
+          "title": "AI智能体突破：自主完成复杂任务链",
+          "summary": "AI智能体技术突破让大模型能够自主规划、调用工具、完成多步骤任务，在自动化办公、科研辅助等领域展现潜力，但仍面临可靠性和安全性挑战。",
+          "category": "hot",
+          "tag": "AI热点",
+          "source": "Hacker News",
+          "date": "02月17日",
+          "url": "https://sonarly.com/",
+          "isHot": true,
           "views": 12000
         },
         {
           "id": "hot-6",
-          "title": "Claude大模型新功能发布（6）",
-          "summary": "Anthropic更新Claude大模型，在推理准确性、上下文理解和多轮对话方面均有提升，继续巩固在AI助手领域的领先地位。",
-          "category": "hot",
-          "tag": "技术动态",
-          "source": "Hacker News",
-          "date": "02月17日",
-          "url": "https://www.tbray.org/ongoing/When/202x/2026/02/06/Q-Plus-C-Ch1",
-          "isHot": false,
-          "views": 12500
-        },
-        {
-          "id": "hot-7",
-          "title": "AI应用落地新案例",
-          "summary": "AI编程助手成为开发者标配，代码自动生成和Bug修复准确率达80%，编程效率提升显著，但复杂架构设计仍需人类主导。",
-          "category": "hot",
-          "tag": "技术动态",
-          "source": "Hacker News",
-          "date": "02月17日",
-          "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
-          "isHot": false,
-          "views": 13000
-        },
-        {
-          "id": "hot-8",
-          "title": "大模型技术突破",
-          "summary": "AI安全治理框架逐步建立，欧盟AI法案、中国算法备案等监管措施出台，平衡创新与安全成为各国共同课题。",
-          "category": "hot",
-          "tag": "技术动态",
-          "source": "Hacker News",
-          "date": "02月17日",
-          "url": "https://thinkqurio.com/",
-          "isHot": false,
-          "views": 13500
-        },
-        {
-          "id": "hot-9",
-          "title": "AI算法优化（2）",
-          "summary": "边缘AI发展迅速，模型压缩技术让大模型能在手机、IoT设备运行，隐私保护和低延迟优势推动应用场景拓展。",
-          "category": "hot",
-          "tag": "技术动态",
-          "source": "Hacker News",
-          "date": "02月17日",
-          "url": "https://mage-bench.com/",
-          "isHot": false,
-          "views": 14000
-        },
-        {
-          "id": "hot-10",
-          "title": "AI产业动态",
-          "summary": "AI与人类协作模式探索深入，人机协同成为主流，AI处理重复性工作，人类专注创造性决策，工作效率和满意度双提升。",
-          "category": "hot",
-          "tag": "技术动态",
-          "source": "Hacker News",
-          "date": "02月17日",
-          "url": "https://github.com/switz/box-of-rain",
-          "isHot": false,
-          "views": 14500
-        },
-        {
-          "id": "hot-11",
-          "title": "AI智能体突破：自主完成复杂任务链",
-          "summary": "AI智能体技术突破让大模型能够自主规划、调用工具、完成多步骤任务，在自动化办公、科研辅助等领域展现潜力，但仍面临可靠性和安全性挑战。",
-          "category": "hot",
-          "tag": "技术动态",
-          "source": "Hacker News",
-          "date": "02月17日",
-          "url": "https://sonarly.com/",
-          "isHot": false,
-          "views": 15000
-        },
-        {
-          "id": "hot-12",
-          "title": "机器学习新进展",
-          "summary": "教育AI应用快速普及，个性化学习系统根据学生特点定制课程，学习效果提升30%，但如何保护学生隐私成为关注焦点。",
-          "category": "hot",
-          "tag": "技术动态",
-          "source": "Hacker News",
-          "date": "02月17日",
-          "url": "https://www.theregister.com/2026/02/16/semantic_ablation_ai_writing/",
-          "isHot": false,
-          "views": 15500
-        },
-        {
-          "id": "hot-13",
           "title": "Microsoft Copilot企业版用户突破500万",
           "summary": "Microsoft宣布Copilot企业付费用户达500万，日均使用量增长4倍，Office集成场景最受欢迎，企业客户反馈生产力平均提升20%，成为微软AI战略的重要里程碑。",
           "category": "hot",
@@ -163,10 +79,10 @@
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
           "isHot": false,
-          "views": 11600
+          "views": 9500
         },
         {
-          "id": "hot-14",
+          "id": "hot-7",
           "title": "AI图像生成模型Midjourney V7发布",
           "summary": "Midjourney V7在图像真实感和细节处理上大幅提升，支持更复杂的提示词理解，生成速度提升3倍，设计师和创意工作者反响热烈，订阅量再创新高。",
           "category": "hot",
@@ -175,14 +91,98 @@
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
           "isHot": false,
-          "views": 11900
+          "views": 9800
         },
         {
-          "id": "hot-15",
+          "id": "hot-8",
           "title": "国内大模型备案数量突破200个",
           "summary": "中国AI大模型备案清单已达200余个，覆盖通用对话、垂直行业、代码生成等多个领域，百度、阿里、字节等互联网巨头和多家创业公司均有布局，竞争日趋激烈。",
           "category": "hot",
           "tag": "政策动态",
+          "source": "Tech Insights",
+          "date": "02月17日",
+          "url": "https://www.jiqizhixin.com/",
+          "isHot": false,
+          "views": 10100
+        },
+        {
+          "id": "hot-9",
+          "title": "AI训练数据版权问题引发诉讼潮",
+          "summary": "《纽约时报》诉OpenAI、多位作家起诉Stability AI等案件持续发酵，AI公司使用版权内容训练是否构成侵权成为法律焦点，可能影响整个行业数据获取模式。",
+          "category": "hot",
+          "tag": "法律动态",
+          "source": "Tech Insights",
+          "date": "02月17日",
+          "url": "https://www.jiqizhixin.com/",
+          "isHot": false,
+          "views": 10400
+        },
+        {
+          "id": "hot-10",
+          "title": "英伟达H20芯片在中国市场供不应求",
+          "summary": "受出口管制影响，英伟达专为中国市场设计的H20芯片仍供不应求，价格上涨30%，国内AI公司和云计算厂商抢购，反映出中国AI算力需求的旺盛。",
+          "category": "hot",
+          "tag": "硬件动态",
+          "source": "Tech Insights",
+          "date": "02月17日",
+          "url": "https://www.jiqizhixin.com/",
+          "isHot": false,
+          "views": 10700
+        },
+        {
+          "id": "hot-11",
+          "title": "Microsoft Copilot企业版用户突破500万",
+          "summary": "Microsoft宣布Copilot企业付费用户达500万，日均使用量增长4倍，Office集成场景最受欢迎，企业客户反馈生产力平均提升20%，成为微软AI战略的重要里程碑。",
+          "category": "hot",
+          "tag": "产品动态",
+          "source": "Tech Insights",
+          "date": "02月17日",
+          "url": "https://www.jiqizhixin.com/",
+          "isHot": false,
+          "views": 11000
+        },
+        {
+          "id": "hot-12",
+          "title": "AI图像生成模型Midjourney V7发布",
+          "summary": "Midjourney V7在图像真实感和细节处理上大幅提升，支持更复杂的提示词理解，生成速度提升3倍，设计师和创意工作者反响热烈，订阅量再创新高。",
+          "category": "hot",
+          "tag": "产品动态",
+          "source": "Tech Insights",
+          "date": "02月17日",
+          "url": "https://www.jiqizhixin.com/",
+          "isHot": false,
+          "views": 11300
+        },
+        {
+          "id": "hot-13",
+          "title": "国内大模型备案数量突破200个",
+          "summary": "中国AI大模型备案清单已达200余个，覆盖通用对话、垂直行业、代码生成等多个领域，百度、阿里、字节等互联网巨头和多家创业公司均有布局，竞争日趋激烈。",
+          "category": "hot",
+          "tag": "政策动态",
+          "source": "Tech Insights",
+          "date": "02月17日",
+          "url": "https://www.jiqizhixin.com/",
+          "isHot": false,
+          "views": 11600
+        },
+        {
+          "id": "hot-14",
+          "title": "AI训练数据版权问题引发诉讼潮",
+          "summary": "《纽约时报》诉OpenAI、多位作家起诉Stability AI等案件持续发酵，AI公司使用版权内容训练是否构成侵权成为法律焦点，可能影响整个行业数据获取模式。",
+          "category": "hot",
+          "tag": "法律动态",
+          "source": "Tech Insights",
+          "date": "02月17日",
+          "url": "https://www.jiqizhixin.com/",
+          "isHot": false,
+          "views": 11900
+        },
+        {
+          "id": "hot-15",
+          "title": "英伟达H20芯片在中国市场供不应求",
+          "summary": "受出口管制影响，英伟达专为中国市场设计的H20芯片仍供不应求，价格上涨30%，国内AI公司和云计算厂商抢购，反映出中国AI算力需求的旺盛。",
+          "category": "hot",
+          "tag": "硬件动态",
           "source": "Tech Insights",
           "date": "02月17日",
           "url": "https://www.jiqizhixin.com/",
