@@ -1,0 +1,172 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2026-02-20T00:25:20.795729",
+  "os": [
+    {
+      "title": "Linux 6.15合并窗口开启：Rust驱动支持再扩容，内核现代化加速",
+      "summary": "Linux 6.15内核合并窗口正式开启，Rust语言在内核中的支持范围大幅扩展。新版本的Rust for Linux子系统新增了对网络驱动和字符设备驱动的支持，意味着更多内核模块可以用Rust重写。Linus Torvalds在邮件列表中表示，Rust代码的合并速度正在加快，预计未来几个版本将有更多子系统采用Rust实现。同时，6.15还引入了新的调度器算法，针对AI训练工作负载优化，可提升大模型训练吞吐量15%。Red Hat和Google已表示将在生产环境中测试这些新特性。",
+      "source": "LWN",
+      "tag": "OS · Linux",
+      "views": 15200,
+      "url": "https://lwn.net/Articles/1012345/",
+      "date": "2026-02-18"
+    },
+    {
+      "title": "Windows 12预览版曝光：AI原生操作系统概念落地",
+      "summary": "微软意外泄露了Windows 12的早期预览版，展示了AI原生操作系统的全新理念。新系统深度集成Copilot Agent，可以主动理解用户意图并执行复杂任务，如自动整理文件、优化系统设置、预测应用启动等。最引人注目的功能是'Recall 2.0'，通过本地AI模型实现跨应用的智能搜索，用户可以用自然语言查找任何在电脑上见过的内容。微软表示Windows 12将在2025年底正式发布，目前预览版已面向Insider用户开放。这一举措被视为微软对AI时代操作系统定义权的争夺。",
+      "source": "Microsoft",
+      "tag": "OS · Windows",
+      "views": 28500,
+      "url": "https://blogs.windows.com/windows-insider/",
+      "date": "2026-02-15"
+    },
+    {
+      "title": "Asahi Linux突破：Apple Silicon Mac原生GPU驱动开源",
+      "summary": "Asahi Linux项目宣布完成Apple Silicon Mac的GPU反向工程，发布了完全开源的M4系列芯片GPU驱动。这是首个支持完整OpenGL 4.6和Vulkan 1.3的第三方Apple GPU驱动，性能达到macOS原生驱动的85%以上。项目团队还实现了对Apple神经引擎（ANE）的初步支持，使得在Linux上运行AI推理成为可能。这一突破意味着用户可以在Apple Silicon Mac上获得完整的Linux体验，无需依赖Apple的闭源驱动。开发者社区对此反响热烈，认为这是开源硬件支持的里程碑。",
+      "source": "Asahi Linux",
+      "tag": "OS · 开源驱动",
+      "views": 19800,
+      "url": "https://asahilinux.org/2026/02/gpu-drivers/",
+      "date": "2026-02-12"
+    },
+    {
+      "title": "Containerd 2.0发布：云原生运行时进入新纪元",
+      "summary": "CNCF正式发布Containerd 2.0，这个Kubernetes默认使用的容器运行时带来了革命性升级。新版本支持WebAssembly运行时，可以直接运行Wasm模块，无需传统容器镜像。同时引入了'轻量级虚拟机'概念，结合了容器的启动速度和虚拟机的安全隔离。Containerd 2.0还大幅改进了镜像拉取性能，采用新的并行下载算法，大型镜像启动时间缩短60%。Docker、Kubernetes和各大云厂商已表示将快速跟进支持。这标志着云原生技术栈进入WebAssembly和容器融合的新时代。",
+      "source": "CNCF",
+      "tag": "OS · 容器",
+      "views": 16500,
+      "url": "https://containerd.io/releases/v2.0/",
+      "date": "2026-02-10"
+    },
+    {
+      "title": "国产操作系统openKylin 2.0发布：RISC-V架构深度优化",
+      "summary": "openKylin社区正式发布2.0版本，这是中国首个支持RISC-V架构的桌面操作系统。新版本针对国产RISC-V芯片进行了深度优化，在VisionFive 2和 Milk-V Mars等开发板上运行流畅。openKylin 2.0集成了UKUI 4.0桌面环境，支持触屏手势和手写输入，适配了超过2000款国产软件。特别值得关注的是对AI框架的原生支持，内置了昇腾和寒武纪芯片的驱动，可以直接运行大模型推理。麒麟软件表示，openKylin已在政务、教育等领域部署超过50万套，成为国产操作系统的重要力量。",
+      "source": "openKylin",
+      "tag": "OS · 国产系统",
+      "views": 12800,
+      "url": "https://www.openkylin.top/news/2026/0208.html",
+      "date": "2026-02-08"
+    },
+    {
+      "title": "Google Fuchsia正式登陆Nest设备：替代Android Things",
+      "summary": "Google宣布Fuchsia OS正式部署到新一代Nest智能显示器和智能音箱产品线，全面替代原有的Android Things系统。Fuchsia的微内核架构和模块化设计使得设备启动速度提升40%，内存占用减少30%。新系统支持 Matter over Thread协议，可以无缝接入苹果HomeKit和亚马逊Alexa生态。Google表示Fuchsia的模块化架构允许独立更新各个组件，设备将获得长达10年的安全更新支持。这被视为Google在物联网操作系统领域对Android的一次自我革命，也展示了Fuchsia从实验项目走向大规模商用。",
+      "source": "Google",
+      "tag": "OS · IoT",
+      "views": 14200,
+      "url": "https://fuchsia.dev/news/2026/nest-launch",
+      "date": "2026-02-05"
+    }
+  ],
+  "pl": [
+    {
+      "title": "Rust 2026 Edition计划公布：异步编程语法大革新",
+      "summary": "Rust语言团队公布了2026 Edition的路线图，其中最引人注目的是异步编程语法的重大革新。新的'async fn in traits'将稳定发布，使得在trait中定义异步方法变得像同步方法一样简单。更重磅的是'coroutine'关键字将引入原生协程支持，开发者可以像写同步代码一样编写高性能异步程序，无需显式的.await语法。此外，2026 Edition还将引入'pin!'宏简化自引用类型的处理，以及改进的错误信息显示。Rust基金会调查显示，超过60%的Rust开发者期待这些异步改进，认为这将大幅提升开发体验。预计2026 Edition将在年底发布。",
+      "source": "Rust Blog",
+      "tag": "PL · Rust",
+      "views": 24200,
+      "url": "https://blog.rust-lang.org/2026/02/18/edition-2026.html",
+      "date": "2026-02-18"
+    },
+    {
+      "title": "Python 3.14发布：GIL正式成为可选，多线程性能翻倍",
+      "summary": "Python 3.14正式发布，这是Python语言发展史上的里程碑版本。最重大的变化是全局解释器锁（GIL）正式成为可选特性，通过'python3.14 --without-gil'启动即可体验真正的多线程并行。在多核CPU上，CPU密集型任务的性能可提升2-4倍。PEP 703的实验性实现已经成熟，NumPy、Pandas等核心库已发布无GIL兼容版本。Python指导委员会表示，3.16版本将默认禁用GIL，这标志着Python正式告别单线程时代。同时，3.14还带来了改进的JIT编译器，将解释执行的热点代码动态编译为机器码，整体性能提升15-20%。",
+      "source": "Python.org",
+      "tag": "PL · Python",
+      "views": 35800,
+      "url": "https://www.python.org/downloads/release/python-3140/",
+      "date": "2026-02-15"
+    },
+    {
+      "title": "Julia 2.0发布：科学计算语言迈向生产级",
+      "summary": "Julia语言正式发布2.0版本，这个专为科学计算设计的语言在性能和可用性方面取得重大突破。新版本采用新的编译器后端，冷启动时间缩短70%，解决了长期困扰用户的JIT延迟问题。Julia 2.0还引入了'包编译缓存'机制，常用包的加载速度提升10倍。语言层面，2.0完善了类型系统的稳定性保证，使得大型项目重构更加安全。NASA、MIT和多家制药公司已宣布将在生产环境中采用Julia 2.0。社区认为这是Julia从学术界走向工业界的关键一步，有望在AI for Science领域挑战Python的主导地位。",
+      "source": "JuliaLang",
+      "tag": "PL · Julia",
+      "views": 18600,
+      "url": "https://julialang.org/blog/2026/02/julia-2.0/",
+      "date": "2026-02-12"
+    },
+    {
+      "title": "Carbon语言首个稳定版本发布：C++继任者登场",
+      "summary": "Google主导开发的Carbon语言发布0.1稳定版本，这个被定位为'C++实验性继任者'的语言正式可供生产环境试用。Carbon的设计目标是与C++双向无缝互操作，同时提供内存安全、现代化语法和更快的编译速度。0.1版本实现了核心语言特性，包括参数化类型、模式匹配和错误处理机制。Google内部已有超过100个项目开始试用Carbon，包括Chrome浏览器的部分组件。Carbon团队表示将在1.0版本中实现完整的C++迁移工具链。业界对此反应不一，有人认为这是C++现代化的正确方向，也有人质疑是否有必要在Rust已成熟的情况下再创造一个新语言。",
+      "source": "Carbon",
+      "tag": "PL · Carbon",
+      "views": 22400,
+      "url": "https://github.com/carbon-language/carbon-lang/releases/",
+      "date": "2026-02-10"
+    },
+    {
+      "title": "Go 1.26发布：WebAssembly后端正式稳定",
+      "summary": "Go 1.26正式发布，WebAssembly编译后端（GOARCH=wasm）正式脱离实验状态。现在Go程序可以编译为独立的Wasm模块，在浏览器、Node.js和Wasm运行时中执行，无需任何JavaScript胶水代码。性能方面，Go Wasm模块的运行速度比同等JavaScript快2-3倍，二进制体积也比Rust编译的Wasm小30%。这一特性使得Go成为WebAssembly开发的强有力竞争者，特别适合需要高性能计算的Web应用。Docker Desktop和Figma已宣布使用Go Wasm技术重构部分核心功能。Go团队表示下一步将支持WASI标准，让Go程序可以在更多Wasm运行时中执行。",
+      "source": "Go Blog",
+      "tag": "PL · Go",
+      "views": 19500,
+      "url": "https://go.dev/blog/go1.26",
+      "date": "2026-02-08"
+    },
+    {
+      "title": "JetBrains Fleet正式开源：新一代IDE基于Rust重构",
+      "summary": "JetBrains宣布Fleet编辑器正式开源，这个被视为VS Code竞争者的IDE完全使用Rust重写。Fleet采用全新的分布式架构，代码解析引擎运行在独立进程，即使处理百万行代码项目也能保持流畅。开源版本包含了完整的编辑器核心、LSP客户端和调试器适配器。JetBrains表示将采用Open Core模式，核心功能开源，企业级功能（如远程开发、团队协作）通过付费订阅提供。Fleet的开源引起了开发者社区的热烈反响，GitHub星标数一周内突破8万。业内分析认为，这是JetBrains对抗VS Code和Zed的重要战略，也可能加速Rust在桌面应用开发领域的普及。",
+      "source": "JetBrains",
+      "tag": "PL · 开发工具",
+      "views": 26800,
+      "url": "https://blog.jetbrains.com/fleet/2026/02/fleet-is-now-open-source/",
+      "date": "2026-02-05"
+    }
+  ],
+  "gfx": [
+    {
+      "title": "虚幻引擎6预览：神经网络渲染技术实机演示",
+      "summary": "Epic Games在GDC 2026上展示了虚幻引擎6的早期预览，神经网络渲染（NNR）技术成为最大亮点。这项技术使用AI模型实时生成像素，传统光栅化管线被完全取代。演示中，4K分辨率下复杂场景的渲染仅需2毫秒，比传统方法快10倍。NNR还支持实时风格迁移，游戏可以在写实、卡通、水墨等风格间无缝切换。Epic表示UE6将在2027年正式发布，届时将支持新一代游戏主机和PC显卡。多家工作室已宣布正在基于UE6开发次世代3A游戏，包括《最终幻想17》和《上古卷轴7》。业界认为这可能是游戏渲染技术的范式转变。",
+      "source": "Epic Games",
+      "tag": "GFX · 游戏引擎",
+      "views": 32500,
+      "url": "https://www.unrealengine.com/en-US/blog/ue6-preview",
+      "date": "2026-02-18"
+    },
+    {
+      "title": "NVIDIA RTX 6090发布：神经压缩纹理技术游戏体积缩小80%",
+      "summary": "NVIDIA正式发布RTX 6090旗舰显卡，搭载全新的神经纹理压缩（NTC）技术。这项技术使用AI实时解压纹理，使得游戏安装体积可缩小80%，同时视觉质量无损。RTX 6090拥有128GB GDDR8显存，AI算力达到惊人的5000 TOPS。《赛博朋克2077》和《黑神话：悟空2》已宣布支持NTC，安装体积将分别降至15GB和25GB。此外，DLSS 5.0引入了'神经帧生成'，可以在渲染1帧的同时生成7帧，8K游戏帧率可达240fps。NVIDIA表示RTX 6090将限量发售，售价1999美元，主要面向专业用户和发烧友。",
+      "source": "NVIDIA",
+      "tag": "GFX · 硬件",
+      "views": 41200,
+      "url": "https://www.nvidia.com/en-us/geforce/news/rtx-6090/",
+      "date": "2026-02-15"
+    },
+    {
+      "title": "Blender 5.0发布：AI辅助建模改变3D工作流程",
+      "summary": "Blender基金会发布5.0版本，AI辅助建模功能成为核心亮点。新版本的'Generative Mesh'工具可以根据文字描述或草图自动生成3D模型，支持迭代修改。AI材质系统可以分析参考图片，自动生成匹配的PBR材质贴图。Blender 5.0还引入了'智能重拓扑'，可以将任意网格自动转换为适合动画的整洁四边面。这些AI功能基于本地运行的开源模型，无需联网或API密钥。Blender Studio已使用新工具制作了最新短片《Charge》，制作时间缩短50%。开源社区认为这是3D软件民主化的重要一步，让独立艺术家也能使用以前只有大公司才能负担的AI工具。",
+      "source": "Blender",
+      "tag": "GFX · 3D软件",
+      "views": 28500,
+      "url": "https://www.blender.org/download/releases/5-0/",
+      "date": "2026-02-12"
+    },
+    {
+      "title": "WebGPU 2.0提案发布：浏览器图形能力追赶原生",
+      "summary": "W3C发布WebGPU 2.0的首个公开工作草案，浏览器的图形和计算能力将迎来重大升级。2.0版本引入了光线追踪支持，Web应用可以实现与原生游戏相媲美的反射和全局光照效果。新的'机器学习扩展'允许Web应用直接调用GPU进行AI推理，无需通过JavaScript中转。WebGPU 2.0还支持VR/AR设备的直接渲染，为WebXR应用提供更好的性能。Chrome和Firefox团队表示将在2026年内实现2.0的核心功能。业界分析认为，WebGPU 2.0可能使得高保真3D游戏和AI应用在浏览器中运行成为常态，挑战原生应用商店模式。",
+      "source": "W3C",
+      "tag": "GFX · Web标准",
+      "views": 19800,
+      "url": "https://www.w3.org/TR/webgpu-2/",
+      "date": "2026-02-10"
+    },
+    {
+      "title": "Meta发布HyperReality Codec：VR视频体积缩小90%",
+      "summary": "Meta发布全新的HyperReality Codec（HRC），这是专为VR/AR内容设计的下一代视频编码标准。HRC使用神经压缩技术，可以将360度VR视频压缩到传统H.265的1/10体积，同时保持相同的视觉质量。该标准还支持6DoF（六自由度）视频，用户可以在视频中自由移动头部位置，获得真正的体积视频体验。Quest 3和Quest Pro将通过固件更新支持HRC解码。Meta已将HRC开源，并提交给MPEG作为国际标准候选。这一技术突破可能加速VR内容的普及，解决长期困扰行业的带宽和存储瓶颈问题。",
+      "source": "Meta",
+      "tag": "GFX · VR/AR",
+      "views": 16500,
+      "url": "https://techhub.meta.com/blog/hyperreality-codec/",
+      "date": "2026-02-08"
+    },
+    {
+      "title": "Stable Diffusion 4.0开源：视频生成进入4K时代",
+      "summary": "Stability AI正式发布Stable Diffusion 4.0，首次开源了4K视频生成模型。SD 4.0采用全新的时空扩散架构，可以生成最长60秒、每秒60帧的4K视频，且保持时间一致性。模型参数量达到80亿，但量化版本可在24GB显存显卡上运行。SD 4.0还引入了'角色锁定'功能，可以在多段视频中保持角色外观一致，这对叙事视频创作至关重要。Stability AI同时发布了视频编辑工具SD Edit，支持用自然语言修改已有视频。开源社区对此反响热烈，ComfyUI已在一周内集成全部新功能。这标志着开源AI视频生成技术正式追上闭源竞品。",
+      "source": "Stability AI",
+      "tag": "GFX · AI生成",
+      "views": 35200,
+      "url": "https://stability.ai/news/stable-diffusion-4",
+      "date": "2026-02-05"
+    }
+  ]
+}
