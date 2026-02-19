@@ -24,7 +24,7 @@ def generate_hot_card(article, index):
                     <div class="featured-content">
                         <span class="card-tag hot">FEATURED · {article['tag']}</span>
                         <h2>{article['title']}</h2>
-                        <p>{article['summary'][:200]}...</p>
+                        <p>{article['summary']}</p>
                         <div class="featured-tags">
                             <span class="featured-tag">AI</span>
                             <span class="featured-tag">热点</span>
@@ -48,7 +48,7 @@ def generate_hot_card(article, index):
                         <span class="card-date">{article['date']}</span>
                     </div>
                     <h3>{article['title']}</h3>
-                    <p>{article['summary'][:120]}...</p>
+                    <p>{article['summary']}</p>
                     <div class="card-meta">
                         <span>🔥 {article['source']}</span>
                         <span>👁️ {article['views']}</span>
@@ -66,7 +66,7 @@ def generate_ai_card(article, index):
                     <div class="featured-content">
                         <span class="card-tag ai">FEATURED · {article['tag']}</span>
                         <h2>{article['title']}</h2>
-                        <p>{article['summary'][:200]}...</p>
+                        <p>{article['summary']}</p>
                         <div class="featured-tags">
                             <span class="featured-tag">AI</span>
                             <span class="featured-tag">学术</span>
@@ -90,7 +90,7 @@ def generate_ai_card(article, index):
                         <span class="card-date">{article['date']}</span>
                     </div>
                     <h3>{article['title']}</h3>
-                    <p>{article['summary'][:150]}...</p>
+                    <p>{article['summary']}</p>
                     <div class="card-meta">
                         <span>📄 {article['source']}</span>
                         <span>⭐ {article['views']}</span>
