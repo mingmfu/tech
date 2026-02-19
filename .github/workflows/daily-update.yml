@@ -27,10 +27,10 @@ jobs:
           echo "📡 获取最新AI数据..."
           python3 scripts/fetch_real_data.py
       
-      - name: Translate to Chinese
+      - name: Generate Chinese content
         run: |
-          echo "📝 翻译内容为中文..."
-          python3 translate_to_chinese.py
+          echo "📝 生成详细中文摘要（200字以上）..."
+          python3 generate_chinese_content.py
       
       - name: Generate API data
         run: |

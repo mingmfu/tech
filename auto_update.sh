@@ -21,9 +21,9 @@ echo "🔄 步骤1: 获取最新数据..."
 python3 scripts/fetch_real_data.py 2>&1 | grep -E "(开始获取|正在获取|获取完成|总计)" || echo "✅ 数据获取完成"
 echo ""
 
-# 2. 将内容翻译为中文
-echo "🔄 步骤2: 翻译内容为中文..."
-python3 translate_to_chinese.py
+# 2. 生成详细中文摘要
+echo "🔄 步骤2: 生成详细中文摘要（200字以上）..."
+python3 generate_chinese_content.py
 echo ""
 
 # 3. 生成API数据
