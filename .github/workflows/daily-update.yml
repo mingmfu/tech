@@ -8,6 +8,8 @@ on:
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,12 +24,41 @@ jobs:
       - name: Install dependencies
         run: pip install requests
       
-      - name: Update all content
+      - name: Generate AI Hot News
         run: |
-          echo "🚀 开始统一更新所有栏目..."
-          python3 update_all.py
+          echo "📝 生成AI热点新闻..."
+          python3 generate_20_news.py
+      
+      - name: Update Frontier Tech (OS, PL)
+        run: |
+          echo "🖥️ 更新前沿技术栏目..."
+          python3 update_2026_frontier.py
+      
+      - name: Update Website HTML
+        run: |
+          echo "🌐 更新网站HTML..."
+          python3 scripts/update_website.py
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "ℹ️ 没有新的变更需要提交"
+          else
+            git commit -m "📰 每日自动更新: $(date +'%Y-%m-%d %H:%M')
+
+- AI热点: 20条最新新闻
+- 操作系统: 6条最新动态
+- 编程语言: 6条最新动态
+- 所有内容已更新"
+            git push
+            echo "✅ 已推送更新到GitHub"
+          fi
       
       - name: Trigger Pages rebuild
+        if: success()
         uses: actions/github-script@v7
         with:
           script: |
@@ -37,8 +68,8 @@ jobs:
             })
       
       - name: Notify success
+        if: success()
         run: |
           echo "✅ 每日更新完成!"
           echo "📅 日期: $(date +'%Y-%m-%d')"
           echo "🌐 网站: https://mingmfu.github.io/tech/"
-          echo "📱 API: https://mingmfu.github.io/tech/api/tech-news.json"
