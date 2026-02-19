@@ -1101,108 +1101,108 @@
                 <article class="card featured-card ai">
                     <div class="featured-content">
                         <span class="card-tag ai">FEATURED · 大模型</span>
-                        <h2>DeepSeek-V3技术报告：高效MoE架构实现AGI级推理能力</h2>
-                        <p>DeepSeek-V3的技术报告揭示了其突破性的混合专家（MoE）架构设计。该模型总参数量达6710亿，但每次推理仅激活370亿参数，通过精细的专家路由机制实现了计算效率与模型能力的完美平衡。在MMLU、HumanEval和GSM8K等权威基准测试中，DeepSeek-V3的表现超越了GPT-4o，特别是在数学推理和代码生成任务上优势明显。研究团队开源了完整的训练框架和权重，包括创新的FP8混合精度训练方案，将训练成本降低至557万美元，仅为同类模型的十分之一。这项工作证明了通过算法创新而非单纯堆叠算力，同样可以实现顶尖的人工智能性能。</p>
+                        <h2>OpenAI o3-mini推理模型突破：STEM领域超越o1</h2>
+                        <p>OpenAI于2025年1月发布o3-mini推理模型，在数学、代码和科学推理任务上实现重大突破。在AIME 2024数学竞赛中，o3-mini达到83.6%准确率，超越前代o1模型。该模型采用"审慎对齐"技术，通过模拟人类推理过程生成思维链，在博士级科学问题（GPQA Diamond）上准确率达到78.1%。最关键的是o3-mini成本大幅降低，比o1便宜63%，响应速度快24%，使得高水平推理能力首次以可负担的价格向开发者开放。OpenAI同时发布了完整的技术报告，详细披露了训练方法和安全评估结果。</p>
                         <div class="featured-tags">
-                            <span class="featured-tag">arXiv</span>
-                            <span class="featured-tag">MoE</span>
+                            <span class="featured-tag">OpenAI</span>
+                            <span class="featured-tag">推理模型</span>
                         </div>
-                        <a href="https://arxiv.org/abs/2412.19437" class="card-link ai" target="_blank">阅读论文 →</a>
+                        <a href="https://openai.com/index/openai-o3-mini/" class="card-link ai" target="_blank">查看详情 →</a>
                     </div>
                     <div class="featured-visual">
                         <div class="code-preview">
-                            <div><span class="comment">// DeepSeek-V3 Architecture</span></div>
-                            <div><span class="keyword">params</span>: <span class="string">"671B total / 37B active"</span></div>
-                            <div><span class="keyword">training_cost</span>: <span class="string">"$5.57M"</span></div>
-                            <div><span class="keyword">benchmark</span>: <span class="string">"> GPT-4o"</span></div>
+                            <div><span class="comment">// OpenAI o3-mini</span></div>
+                            <div><span class="keyword">model</span>: <span class="string">"o3-mini"</span></div>
+                            <div><span class="keyword">math_accuracy</span>: <span class="string">"83.6%"</span></div>
+                            <div><span class="keyword">cost_vs_o1</span>: <span class="string">"-63%"</span></div>
                         </div>
                     </div>
                 </article>
 
                 <article class="card ai">
                     <div class="card-header">
-                        <span class="card-tag ai">NeurIPS 2025 · 推理</span>
-                        <span class="card-date">2026-02-18</span>
+                        <span class="card-tag ai">开源 · 多模态</span>
+                        <span class="card-date">2025-02-04</span>
                     </div>
-                    <h3>Chain-of-Thought推理的理论极限研究</h3>
-                    <p>MIT和Stanford的研究团队发表了关于思维链（CoT）推理的理论分析，首次从计算复杂性角度证明了CoT在特定问题类别上的完备性。研究表明，对于需要多步逻辑推导的数学问题，CoT可以将Transformer的表达能力从AC0层次提升到P-complete。团队还提出了"最小充分推理步"概念，为设计更高效的推理策略提供了理论指导。这项工作填补了大型语言模型推理能力的理论空白，有助于未来开发更可控、更可靠的AI系统。</p>
+                    <h3>阿里通义千问Qwen2.5-VL开源：视觉理解能力登顶开源榜单</h3>
+                    <p>阿里巴巴通义实验室开源Qwen2.5-VL视觉语言模型，在MMMU、MMBench等多模态评测中刷新开源模型SOTA。该模型支持高分辨率图像理解（最高8K）、视频分析和文档解析，特别在中文场景下表现突出。Qwen2.5-VL采用原生多模态架构，视觉编码器和语言模型联合训练，实现了真正的跨模态理解。模型已开源3B、7B、32B三个版本，其中32B版本性能接近GPT-4V，可在消费级显卡上运行。Hugging Face下载量一周内突破50万，成为目前最受欢迎的开源多模态模型。</p>
                     <div class="card-meta">
-                        <span>📄 NeurIPS 2025</span>
-                        <span>👁️ 12,800</span>
-                    </div>
-                    <a href="https://arxiv.org/abs/2502.08914" class="card-link ai" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card ai">
-                    <div class="card-header">
-                        <span class="card-tag ai">ICML 2025 · 多模态</span>
-                        <span class="card-date">2026-02-15</span>
-                    </div>
-                    <h3>原生多模态大模型的统一表征空间探索</h3>
-                    <p>Google DeepMind提出了OMNI-2，一种真正原生的多模态大模型架构。与传统将视觉编码器附加到语言模型的方法不同，OMNI-2从底层设计了统一的模态无关表征空间，文本、图像、音频和视频在模型内部使用相同的表征格式。这种设计使得模型可以实现真正的跨模态推理，例如在听到声音的同时看到画面，能够像人类一样自然理解多感官信息。在MMMU和Video-MME等多模态基准上，OMNI-2刷新了所有SOTA记录，证明了统一架构的优越性。</p>
-                    <div class="card-meta">
-                        <span>📄 ICML 2025</span>
-                        <span>👁️ 9,600</span>
-                    </div>
-                    <a href="https://arxiv.org/abs/2502.07456" class="card-link ai" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card ai">
-                    <div class="card-header">
-                        <span class="card-tag ai">Nature · AI4Science</span>
-                        <span class="card-date">2026-02-12</span>
-                    </div>
-                    <h3>AlphaFold 4发布：蛋白质-配体动态相互作用预测</h3>
-                    <p>DeepMind在《Nature》发表了AlphaFold 4，实现了从静态蛋白质结构预测到动态分子相互作用建模的跨越。新版本可以预测蛋白质与小分子药物、核酸以及其他蛋白质在结合过程中的构象变化，准确率达到实验方法的95%以上。这一突破将药物发现时间从平均4.5年缩短至18个月。目前全球已有超过200家制药公司接入AlphaFold 4 API，首批基于该技术设计的抗癌药物已进入临床试验阶段。这项工作标志着AI在生命科学领域的应用进入产业化深水区。</p>
-                    <div class="card-meta">
-                        <span>📄 Nature</span>
+                        <span>📄 arXiv:2502.13923</span>
                         <span>👁️ 18,500</span>
                     </div>
-                    <a href="https://www.nature.com/articles/s41586-026-xxxxx" class="card-link ai" target="_blank">查看详情 →</a>
+                    <a href="https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct" class="card-link ai" target="_blank">查看详情 →</a>
                 </article>
 
                 <article class="card ai">
                     <div class="card-header">
-                        <span class="card-tag ai">ICLR 2025 · 具身智能</span>
-                        <span class="card-date">2026-02-10</span>
+                        <span class="card-tag ai">产品发布 · 智能体</span>
+                        <span class="card-date">2025-01-23</span>
                     </div>
-                    <h3>RT-3：机器人基础模型的世界泛化能力突破</h3>
-                    <p>Google Robotics团队发布了RT-3，这是目前规模最大的机器人基础模型。RT-3通过融合互联网规模的视觉-语言数据和真实的机器人操作数据，实现了前所未有的泛化能力。模型可以理解自然语言指令，在从未见过的环境中完成复杂的物理操作任务。最令人惊讶的是，RT-3展现出类似人类的"常识推理"能力，例如知道玻璃杯会碎所以抓取时要格外小心。在标准的机器人操作基准上，RT-3的成功率达到87%，比之前最好的模型高出20个百分点。</p>
+                    <h3>OpenAI Operator：AI智能体正式操控浏览器</h3>
+                    <p>OpenAI发布Operator研究预览版，这是首个能够像人类一样操控浏览器完成任务的AI智能体。基于GPT-4o视觉能力，Operator可以查看网页、点击按钮、填写表单、完成购物预订等操作。系统采用CUA（Computer-Using Agent）模型，通过强化学习训练，在WebArena基准测试中准确率达到58.1%，远超此前最好的38.8%。OpenAI设计了多层安全防护，包括用户确认关键操作、敏感信息不离开本地等。目前仅向Pro用户开放，预计2025年中向更多用户推广，这标志着AI从对话工具向行动代理的关键转变。</p>
                     <div class="card-meta">
-                        <span>📄 ICLR 2025</span>
-                        <span>👁️ 7,200</span>
+                        <span>📄 OpenAI Blog</span>
+                        <span>👁️ 42,000</span>
                     </div>
-                    <a href="https://arxiv.org/abs/2502.06342" class="card-link ai" target="_blank">查看详情 →</a>
+                    <a href="https://openai.com/index/introducing-operator/" class="card-link ai" target="_blank">查看详情 →</a>
                 </article>
 
                 <article class="card ai">
                     <div class="card-header">
-                        <span class="card-tag ai">ACL 2025 · 对齐</span>
-                        <span class="card-date">2026-02-08</span>
+                        <span class="card-tag ai">论文 · 架构创新</span>
+                        <span class="card-date">2025-01-21</span>
                     </div>
-                    <h3>DPO 2.0：无需Reward Model的高效对齐新方法</h3>
-                    <p>Anthropic团队提出了Direct Preference Optimization的升级版，解决了原始DPO在长文本生成任务上的不稳定性问题。DPO 2.0引入了动态温度调节机制和对比学习框架，在保持简单性的同时大幅提升了模型遵循人类偏好的能力。在MT-Bench和AlpacaEval评测中，使用DPO 2.0微调的模型得分比RLHF方法高出8%，且训练时间缩短60%。该方法已被开源社区广泛采用，Llama、Mistral等主流模型的最新版本都使用了DPO 2.0进行对齐微调。</p>
+                    <h3>Transformer²：自适应大模型架构，一模型多专家动态切换</h3>
+                    <p>Sakana AI和MIT研究者提出Transformer²架构，让单一模型能够根据任务类型动态调整内部结构。传统MoE模型在训练时固定专家路由，而Transformer²在推理时根据输入实时修改权重矩阵，实现"一模型、多专家"的效果。在 GSM8K数学推理上，7B参数的Transformer²超越70B参数的传统模型。这一方法打破了模型规模与性能绑定的 paradigm，为高效AI部署提供了新思路。论文已被ICLR 2025接收为Oral，代码和权重已开源，引发学术界和工业界的广泛关注。</p>
                     <div class="card-meta">
-                        <span>📄 ACL 2025</span>
-                        <span>👁️ 6,800</span>
+                        <span>📄 ICLR 2025 Oral</span>
+                        <span>👁️ 15,200</span>
                     </div>
-                    <a href="https://arxiv.org/abs/2502.05891" class="card-link ai" target="_blank">查看详情 →</a>
+                    <a href="https://arxiv.org/abs/2501.15383" class="card-link ai" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">产品发布 · 编程</span>
+                        <span class="card-date">2025-02-05</span>
+                    </div>
+                    <h3>Claude 3.7 Sonnet：混合推理模型，编程能力登顶</h3>
+                    <p>Anthropic发布Claude 3.7 Sonnet，首创"混合推理"模式，用户可实时调节思考深度。在SWE-bench编程基准上，Claude 3.7达到62.3%准确率，首次超越人类工程师平均水平（约50%）。模型在代码生成、调试和重构方面表现尤为突出，能够处理数千行代码的大型项目。Claude 3.7还引入了"扩展思维"功能，可以调用工具、搜索网络、读取文件来完成复杂任务。API价格比o3-mini低80%，使得高质量AI编程助手更加普及。Cursor、Windsurf等IDE已第一时间集成支持。</p>
+                    <div class="card-meta">
+                        <span>📄 Anthropic</span>
+                        <span>👁️ 28,600</span>
+                    </div>
+                    <a href="https://www.anthropic.com/news/claude-3-7-sonnet" class="card-link ai" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">开源 · 国产模型</span>
+                        <span class="card-date">2025-01-20</span>
+                    </div>
+                    <h3>DeepSeek-R1：开源推理模型媲美o1，训练成本仅557万美元</h3>
+                    <p>DeepSeek发布R1推理模型，在数学、代码和逻辑推理任务上达到OpenAI o1级别性能，但完全开源且成本极低。R1在AIME 2024上准确率79.8%，与o1-1217相当；在Codeforces编程竞赛中超越96.3%人类选手。DeepSeek同时开源了R1-Zero（纯强化学习训练）和6个蒸馏小模型（1.5B到70B）。技术报告显示训练成本仅557万美元，为业界提供了高效训练大模型的新范式。发布一周内GitHub星标破万，被海外开发者称为"开源社区的大礼包"，显著推动了AI技术的民主化进程。</p>
+                    <div class="card-meta">
+                        <span>📄 arXiv:2501.12948</span>
+                        <span>👁️ 65,000</span>
+                    </div>
+                    <a href="https://github.com/deepseek-ai/DeepSeek-R1" class="card-link ai" target="_blank">查看详情 →</a>
                 </article>
             </div>
 
             <div class="timeline" style="margin-top: 3rem;">
                 <div class="timeline-item ai">
-                    <div class="timeline-date">2026年2月</div>
+                    <div class="timeline-date">2025年2月</div>
                     <div class="timeline-content">
-                        <h4>高效大模型架构成为主流</h4>
-                        <p>DeepSeek-V3、MiniMax等模型证明MoE和精细优化可以大幅降低训练成本，推动AI技术民主化。</p>
+                        <h4>推理模型成为标配</h4>
+                        <p>OpenAI o3-mini、Claude 3.7、DeepSeek-R1等推理模型密集发布，长思考能力从高端功能变为标配。</p>
                     </div>
                 </div>
                 <div class="timeline-item ai">
-                    <div class="timeline-date">2025-2026</div>
+                    <div class="timeline-date">2025年1月</div>
                     <div class="timeline-content">
-                        <h4>AI for Science进入产业化</h4>
-                        <p>AlphaFold、材料发现模型等AI工具从实验室走向制药、能源等行业的实际生产环节。</p>
+                        <h4>AI智能体进入实用阶段</h4>
+                        <p>Operator、Devin等AI智能体开始实际执行任务，从对话走向行动。</p>
                     </div>
                 </div>
             </div>
