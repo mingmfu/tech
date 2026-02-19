@@ -22,51 +22,12 @@ jobs:
       - name: Install dependencies
         run: pip install requests
       
-      - name: Fetch real data
+      - name: Update all content
         run: |
-          echo "📡 获取最新AI数据..."
-          python3 scripts/fetch_real_data.py
-      
-      - name: Generate Chinese content
-        run: |
-          echo "📝 生成详细中文摘要（200字以上）..."
-          python3 generate_chinese_content.py
-      
-      - name: Generate API data
-        run: |
-          echo "📊 生成API数据..."
-          python3 scripts/generate_api_data.py
-      
-      - name: Update website
-        run: |
-          echo "🌐 更新网站..."
-          python3 scripts/update_website.py
-      
-      - name: Commit and push
-        id: commit
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-            echo "ℹ️ 没有新的变更需要提交"
-          else
-            git commit -m "📰 每日更新: $(date +'%Y-%m-%d')
-
-数据内容:
-- AI热点资讯
-- AI学术论文
-
-所有标题和摘要已翻译为中文
-
-更新时间: $(date +'%H:%M:%S')"
-            git push
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
+          echo "🚀 开始统一更新所有栏目..."
+          python3 update_all.py
       
       - name: Trigger Pages rebuild
-        if: steps.commit.outputs.changed == 'true'
         uses: actions/github-script@v7
         with:
           script: |
@@ -76,7 +37,6 @@ jobs:
             })
       
       - name: Notify success
-        if: steps.commit.outputs.changed == 'true'
         run: |
           echo "✅ 每日更新完成!"
           echo "📅 日期: $(date +'%Y-%m-%d')"
