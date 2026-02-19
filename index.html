@@ -385,7 +385,67 @@
             font-size: 0.95rem;
             color: var(--text-secondary);
             line-height: 1.7;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* 展开/折叠样式 - 保留但默认显示完整 */
+        .summary-container {
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            transition: all 0.3s ease;
+        }
+
+        /* 折叠状态 - 使用渐变遮罩而非省略号 */
+        .summary-text.collapsed {
+            max-height: 5.1em; /* 显示3行 */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .summary-text.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2em;
+            background: linear-gradient(transparent, var(--bg-card));
+            pointer-events: none;
+        }
+
+        .expand-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--accent-ai);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.25rem 0;
+            margin-top: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .expand-btn:hover {
+            color: #60a5fa;
+        }
+
+        .expand-btn::after {
+            content: '↓';
+            font-size: 0.7rem;
+            transition: transform 0.3s ease;
+        }
+
+        .expand-btn.expanded::after {
+            transform: rotate(180deg);
+            content: '↑';
         }
             display: inline-flex;
             align-items: center;
@@ -1327,6 +1387,47 @@
                 }
             });
         });
+
+        // 展开/折叠功能 - 使用渐变遮罩而非省略号
+        function initExpandButtons() {
+            document.querySelectorAll('.card p').forEach(p => {
+                const text = p.textContent;
+                // 只有内容超过150字才添加折叠
+                if (text.length < 150) return;
+
+                const container = document.createElement('div');
+                container.className = 'summary-container';
+
+                const summaryDiv = document.createElement('div');
+                summaryDiv.className = 'summary-text collapsed';
+                summaryDiv.innerHTML = p.innerHTML;
+
+                const btn = document.createElement('button');
+                btn.className = 'expand-btn';
+                btn.textContent = '展开查看全文';
+
+                container.appendChild(summaryDiv);
+                container.appendChild(btn);
+                p.parentNode.replaceChild(container, p);
+
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    if (summaryDiv.classList.contains('collapsed')) {
+                        summaryDiv.classList.remove('collapsed');
+                        btn.classList.add('expanded');
+                        btn.textContent = '收起';
+                    } else {
+                        summaryDiv.classList.add('collapsed');
+                        btn.classList.remove('expanded');
+                        btn.textContent = '展开查看全文';
+                    }
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initExpandButtons);
 
         // 展开/折叠功能
     </script>
