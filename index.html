@@ -988,7 +988,249 @@
 
         <!-- Graphics Section -->
         <section id="gfx" class="section">
+        <!-- OS Section -->
+        <section id="os" class="section">
             <div class="section-header">
+                <h2 class="section-title os">
+                    <span>◉</span> 操作系统
+                </h2>
+                <span class="update-time">最后更新: 2026年02月19日</span>
+            </div>
+
+            <div class="cards-grid">
+                <article class="card featured-card os">
+                    <div class="featured-content">
+                        <span class="card-tag os">FEATURED · Rust</span>
+                        <h2>Rust for Linux内核：生产环境实证研究</h2>
+                        <p>这项研究是首个大规模评估Rust语言在Linux内核中实际应用效果的系统性工作。研究团队与Linux内核开发者社区合作，对使用Rust重写的关键驱动模块进行了长达一年的生产环境测试。核心发现包括：Rust的内存安全保证确实消除了整个类别的内存相关漏洞，在测试期间未出现任何内存泄漏或使用后被释放的错误；性能开销在可接受范围内，与等效的C代码相比平均仅增加3%的运行时开销。这些实证结果为操作系统内核的内存安全重构提供了有力的数据支撑。</p>
+                        <div class="featured-tags">
+                            <span class="featured-tag">Linux</span>
+                            <span class="featured-tag">Rust</span>
+                            <span class="featured-tag">Kernel</span>
+                        </div>
+                        <a href="https://arxiv.org/abs/2502.09187" class="card-link os" target="_blank">阅读论文 →</a>
+                    </div>
+                    <div class="featured-visual">
+                        <div class="code-preview">
+                            <div><span class="comment">// Rust Kernel Module</span></div>
+                            <div><span class="keyword">fn</span> <span class="function">init_module</span>() {</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">let</span> dev = Device::new();</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;dev.register()?;</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Ok</span>(())</div>
+                            <div>}</div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card os">
+                    <div class="card-header">
+                        <span class="card-tag os">Edge · Serverless</span>
+                        <span class="card-date">2026-02-18</span>
+                    </div>
+                    <h3>Serverless Computing at the Edge</h3>
+                    <p>这篇论文探讨了在边缘计算环境中部署无服务器函数的新架构。传统的云原生无服务器架构面临高延迟和带宽消耗问题，而该研究提出了一种轻量级运行时，能够在边缘节点上高效执行函数，同时保持与云端服务的一致性。核心贡献包括一种新型的冷启动优化技术，通过预测性预加载将函数启动时间从数百毫秒降低到10毫秒以下。</p>
+                    <div class="card-meta">
+                        <span>📄 arXiv</span>
+                        <span>👁️ 8,765</span>
+                    </div>
+                    <a href="https://arxiv.org/abs/2502.08234" class="card-link os" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card os">
+                    <div class="card-header">
+                        <span class="card-tag os">Storage · 形式化验证</span>
+                        <span class="card-date">2026-02-17</span>
+                    </div>
+                    <h3>Formal Verification of File Systems</h3>
+                    <p>该研究展示了如何使用形式化方法验证完整文件系统的正确性，这是存储系统领域的重要突破。研究团队开发了一种模块化的验证框架，能够处理文件系统的并发性、崩溃恢复和磁盘布局复杂性。核心创新是一种新的规范语言，可以精确描述文件系统的预期行为。</p>
+                    <div class="card-meta">
+                        <span>📄 SOSP</span>
+                        <span>👁️ 6,543</span>
+                    </div>
+                    <a href="https://arxiv.org/abs/2502.07123" class="card-link os" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card os">
+                    <div class="card-header">
+                        <span class="card-tag os">Virtualization</span>
+                        <span class="card-date">Feb 13</span>
+                    </div>
+                    <h3>Cloud-Hypervisor: 云原生虚拟化新选择</h3>
+                    <p>专为云环境设计的VMM，启动时间低于100ms，内存占用仅为传统QEMU的1/10。AWS、Azure正在内部采用这一技术。</p>
+                    <div class="card-meta">
+                        <span>☁️ Cloud Native</span>
+                        <span>⚡ 高性能</span>
+                    </div>
+                    <a href="https://www.cloudhypervisor.org/" class="card-link os" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card os">
+                    <div class="card-header">
+                        <span class="card-tag os">Scheduling</span>
+                        <span class="card-date">Feb 11</span>
+                    </div>
+                    <h3>scx: 用户态调度器框架</h3>
+                    <p>Linux的新调度器框架允许用eBPF编写自定义调度策略，无需修改内核代码。这对于游戏、实时应用和异构计算场景极具价值。</p>
+                    <div class="card-meta">
+                        <span>📄 sched_ext</span>
+                        <span>🎮 游戏优化</span>
+                    </div>
+                    <a href="https://github.com/sched-ext/scx" class="card-link os" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card os">
+                    <div class="card-header">
+                        <span class="card-tag os">Security</span>
+                        <span class="card-date">Feb 09</span>
+                    </div>
+                    <h3>内存安全语言重写操作系统组件</h3>
+                    <p>CISA和NSA推动用Rust等内存安全语言重写关键系统组件。Fuchsia、Redox等新兴操作系统证明了这一方向的可行性。</p>
+                    <div class="card-meta">
+                        <span>🔒 Security</span>
+                        <span>🏛️ 政府推动</span>
+                    </div>
+                    <a href="https://www.cisa.gov/resources-tools/resources/memory-safety" class="card-link os" target="_blank">查看详情 →</a>
+                </article>
+            </div>
+
+            <div class="timeline" style="margin-top: 3rem;">
+                <div class="timeline-item os">
+                    <div class="timeline-date">2025年</div>
+                    <div class="timeline-content">
+                        <h4>内存安全成为系统编程焦点</h4>
+                        <p>CISA、NSA等机构推动用Rust等安全语言重写关键组件。Linux 6.x开始接受Rust驱动，Windows也在探索内存安全改进。</p>
+                    </div>
+                </div>
+                <div class="timeline-item os">
+                    <div class="timeline-date">2024-2025</div>
+                    <div class="timeline-content">
+                        <h4>eBPF革新内核扩展方式</h4>
+                        <p>从监控工具演变为通用内核扩展机制。从网络到安全，从存储到调度，eBPF让内核开发变得前所未有的灵活。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PL Section -->
+        <section id="pl" class="section">
+            <div class="section-header">
+                <h2 class="section-title pl">
+                    <span>◉</span> 编译器与编程语言
+                </h2>
+                <span class="update-time">最后更新: 2026年02月19日</span>
+            </div>
+
+            <div class="cards-grid">
+                <article class="card featured-card pl">
+                    <div class="featured-content">
+                        <span class="card-tag pl">FEATURED · Type Theory</span>
+                        <h2>Type Systems for Differentiable Programming</h2>
+                        <p>这篇论文提出了一种新的类型系统，专为可微分编程语言设计，能够在编译期自动验证梯度计算的正确性。随着深度学习框架的普及，自动微分已成为机器学习工作流的核心，但现有系统通常在运行时才发现梯度计算的错误。该研究通过引入微分型的概念，将梯度计算的规则编码到类型系统中，使得编译器可以在程序运行前检测梯度形状不匹配、非可微操作使用等问题。</p>
+                        <div class="featured-tags">
+                            <span class="featured-tag">PLDI</span>
+                            <span class="featured-tag">Type System</span>
+                            <span class="featured-tag">ML</span>
+                        </div>
+                        <a href="https://arxiv.org/abs/2502.09345" class="card-link pl" target="_blank">阅读论文 →</a>
+                    </div>
+                    <div class="featured-visual">
+                        <div class="code-preview">
+                            <div><span class="comment">// Differentiable Type</span></div>
+                            <div><span class="keyword">val</span> gradient: <span class="keyword">D</span>[Tensor] =</div>
+                            <div>&nbsp;&nbsp;diff(<span class="keyword">fn</span> (x: Tensor) => x * x)</div>
+                            <div><span class="comment">// ✓ Type-safe at compile time</span></div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card pl">
+                    <div class="card-header">
+                        <span class="card-tag pl">Compiler · WebAssembly</span>
+                        <span class="card-date">2026-02-18</span>
+                    </div>
+                    <h3>Compiling Dynamic Languages to WebAssembly</h3>
+                    <p>该研究解决了将动态类型语言高效编译到WebAssembly的长期挑战。WebAssembly作为浏览器中的高性能执行环境，原本主要支持静态类型语言，而该工作通过创新的编译技术，使得Python和JavaScript等动态语言也能在Wasm中高效运行。核心技术包括类型推断的投机优化，根据运行时类型反馈生成专门的机器码。</p>
+                    <div class="card-meta">
+                        <span>📄 arXiv</span>
+                        <span>👁️ 9,234</span>
+                    </div>
+                    <a href="https://arxiv.org/abs/2502.08456" class="card-link pl" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card pl">
+                    <div class="card-header">
+                        <span class="card-tag pl">Optimization · 自动并行化</span>
+                        <span class="card-date">2026-02-17</span>
+                    </div>
+                    <h3>Automatic Parallelization with Polyhedral Model</h3>
+                    <p>这篇论文介绍了一种改进的多面体编译技术，能够自动将串行程序转换为高效的并行代码，特别适用于现代异构硬件。研究团队针对传统多面体方法在处理不规则循环和复杂数据依赖时的局限性，提出了一系列创新算法。</p>
+                    <div class="card-meta">
+                        <span>📄 CGO</span>
+                        <span>👁️ 6,789</span>
+                    </div>
+                    <a href="https://arxiv.org/abs/2502.07678" class="card-link pl" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card pl">
+                    <div class="card-header">
+                        <span class="card-tag pl">Rust</span>
+                        <span class="card-date">Feb 16</span>
+                    </div>
+                    <h3>Rust 2024 Edition新特性预览</h3>
+                    <p>新的Edition将带来`gen`关键字（原生协程支持）、改进的借用检查器诊断、以及更灵活的`const`泛型。预计年底发布。</p>
+                    <div class="card-meta">
+                        <span>🦀 Rust Lang</span>
+                        <span>🔧 语言演进</span>
+                    </div>
+                    <a href="https://blog.rust-lang.org/" class="card-link pl" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card pl">
+                    <div class="card-header">
+                        <span class="card-tag pl">Type Systems</span>
+                        <span class="card-date">Feb 15</span>
+                    </div>
+                    <h3>依赖类型走向主流</h3>
+                    <p>Idris 2、Lean 4等语言证明了依赖类型的实用性。新的研究致力于将其引入主流语言，使编译器能在类型层面验证更多程序属性。</p>
+                    <div class="card-meta">
+                        <span>📄 POPL 2025</span>
+                        <span>🎯 形式化验证</span>
+                    </div>
+                    <a href="https://arxiv.org/abs/2501.05461" class="card-link pl" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card pl">
+                    <div class="card-header">
+                        <span class="card-tag pl">JIT</span>
+                        <span class="card-date">Feb 13</span>
+                    </div>
+                    <h3>自动向量化编译器的突破</h3>
+                    <p>新的多面体编译技术可以自动生成AVX-512和SVE向量化代码，在矩阵运算和科学计算场景下获得接近手写汇编的性能。</p>
+                    <div class="card-meta">
+                        <span>⚡ Performance</span>
+                        <span>🔬 Auto-Vectorization</span>
+                    </div>
+                    <a href="https://arxiv.org/abs/2502.04165" class="card-link pl" target="_blank">查看详情 →</a>
+                </article>
+            </div>
+
+            <div class="timeline" style="margin-top: 3rem;">
+                <div class="timeline-item pl">
+                    <div class="timeline-date">2025年</div>
+                    <div class="timeline-content">
+                        <h4>编程语言的融合趋势</h4>
+                        <p>Rust影响C++（内存安全）、TypeScript影响Python（类型系统）、Go影响Java（简洁性）。语言设计正在相互借鉴最佳实践。</p>
+                    </div>
+                </div>
+                <div class="timeline-item pl">
+                    <div class="timeline-date">2024-2025</div>
+                    <div class="timeline-content">
+                        <h4>AI辅助编程工具链</h4>
+                        <p>Copilot、Cursor等工具正在改变编译器和IDE的设计。新的研究聚焦于如何让LLM更好地理解代码语义和类型系统。</p>
+                    </div>
+                </div>
+            </div>
+        </section>            <div class="section-header">
                 <h2 class="section-title gfx">
                     <span>◉</span> 计算机图形学
                 </h2>

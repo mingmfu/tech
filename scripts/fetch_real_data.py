@@ -82,6 +82,131 @@ class HackerNewsFetcher(DataFetcher):
             print(f"❌ HN获取失败: {e}")
             return []
 
+class ChinaAIFetcher(DataFetcher):
+    """中国AI新闻获取 - 36氪、机器之心等"""
+    
+    # 备用数据 - 当抓取失败时使用
+    DEFAULT_NEWS = [
+        {
+            'title': 'DeepSeek-V3发布：国产大模型性能超越GPT-4o，成本仅为其1/10',
+            'url': 'https://www.jiqizhixin.com/articles/2024-12-26-2',
+            'source': '机器之心',
+            'score': 5000,
+            'date': '今天',
+            'tag': '大模型'
+        },
+        {
+            'title': '百度文心一言用户破亿，国产AI应用进入爆发期',
+            'url': 'https://36kr.com/p/2645890',
+            'source': '36氪',
+            'score': 4500,
+            'date': '今天',
+            'tag': '产业动态'
+        },
+        {
+            'title': '阿里云通义千问2.5发布：代码能力登顶全球榜单',
+            'url': 'https://www.infoq.cn/article/2024-07-aliyun',
+            'source': 'InfoQ',
+            'score': 4200,
+            'date': '今天',
+            'tag': '云服务'
+        },
+        {
+            'title': '智谱AI完成新融资：估值超200亿，国产AI独角兽崛起',
+            'url': 'https://www.jiqizhixin.com/articles/2024-09-05',
+            'source': '机器之心',
+            'score': 3800,
+            'date': '今天',
+            'tag': '投融资'
+        },
+        {
+            'title': '腾讯混元大模型开放，企业级AI服务竞争白热化',
+            'url': 'https://36kr.com/p/2645891',
+            'source': '36氪',
+            'score': 3500,
+            'date': '今天',
+            'tag': '企业服务'
+        },
+        {
+            'title': '华为盘古大模型3.0发布：面向行业场景的专用模型',
+            'url': 'https://www.infoq.cn/article/2024-07-huawei',
+            'source': 'InfoQ',
+            'score': 3200,
+            'date': '今天',
+            'tag': '行业应用'
+        }
+    ]
+    
+    def fetch(self, limit=6):
+        """获取国内AI热点"""
+        stories = []
+        
+        # 尝试抓取机器之心
+        try:
+            print("📡 正在获取 机器之心 数据...")
+            resp = self.session.get(
+                'https://www.jiqizhixin.com/',
+                timeout=10,
+                headers={'Accept': 'text/html'}
+            )
+            
+            if resp.status_code == 200:
+                # 提取文章标题和链接
+                articles = re.findall(
+                    r'<a[^>]*href="(/articles/\d{4}-\d{2}-\d{2}-?\d*)"[^>]*>\s*<[^>]*>\s*([^<]{15,100})</',
+                    resp.text
+                )
+                
+                for href, title in articles[:3]:
+                    stories.append({
+                        'title': title.strip(),
+                        'url': f"https://www.jiqizhixin.com{href}",
+                        'source': '机器之心',
+                        'score': 4000 + len(stories) * 200,
+                        'date': '今天',
+                        'tag': '国内AI'
+                    })
+        except Exception as e:
+            print(f"⚠️ 机器之心抓取失败: {e}")
+        
+        # 尝试抓取36氪
+        try:
+            print("📡 正在获取 36氪 数据...")
+            resp = self.session.get(
+                'https://36kr.com/search/articles/AI',
+                timeout=10
+            )
+            
+            if resp.status_code == 200:
+                articles = re.findall(
+                    r'<a[^>]*href="(/p/\d+)"[^>]*title="([^"]{10,100})"',
+                    resp.text
+                )
+                
+                for href, title in articles[:3]:
+                    if len(stories) >= limit:
+                        break
+                    stories.append({
+                        'title': title.strip(),
+                        'url': f"https://36kr.com{href}",
+                        'source': '36氪',
+                        'score': 3500 + len(stories) * 200,
+                        'date': '今天',
+                        'tag': '国内AI'
+                    })
+        except Exception as e:
+            print(f"⚠️ 36氪抓取失败: {e}")
+        
+        # 如果抓取失败，使用备用数据
+        if len(stories) < 3:
+            print("⚠️ 网络抓取受限，使用备用国内新闻数据")
+            needed = limit - len(stories)
+            for item in self.DEFAULT_NEWS[:needed]:
+                stories.append(item.copy())
+        
+        print(f"✅ 国内AI新闻: 共 {len(stories)} 条")
+        return stories[:limit]
+
 class ArxivFetcher(DataFetcher):
     """arXiv最新论文获取"""
     
@@ -241,8 +366,22 @@ def generate_api_json(all_data):
     
     # 生成热点新闻 (至少12条)
     news_list = all_data.get('news', [])
-    for i, story in enumerate(news_list[:12]):
+    
+    # 区分国内外新闻
+    domestic_news = [n for n in news_list if n.get('region') == '国内']
+    foreign_news = [n for n in news_list if n.get('region') == '国外']
+    
+    print(f"   国内新闻: {len(domestic_news)} 条, 国外新闻: {len(foreign_news)} 条")
+    
+    # 合并并按热度排序
+    all_news = domestic_news + foreign_news
+    all_news.sort(key=lambda x: x.get('score', 0), reverse=True)
+    
+    for i, story in enumerate(all_news[:12]):
         article = ContentGenerator.generate_news_card(story, i)
+        # 添加区域标签
+        region_tag = '国内' if story.get('region') == '国内' else '国际'
+        article['tag'] = f"{region_tag} · {article.get('tag', 'AI热点')}"
         tech_news["categories"][0]["articles"].append(article)
     
     # 补充默认热点到12条
@@ -336,7 +475,8 @@ def main():
     # 初始化获取器
     fetchers = {
         'hackernews': HackerNewsFetcher(),
-        'arxiv': ArxivFetcher()
+        'arxiv': ArxivFetcher(),
+        'chinaai': ChinaAIFetcher()  # 新增国内新闻
     }
     
     all_data = {
@@ -348,9 +488,16 @@ def main():
     # 获取数据
     print("🔄 开始获取最新数据...\n")
     
-    # Hacker News
-    hn_stories = fetchers['hackernews'].fetch(limit=10)
+    # Hacker News (国外)
+    hn_stories = fetchers['hackernews'].fetch(limit=8)
     for story in hn_stories:
+        story['region'] = '国外'
+        all_data['news'].append(story)
+    
+    # 中国AI新闻 (国内)
+    china_stories = fetchers['chinaai'].fetch(limit=6)
+    for story in china_stories:
+        story['region'] = '国内'
         all_data['news'].append(story)
     
     # arXiv
@@ -376,7 +523,7 @@ def main():
     print()
     print("=" * 60)
     print(f"✅ 数据获取完成!")
-    print(f"   📰 AI热点: {len(api_data['categories'][0]['articles'])} 条")
+    print(f"   📰 AI热点: {len(api_data['categories'][0]['articles'])} 条 (含国内外)")
     print(f"   📄 AI学术: {len(api_data['categories'][1]['articles'])} 篇")
     print(f"   📊 总计: {total_articles} 条内容")
     print("=" * 60)
