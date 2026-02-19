@@ -1536,7 +1536,23 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', initExpandButtons);
+        document.addEventListener('DOMContentLoaded', function() {
+            initExpandButtons();
+            
+            // Hash路由处理 - 根据URL hash显示对应栏目
+            function handleHash() {
+                const hash = window.location.hash.slice(1); // 去掉#
+                if (hash && ['hot', 'ai', 'gfx', 'os', 'pl'].includes(hash)) {
+                    showSection(hash);
+                }
+            }
+            
+            // 页面加载时处理hash
+            handleHash();
+            
+            // hash变化时处理
+            window.addEventListener('hashchange', handleHash);
+        });
 
         // 展开/折叠功能
     </script>
