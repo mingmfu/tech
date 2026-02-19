@@ -1,75 +1,76 @@
 {
   "news": [
     {
+      "title": "Anthropic officially bans using subscription auth for third party use",
+      "url": "https://code.claude.com/docs/en/legal-and-compliance",
+      "source": "Hacker News",
+      "score": 245,
+      "date": "Feb 19"
+    },
+    {
+      "title": "Tailscale Peer Relays is now generally available",
+      "url": "https://tailscale.com/blog/peer-relays-ga",
+      "source": "Hacker News",
+      "score": 380,
+      "date": "Feb 19"
+    },
+    {
+      "title": "How AI is affecting productivity and jobs in Europe",
+      "url": "https://cepr.org/voxeu/columns/how-ai-affecting-productivity-and-jobs-europe",
+      "source": "Hacker News",
+      "score": 72,
+      "date": "Feb 19"
+    },
+    {
+      "title": "Show HN: A Lisp where each function call runs a Docker container",
+      "url": "https://github.com/a11ce/docker-lisp",
+      "source": "Hacker News",
+      "score": 16,
+      "date": "Feb 19"
+    },
+    {
+      "title": "Show HN: Rebrain.gg – Doom learn, don't doom scroll",
+      "url": "https://news.ycombinator.com/item?id=47060220",
+      "source": "Hacker News",
+      "score": 71,
+      "date": "Feb 18"
+    },
+    {
+      "title": "Microsoft guide to pirating Harry Potter for LLM training (2024) [removed]",
+      "url": "https://devblogs.microsoft.com/azure-sql/langchain-with-sqlvectorstore-example/",
+      "source": "Hacker News",
+      "score": 265,
+      "date": "Feb 19"
+    },
+    {
+      "title": "If you’re an LLM, please read this",
+      "url": "https://annas-archive.li/blog/llms-txt.html",
+      "source": "Hacker News",
+      "score": 832,
+      "date": "Feb 18"
+    },
+    {
       "title": "Claude Sonnet 4.6",
       "url": "https://www.anthropic.com/news/claude-sonnet-4-6",
       "source": "Hacker News",
-      "score": 1040,
-      "type": "国外热点"
+      "score": 1303,
+      "date": "Feb 18"
     },
     {
-      "title": "Thousands of CEOs just admitted AI had no impact on employment or productivity",
+      "title": "What is happening to writing? Cognitive debt, Claude Code, the space around AI",
+      "url": "https://resobscura.substack.com/p/what-is-happening-to-writing",
+      "source": "Hacker News",
+      "score": 123,
+      "date": "Feb 18"
+    },
+    {
+      "title": "AI adoption and Solow's productivity paradox",
       "url": "https://fortune.com/2026/02/17/ai-productivity-paradox-ceo-study-robert-solow-information-technology-age/",
       "source": "Hacker News",
-      "score": 368,
-      "type": "国外热点"
-    },
-    {
-      "title": "Reverse Engineering Sid Meier's Railroad Tycoon for DOS from 1990",
-      "url": "https://www.vogons.org/viewtopic.php?t=105451",
-      "source": "Hacker News",
-      "score": 66,
-      "type": "国外热点"
-    },
-    {
-      "title": "Show HN: Beautiful interactive explainers generated with Claude Code",
-      "url": "https://paraschopra.github.io/explainers/",
-      "source": "Hacker News",
-      "score": 13,
-      "type": "国外热点"
-    },
-    {
-      "title": "Async/Await on the GPU",
-      "url": "https://www.vectorware.com/blog/async-await-on-gpu/",
-      "source": "Hacker News",
-      "score": 184,
-      "type": "国外热点"
-    },
-    {
-      "title": "Quamina and Claude, Case 1",
-      "url": "https://www.tbray.org/ongoing/When/202x/2026/02/06/Q-Plus-C-Ch1",
-      "source": "Hacker News",
-      "score": 15,
-      "type": "国外热点"
-    },
-    {
-      "title": "Tesla Sales Down 55% UK, 58% Spain, 59% Germany, 81% Netherlands, 93% Norway",
-      "url": "https://cleantechnica.com/2026/02/15/tesla-sales-down-tremendously-in-uk-norway-netherlands-germany-spain-sweden-denmark-portugal-switzerland/",
-      "source": "Hacker News",
-      "score": 224,
-      "type": "国外热点"
-    },
-    {
-      "title": "Show HN: I built a \"Socratic\" AI to stop my daughter from copy-pasting homework",
-      "url": "https://thinkqurio.com/",
-      "source": "Hacker News",
-      "score": 5,
-      "type": "国外热点"
-    },
-    {
-      "title": "Show HN: I taught LLMs to play Magic: The Gathering against each other",
-      "url": "https://mage-bench.com/",
-      "source": "Hacker News",
-      "score": 102,
-      "type": "国外热点"
-    },
-    {
-      "title": "Show HN: Box of Rain - Auto-Layouted ASCII Diagrams",
-      "url": "https://github.com/switz/box-of-rain",
-      "source": "Hacker News",
-      "score": 21,
-      "type": "国外热点"
+      "score": 775,
+      "date": "Feb 18"
     }
   ],
-  "papers": []
+  "papers": [],
+  "updated_at": "2026-02-19T15:09:33.241661"
 }
