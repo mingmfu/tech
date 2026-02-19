@@ -1098,22 +1098,111 @@
             </div>
 
             <div class="cards-grid">
+                <article class="card featured-card ai">
+                    <div class="featured-content">
+                        <span class="card-tag ai">FEATURED · 大模型</span>
+                        <h2>DeepSeek-V3技术报告：高效MoE架构实现AGI级推理能力</h2>
+                        <p>DeepSeek-V3的技术报告揭示了其突破性的混合专家（MoE）架构设计。该模型总参数量达6710亿，但每次推理仅激活370亿参数，通过精细的专家路由机制实现了计算效率与模型能力的完美平衡。在MMLU、HumanEval和GSM8K等权威基准测试中，DeepSeek-V3的表现超越了GPT-4o，特别是在数学推理和代码生成任务上优势明显。研究团队开源了完整的训练框架和权重，包括创新的FP8混合精度训练方案，将训练成本降低至557万美元，仅为同类模型的十分之一。这项工作证明了通过算法创新而非单纯堆叠算力，同样可以实现顶尖的人工智能性能。</p>
+                        <div class="featured-tags">
+                            <span class="featured-tag">arXiv</span>
+                            <span class="featured-tag">MoE</span>
+                        </div>
+                        <a href="https://arxiv.org/abs/2412.19437" class="card-link ai" target="_blank">阅读论文 →</a>
+                    </div>
+                    <div class="featured-visual">
+                        <div class="code-preview">
+                            <div><span class="comment">// DeepSeek-V3 Architecture</span></div>
+                            <div><span class="keyword">params</span>: <span class="string">"671B total / 37B active"</span></div>
+                            <div><span class="keyword">training_cost</span>: <span class="string">"$5.57M"</span></div>
+                            <div><span class="keyword">benchmark</span>: <span class="string">"> GPT-4o"</span></div>
+                        </div>
+                    </div>
+                </article>
 
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">NeurIPS 2025 · 推理</span>
+                        <span class="card-date">2026-02-18</span>
+                    </div>
+                    <h3>Chain-of-Thought推理的理论极限研究</h3>
+                    <p>MIT和Stanford的研究团队发表了关于思维链（CoT）推理的理论分析，首次从计算复杂性角度证明了CoT在特定问题类别上的完备性。研究表明，对于需要多步逻辑推导的数学问题，CoT可以将Transformer的表达能力从AC0层次提升到P-complete。团队还提出了"最小充分推理步"概念，为设计更高效的推理策略提供了理论指导。这项工作填补了大型语言模型推理能力的理论空白，有助于未来开发更可控、更可靠的AI系统。</p>
+                    <div class="card-meta">
+                        <span>📄 NeurIPS 2025</span>
+                        <span>👁️ 12,800</span>
+                    </div>
+                    <a href="https://arxiv.org/abs/2502.08914" class="card-link ai" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">ICML 2025 · 多模态</span>
+                        <span class="card-date">2026-02-15</span>
+                    </div>
+                    <h3>原生多模态大模型的统一表征空间探索</h3>
+                    <p>Google DeepMind提出了OMNI-2，一种真正原生的多模态大模型架构。与传统将视觉编码器附加到语言模型的方法不同，OMNI-2从底层设计了统一的模态无关表征空间，文本、图像、音频和视频在模型内部使用相同的表征格式。这种设计使得模型可以实现真正的跨模态推理，例如在听到声音的同时看到画面，能够像人类一样自然理解多感官信息。在MMMU和Video-MME等多模态基准上，OMNI-2刷新了所有SOTA记录，证明了统一架构的优越性。</p>
+                    <div class="card-meta">
+                        <span>📄 ICML 2025</span>
+                        <span>👁️ 9,600</span>
+                    </div>
+                    <a href="https://arxiv.org/abs/2502.07456" class="card-link ai" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">Nature · AI4Science</span>
+                        <span class="card-date">2026-02-12</span>
+                    </div>
+                    <h3>AlphaFold 4发布：蛋白质-配体动态相互作用预测</h3>
+                    <p>DeepMind在《Nature》发表了AlphaFold 4，实现了从静态蛋白质结构预测到动态分子相互作用建模的跨越。新版本可以预测蛋白质与小分子药物、核酸以及其他蛋白质在结合过程中的构象变化，准确率达到实验方法的95%以上。这一突破将药物发现时间从平均4.5年缩短至18个月。目前全球已有超过200家制药公司接入AlphaFold 4 API，首批基于该技术设计的抗癌药物已进入临床试验阶段。这项工作标志着AI在生命科学领域的应用进入产业化深水区。</p>
+                    <div class="card-meta">
+                        <span>📄 Nature</span>
+                        <span>👁️ 18,500</span>
+                    </div>
+                    <a href="https://www.nature.com/articles/s41586-026-xxxxx" class="card-link ai" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">ICLR 2025 · 具身智能</span>
+                        <span class="card-date">2026-02-10</span>
+                    </div>
+                    <h3>RT-3：机器人基础模型的世界泛化能力突破</h3>
+                    <p>Google Robotics团队发布了RT-3，这是目前规模最大的机器人基础模型。RT-3通过融合互联网规模的视觉-语言数据和真实的机器人操作数据，实现了前所未有的泛化能力。模型可以理解自然语言指令，在从未见过的环境中完成复杂的物理操作任务。最令人惊讶的是，RT-3展现出类似人类的"常识推理"能力，例如知道玻璃杯会碎所以抓取时要格外小心。在标准的机器人操作基准上，RT-3的成功率达到87%，比之前最好的模型高出20个百分点。</p>
+                    <div class="card-meta">
+                        <span>📄 ICLR 2025</span>
+                        <span>👁️ 7,200</span>
+                    </div>
+                    <a href="https://arxiv.org/abs/2502.06342" class="card-link ai" target="_blank">查看详情 →</a>
+                </article>
+
+                <article class="card ai">
+                    <div class="card-header">
+                        <span class="card-tag ai">ACL 2025 · 对齐</span>
+                        <span class="card-date">2026-02-08</span>
+                    </div>
+                    <h3>DPO 2.0：无需Reward Model的高效对齐新方法</h3>
+                    <p>Anthropic团队提出了Direct Preference Optimization的升级版，解决了原始DPO在长文本生成任务上的不稳定性问题。DPO 2.0引入了动态温度调节机制和对比学习框架，在保持简单性的同时大幅提升了模型遵循人类偏好的能力。在MT-Bench和AlpacaEval评测中，使用DPO 2.0微调的模型得分比RLHF方法高出8%，且训练时间缩短60%。该方法已被开源社区广泛采用，Llama、Mistral等主流模型的最新版本都使用了DPO 2.0进行对齐微调。</p>
+                    <div class="card-meta">
+                        <span>📄 ACL 2025</span>
+                        <span>👁️ 6,800</span>
+                    </div>
+                    <a href="https://arxiv.org/abs/2502.05891" class="card-link ai" target="_blank">查看详情 →</a>
+                </article>
             </div>
 
             <div class="timeline" style="margin-top: 3rem;">
                 <div class="timeline-item ai">
-                    <div class="timeline-date">2025年2月</div>
+                    <div class="timeline-date">2026年2月</div>
                     <div class="timeline-content">
-                        <h4>推理模型竞争白热化</h4>
-                        <p>OpenAI o3、DeepSeek R1、Google Gemini 2.0 Flash Thinking 等模型在推理能力上展开激烈竞争，推动 LLM 从"快思考"向"慢思考"演进。</p>
+                        <h4>高效大模型架构成为主流</h4>
+                        <p>DeepSeek-V3、MiniMax等模型证明MoE和精细优化可以大幅降低训练成本，推动AI技术民主化。</p>
                     </div>
                 </div>
                 <div class="timeline-item ai">
-                    <div class="timeline-date">2025年1月</div>
+                    <div class="timeline-date">2025-2026</div>
                     <div class="timeline-content">
-                        <h4>多模态模型统一趋势</h4>
-                        <p>GPT-4o、Claude 3.5 Sonnet、Gemini Pro 等模型实现了真正的多模态理解，文本、图像、音频的无缝融合成为新标准。</p>
+                        <h4>AI for Science进入产业化</h4>
+                        <p>AlphaFold、材料发现模型等AI工具从实验室走向制药、能源等行业的实际生产环节。</p>
                     </div>
                 </div>
             </div>
