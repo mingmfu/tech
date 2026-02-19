@@ -146,9 +146,9 @@ def update_website():
     html = re.sub(r'最后更新: \d{4}年\d{2}月\d{2}日', f'最后更新: {today}', html)
     html = re.sub(r'每日更新 · \d{4}年\d{2}月\d{2}日', f'每日更新 · {today}', html)
     
-    # 生成AI热点卡片
+    # 生成AI热点卡片 (显示12条)
     print("🔥 生成AI热点卡片...")
-    hot_cards = '\n\n'.join([generate_hot_card(article, i) for i, article in enumerate(hot_articles[:9])])
+    hot_cards = '\n\n'.join([generate_hot_card(article, i) for i, article in enumerate(hot_articles[:12])])
     
     # 替换AI热点部分
     hot_pattern = r'(<section id="hot" class="section active">.*?<div class="cards-grid">)\s*.*?(</div>\s*<div class="timeline")'
@@ -170,7 +170,7 @@ def update_website():
         f.write(html)
     
     print(f"\n✅ 网站更新完成!")
-    print(f"   📰 AI热点: {len(hot_articles[:9])} 条")
+    print(f"   📰 AI热点: {len(hot_articles[:12])} 条")
     print(f"   📄 AI学术: {len(ai_articles[:6])} 篇")
     print(f"   📅 更新日期: {today}")
 
