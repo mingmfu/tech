@@ -22,14 +22,24 @@ jobs:
       - name: Install dependencies
         run: pip install requests
       
-      - name: Generate fresh content
+      - name: Fetch real data
         run: |
-          echo "🔄 生成最新AI内容..."
-          python3 generate_smart_content.py
+          echo "📡 获取最新AI数据..."
+          python3 scripts/fetch_real_data.py
+      
+      - name: Translate to Chinese
+        run: |
+          echo "📝 翻译内容为中文..."
+          python3 translate_to_chinese.py
+      
+      - name: Generate API data
+        run: |
+          echo "📊 生成API数据..."
+          python3 scripts/generate_api_data.py
       
       - name: Update website
         run: |
-          echo "🌐 更新网站内容..."
+          echo "🌐 更新网站..."
           python3 scripts/update_website.py
       
       - name: Commit and push
@@ -40,14 +50,17 @@ jobs:
           git add -A
           if git diff --cached --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
-            echo "No changes to commit"
+            echo "ℹ️ 没有新的变更需要提交"
           else
-            git commit -m "📰 Daily update: $(date +'%Y-%m-%d')
+            git commit -m "📰 每日更新: $(date +'%Y-%m-%d')
 
-- 更新AI热点新闻
-- 更新AI学术论文
-- 更新网站首页内容
-- 更新JSON API数据"
+数据内容:
+- AI热点资讯
+- AI学术论文
+
+所有标题和摘要已翻译为中文
+
+更新时间: $(date +'%H:%M:%S')"
             git push
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
