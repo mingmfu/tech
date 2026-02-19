@@ -22,35 +22,35 @@ def generate_hot_card(article, index):
         return f'''                <!-- Featured -->
                 <article class="card featured-card hot">
                     <div class="featured-content">
-                        <span class="card-tag hot">FEATURED · {article['tag']}</span>
+                        <span class="card-tag hot">FEATURED · {article.get('tag', article.get('category', 'AI'))}</span>
                         <h2>{article['title']}</h2>
                         <p>{article['summary']}</p>
                         <div class="featured-tags">
                             <span class="featured-tag">AI</span>
                             <span class="featured-tag">热点</span>
-                            <span class="featured-tag">{article['source']}</span>
+                            <span class="featured-tag">{article.get('source', 'News')}</span>
                         </div>
                         <a href="{article['url']}" class="card-link hot" target="_blank">深度分析 →</a>
                     </div>
                     <div class="featured-visual">
                         <div class="code-preview">
                             <div><span class="comment">// {article['date']} AI动态</span></div>
-                            <div><span class="keyword">source</span>: <span class="string">"{article['source']}"</span></div>
+                            <div><span class="keyword">source</span>: <span class="string">"{article.get('source', 'News')}"</span></div>
                             <div><span class="keyword">views</span>: <span class="string">{article['views']}</span></div>
-                            <div><span class="keyword">tag</span>: <span class="string">"{article['tag']}"</span></div>
+                            <div><span class="keyword">tag</span>: <span class="string">"{article.get('tag', article.get('category', 'AI'))}"</span></div>
                         </div>
                     </div>
                 </article>'''
     else:
         return f'''                <article class="card hot">
                     <div class="card-header">
-                        <span class="card-tag hot">{article['tag']}</span>
+                        <span class="card-tag hot">{article.get('tag', article.get('category', 'AI'))}</span>
                         <span class="card-date">{article['date']}</span>
                     </div>
                     <h3>{article['title']}</h3>
                     <p>{article['summary']}</p>
                     <div class="card-meta">
-                        <span>🔥 {article['source']}</span>
+                        <span>🔥 {article.get('source', 'News')}</span>
                         <span>👁️ {article['views']}</span>
                     </div>
                     <a href="{article['url']}" class="card-link hot" target="_blank">查看详情 →</a>
@@ -64,35 +64,35 @@ def generate_ai_card(article, index):
         return f'''                <!-- Featured -->
                 <article class="card featured-card ai">
                     <div class="featured-content">
-                        <span class="card-tag ai">FEATURED · {article['tag']}</span>
+                        <span class="card-tag ai">FEATURED · {article.get('tag', article.get('category', 'AI'))}</span>
                         <h2>{article['title']}</h2>
                         <p>{article['summary']}</p>
                         <div class="featured-tags">
                             <span class="featured-tag">AI</span>
                             <span class="featured-tag">学术</span>
-                            <span class="featured-tag">{article['source']}</span>
+                            <span class="featured-tag">{article.get('source', 'News')}</span>
                         </div>
                         <a href="{article['url']}" class="card-link ai" target="_blank">阅读论文 →</a>
                     </div>
                     <div class="featured-visual">
                         <div class="code-preview">
                             <div><span class="comment">// {article['date']} 学术论文</span></div>
-                            <div><span class="keyword">source</span>: <span class="string">"{article['source']}"</span></div>
+                            <div><span class="keyword">source</span>: <span class="string">"{article.get('source', 'News')}"</span></div>
                             <div><span class="keyword">views</span>: <span class="string">{article['views']}</span></div>
-                            <div><span class="keyword">tag</span>: <span class="string">"{article['tag']}"</span></div>
+                            <div><span class="keyword">tag</span>: <span class="string">"{article.get('tag', article.get('category', 'AI'))}"</span></div>
                         </div>
                     </div>
                 </article>'''
     else:
         return f'''                <article class="card ai">
                     <div class="card-header">
-                        <span class="card-tag ai">{article['tag']}</span>
+                        <span class="card-tag ai">{article.get('tag', article.get('category', 'AI'))}</span>
                         <span class="card-date">{article['date']}</span>
                     </div>
                     <h3>{article['title']}</h3>
                     <p>{article['summary']}</p>
                     <div class="card-meta">
-                        <span>📄 {article['source']}</span>
+                        <span>📄 {article.get('source', 'News')}</span>
                         <span>⭐ {article['views']}</span>
                     </div>
                     <a href="{article['url']}" class="card-link ai" target="_blank">查看详情 →</a>

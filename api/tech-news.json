@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-02-19T23:29:44.819686Z",
+  "lastUpdated": "2026-02-19T23:43:21.859280Z",
   "categories": [
     {
       "id": "hot",
@@ -91,11 +91,11 @@
           "summary": "Hacker News报道的AI领域最新动态，值得关注的技术突破和行业新闻。",
           "meta": [
             "🔥 Hacker News",
-            "⭐ 512"
+            "⭐ 517"
           ],
           "url": "https://code.claude.com/docs/en/legal-and-compliance",
           "isHot": true,
-          "views": 5120
+          "views": 5170
         },
         {
           "title": "Tailscale Peer Relays is now generally available",
@@ -117,11 +117,11 @@
           "summary": "最新研究显示AI对企业生产力的影响，引发对AI投资回报率的深度反思。",
           "meta": [
             "🔥 Hacker News",
-            "⭐ 151"
+            "⭐ 152"
           ],
           "url": "https://cepr.org/voxeu/columns/how-ai-affecting-productivity-and-jobs-europe",
           "isHot": true,
-          "views": 1510
+          "views": 1520
         },
         {
           "title": "Don't Trust the Salt: AI Summarization, Multilingual Safety, and LLM Guardrails",
@@ -130,11 +130,11 @@
           "summary": "Hacker News报道的AI领域最新动态，值得关注的技术突破和行业新闻。",
           "meta": [
             "🔥 Hacker News",
-            "⭐ 122"
+            "⭐ 123"
           ],
           "url": "https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails",
           "isHot": true,
-          "views": 1220
+          "views": 1230
         },
         {
           "title": "What years of production-grade concurrency teaches us about building AI agents",
@@ -143,11 +143,11 @@
           "summary": "Hacker News报道的AI领域最新动态，值得关注的技术突破和行业新闻。",
           "meta": [
             "🔥 Hacker News",
-            "⭐ 113"
+            "⭐ 114"
           ],
           "url": "https://georgeguimaraes.com/your-agent-orchestrator-is-just-a-bad-clone-of-elixir/",
           "isHot": true,
-          "views": 1130
+          "views": 1140
         },
         {
           "title": "Show HN: A Lisp where each function call runs a Docker container",
@@ -156,11 +156,11 @@
           "summary": "Hacker News报道的AI领域最新动态，值得关注的技术突破和行业新闻。",
           "meta": [
             "🔥 Hacker News",
-            "⭐ 66"
+            "⭐ 67"
           ],
           "url": "https://github.com/a11ce/docker-lisp",
           "isHot": false,
-          "views": 660
+          "views": 670
         }
       ]
     },

@@ -4,7 +4,7 @@
       "title": "Don't Trust the Salt: AI Summarization, Multilingual Safety, and LLM Guardrails",
       "url": "https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails",
       "source": "Hacker News",
-      "score": 122,
+      "score": 123,
       "date": "Feb 17",
       "region": "国外"
     },
@@ -12,7 +12,7 @@
       "title": "Against Theory-Motivated Experimentation",
       "url": "https://journals.sagepub.com/doi/10.1177/26339137261421577",
       "source": "Hacker News",
-      "score": 5,
+      "score": 6,
       "date": "Feb 19",
       "region": "国外"
     },
@@ -28,15 +28,7 @@
       "title": "Anthropic officially bans using subscription auth for third party use",
       "url": "https://code.claude.com/docs/en/legal-and-compliance",
       "source": "Hacker News",
-      "score": 512,
-      "date": "Feb 19",
-      "region": "国外"
-    },
-    {
-      "title": "The future belongs to those who can refute AI, not just generate with AI",
-      "url": "https://learningloom.substack.com/p/the-future-belongs-to-those-who-can",
-      "source": "Hacker News",
-      "score": 24,
+      "score": 517,
       "date": "Feb 19",
       "region": "国外"
     },
@@ -44,7 +36,15 @@
       "title": "What years of production-grade concurrency teaches us about building AI agents",
       "url": "https://georgeguimaraes.com/your-agent-orchestrator-is-just-a-bad-clone-of-elixir/",
       "source": "Hacker News",
-      "score": 113,
+      "score": 114,
+      "date": "Feb 19",
+      "region": "国外"
+    },
+    {
+      "title": "The future belongs to those who can refute AI, not just generate with AI",
+      "url": "https://learningloom.substack.com/p/the-future-belongs-to-those-who-can",
+      "source": "Hacker News",
+      "score": 26,
       "date": "Feb 19",
       "region": "国外"
     },
@@ -52,7 +52,7 @@
       "title": "Show HN: A Lisp where each function call runs a Docker container",
       "url": "https://github.com/a11ce/docker-lisp",
       "source": "Hacker News",
-      "score": 66,
+      "score": 67,
       "date": "Feb 19",
       "region": "国外"
     },
@@ -60,7 +60,7 @@
       "title": "How AI is affecting productivity and jobs in Europe",
       "url": "https://cepr.org/voxeu/columns/how-ai-affecting-productivity-and-jobs-europe",
       "source": "Hacker News",
-      "score": 151,
+      "score": 152,
       "date": "Feb 19",
       "region": "国外"
     },
@@ -120,5 +120,5 @@
     }
   ],
   "papers": [],
-  "updated_at": "2026-02-19T23:28:50.518058"
+  "updated_at": "2026-02-19T23:42:48.759193"
 }
