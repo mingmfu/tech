@@ -384,49 +384,9 @@
         .card p {
             font-size: 0.95rem;
             color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
         }
-
-        /* 展开/折叠样式 */
-        .summary-container {
-            margin-bottom: 0.5rem;
-        }
-
-        .summary-preview {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .summary-preview.expanded {
-            -webkit-line-clamp: unset;
-            display: block;
-        }
-
-        .summary-full {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            display: none;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .summary-full.expanded {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .expand-btn {
             display: inline-flex;
             align-items: center;
             gap: 0.25rem;
@@ -441,17 +401,6 @@
             transition: all 0.2s ease;
         }
 
-        .expand-btn:hover {
-            color: #60a5fa;
-        }
-
-        .expand-btn::after {
-            content: '↓';
-            font-size: 0.7rem;
-            transition: transform 0.3s ease;
-        }
-
-        .expand-btn.expanded::after {
             transform: rotate(180deg);
         }
 
@@ -1380,57 +1329,6 @@
         });
 
         // 展开/折叠功能
-        function initExpandButtons() {
-            // 为所有卡片添加展开/折叠功能
-            document.querySelectorAll('.card').forEach(card => {
-                const p = card.querySelector('p');
-                if (!p || p.textContent.length < 150) return; // 短内容不需要折叠
-
-                const fullText = p.innerHTML;
-                const previewText = fullText.slice(0, 120) + '...';
-
-                // 创建展开/折叠结构
-                const container = document.createElement('div');
-                container.className = 'summary-container';
-
-                const preview = document.createElement('div');
-                preview.className = 'summary-preview';
-                preview.innerHTML = fullText;
-
-                const btn = document.createElement('button');
-                btn.className = 'expand-btn';
-                btn.textContent = '展开阅读全文';
-
-                container.appendChild(preview);
-                container.appendChild(btn);
-
-                // 替换原来的p标签
-                p.parentNode.replaceChild(container, p);
-
-                // 添加点击事件
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    if (preview.classList.contains('expanded')) {
-                        // 折叠
-                        preview.classList.remove('expanded');
-                        btn.classList.remove('expanded');
-                        btn.textContent = '展开阅读全文';
-                    } else {
-                        // 展开
-                        preview.classList.add('expanded');
-                        btn.classList.add('expanded');
-                        btn.textContent = '收起';
-                    }
-                });
-            });
-        }
-
-        // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            initExpandButtons();
-        });
     </script>
 </body>
 </html>
