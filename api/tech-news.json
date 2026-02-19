@@ -8,8 +8,8 @@
       "articles": [
         {
           "id": "anthropic-officially-bans-using-subscription-auth-",
-          "title": "Anthropic officially bans using subscription auth for third party use",
-          "summary": "Anthropic officially bans using subscription auth for third party use",
+          "title": "Anthropic官方禁止将订阅授权用于第三方",
+          "summary": "热点: Anthropic官方禁止将订阅授权用于第三方...",
           "category": "hot",
           "tag": "热点",
           "source": "Hacker News",
@@ -20,8 +20,8 @@
         },
         {
           "id": "tailscale-peer-relays-is-now-generally-available",
-          "title": "Tailscale Peer Relays is now generally available",
-          "summary": "Tailscale Peer Relays is now generally available",
+          "title": "Tailscale对等中继功能正式发布",
+          "summary": "热点: Tailscale对等中继功能正式发布...",
           "category": "hot",
           "tag": "热点",
           "source": "Hacker News",
@@ -32,8 +32,8 @@
         },
         {
           "id": "how-ai-is-affecting-productivity-and-jobs-in-europ",
-          "title": "How AI is affecting productivity and jobs in Europe",
-          "summary": "How AI is affecting productivity and jobs in Europe",
+          "title": "AI如何影响欧洲的生产力和就业",
+          "summary": "热点: AI如何影响欧洲的生产力和就业...",
           "category": "hot",
           "tag": "热点",
           "source": "Hacker News",
@@ -44,8 +44,8 @@
         },
         {
           "id": "show-hn-a-lisp-where-each-function-call-runs-a-doc",
-          "title": "Show HN: A Lisp where each function call runs a Docker container",
-          "summary": "Show HN: A Lisp where each function call runs a Docker container",
+          "title": "每个函数调用都运行Docker容器的Lisp方言",
+          "summary": "热点: 每个函数调用都运行Docker容器的Lisp方言...",
           "category": "hot",
           "tag": "热点",
           "source": "Hacker News",
@@ -56,8 +56,8 @@
         },
         {
           "id": "show-hn-rebrain.gg-–-doom-learn,-don't-doom-scroll",
-          "title": "Show HN: Rebrain.gg – Doom learn, don't doom scroll",
-          "summary": "Show HN: Rebrain.gg – Doom learn, don't doom scroll",
+          "title": "Rebrain.gg – 沉浸式学习，不要无意义刷屏",
+          "summary": "热点: Rebrain.gg – 沉浸式学习，不要无意义刷屏...",
           "category": "hot",
           "tag": "热点",
           "source": "Hacker News",
@@ -68,8 +68,8 @@
         },
         {
           "id": "microsoft-guide-to-pirating-harry-potter-for-llm-t",
-          "title": "Microsoft guide to pirating Harry Potter for LLM training (2024) [removed]",
-          "summary": "Microsoft guide to pirating Harry Potter for LLM training (2024) [removed]",
+          "title": "微软LLM训练数据获取指南引发争议",
+          "summary": "热点: 微软LLM训练数据获取指南引发争议...",
           "category": "hot",
           "tag": "热点",
           "source": "Hacker News",
@@ -87,7 +87,7 @@
         {
           "id": "deepseek-r1-推理模型的开源突破",
           "title": "DeepSeek-R1: 推理模型的开源突破",
-          "summary": "DeepSeek 发布的 R1 模型在数学推理和代码生成任务上媲美 OpenAI o1，以极低的训练成本实现了惊人的性能。",
+          "summary": "LLM: DeepSeek-R1: 推理模型的开源突破...",
           "category": "ai",
           "tag": "LLM",
           "source": "arXiv",
@@ -99,7 +99,7 @@
         {
           "id": "mixture-of-experts-moe-架构新进展",
           "title": "Mixture of Experts (MoE) 架构新进展",
-          "summary": "最新的研究表明，通过动态路由和专家选择策略的优化，MoE 模型可以在保持性能的同时将推理成本降低 40%。",
+          "summary": "LLM · Efficiency: Mixture of Experts (MoE) 架构新进展...",
           "category": "ai",
           "tag": "LLM · Efficiency",
           "source": "arXiv",
@@ -111,7 +111,7 @@
         {
           "id": "sora-之后：视频生成模型的技术演进",
           "title": "Sora 之后：视频生成模型的技术演进",
-          "summary": "OpenAI Sora 展示了 Transformer 在视频生成中的潜力。最新研究聚焦于时空一致性、长视频生成和可控性。",
+          "summary": "Vision · Multimodal: Sora 之后：视频生成模型的技术演进...",
           "category": "ai",
           "tag": "Vision · Multimodal",
           "source": "arXiv",
@@ -123,7 +123,7 @@
         {
           "id": "agent-系统的记忆机制设计",
           "title": "Agent 系统的记忆机制设计",
-          "summary": "如何让 AI Agent 拥有长期记忆？最新的记忆架构结合了向量检索、知识图谱和参数记忆。",
+          "summary": "Agents · RAG: Agent 系统的记忆机制设计...",
           "category": "ai",
           "tag": "Agents · RAG",
           "source": "arXiv",
@@ -134,8 +134,8 @@
         },
         {
           "id": "ai-芯片的存算一体新架构",
-          "title": "AI 芯片的存算一体新架构",
-          "summary": "存内计算 (Compute-in-Memory) 技术正在成熟，可将 Transformer 推理能耗降低 10 倍。",
+          "title": "AI技术: AI 芯片的存算一体新架构",
+          "summary": "MLOps · Hardware: AI技术: AI 芯片的存算一体新架构...",
           "category": "ai",
           "tag": "MLOps · Hardware",
           "source": "ISSCC",
