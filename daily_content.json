@@ -1,67 +1,67 @@
 {
   "news": [
     {
+      "title": "Gemini 3.1 Pro",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+      "source": "Hacker News",
+      "score": 531,
+      "date": "Feb 19",
+      "region": "国外"
+    },
+    {
       "title": "Don't Trust the Salt: AI Summarization, Multilingual Safety, and LLM Guardrails",
       "url": "https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails",
       "source": "Hacker News",
-      "score": 123,
+      "score": 180,
       "date": "Feb 17",
       "region": "国外"
     },
     {
-      "title": "Against Theory-Motivated Experimentation",
-      "url": "https://journals.sagepub.com/doi/10.1177/26339137261421577",
+      "title": "Single vaccine could protect against all coughs, colds and flus",
+      "url": "https://www.bbc.com/news/articles/cx2g8rz7yedo",
       "source": "Hacker News",
-      "score": 6,
+      "score": 119,
+      "date": "Feb 20",
+      "region": "国外"
+    },
+    {
+      "title": "Measuring AI agent autonomy in practice",
+      "url": "https://www.anthropic.com/research/measuring-agent-autonomy",
+      "source": "Hacker News",
+      "score": 80,
       "date": "Feb 19",
       "region": "国外"
     },
     {
-      "title": "Tailscale Peer Relays is now generally available",
-      "url": "https://tailscale.com/blog/peer-relays-ga",
+      "title": "We're no longer attracting top talent: the brain drain killing American science",
+      "url": "https://www.theguardian.com/us-news/2026/feb/19/trump-science-funding-cuts",
       "source": "Hacker News",
-      "score": 442,
-      "date": "Feb 19",
+      "score": 298,
+      "date": "Feb 20",
       "region": "国外"
     },
     {
-      "title": "Anthropic officially bans using subscription auth for third party use",
-      "url": "https://code.claude.com/docs/en/legal-and-compliance",
+      "title": "AI is not a coworker, it's an exoskeleton",
+      "url": "https://www.kasava.dev/blog/ai-as-exoskeleton",
       "source": "Hacker News",
-      "score": 517,
-      "date": "Feb 19",
+      "score": 148,
+      "date": "Feb 20",
       "region": "国外"
     },
     {
-      "title": "What years of production-grade concurrency teaches us about building AI agents",
-      "url": "https://georgeguimaraes.com/your-agent-orchestrator-is-just-a-bad-clone-of-elixir/",
+      "title": "AI makes you boring",
+      "url": "https://www.marginalia.nu/log/a_132_ai_bores/",
       "source": "Hacker News",
-      "score": 114,
-      "date": "Feb 19",
+      "score": 537,
+      "date": "Feb 20",
       "region": "国外"
     },
     {
-      "title": "The future belongs to those who can refute AI, not just generate with AI",
-      "url": "https://learningloom.substack.com/p/the-future-belongs-to-those-who-can",
+      "title": "Level of Detail",
+      "url": "https://phinze.com/writing/level-of-detail",
       "source": "Hacker News",
-      "score": 26,
-      "date": "Feb 19",
-      "region": "国外"
-    },
-    {
-      "title": "Show HN: A Lisp where each function call runs a Docker container",
-      "url": "https://github.com/a11ce/docker-lisp",
-      "source": "Hacker News",
-      "score": 67,
-      "date": "Feb 19",
-      "region": "国外"
-    },
-    {
-      "title": "How AI is affecting productivity and jobs in Europe",
-      "url": "https://cepr.org/voxeu/columns/how-ai-affecting-productivity-and-jobs-europe",
-      "source": "Hacker News",
-      "score": 152,
-      "date": "Feb 19",
+      "score": 29,
+      "date": "Feb 18",
       "region": "国外"
     },
     {
@@ -120,5 +120,5 @@
     }
   ],
   "papers": [],
-  "updated_at": "2026-02-19T23:42:48.759193"
+  "updated_at": "2026-02-20T10:00:04.934682"
 }
