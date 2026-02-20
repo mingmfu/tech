@@ -1,0 +1,301 @@
+{
+  "zhihu": [
+    {
+      "title": "DeepSeek-R1推理模型技术报告公开：如何用强化学习提升大模型推理能力",
+      "url": "https://zhuanlan.zhihu.com/p/",
+      "source": "知乎",
+      "platform": "zhihu",
+      "score": "580万",
+      "type": "tech"
+    },
+    {
+      "title": "Google Gemini 3.1 Pro发布，多模态能力再升级，能否挑战GPT-4地位？",
+      "url": "https://zhuanlan.zhihu.com/p/",
+      "source": "知乎",
+      "platform": "zhihu",
+      "score": "420万",
+      "type": "tech"
+    },
+    {
+      "title": "OpenAI Operator智能体引发热议：AI能自主操作浏览器是好事还是风险？",
+      "url": "https://zhuanlan.zhihu.com/p/",
+      "source": "知乎",
+      "platform": "zhihu",
+      "score": "380万",
+      "type": "discussion"
+    },
+    {
+      "title": "国内AI大模型价格战持续：谁能在这场烧钱大战中笑到最后？",
+      "url": "https://zhuanlan.zhihu.com/p/",
+      "source": "知乎",
+      "platform": "zhihu",
+      "score": "290万",
+      "type": "discussion"
+    },
+    {
+      "title": "Stargate项目5000亿美元投资：美国AI基础设施建设的豪赌",
+      "url": "https://zhuanlan.zhihu.com/p/",
+      "source": "知乎",
+      "platform": "zhihu",
+      "score": "250万",
+      "type": "news"
+    },
+    {
+      "title": "AI Agent写错报道引发的思考：AI新闻业的伦理边界在哪里？",
+      "url": "https://zhuanlan.zhihu.com/p/",
+      "source": "知乎",
+      "platform": "zhihu",
+      "score": "180万",
+      "type": "discussion"
+    },
+    {
+      "title": "从ChatGPT到Operator：OpenAI的产品演进路线透露了什么战略意图？",
+      "url": "https://zhuanlan.zhihu.com/p/",
+      "source": "知乎",
+      "platform": "zhihu",
+      "score": "165万",
+      "type": "analysis"
+    },
+    {
+      "title": "微软AI程序员被裁后发声：我们训练AI取代了自己",
+      "url": "https://zhuanlan.zhihu.com/p/",
+      "source": "知乎",
+      "platform": "zhihu",
+      "score": "140万",
+      "type": "news"
+    }
+  ],
+  "weibo": [
+    {
+      "title": "DeepSeek开源大模型震撼硅谷",
+      "url": "https://s.weibo.com/weibo?q=DeepSeek开源大模型震撼硅谷",
+      "source": "微博",
+      "platform": "weibo",
+      "score": "12500000",
+      "type": "hot",
+      "category": "科技"
+    },
+    {
+      "title": "国产AI机器人春晚上演舞蹈",
+      "url": "https://s.weibo.com/weibo?q=国产AI机器人春晚上演舞蹈",
+      "source": "微博",
+      "platform": "weibo",
+      "score": "9800000",
+      "type": "hot",
+      "category": "科技"
+    },
+    {
+      "title": "OpenAI发布Operator智能体",
+      "url": "https://s.weibo.com/weibo?q=OpenAI发布Operator智能体",
+      "source": "微博",
+      "platform": "weibo",
+      "score": "8200000",
+      "type": "hot",
+      "category": "科技"
+    },
+    {
+      "title": "GPT-5 rumored to be training",
+      "url": "https://s.weibo.com/weibo?q=GPT-5 rumored to be training",
+      "source": "微博",
+      "platform": "weibo",
+      "score": "6500000",
+      "type": "hot",
+      "category": "科技"
+    },
+    {
+      "title": "字节豆包大模型用户破千万",
+      "url": "https://s.weibo.com/weibo?q=字节豆包大模型用户破千万",
+      "source": "微博",
+      "platform": "weibo",
+      "score": "5400000",
+      "type": "hot",
+      "category": "科技"
+    },
+    {
+      "title": "谷歌Gemini 3.1 Pro发布",
+      "url": "https://s.weibo.com/weibo?q=谷歌Gemini 3.1 Pro发布",
+      "source": "微博",
+      "platform": "weibo",
+      "score": "4800000",
+      "type": "hot",
+      "category": "科技"
+    },
+    {
+      "title": "马斯克称Grok 3将是最强AI",
+      "url": "https://s.weibo.com/weibo?q=马斯克称Grok 3将是最强AI",
+      "source": "微博",
+      "platform": "weibo",
+      "score": "4200000",
+      "type": "hot",
+      "category": "科技"
+    },
+    {
+      "title": "AI绘画版权争议再升级",
+      "url": "https://s.weibo.com/weibo?q=AI绘画版权争议再升级",
+      "source": "微博",
+      "platform": "weibo",
+      "score": "3600000",
+      "type": "hot",
+      "category": "科技"
+    }
+  ],
+  "hackernews": [
+    {
+      "title": "MuMu Player (NetEase) silently runs 17 reconnaissance commands every 30 minutes",
+      "url": "https://gist.github.com/interpiduser5/547d8a7baec436f24b7cce89dd4ae1ea",
+      "source": "Hacker News",
+      "platform": "hackernews",
+      "score": 145,
+      "type": "tech",
+      "comments": 68
+    },
+    {
+      "title": "Gemini 3.1 Pro",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+      "source": "Hacker News",
+      "platform": "hackernews",
+      "score": 628,
+      "type": "tech",
+      "comments": 746
+    },
+    {
+      "title": "Consistency diffusion language models: Up to 14x faster, no quality loss",
+      "url": "https://www.together.ai/blog/consistency-diffusion-language-models",
+      "source": "Hacker News",
+      "platform": "hackernews",
+      "score": 16,
+      "type": "tech",
+      "comments": 2
+    },
+    {
+      "title": "An AI Agent Published a Hit Piece on Me – The Operator Came Forward",
+      "url": "https://theshamblog.com/an-ai-agent-wrote-a-hit-piece-on-me-part-4/",
+      "source": "Hacker News",
+      "platform": "hackernews",
+      "score": 221,
+      "type": "tech",
+      "comments": 171
+    },
+    {
+      "title": "Mystery donor gives Japanese city $3.6M in gold bars to fix water system",
+      "url": "https://www.bbc.com/news/articles/c3ew5jlqz87o",
+      "source": "Hacker News",
+      "platform": "hackernews",
+      "score": 8,
+      "type": "tech",
+      "comments": 3
+    },
+    {
+      "title": "An ARM Homelab Server, or a Minisforum MS-R1 Review",
+      "url": "https://sour.coffee/2026/02/20/an-arm-homelab-server-or-a-minisforum-ms-r1-review/",
+      "source": "Hacker News",
+      "platform": "hackernews",
+      "score": 40,
+      "type": "tech",
+      "comments": 36
+    },
+    {
+      "title": "Show HN: Micasa – track your house from the terminal",
+      "url": "https://micasa.dev",
+      "source": "Hacker News",
+      "platform": "hackernews",
+      "score": 495,
+      "type": "tech",
+      "comments": 158
+    },
+    {
+      "title": "Defer Available in GCC and Clang",
+      "url": "https://gustedt.wordpress.com/2026/02/15/defer-available-in-gcc-and-clang/",
+      "source": "Hacker News",
+      "platform": "hackernews",
+      "score": 12,
+      "type": "tech",
+      "comments": 1
+    },
+    {
+      "title": "Pi for Excel: AI sidebar add-in for Excel, powered by Pi",
+      "url": "https://github.com/tmustier/pi-for-excel",
+      "source": "Hacker News",
+      "platform": "hackernews",
+      "score": 26,
+      "type": "tech",
+      "comments": 3
+    },
+    {
+      "title": "A Famous Enigma: On Alexandre Kojève",
+      "url": "https://clereviewofbooks.com/isabel-jacobs-boris-groys-marco-filoni/",
+      "source": "Hacker News",
+      "platform": "hackernews",
+      "score": 7,
+      "type": "tech",
+      "comments": 0
+    }
+  ],
+  "baidu": [
+    {
+      "title": "DeepSeek-R1模型开源",
+      "url": "https://www.baidu.com/s?wd=DeepSeek-R1模型开源",
+      "source": "百度",
+      "platform": "baidu",
+      "score": "4985000",
+      "type": "hot"
+    },
+    {
+      "title": "OpenAI Operator功能介绍",
+      "url": "https://www.baidu.com/s?wd=OpenAI Operator功能介绍",
+      "source": "百度",
+      "platform": "baidu",
+      "score": "4523000",
+      "type": "hot"
+    },
+    {
+      "title": "Gemini 3.1 Pro发布",
+      "url": "https://www.baidu.com/s?wd=Gemini 3.1 Pro发布",
+      "source": "百度",
+      "platform": "baidu",
+      "score": "4156000",
+      "type": "hot"
+    },
+    {
+      "title": "AI智能体安全风险",
+      "url": "https://www.baidu.com/s?wd=AI智能体安全风险",
+      "source": "百度",
+      "platform": "baidu",
+      "score": "3892000",
+      "type": "hot"
+    },
+    {
+      "title": "Stargate项目投资",
+      "url": "https://www.baidu.com/s?wd=Stargate项目投资",
+      "source": "百度",
+      "platform": "baidu",
+      "score": "3567000",
+      "type": "hot"
+    },
+    {
+      "title": "国内大模型价格战",
+      "url": "https://www.baidu.com/s?wd=国内大模型价格战",
+      "source": "百度",
+      "platform": "baidu",
+      "score": "3241000",
+      "type": "hot"
+    },
+    {
+      "title": "NVIDIA RTX 5090发布",
+      "url": "https://www.baidu.com/s?wd=NVIDIA RTX 5090发布",
+      "source": "百度",
+      "platform": "baidu",
+      "score": "2985000",
+      "type": "hot"
+    },
+    {
+      "title": "AI Agent写错报道",
+      "url": "https://www.baidu.com/s?wd=AI Agent写错报道",
+      "source": "百度",
+      "platform": "baidu",
+      "score": "2654000",
+      "type": "hot"
+    }
+  ],
+  "updated_at": "2026-02-20T13:38:31.988579"
+}
