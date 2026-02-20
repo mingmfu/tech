@@ -1,0 +1,93 @@
+{
+  "cailianshe": [
+    {
+      "title": "DeepSeek开源后引发资本关注：中国AI企业估值逻辑生变",
+      "url": "https://www.cls.cn/detail/",
+      "source": "财联社",
+      "platform": "cailianshe",
+      "score": 85000,
+      "type": "finance",
+      "brief": "DeepSeek以极低成本实现突破，重新引发资本市场对中国AI企业估值的讨论。"
+    },
+    {
+      "title": "AI板块节后大涨：机构密集调研算力产业链",
+      "url": "https://www.cls.cn/detail/",
+      "source": "财联社",
+      "platform": "cailianshe",
+      "score": 72000,
+      "type": "finance",
+      "brief": "春节后AI概念股表现强势，公募基金密集调研上游算力企业。"
+    },
+    {
+      "title": "Stargate项目落地：中美AI基础设施竞赛进入新阶段",
+      "url": "https://www.cls.cn/detail/",
+      "source": "财联社",
+      "platform": "cailianshe",
+      "score": 68000,
+      "type": "finance",
+      "brief": "5000亿美元投资计划启动，全球AI算力军备竞赛白热化。"
+    },
+    {
+      "title": "OpenAI Operator发布：AI应用商业化加速",
+      "url": "https://www.cls.cn/detail/",
+      "source": "财联社",
+      "platform": "cailianshe",
+      "score": 55000,
+      "type": "finance",
+      "brief": "智能体产品进入实用阶段，AI应用商业化进程超预期。"
+    },
+    {
+      "title": "国产AI芯片订单激增：昇腾、寒武纪产能供不应求",
+      "url": "https://www.cls.cn/detail/",
+      "source": "财联社",
+      "platform": "cailianshe",
+      "score": 48000,
+      "type": "finance",
+      "brief": "大模型训练需求爆发，国产AI芯片迎来历史性机遇。"
+    }
+  ],
+  "tieba": [
+    {
+      "title": "DeepSeek真的那么强吗？实测对比GPT-4",
+      "url": "https://tieba.baidu.com/f?kw=人工智能",
+      "source": "百度贴吧",
+      "platform": "tieba",
+      "score": 8500,
+      "type": "community"
+    },
+    {
+      "title": "OpenAI Operator感觉不太安全啊，能自动操作浏览器",
+      "url": "https://tieba.baidu.com/f?kw=chatgpt",
+      "source": "百度贴吧",
+      "platform": "tieba",
+      "score": 7200,
+      "type": "community"
+    },
+    {
+      "title": "国内AI大模型哪个好用？文心、通义、豆包实测",
+      "url": "https://tieba.baidu.com/f?kw=人工智能",
+      "source": "百度贴吧",
+      "platform": "tieba",
+      "score": 6800,
+      "type": "community"
+    },
+    {
+      "title": "AI绘画还会被起诉吗？版权到底怎么算",
+      "url": "https://tieba.baidu.com/f?kw=人工智能",
+      "source": "百度贴吧",
+      "platform": "tieba",
+      "score": 5500,
+      "type": "community"
+    },
+    {
+      "title": "学AI还有前途吗？感觉到处都是AI了",
+      "url": "https://tieba.baidu.com/f?kw=机器学习",
+      "source": "百度贴吧",
+      "platform": "tieba",
+      "score": 4800,
+      "type": "community"
+    }
+  ],
+  "rss": [],
+  "updated_at": "2026-02-20T13:41:39.783013"
+}
