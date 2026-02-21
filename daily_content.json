@@ -1,67 +1,67 @@
 {
   "news": [
     {
-      "title": "Gemini 3.1 Pro",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+      "title": "Ggml.ai joins Hugging Face to ensure the long-term progress of Local AI",
+      "url": "https://github.com/ggml-org/llama.cpp/discussions/19759",
       "source": "Hacker News",
-      "score": 531,
-      "date": "Feb 19",
-      "region": "国外"
-    },
-    {
-      "title": "Don't Trust the Salt: AI Summarization, Multilingual Safety, and LLM Guardrails",
-      "url": "https://royapakzad.substack.com/p/multilingual-llm-evaluation-to-guardrails",
-      "source": "Hacker News",
-      "score": 180,
-      "date": "Feb 17",
-      "region": "国外"
-    },
-    {
-      "title": "Single vaccine could protect against all coughs, colds and flus",
-      "url": "https://www.bbc.com/news/articles/cx2g8rz7yedo",
-      "source": "Hacker News",
-      "score": 119,
+      "score": 663,
       "date": "Feb 20",
       "region": "国外"
     },
     {
-      "title": "Measuring AI agent autonomy in practice",
-      "url": "https://www.anthropic.com/research/measuring-agent-autonomy",
+      "title": "Cord: Coordinating Trees of AI Agents",
+      "url": "https://www.june.kim/cord",
       "source": "Hacker News",
-      "score": 80,
-      "date": "Feb 19",
+      "score": 7,
+      "date": "Feb 21",
       "region": "国外"
     },
     {
-      "title": "We're no longer attracting top talent: the brain drain killing American science",
-      "url": "https://www.theguardian.com/us-news/2026/feb/19/trump-science-funding-cuts",
+      "title": "Every company building your AI assistant is now an ad company",
+      "url": "https://juno-labs.com/blogs/every-company-building-your-ai-assistant-is-an-ad-company",
       "source": "Hacker News",
-      "score": 298,
+      "score": 96,
+      "date": "Feb 21",
+      "region": "国外"
+    },
+    {
+      "title": "The path to ubiquitous AI (17k tokens/sec)",
+      "url": "https://taalas.com/the-path-to-ubiquitous-ai/",
+      "source": "Hacker News",
+      "score": 667,
       "date": "Feb 20",
       "region": "国外"
     },
     {
-      "title": "AI is not a coworker, it's an exoskeleton",
-      "url": "https://www.kasava.dev/blog/ai-as-exoskeleton",
+      "title": "Uncovering insiders and alpha on Polymarket with AI",
+      "url": "https://twitter.com/peterjliu/status/2024901585806225723",
       "source": "Hacker News",
-      "score": 148,
-      "date": "Feb 20",
+      "score": 76,
+      "date": "Feb 21",
       "region": "国外"
     },
     {
-      "title": "AI makes you boring",
-      "url": "https://www.marginalia.nu/log/a_132_ai_bores/",
+      "title": "Making frontier cybersecurity capabilities available to defenders",
+      "url": "https://www.anthropic.com/news/claude-code-security",
       "source": "Hacker News",
-      "score": 537,
-      "date": "Feb 20",
+      "score": 93,
+      "date": "Feb 21",
       "region": "国外"
     },
     {
-      "title": "Level of Detail",
-      "url": "https://phinze.com/writing/level-of-detail",
+      "title": "The Rediscovery of 103 Hokusai Lost Sketches (2021)",
+      "url": "https://japan-forward.com/eternal-hokusai-the-rediscovery-of-103-hokusai-lost-sketches/",
       "source": "Hacker News",
-      "score": 29,
-      "date": "Feb 18",
+      "score": 62,
+      "date": "Feb 16",
+      "region": "国外"
+    },
+    {
+      "title": "I hate AI side projects",
+      "url": "https://dylancastillo.co/posts/ai-side-projects.html",
+      "source": "Hacker News",
+      "score": 59,
+      "date": "Feb 21",
       "region": "国外"
     },
     {
@@ -120,5 +120,5 @@
     }
   ],
   "papers": [],
-  "updated_at": "2026-02-20T10:00:04.934682"
+  "updated_at": "2026-02-21T10:01:09.724491"
 }
