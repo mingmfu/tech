@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechInsight Hub - AI · 图形 · OS · 编译器</title>
-    <meta name="description" content="汇聚AI、计算机图形、操作系统、编译器与编程语言领域的前沿技术洞察">
+    <title>TechInsight Hub - AI产业情报与技术前沿</title>
+    <meta name="description" content="汇聚AI产业情报、学术前沿、计算机图形、操作系统、编译器领域的技术洞察">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,26 +18,15 @@
             --accent-ai: #3b82f6;
             --accent-ai-glow: rgba(59, 130, 246, 0.3);
             --accent-gfx: #8b5cf6;
-            --accent-gfx-glow: rgba(139, 92, 246, 0.3);
             --accent-os: #10b981;
-            --accent-os-glow: rgba(16, 185, 129, 0.3);
             --accent-pl: #f59e0b;
-            --accent-pl-glow: rgba(245, 158, 11, 0.3);
             --accent-hot: #ec4899;
-            --accent-hot-glow: rgba(236, 72, 153, 0.3);
             --border: #2a2a3a;
-            --gradient-hot: linear-gradient(135deg, #ec4899, #f43f5e);
             --gradient-ai: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            --gradient-gfx: linear-gradient(135deg, #8b5cf6, #ec4899);
-            --gradient-os: linear-gradient(135deg, #10b981, #06b6d4);
-            --gradient-pl: linear-gradient(135deg, #f59e0b, #ef4444);
+            --gradient-hot: linear-gradient(135deg, #ec4899, #f43f5e);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -52,13 +41,13 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(10, 10, 15, 0.9);
+            background: rgba(10, 10, 15, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
 
         .header-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 1rem 2rem;
             display: flex;
@@ -73,29 +62,26 @@
         }
 
         .logo-icon {
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background: var(--gradient-ai);
-            border-radius: 10px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         .logo-text {
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             font-weight: 700;
             background: linear-gradient(135deg, #fff 0%, #a0a0b0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        nav {
-            display: flex;
-            gap: 0.5rem;
-        }
+        nav { display: flex; gap: 0.25rem; }
 
         .nav-btn {
             padding: 0.5rem 1rem;
@@ -118,154 +104,132 @@
         .nav-btn.gfx:hover, .nav-btn.gfx.active { color: var(--accent-gfx); }
         .nav-btn.os:hover, .nav-btn.os.active { color: var(--accent-os); }
         .nav-btn.pl:hover, .nav-btn.pl.active { color: var(--accent-pl); }
-        .nav-btn.hot:hover, .nav-btn.hot.active { color: var(--accent-hot); }
-        .nav-btn.frontier:hover, .nav-btn.frontier.active { color: #a855f7; }
 
-        /* Dropdown Menu */
-        .nav-dropdown {
-            position: relative;
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            margin-top: 0.5rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 0.5rem;
-            min-width: 180px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            z-index: 200;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-            animation: fadeIn 0.2s ease;
-        }
-
-        .dropdown-menu .nav-btn {
-            display: block;
-            width: 100%;
-            text-align: left;
-            padding: 0.75rem 1rem;
-            margin: 0.25rem 0;
-        }
-
-        .dropdown-menu .nav-btn:hover {
-            background: var(--bg-hover);
-            border-radius: 8px;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 4rem 2rem;
-            text-align: center;
+        /* Weekly Report - Hero Section */
+        .weekly-hero {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
+        .weekly-hero::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 800px;
-            height: 400px;
-            background: radial-gradient(ellipse, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-            pointer-events: none;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
         }
 
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
+        .weekly-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             margin-bottom: 1.5rem;
         }
 
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            background: #10b981;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
+        .weekly-title {
+            font-size: 1.75rem;
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 span {
             background: var(--gradient-ai);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #fff 0%, #a0a0b0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
+        .weekly-subtitle {
             color: var(--text-muted);
-            margin-top: 0.25rem;
+            font-size: 0.95rem;
         }
 
-        /* Main Content */
-        main {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
+        .weekly-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.375rem 0.875rem;
+            background: rgba(236, 72, 153, 0.15);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--accent-hot);
         }
 
-        /* Section Styles */
-        .section {
-            display: none;
+        .weekly-summary {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid var(--accent-ai);
         }
 
-        .section.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
+        .weekly-summary p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 0.95rem;
         }
+
+        .weekly-summary strong {
+            color: var(--text-primary);
+        }
+
+        .weekly-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-primary {
+            padding: 0.75rem 1.5rem;
+            background: var(--gradient-ai);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary:hover { opacity: 0.9; }
+
+        .btn-secondary {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-hover);
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
+        /* Section Content */
+        .section { display: none; }
+        .section.active { display: block; animation: fadeIn 0.3s ease; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -276,399 +240,109 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .section-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
 
-        .section-title.ai { color: var(--accent-ai); }
-        .section-title.gfx { color: var(--accent-gfx); }
-        .section-title.os { color: var(--accent-os); }
-        .section-title.pl { color: var(--accent-pl); }
-        .section-title.hot { color: var(--accent-hot); }
-
         .update-time {
-            font-size: 0.875rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
         }
 
         /* Cards Grid */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-            gap: 1.5rem;
-        }
-
-        @media (max-width: 900px) {
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Card Styles */
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--border);
-            transition: all 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: var(--border);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .card.ai:hover::before { background: var(--accent-ai); box-shadow: 0 0 20px var(--accent-ai-glow); }
-        .card.gfx:hover::before { background: var(--accent-gfx); box-shadow: 0 0 20px var(--accent-gfx-glow); }
-        .card.os:hover::before { background: var(--accent-os); box-shadow: 0 0 20px var(--accent-os-glow); }
-        .card.pl:hover::before { background: var(--accent-pl); box-shadow: 0 0 20px var(--accent-pl-glow); }
-        .card.hot:hover::before { background: var(--accent-hot); box-shadow: 0 0 20px var(--accent-hot-glow); }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .card-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.375rem;
-            padding: 0.375rem 0.75rem;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .card-tag.ai { background: rgba(59, 130, 246, 0.15); color: var(--accent-ai); }
-        .card-tag.gfx { background: rgba(139, 92, 246, 0.15); color: var(--accent-gfx); }
-        .card-tag.os { background: rgba(16, 185, 129, 0.15); color: var(--accent-os); }
-        .card-tag.pl { background: rgba(245, 158, 11, 0.15); color: var(--accent-pl); }
-        .card-tag.hot { background: rgba(236, 72, 153, 0.15); color: var(--accent-hot); }
-
-        .card-date {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .card h3 {
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 0.75rem;
-        }
-
-        /* 展开/折叠样式 - 保留但默认显示完整 */
-        .summary-container {
-            margin-bottom: 0.5rem;
-        }
-
-        .summary-text {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            line-height: 1.7;
-            transition: all 0.3s ease;
-        }
-
-        /* 折叠状态 - 使用渐变遮罩而非省略号 */
-        .summary-text.collapsed {
-            max-height: 5.1em; /* 显示3行 */
-            overflow: hidden;
-            position: relative;
-        }
-
-        .summary-text.collapsed::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2em;
-            background: linear-gradient(transparent, var(--bg-card));
-            pointer-events: none;
-        }
-
-        .expand-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            color: var(--accent-ai);
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0.25rem 0;
-            margin-top: 0.5rem;
-            transition: all 0.2s ease;
-        }
-
-        .expand-btn:hover {
-            color: #60a5fa;
-        }
-
-        .expand-btn::after {
-            content: '↓';
-            font-size: 0.7rem;
-            transition: transform 0.3s ease;
-        }
-
-        .expand-btn.expanded::after {
-            transform: rotate(180deg);
-            content: '↑';
-        }
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
-            color: var(--accent-ai);
-            font-size: 0.85rem;
-            font-weight: 500;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0.25rem 0;
-            margin-bottom: 0.75rem;
-            transition: all 0.2s ease;
-        }
-
-            transform: rotate(180deg);
-        }
-
-        .card-meta {
-            display: flex;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 1rem;
-            font-size: 0.8rem;
-            color: var(--text-muted);
         }
 
-        .card-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.375rem;
-        }
-
-        .card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: gap 0.2s;
-        }
-
-        .card-link:hover {
-            gap: 0.75rem;
-        }
-
-        .card-link.ai { color: var(--accent-ai); }
-        .card-link.gfx { color: var(--accent-gfx); }
-        .card-link.os { color: var(--accent-os); }
-        .card-link.pl { color: var(--accent-pl); }
-        .card-link.hot { color: var(--accent-hot); }
-
-        /* Featured Card */
-        .featured-card {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        @media (max-width: 900px) {
-            .featured-card {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .featured-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .featured-content p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .featured-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .featured-tag {
-            padding: 0.375rem 0.875rem;
-            background: var(--bg-hover);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .featured-visual {
-            background: var(--bg-primary);
-            border-radius: 12px;
-            padding: 2rem;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .featured-visual::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 50% 50%, var(--accent-ai-glow) 0%, transparent 70%);
-        }
-
-        .code-preview {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            position: relative;
-            z-index: 1;
-        }
-
-        .code-preview .keyword { color: var(--accent-gfx); }
-        .code-preview .string { color: var(--accent-os); }
-        .code-preview .comment { color: var(--text-muted); }
-        .code-preview .function { color: var(--accent-pl); }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border);
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 2rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2rem;
-            top: 0.5rem;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--bg-card);
-            border: 2px solid var(--border);
-            margin-left: -4px;
-        }
-
-        .timeline-item.ai::before { border-color: var(--accent-ai); background: var(--accent-ai); }
-        .timeline-item.gfx::before { border-color: var(--accent-gfx); background: var(--accent-gfx); }
-        .timeline-item.os::before { border-color: var(--accent-os); background: var(--accent-os); }
-        .timeline-item.pl::before { border-color: var(--accent-pl); background: var(--accent-pl); }
-
-        .timeline-date {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-content {
+        .card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.25rem;
+            transition: all 0.2s;
         }
 
-        .timeline-content h4 {
+        .card:hover {
+            border-color: var(--accent-ai);
+            transform: translateY(-2px);
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 0.25rem 0.625rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-tag.ai { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+        .card-tag.gfx { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
+        .card-tag.os { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+        .card-tag.pl { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+
+        .card h3 {
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
+            line-height: 1.4;
         }
 
-        .timeline-content p {
-            font-size: 0.9rem;
+        .card p {
+            font-size: 0.875rem;
             color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .card-link {
+            color: var(--accent-ai);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .card-link:hover { text-decoration: underline; }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
-            padding: 3rem 2rem;
+            padding: 2rem;
             text-align: center;
+            margin-top: 3rem;
         }
 
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .footer-copyright {
-            font-size: 0.875rem;
+        footer p {
             color: var(--text-muted);
+            font-size: 0.875rem;
         }
 
         /* Responsive */
@@ -679,226 +353,26 @@
                 padding: 1rem;
             }
 
-            nav {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+            nav { flex-wrap: wrap; justify-content: center; }
 
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-stats {
+            .weekly-header {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 1rem;
             }
 
-            .hero {
-                padding: 2rem 1rem;
-            }
+            .weekly-title { font-size: 1.5rem; }
 
-            main {
-                padding: 0 1rem 2rem;
-            }
+            .cards-grid { grid-template-columns: 1fr; }
 
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
+            main { padding: 1rem; }
         }
 
         /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--border);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--text-muted);
-        }
-    
-        /* 今日热点解读样式 */
-        .insight-section {
-            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid rgba(236, 72, 153, 0.3);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .insight-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6);
-        }
-        
-        .insight-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .insight-icon {
-            font-size: 2.5rem;
-            line-height: 1;
-        }
-        
-        .insight-info h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            background: linear-gradient(135deg, #ec4899, #f43f5e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .insight-update {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        
-        .insight-content {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-        
-        .insight-content h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 1.5rem 0 0.75rem;
-        }
-        
-        .insight-content ul {
-            margin: 0.75rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        .insight-content li {
-            margin: 0.5rem 0;
-            position: relative;
-        }
-        
-        .insight-content li::before {
-            content: '▸';
-            position: absolute;
-            left: -1rem;
-            color: var(--accent-hot);
-        }
-        
-        .insight-tags {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .insight-tag {
-            padding: 0.375rem 0.75rem;
-            background: rgba(236, 72, 153, 0.15);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--accent-hot);
-        }
-        
-        /* 推荐阅读样式 */
-        .recommended-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        
-        .section-subtitle {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-        
-        .recommended-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem;
-        }
-        
-        @media (max-width: 768px) {
-            .recommended-list {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .recommended-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s;
-            border: 1px solid transparent;
-        }
-        
-        .recommended-item:hover {
-            background: var(--bg-hover);
-            border-color: var(--border);
-            transform: translateX(4px);
-        }
-        
-        .recommended-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .recommended-content {
-            flex: 1;
-            min-width: 0;
-        }
-        
-        .recommended-content h4 {
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .recommended-source {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-        
-        .recommended-arrow {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            transition: all 0.2s;
-        }
-        
-        .recommended-item:hover .recommended-arrow {
-            color: var(--accent-ai);
-            transform: translateX(4px);
-        }
-</style>
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+    </style>
 </head>
 <body>
     <header>
@@ -908,1150 +382,169 @@
                 <div class="logo-text">TechInsight Hub</div>
             </div>
             <nav>
-                <!-- 一级目录: AI热点 -->
-                <button class="nav-btn hot active" onclick="showSection('hot')">🔥 AI热点</button>
-                
-                <!-- 一级目录: 前沿技术 (带下拉) -->
-                <div class="nav-dropdown">
-                    <button class="nav-btn frontier" onclick="toggleDropdown()">
-                        🔬 前沿技术 ▼
-                    </button>
-                    <div class="dropdown-menu" id="frontierDropdown">
-                        <button class="nav-btn ai" onclick="showSection('ai'); closeDropdown()">🤖 AI学术</button>
-                        <button class="nav-btn gfx" onclick="showSection('gfx'); closeDropdown()">🎨 图形</button>
-                        <button class="nav-btn os" onclick="showSection('os'); closeDropdown()">🖥️ 操作系统</button>
-                        <button class="nav-btn pl" onclick="showSection('pl'); closeDropdown()">⚡ 编译器 & PL</button>
-                    </div>
-                </div>
+                <button class="nav-btn ai active" onclick="showSection('weekly')">🔥 AI周报</button>
+                <button class="nav-btn" onclick="showSection('ai')">🤖 AI学术</button>
+                <button class="nav-btn gfx" onclick="showSection('gfx')">🎨 图形</button>
+                <button class="nav-btn os" onclick="showSection('os')">🖥️ OS</button>
+                <button class="nav-btn pl" onclick="showSection('pl')">⚡ 编译器</button>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-badge">
-            <span class="dot"></span>
-            <span>每日更新 · 2026年02月21日</span>
-        </div>
-        <h1>探索<span>技术前沿</span></h1>
-        <p>汇聚 AI、计算机图形、操作系统、编译器与编程语言领域的最新研究动态与深度洞察</p>
-    </section>
-
     <main>
-        <!-- AI Hot News Section (First Priority) -->
-        <section id="hot" class="section active">
-                        <!-- AI产业情报周报 -->
-            <section class="weekly-report-section">
+        <!-- AI Weekly Report Section -->
+        <section id="weekly" class="section active">
+            <div class="weekly-hero">
                 <div class="weekly-header">
-                    <div class="weekly-icon">📊</div>
-                    <div class="weekly-info">
-                        <h2>AI产业情报周报</h2>
-                        <span class="weekly-date">2025年2月15-21日 · Anthropic 300亿美元创纪录融资周</span>
+                    <div>
+                        <h1 class="weekly-title">📊 AI产业情报周报</h1>
+                        <p class="weekly-subtitle">2025年2月15-21日 · 第8周</p>
                     </div>
+                    <span class="weekly-badge">🔥 Anthropic 300亿美元创纪录融资</span>
                 </div>
                 
-                <!-- 执行摘要 -->
                 <div class="weekly-summary">
-                    <h3>📋 执行摘要</h3>
-                    <ul>
-                        <li><strong>基础模型密集发布期</strong>：OpenAI推出GPT-4.5研究预览版，Anthropic发布Claude Opus 4.6和Sonnet 4.6双模型并完成创纪录的300亿美元G轮融资。</li>
-                        <li><strong>Agent基础设施标准化</strong>：Anthropic开源Model Context Protocol (MCP)有望成为AI与外部数据连接的行业标准，标志着AI应用生态从"模型竞争"向"生态整合"演进。</li>
-                        <li><strong>企业AI市场验证</strong>：Anthropic年收入运转率140亿美元，连续三年每年增长超10倍，验证了企业级AI应用的真实付费意愿。</li>
-                    </ul>
+                    <p><strong>Anthropic 300亿美元创AI融资纪录，企业AI市场进入验证期。</strong>本周OpenAI与Anthropic密集发布基础模型：GPT-4.5强调无监督学习scaling，Claude Opus/Sonnet 4.6双模型主打编码与Agent能力。更值得关注的是Anthropic开源的MCP协议，有望成为AI连接数据源的"HTTP标准"，标志着AI生态从模型竞争向基础设施整合演进。企业级AI的真实付费意愿已被验证——Anthropic年收入运转率140亿美元，连续三年年增长超10倍。</p>
                 </div>
-
-                <!-- 热点图谱 -->
-                <div class="weekly-hotspots">
-                    <h3>🔥 热点图谱</h3>
-                    
-                    <div class="hotspot-grid">
-                        <div class="hotspot-card">
-                            <div class="hotspot-title">💻 技术突破</div>
-                            <ul>
-                                <li>OpenAI GPT-4.5发布 <span class="source">OpenAI官方</span></li>
-                                <li>Claude Opus 4.6 - 业界最强模型 <span class="source">Anthropic</span></li>
-                                <li>Claude Sonnet 4.6 - 性价比之王 <span class="source">Anthropic</span></li>
-                                <li>MCP协议开源 - AI数据连接标准 <span class="source">Anthropic</span></li>
-                                <li>智谱GLM-5发布 <span class="source">机器之心</span></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="hotspot-card">
-                            <div class="hotspot-title">💼 商业落地</div>
-                            <ul>
-                                <li>Claude in PowerPoint - 办公套件扩展 <span class="source">Anthropic</span></li>
-                                <li>Claude Code Agent Teams - 多Agent协作 <span class="source">Anthropic</span></li>
-                                <li>Anthropic × Infosys合作 <span class="source">官方</span></li>
-                                <li>MCP企业连接器发布 <span class="source">Anthropic</span></li>
-                                <li>Claude for Excel金融数据支持 <span class="source">Anthropic</span></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="hotspot-card">
-                            <div class="hotspot-title">💰 产业资本</div>
-                            <ul>
-                                <li>Anthropic G轮融资300亿美元 <span class="source">官方</span></li>
-                                <li>投后估值3800亿美元 <span class="source">官方</span></li>
-                                <li>年收入运转率140亿美元 <span class="source">官方</span></li>
-                                <li>连续三年年增长超10倍 <span class="source">官方</span></li>
-                                <li>GIC和Coatue领投 <span class="source">官方</span></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="hotspot-card">
-                            <div class="hotspot-title">👥 人才与组织</div>
-                            <ul>
-                                <li>顶级AI人才竞争白热化 <span class="source">综合</span></li>
-                                <li>OpenAI与Anthropic争夺顶尖研究者 <span class="source">综合</span></li>
-                                <li>Anthropic与Rwanda政府签署MOU <span class="source">官方</span></li>
-                                <li>AI在医疗和教育领域应用合作 <span class="source">官方</span></li>
-                            </ul>
-                        </div>
-                        
-                        <div class="hotspot-card">
-                            <div class="hotspot-title">🌍 地缘政治</div>
-                            <ul>
-                                <li>美国AI芯片管制持续 <span class="source">政策</span></li>
-                                <li>对华AI芯片出口管制维持严格态势 <span class="source">政策</span></li>
-                                <li>欧盟AI法案合规要求逐步落地 <span class="source">监管</span></li>
-                                <li>中国AI自主可控 - 智谱持续迭代 <span class="source">产业</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 深度解读 -->
-                <div class="weekly-deep-dive">
-                    <h3>🔍 深度解读</h3>
-                    
-                    <div class="deep-dive-item">
-                        <h4>Anthropic 300亿美元融资与AI资本军备竞赛</h4>
-                        <p>Anthropic此次融资创造了AI领域单轮融资纪录，估值达3800亿美元，年收入运转率140亿美元且连续三年10倍增长，验证了<strong>企业级AI应用的真实付费意愿</strong>。与OpenAI的C端策略不同，Anthropic聚焦B端企业服务，这一差异化定位获得资本市场高度认可。</p>
-                        <div class="impact-analysis">
-                            <span class="impact-tag tech">技术：Agentic AI成为新战场</span>
-                            <span class="impact-tag business">商业：基础设施与模型垂直整合</span>
-                        </div>
-                    </div>
-                    
-                    <div class="deep-dive-item">
-                        <h4>Model Context Protocol (MCP) 的开源战略意义</h4>
-                        <p>MCP是AI领域的<strong>"HTTP协议"时刻</strong>。通过标准化协议，AI系统能够统一、安全地访问各类数据源。Block、Apollo、Zed、Replit、Sourcegraph等已集成，形成生态网络效应。</p>
-                        <div class="impact-analysis">
-                            <span class="impact-tag tech">技术：降低AI应用开发门槛</span>
-                            <span class="impact-tag business">商业：数据层与模型层解耦</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 预警雷达 -->
-                <div class="weekly-radar">
-                    <h3>⚠️ 预警雷达</h3>
-                    
-                    <div class="radar-section">
-                        <h4>🚨 可能被过度炒作的信号</h4>
-                        <ul>
-                            <li>基础模型性能竞赛 — 边际收益递减，关注实际应用ROI而非基准测试分数</li>
-                            <li>Agent自主能力 — "Agent"概念泛化，关注端到端任务完成率而非演示效果</li>
-                            <li>Claude Sonnet 4.6 vs Opus — Sonnet性能接近Opus可能影响高端定价</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="radar-section">
-                        <h4>👀 需持续观察的信号</h4>
-                        <ul>
-                            <li>GPT-4.5长期API支持 — OpenAI评估是否继续服务，可能预示模型淘汰加速</li>
-                            <li>MCP生态采纳速度 — 若主流云厂商原生支持将加速标准化</li>
-                            <li>中美AI差距变化 — 智谱GLM-5等国产模型追赶，受限于算力供应链</li>
-                            <li>企业AI预算持续性 — 140亿美元ARR增速能否维持，验证AI是否为刚需</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="weekly-footer">
-                    <a href="ai_weekly_report_20250221.md" class="weekly-link" target="_blank">📄 查看完整报告 →</a>
-                    <span class="weekly-tags">
-                        <span class="tag">AI分析</span>
-                        <span class="tag">产业情报</span>
-                        <span class="tag">周报</span>
-                    </span>
-                </div>
-            </section>
-
-            <style>
-                .weekly-report-section {
-                    background: linear-gradient(135deg, rgba(59, 130, 246, 0.08), rgba(139, 92, 246, 0.08));
-                    border: 1px solid rgba(59, 130, 246, 0.2);
-                    border-radius: 20px;
-                    padding: 2rem;
-                    margin-bottom: 2rem;
-                }
-                .weekly-header {
-                    display: flex;
-                    align-items: center;
-                    gap: 1rem;
-                    margin-bottom: 1.5rem;
-                    padding-bottom: 1rem;
-                    border-bottom: 1px solid var(--border);
-                }
-                .weekly-icon { font-size: 2.5rem; }
-                .weekly-info h2 {
-                    font-size: 1.75rem;
-                    font-weight: 700;
-                    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                }
-                .weekly-date {
-                    font-size: 0.9rem;
-                    color: var(--text-muted);
-                }
-                .weekly-summary {
-                    background: var(--bg-card);
-                    border-radius: 12px;
-                    padding: 1.5rem;
-                    margin-bottom: 1.5rem;
-                }
-                .weekly-summary h3 {
-                    color: var(--accent-ai);
-                    margin-bottom: 1rem;
-                    font-size: 1.1rem;
-                }
-                .weekly-summary ul {
-                    margin: 0;
-                    padding-left: 1.25rem;
-                }
-                .weekly-summary li {
-                    margin: 0.5rem 0;
-                    color: var(--text-secondary);
-                    line-height: 1.6;
-                }
-                .hotspot-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                    gap: 1rem;
-                    margin: 1rem 0;
-                }
-                .hotspot-card {
-                    background: var(--bg-card);
-                    border-radius: 12px;
-                    padding: 1.25rem;
-                    border: 1px solid var(--border);
-                }
-                .hotspot-title {
-                    font-weight: 600;
-                    color: var(--text-primary);
-                    margin-bottom: 0.75rem;
-                    padding-bottom: 0.5rem;
-                    border-bottom: 1px solid var(--border);
-                }
-                .hotspot-card ul {
-                    margin: 0;
-                    padding-left: 1rem;
-                    font-size: 0.9rem;
-                }
-                .hotspot-card li {
-                    margin: 0.4rem 0;
-                    color: var(--text-secondary);
-                }
-                .source {
-                    font-size: 0.75rem;
-                    color: var(--text-muted);
-                    margin-left: 0.5rem;
-                }
-                .deep-dive-item {
-                    background: var(--bg-card);
-                    border-radius: 12px;
-                    padding: 1.25rem;
-                    margin: 1rem 0;
-                    border-left: 3px solid var(--accent-ai);
-                }
-                .deep-dive-item h4 {
-                    color: var(--text-primary);
-                    margin-bottom: 0.5rem;
-                }
-                .impact-analysis {
-                    margin-top: 0.75rem;
-                    display: flex;
-                    flex-wrap: wrap;
-                    gap: 0.5rem;
-                }
-                .impact-tag {
-                    font-size: 0.8rem;
-                    padding: 0.25rem 0.75rem;
-                    border-radius: 100px;
-                }
-                .impact-tag.tech { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
-                .impact-tag.business { background: rgba(16, 185, 129, 0.2); color: #34d399; }
-                .impact-tag.risk { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
-                .radar-section {
-                    background: var(--bg-card);
-                    border-radius: 12px;
-                    padding: 1.25rem;
-                    margin: 1rem 0;
-                }
-                .radar-section h4 {
-                    color: var(--accent-hot);
-                    margin-bottom: 0.75rem;
-                }
-                .weekly-footer {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-top: 1.5rem;
-                    padding-top: 1rem;
-                    border-top: 1px solid var(--border);
-                }
-                .weekly-link {
-                    color: var(--accent-ai);
-                    text-decoration: none;
-                    font-weight: 500;
-                }
-                .weekly-tags {
-                    display: flex;
-                    gap: 0.5rem;
-                }
-                .tag {
-                    font-size: 0.8rem;
-                    padding: 0.25rem 0.75rem;
-                    background: var(--bg-hover);
-                    border-radius: 100px;
-                    color: var(--text-muted);
-                }
-            </style>
-
-                        <!-- 今日热点解读 -->
-            <section class="insight-section">
-                <div class="insight-header">
-                    <div class="insight-icon">🔥</div>
-                    <div class="insight-info">
-                        <h2>今日AI热点解读</h2>
-                        <span class="insight-update">2026年02月20日 · 基于知乎、微博、Hacker News等多平台数据分析</span>
-                    </div>
-                </div>
-                <div class="insight-content">
-                    <p><h3 class="insight-title">📊 今日AI热点全景分析</h3></p><p><strong>数据概览</strong>：整合 44 条热点数据<br><ul class="insight-list"><li>基础源（知乎/微博/百度/HN）：34 条</li><br><li>扩展源（财联社/贴吧）：10 条</li></p><p><strong>各平台热点聚焦</strong>：</p><p>📚 <strong>知乎</strong>（技术深度）：<br>  • DeepSeek-R1推理模型技术报告公开：如何用强化学习提升大模型推...<br>  • Google Gemini 3.1 Pro发布，多模态能力再升级，能否...</p><p>📱 <strong>微博</strong>（大众传播）：<br>  • DeepSeek开源大模型震撼硅谷...<br>  • 国产AI机器人春晚上演舞蹈...</p><p>💻 <strong>Hacker News</strong>（国际技术）：<br>  • MuMu Player (NetEase) silently runs 17 r...<br>  • Gemini 3.1 Pro...</p><p>💰 <strong>财联社</strong>（投资视角）：<br>  • DeepSeek开源后引发资本关注：中国AI企业估值逻辑生变...<br>  • AI板块节后大涨：机构密集调研算力产业链...</p><p>💬 <strong>贴吧</strong>（草根声音）：<br>  • DeepSeek真的那么强吗？实测对比GPT-4...<br>  • OpenAI Operator感觉不太安全啊，能自动操作浏览器...</p><p><strong>🔥 跨平台共识热点</strong>：</p><p>通过多平台数据交叉验证，以下话题在各平台均有较高关注度：</p><p><li><strong>DeepSeek开源</strong>：出现在 知乎, 微博, 百度, 财联社</li><br><li><strong>OpenAI Operator</strong>：出现在 知乎, 微博, Hacker News, 财联社</li><br><li><strong>Gemini 3.1 Pro</strong>：出现在 知乎, 微博, 百度, Hacker News</li></p><p><strong>📊 多维视角分析</strong>：</p><p>1️⃣ <strong>投资视角</strong>（财联社）：<br>   AI板块节后大涨，机构密集调研算力产业链。DeepSeek开源引发估值逻辑重估，国产AI芯片订单激增。</p><p>2️⃣ <strong>技术视角</strong>（知乎/Hacker News）：<br>   技术社区关注DeepSeek的RL训练方法和Operator的安全边界。Gemini 3.1 Pro的多模态能力引发与GPT-4的对比讨论。</p><p>3️⃣ <strong>大众视角</strong>（微博/贴吧）：<br>   普通用户对国产AI的自豪感增强，同时也关注AI Agent的安全性和AI对就业的影响。</p><p>4️⃣ <strong>国际视角</strong>（Hacker News）：<br>   更关注AI伦理、安全性和长期风险。MuMu Player的隐私问题引发对国产软件的信任讨论。</p><p><strong>💡 研判建议</strong>：</p><p><li><strong>投资者</strong>：关注有实际落地场景的AI标的，如算力基建、AI应用。警惕纯概念炒作。</li></p><p><li><strong>开发者</strong>：开源模型降低门槛，现在是构建AI应用的好时机。多模态和AI Agent是热点方向。</li></p><p><li><strong>企业决策者</strong>：国产AI生态日趋成熟，可考虑引入降本增效。同时关注数据安全和合规。</li></p><p><li><strong>从业者</strong>：AI人才需求依然旺盛，但要求从"会调API"升级为"懂业务+懂AI"。</li></p><p><strong>⚠️ 风险提示</strong>：</p><p><li>AI Agent的自主性带来安全风险，监管政策可能趋严</li><br><li>部分AI概念股估值过高，需警惕回调</li><br><li>国际技术竞争加剧，需关注供应链风险</li></ul></p>
-                </div>
-                <div class="insight-tags">
-                    <span class="insight-tag">📊 数据驱动</span>
-                    <span class="insight-tag">🤖 AI分析</span>
-                    <span class="insight-tag">🌐 多平台聚合</span>
-                </div>
-            </section>
-
-                        <!-- 推荐阅读 -->
-            <section class="recommended-section">
-                <h3 class="section-subtitle">📖 深度阅读</h3>
-                <div class="recommended-list">
-                    <a href="https://zhuanlan.zhihu.com/p/" target="_blank" class="recommended-item">
-                        <div class="recommended-icon">📚</div>
-                        <div class="recommended-content">
-                            <h4>从ChatGPT到Operator：OpenAI的产品演进路线透露了什么战略意图？</h4>
-                            <span class="recommended-source">知乎</span>
-                        </div>
-                        <span class="recommended-arrow">→</span>
+                
+                <div class="weekly-actions">
+                    <a href="ai_weekly_report_20250221.md" class="btn-primary" target="_blank">
+                        📄 查看完整报告
                     </a>
-                    <a href="https://zhuanlan.zhihu.com/p/" target="_blank" class="recommended-item">
-                        <div class="recommended-icon">📚</div>
-                        <div class="recommended-content">
-                            <h4>Google Gemini 3.1 Pro发布，多模态能力再升级，能否挑战GPT-4地位？</h4>
-                            <span class="recommended-source">知乎</span>
-                        </div>
-                        <span class="recommended-arrow">→</span>
-                    </a>
-                    <a href="https://theshamblog.com/an-ai-agent-wrote-a-hit-piece-on-me-part-4/" target="_blank" class="recommended-item">
-                        <div class="recommended-icon">💻</div>
-                        <div class="recommended-content">
-                            <h4>An AI Agent Published a Hit Piece on Me – The Operator Came Forward</h4>
-                            <span class="recommended-source">Hacker News</span>
-                        </div>
-                        <span class="recommended-arrow">→</span>
-                    </a>
-                    <a href="https://gist.github.com/interpiduser5/547d8a7baec436f24b7cce89dd4ae1ea" target="_blank" class="recommended-item">
-                        <div class="recommended-icon">💻</div>
-                        <div class="recommended-content">
-                            <h4>MuMu Player (NetEase) silently runs 17 reconnaissance commands every 30 minutes</h4>
-                            <span class="recommended-source">Hacker News</span>
-                        </div>
-                        <span class="recommended-arrow">→</span>
+                    <a href="https://github.com/mingmfu/tech" class="btn-secondary" target="_blank">
+                        🐙 GitHub
                     </a>
                 </div>
-            </section>
+            </div>
 
+            <!-- Hotspots Preview -->
             <div class="section-header">
-                <h2 class="section-title hot">
-                    <span>🔥</span>
-                    AI热点
-                </h2>
-                <span class="update-time">最后更新: 2026年02月21日</span>
+                <h2 class="section-title">🔥 本周热点速览</h2>
+                <span class="update-time">最后更新: 2025-02-21</span>
             </div>
+            
             <div class="cards-grid">
-                <!-- Featured -->
-                <article class="card featured-card hot">
-                    <div class="featured-content">
-                        <span class="card-tag hot">FEATURED · 国际 · AI智能体</span>
-                        <h2>OpenAI发布Operator：AI智能体可自主操控浏览器</h2>
-                        <p>OpenAI正式推出Operator智能体产品，能够像人类一样自主操控浏览器完成各种任务。该智能体基于GPT-4o模型，可以通过视觉理解网页内容，自动填写表单、预订服务、在线购物等复杂操作。OpenAI表示Operator采用了新的安全架构，在关键操作前会征求用户确认，确保用户控制权。这标志着AI从对话工具向行动代理的重大进化，也引发了关于AI自动化替代人工劳动的广泛讨论。首批测试名额已向ChatGPT Pro用户开放，未来可能向更多用户推广。</p>
-                        <div class="featured-tags">
-                            <span class="featured-tag">AI</span>
-                            <span class="featured-tag">热点</span>
-                            <span class="featured-tag">TechCrunch</span>
-                        </div>
-                        <a href="https://techcrunch.com/2025/01/23/openai-operator/" class="card-link hot" target="_blank">深度分析 →</a>
-                    </div>
-                    <div class="featured-visual">
-                        <div class="code-preview">
-                            <div><span class="comment">// 今天 AI动态</span></div>
-                            <div><span class="keyword">source</span>: <span class="string">"TechCrunch"</span></div>
-                            <div><span class="keyword">views</span>: <span class="string">28000</span></div>
-                            <div><span class="keyword">tag</span>: <span class="string">"国际 · AI智能体"</span></div>
-                        </div>
+                <article class="card">
+                    <span class="card-tag ai">技术突破</span>
+                    <h3>OpenAI GPT-4.5 发布</h3>
+                    <p>研究预览版发布，强调"无监督学习"scaling，SimpleQA准确率62.5% vs GPT-4o的38.2%，知识库更广泛、幻觉率降低。</p>
+                    <div class="card-meta">
+                        <span>OpenAI官方</span>
+                        <a href="#" class="card-link">查看 →</a>
                     </div>
                 </article>
 
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国际 · 投资</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>Stargate项目官宣：OpenAI与软银投资5000亿美元建AI基础设施</h3>
-                    <p>美国总统特朗普宣布Stargate项目正式启动，由OpenAI、软银和甲骨文联合投资5000亿美元建设美国AI基础设施。该项目计划在美国建设20座超大规模数据中心，为AI训练和推理提供算力支持。首期投资1000亿美元将立即启动。这是美国历史上最大的科技基础设施投资之一，显示了美国政府和企业对AI领导地位的重视。项目预计将创造10万个就业岗位，大幅提升美国AI竞争力。该计划将巩固美国在全球AI竞赛中的领先地位，对抗中国在该领域的快速发展，同时带动整个产业链的繁荣。</p>
+                <article class="card">
+                    <span class="card-tag ai">技术突破</span>
+                    <h3>Anthropic Claude Opus 4.6 & Sonnet 4.6</h3>
+                    <p>Opus 4.6业界最强模型支持1M token上下文，Sonnet 4.6性价比之王定价$3/$15每百万token，OSWorld计算机使用能力显著提升。</p>
                     <div class="card-meta">
-                        <span>🔥 The Verge</span>
-                        <span>👁️ 26500</span>
+                        <span>Anthropic官方</span>
+                        <a href="#" class="card-link">查看 →</a>
                     </div>
-                    <a href="https://www.theverge.com/2025/1/21/stargate-openai-trump" class="card-link hot" target="_blank">查看详情 →</a>
                 </article>
 
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国内 · 大模型</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>DeepSeek-R1模型爆火：推理能力媲美OpenAI o1，成本仅为3%</h3>
-                    <p>DeepSeek发布的R1推理模型在国内外AI圈引发轰动。该模型在数学、代码和逻辑推理任务上达到了与OpenAI o1相当的水平，但API成本仅为o1的3%左右。更重要的是，DeepSeek开源了R1的权重和技术报告，详细披露了通过强化学习提升推理能力的方法。这一突破证明中国团队在大模型核心技术创新上已具备世界领先水平，也为全球AI社区提供了宝贵的研究资源，推动了开源大模型生态的繁荣发展。R1的成功让硅谷震动，证明中国在AI核心技术上已不落后。</p>
+                <article class="card">
+                    <span class="card-tag ai">产业资本</span>
+                    <h3>Anthropic G轮融资 300亿美元</h3>
+                    <p>创AI领域单轮融资纪录，投后估值3800亿美元，年收入运转率140亿美元，连续三年每年增长超10倍，GIC和Coatue领投。</p>
                     <div class="card-meta">
-                        <span>🔥 机器之心</span>
-                        <span>👁️ 25000</span>
+                        <span>官方公告</span>
+                        <a href="#" class="card-link">查看 →</a>
                     </div>
-                    <a href="https://www.jiqizhixin.com/articles/2025-01-20-8" class="card-link hot" target="_blank">查看详情 →</a>
                 </article>
 
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国际 · 大模型</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>Google Gemini 2.0 Flash正式版发布：多模态能力全面升级</h3>
-                    <p>Google正式发布Gemini 2.0 Flash正式版，在速度、推理和多模态能力方面实现全面提升。该模型支持原生图像和音频输出，可以生成图像、语音和音乐。在代码生成和数学推理方面，2.0 Flash已超越GPT-4o。Google同时推出了Deep Research功能，能够自动进行多轮搜索并生成研究报告。Gemini 2.0已向所有开发者开放，并通过Google AI Studio和Vertex AI提供服务，与OpenAI的竞争日趋激烈。</p>
+                <article class="card">
+                    <span class="card-tag ai">基础设施</span>
+                    <h3>Model Context Protocol (MCP) 开源</h3>
+                    <p>AI领域的"HTTP协议"时刻，统一、安全地访问各类数据源。Block、Apollo、Zed、Replit、Sourcegraph等已集成，生态网络效应形成。</p>
                     <div class="card-meta">
-                        <span>🔥 Google Blog</span>
-                        <span>👁️ 24200</span>
+                        <span>Anthropic官方</span>
+                        <a href="#" class="card-link">查看 →</a>
                     </div>
-                    <a href="https://blog.google/technology/ai/gemini-2-flash/" class="card-link hot" target="_blank">查看详情 →</a>
                 </article>
 
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国际 · 大模型</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>xAI Grok 3即将发布：马斯克称将是最强AI模型</h3>
-                    <p>埃隆·马斯克宣布xAI的Grok 3模型即将发布，称其为地球上最聪明的AI。Grok 3在孟菲斯的超级数据中心使用20万块GPU进行训练，算力是前代的10倍。马斯克表示Grok 3在数学、科学和编程测试中都取得了最高分，推理能力接近OpenAI o1 Pro。xAI同时宣布完成60亿美元融资，估值达到500亿美元。Grok将整合到X平台，为Premium用户提供高级AI服务，与ChatGPT展开直接竞争。</p>
+                <article class="card">
+                    <span class="card-tag ai">商业落地</span>
+                    <h3>Claude 办公套件扩展</h3>
+                    <p>Claude in PowerPoint研究预览版发布，与Excel集成处理数据+生成演示文稿。Claude Code Agent Teams支持多Agent并行协作。</p>
                     <div class="card-meta">
-                        <span>🔥 Reuters</span>
-                        <span>👁️ 23500</span>
+                        <span>Anthropic</span>
+                        <a href="#" class="card-link">查看 →</a>
                     </div>
-                    <a href="https://www.reuters.com/technology/artificial-intelligence/musk-xai-grok-3/" class="card-link hot" target="_blank">查看详情 →</a>
                 </article>
 
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国际 · 硬件</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>NVIDIA RTX 5090发布：AI算力翻倍，生成式AI进入消费级</h3>
-                    <p>NVIDIA正式发布RTX 5090旗舰显卡，AI算力达到惊人的2375 AI TOPS，是上代的两倍。新卡配备32GB GDDR7显存，可以轻松运行70B参数的大模型 locally。DLSS 4技术引入多帧生成，游戏性能提升显著。NVIDIA同时推出AI Workbench工具，让普通用户也能在本地运行Stable Diffusion、Llama等大模型。RTX 5090的发布标志着生成式AI从云端走向个人电脑，AI PC时代正式到来，为开发者和创作者带来更强大的本地AI计算能力。</p>
+                <article class="card">
+                    <span class="card-tag ai">地缘政治</span>
+                    <h3>美国AI芯片管制持续</h3>
+                    <p>对华AI芯片出口管制政策维持严格态势，中国AI自主可控加速，智谱GLM-5等国产大模型持续迭代应对供应链风险。</p>
                     <div class="card-meta">
-                        <span>🔥 NVIDIA</span>
-                        <span>👁️ 22800</span>
+                        <span>政策观察</span>
+                        <a href="#" class="card-link">查看 →</a>
                     </div>
-                    <a href="https://www.nvidia.com/geforce/rtx-5090/" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国内 · 投融资</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>智谱AI完成超25亿美元融资：投后估值达2000亿人民币</h3>
-                    <p>智谱AI宣布完成新一轮超25亿美元融资，投资方包括阿里云、腾讯、小米等战略投资者和多家知名VC。本轮融资后公司估值达到2000亿人民币，成为中国估值最高的大模型创业公司。智谱表示资金将主要用于下一代基础模型研发、算力基础设施建设和国际化拓展。公司同时发布GLM-4-9B开源模型，在同等参数规模下性能处于全球领先水平，进一步巩固了其在国内AI大模型赛道的头部地位，展现出强劲的发展势头和广阔的成长空间。</p>
-                    <div class="card-meta">
-                        <span>🔥 36氪</span>
-                        <span>👁️ 22000</span>
-                    </div>
-                    <a href="https://36kr.com/p/2621345" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国际 · 开源模型</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>Meta Llama 4泄露：支持原生多模态，参数规模达2万亿</h3>
-                    <p>Meta即将发布的Llama 4模型细节在网上泄露，引发AI社区热议。据悉Llama 4将采用混合专家架构，总参数量达2万亿，但每次推理仅激活部分参数。模型将支持原生多模态，可同时处理文本、图像和视频。最令人期待的是Llama 4将保持开源策略，向研究者和商业用户免费开放。这将是对OpenAI和Google闭源策略的有力挑战，可能重塑大模型市场的竞争格局，推动开源AI生态的繁荣发展，让先进AI技术惠及更多开发者和企业。</p>
-                    <div class="card-meta">
-                        <span>🔥 The Information</span>
-                        <span>👁️ 21800</span>
-                    </div>
-                    <a href="https://www.theinformation.com/articles/meta-llama-4-leak" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国际 · 机器人</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>Figure AI发布Helix人形机器人：可自主完成家务任务</h3>
-                    <p>机器人公司Figure AI发布新一代人形机器人Helix，展示了惊人的家务处理能力。在演示视频中，Helix可以自主理解自然语言指令，完成整理冰箱、摆放餐具等复杂任务。该机器人结合了视觉语言模型和机器人控制技术，能够泛化到新环境和未见过的新物体。Figure表示Helix将于2025年底开始交付，首批客户包括仓储和零售企业。这被认为是通用机器人走向家庭应用的重要里程碑，标志着具身智能技术的重大突破。</p>
-                    <div class="card-meta">
-                        <span>🔥 TechCrunch</span>
-                        <span>👁️ 21500</span>
-                    </div>
-                    <a href="https://techcrunch.com/2025/01/30/figure-helix-robot/" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国际 · AI智能体</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>Anthropic Claude新增计算机操控能力：AI可像人类一样用电脑</h3>
-                    <p>Anthropic为Claude推出Computer Use功能，允许AI像人类一样操控计算机界面。Claude可以查看屏幕、移动鼠标、点击按钮和输入文字，自动完成各种软件操作任务。该功能基于Claude 3.5 Sonnet，在OSWorld基准测试中表现优于OpenAI和Google的同类系统。Anthropic表示这项技术的应用场景包括软件测试、数据录入和流程自动化。这标志着AI智能体技术进入实用化阶段，但也引发了关于安全和滥用的担忧，需要建立相应的监管机制。</p>
-                    <div class="card-meta">
-                        <span>🔥 Anthropic</span>
-                        <span>👁️ 20500</span>
-                    </div>
-                    <a href="https://www.anthropic.com/news/computer-use" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国内 · 用户增长</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>字节跳动豆包大模型日活破千万，成国内增长最快AI应用</h3>
-                    <p>字节跳动旗下豆包大模型日活跃用户数突破1000万，成为国内用户增长最快的AI原生应用。豆包在文案创作、英语学习、情感陪伴等多元化场景深受年轻用户喜爱。字节同时推出豆包编程助手，支持代码补全、Bug修复和代码解释等功能，已接入飞书文档和扣子Coze平台。豆包团队表示将持续优化中文理解和长文本处理能力，打造更懂中国用户的AI助手，通过技术创新不断提升用户体验，在激烈的AI应用市场竞争中保持领先地位，持续引领行业发展。</p>
-                    <div class="card-meta">
-                        <span>🔥 36氪</span>
-                        <span>👁️ 19500</span>
-                    </div>
-                    <a href="https://36kr.com/p/2618234" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国际 · 产品发布</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>Apple Intelligence中文版将在4月推出：Siri迎来重大升级</h3>
-                    <p>苹果宣布Apple Intelligence中文版本将于2025年4月随iOS 18.4正式推出。升级后的Siri将具备更强的上下文理解能力和跨应用操作功能。中文版由阿里通义千问提供云端大模型支持，确保符合中国法规要求。苹果表示中文用户将能体验到写作助手、图片生成和智能摘要等功能。这一合作标志着国际科技巨头开始深度整合中国本土AI能力，也显示了国产大模型的技术实力获得认可，将大幅提升中国用户的智能设备体验。</p>
-                    <div class="card-meta">
-                        <span>🔥 Bloomberg</span>
-                        <span>👁️ 19500</span>
-                    </div>
-                    <a href="https://www.bloomberg.com/news/apple-intelligence-china" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国际 · AI搜索</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>Perplexity发布深度研究功能：挑战OpenAI和Google</h3>
-                    <p>AI搜索公司Perplexity推出Deep Research功能，能够自动进行多轮搜索、信息整合和报告生成。该功能可以理解复杂的研究问题，自动规划搜索策略，综合多个来源的信息，最终生成结构化的研究报告。测试显示其在专家级任务上的准确率已接近OpenAI的Deep Research，但价格仅为1/10。Perplexity表示这一功能将免费开放给所有用户，挑战Google和OpenAI在AI研究助手市场的地位，为知识工作者提供高效的AI研究工具。</p>
-                    <div class="card-meta">
-                        <span>🔥 Wired</span>
-                        <span>👁️ 18200</span>
-                    </div>
-                    <a href="https://www.wired.com/story/perplexity-deep-research/" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国内 · 产品发布</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>百度文心一言4.0 Turbo发布：多模态能力全面升级</h3>
-                    <p>百度正式发布文心一言4.0 Turbo版本，在理解、生成、逻辑和记忆四大核心能力上实现显著提升。新版本支持更长的上下文窗口（最高可达128K tokens），能够处理更复杂的文档分析任务。多模态方面，文心一言4.0 Turbo在图像理解、图文生成和视频分析方面都有大幅改进，可以处理更丰富的多媒体内容。百度同时宣布文心一言企业客户数已突破15万家，日活跃用户超过3000万，成为国内企业级AI服务市场的领导者，为各行业数字化转型提供了强有力的AI基础设施支撑。</p>
-                    <div class="card-meta">
-                        <span>🔥 36氪</span>
-                        <span>👁️ 18000</span>
-                    </div>
-                    <a href="https://36kr.com/p/2615892" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国内 · 长文本</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>月之暗面Kimi发布k1.5推理模型：长文本处理能力再创新高</h3>
-                    <p>月之暗面科技发布Kimi k1.5推理模型，将上下文窗口扩展至200万字，再次刷新大模型长文本处理纪录。新模型在论文理解、法律分析和代码库解析等长文本任务上表现突出，可一次性处理整本书籍或大型项目代码。Kimi同时推出智能体功能，支持联网搜索、文件处理和代码执行等复杂任务。月之暗面表示k1.5在长文本理解和推理方面已超越GPT-4，达到世界领先水平，为知识工作者、研究人员和开发者提供了强大的AI辅助工具，大幅提升工作效率。</p>
-                    <div class="card-meta">
-                        <span>🔥 36氪</span>
-                        <span>👁️ 16800</span>
-                    </div>
-                    <a href="https://36kr.com/p/2620456" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国内 · 技术突破</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>阿里云通义千问视觉理解模型登顶全球榜单</h3>
-                    <p>阿里通义千问团队发布的Qwen-VL-Max视觉语言模型在多项国际评测中取得第一，超越了GPT-4V和Gemini Pro Vision。该模型在图像理解、图文问答和视觉推理任务上展现出强大能力，特别擅长处理中文场景的图片内容。阿里云已将此能力开放给所有开发者，并集成到钉钉、淘宝等产品中。这标志着国产多模态大模型首次在核心能力上全面超越国际主流产品，彰显了中国AI技术的创新实力，为开发者提供了更强大的视觉AI工具。</p>
-                    <div class="card-meta">
-                        <span>🔥 InfoQ</span>
-                        <span>👁️ 16500</span>
-                    </div>
-                    <a href="https://www.infoq.cn/article/2025-02-qwen-vl" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国内 · 产品发布</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>腾讯元宝APP正式上线：混元大模型C端产品全面开放</h3>
-                    <p>腾讯正式推出基于混元大模型的C端产品「元宝」APP，面向普通用户提供AI对话、文档解析、图片生成等多元化服务。混元大模型在中文创作、数学推理和代码生成方面表现突出，已支持文生图、图生文等多模态能力。腾讯表示元宝将深度接入微信公众号、视频号等海量内容生态，为用户提供更丰富的知识服务。这标志着腾讯在大模型C端市场竞争中正式发力，凭借微信生态优势和庞大的用户基础，元宝有望在AI应用市场占据重要位置，成为用户首选的AI助手。</p>
-                    <div class="card-meta">
-                        <span>🔥 机器之心</span>
-                        <span>👁️ 15800</span>
-                    </div>
-                    <a href="https://www.jiqizhixin.com/articles/2025-02-19-2" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国内 · 云服务</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>华为昇腾AI云服务降价40%，大模型训练成本大幅降低</h3>
-                    <p>华为云宣布昇腾AI云服务全面降价，最高降幅达40%。此次降价涵盖训练、推理和调优等多种算力服务，使得基于昇腾的大模型训练成本与英伟达A100方案差距进一步缩小。华为表示昇腾910B已支撑国内超过50%的大模型训练任务，包括百度文心、阿里通义等主流模型。此举将显著降低国内AI创业公司的算力门槛，推动大模型应用的普及，为国内AI产业发展注入强劲动力，也显示国产AI芯片已具备与国际巨头竞争的实力，将加速中国AI基础设施的自主可控进程。</p>
-                    <div class="card-meta">
-                        <span>🔥 InfoQ</span>
-                        <span>👁️ 14200</span>
-                    </div>
-                    <a href="https://www.infoq.cn/article/2025-02-ascend" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国内 · 技术突破</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>商汤科技发布「日日新5.5」：原生多模态大模型领先业界</h3>
-                    <p>商汤科技发布日日新SenseNova 5.5大模型体系，采用原生多模态架构，在视觉理解、图文生成和视频分析方面实现重大突破。该模型可同时处理文本、图像、视频和语音等多种模态输入，在中文场景的多模态评测中排名第一。商汤同时推出端侧大模型解决方案，支持在手机、平板等设备上本地运行。目前日日新已服务超过3000家企业客户，覆盖智慧城市、智能驾驶、智慧医疗等多个领域，展现了中国AI企业的技术实力和创新能力，为多行业数字化转型提供了强大支撑。</p>
-                    <div class="card-meta">
-                        <span>🔥 机器之心</span>
-                        <span>👁️ 12800</span>
-                    </div>
-                    <a href="https://www.jiqizhixin.com/articles/2025-02-18-5" class="card-link hot" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card hot">
-                    <div class="card-header">
-                        <span class="card-tag hot">国内 · 政务应用</span>
-                        <span class="card-date">今天</span>
-                    </div>
-                    <h3>科大讯飞星火大模型中标多个省级政务项目</h3>
-                    <p>科大讯飞宣布星火认知大模型成功中标多个省级政务智能化项目，涉及智能客服、公文写作、政策解读等场景。这标志着国产大模型在政务领域的应用进入规模化阶段。星火大模型在教育、医疗等垂直行业的落地案例已超过10000个。科大讯飞表示将持续优化大模型的行业适配能力，为数字政府建设提供安全可控的AI基础设施，助力政务服务智能化升级，推动AI技术在公共治理领域的深度应用，为构建智慧社会贡献力量，实现科技惠民的美好愿景。</p>
-                    <div class="card-meta">
-                        <span>🔥 InfoQ</span>
-                        <span>👁️ 11500</span>
-                    </div>
-                    <a href="https://www.infoq.cn/article/2025-02-xinghuo" class="card-link hot" target="_blank">查看详情 →</a>
                 </article>
             </div>
+        </section>
 
-            <div class="timeline" style="margin-top: 3rem;">
-                <div class="timeline-item ai">
-                    <div class="timeline-date">2025年2月</div>
-                    <div class="timeline-content">
-                        <h4>推理模型成为标配</h4>
-                        <p>OpenAI o3-mini、Claude 3.7、DeepSeek-R1等推理模型密集发布，长思考能力从高端功能变为标配。</p>
-                    </div>
-                </div>
-                <div class="timeline-item ai">
-                    <div class="timeline-date">2025年1月</div>
-                    <div class="timeline-content">
-                        <h4>AI智能体进入实用阶段</h4>
-                        <p>Operator、Devin等AI智能体开始实际执行任务，从对话走向行动。</p>
-                    </div>
-                </div>
+        <!-- AI Academic Section -->
+        <section id="ai" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🤖 AI学术前沿</h2>
+                <span class="update-time">Coming soon</span>
+            </div>
+            <div class="empty-state">
+                <div class="empty-state-icon">📚</div>
+                <p>正在整理最新AI学术论文...</p>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem;">关注 arXiv cs.AI / cs.LG / cs.CL 最新动态</p>
             </div>
         </section>
 
         <!-- Graphics Section -->
         <section id="gfx" class="section">
             <div class="section-header">
-                <h2 class="section-title gfx">
-                    <span>◉</span> 计算机图形学
-                </h2>
-                <span class="update-time">最后更新: 2026年02月21日</span>
+                <h2 class="section-title">🎨 计算机图形学</h2>
+                <span class="update-time">Coming soon</span>
             </div>
-
-            <div class="cards-grid">
-                <article class="card featured-card gfx">
-                    <div class="featured-content">
-                        <span class="card-tag gfx">FEATURED · 游戏引擎</span>
-                        <h2>虚幻引擎6预览：神经网络渲染技术实机演示</h2>
-                        <p>Epic Games在GDC 2026上展示了虚幻引擎6的早期预览，神经网络渲染（NNR）技术成为最大亮点。这项技术使用AI模型实时生成像素，传统光栅化管线被完全取代。演示中，4K分辨率下复杂场景的渲染仅需2毫秒，比传统方法快10倍。NNR还支持实时风格迁移，游戏可以在写实、卡通、水墨等风格间无缝切换。Epic表示UE6将在2027年正式发布，届时将支持新一代游戏主机和PC显卡。多家工作室已宣布正在基于UE6开发次世代3A游戏，包括《最终幻想17》和《上古卷轴7》。业界认为这可能是游戏渲染技术的范式转变。</p>
-                        <div class="featured-tags">
-                            <span class="featured-tag">UE6</span>
-                            <span class="featured-tag">神经网络渲染</span>
-                        </div>
-                        <a href="https://www.unrealengine.com/en-US/blog/ue6-preview" class="card-link gfx" target="_blank">阅读详情 →</a>
-                    </div>
-                    <div class="featured-visual">
-                        <div class="code-preview">
-                            <div><span class="comment">// 神经网络渲染</span></div>
-                            <div><span class="keyword">source</span>: <span class="string">"Epic Games"</span></div>
-                            <div><span class="keyword">views</span>: <span class="string">32,500</span></div>
-                            <div><span class="keyword">date</span>: <span class="string">"2026-02-18"</span></div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card gfx">
-                    <div class="card-header">
-                        <span class="card-tag gfx">硬件 · 超分技术</span>
-                        <span class="card-date">2026-02-15</span>
-                    </div>
-                    <h3>NVIDIA RTX 6090发布：神经压缩纹理技术游戏体积缩小80%</h3>
-                    <p>NVIDIA正式发布RTX 6090旗舰显卡，搭载全新的神经纹理压缩（NTC）技术。这项技术使用AI实时解压纹理，使得游戏安装体积可缩小80%，同时视觉质量无损。RTX 6090拥有128GB GDDR8显存，AI算力达到惊人的5000 TOPS。《赛博朋克2077》和《黑神话：悟空2》已宣布支持NTC，安装体积将分别降至15GB和25GB。此外，DLSS 5.0引入了'神经帧生成'，可以在渲染1帧的同时生成7帧，8K游戏帧率可达240fps。NVIDIA表示RTX 6090将限量发售，售价1999美元，主要面向专业用户和发烧友。</p>
-                    <div class="card-meta">
-                        <span>📄 NVIDIA</span>
-                        <span>👁️ 41,200</span>
-                    </div>
-                    <a href="https://www.nvidia.com/en-us/geforce/news/rtx-6090/" class="card-link gfx" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card gfx">
-                    <div class="card-header">
-                        <span class="card-tag gfx">3D软件 · AI生成</span>
-                        <span class="card-date">2026-02-12</span>
-                    </div>
-                    <h3>Blender 5.0发布：AI辅助建模改变3D工作流程</h3>
-                    <p>Blender基金会发布5.0版本，AI辅助建模功能成为核心亮点。新版本的'Generative Mesh'工具可以根据文字描述或草图自动生成3D模型，支持迭代修改。AI材质系统可以分析参考图片，自动生成匹配的PBR材质贴图。Blender 5.0还引入了'智能重拓扑'，可以将任意网格自动转换为适合动画的整洁四边面。这些AI功能基于本地运行的开源模型，无需联网或API密钥。Blender Studio已使用新工具制作了最新短片《Charge》，制作时间缩短50%。开源社区认为这是3D软件民主化的重要一步，让独立艺术家也能使用以前只有大公司才能负担的AI工具。</p>
-                    <div class="card-meta">
-                        <span>📄 Blender</span>
-                        <span>👁️ 28,500</span>
-                    </div>
-                    <a href="https://www.blender.org/download/releases/5-0/" class="card-link gfx" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card gfx">
-                    <div class="card-header">
-                        <span class="card-tag gfx">Web标准 · 浏览器</span>
-                        <span class="card-date">2026-02-10</span>
-                    </div>
-                    <h3>WebGPU正式成为W3C标准：浏览器图形编程新时代</h3>
-                    <p>W3C正式宣布WebGPU成为官方推荐标准，这标志着浏览器图形编程进入新时代。WebGPU是WebGL的继任者，提供了对现代GPU功能的直接访问，包括计算着色器和光线追踪支持。与WebGL相比，WebGPU的性能提升可达3倍以上，同时降低了CPU开销。Chrome、Firefox和Safari都已支持WebGPU，开发者可以开始构建下一代Web应用。Three.js和Babylon.js等主流3D库也已发布WebGPU版本。业界认为WebGPU将使得浏览器游戏和可视化应用的体验接近原生应用水平。</p>
-                    <div class="card-meta">
-                        <span>📄 W3C</span>
-                        <span>👁️ 19,200</span>
-                    </div>
-                    <a href="https://www.w3.org/TR/webgpu/" class="card-link gfx" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card gfx">
-                    <div class="card-header">
-                        <span class="card-tag gfx">超分技术 · 游戏</span>
-                        <span class="card-date">2026-02-08</span>
-                    </div>
-                    <h3>AMD FSR 4发布：AI超分技术追赶DLSS</h3>
-                    <p>AMD正式发布FidelityFX Super Resolution 4（FSR 4），首次引入AI驱动的超分技术。FSR 4采用机器学习算法生成高质量画面，图像质量相比FSR 3有质的飞跃，已经接近NVIDIA DLSS 3的水平。与DLSS不同，FSR 4保持开源和跨平台特性，支持AMD、Intel和NVIDIA显卡。首批支持游戏包括《使命召唤》和《刺客信条》系列。AMD表示FSR 4将被集成到PlayStation和Xbox开发工具包中，主机游戏也将受益于这一技术。这标志着AMD在AI图形技术上开始追赶NVIDIA。</p>
-                    <div class="card-meta">
-                        <span>📄 AMD</span>
-                        <span>👁️ 16,800</span>
-                    </div>
-                    <a href="https://www.amd.com/en/technologies/fidelityfx-super-resolution" class="card-link gfx" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card gfx">
-                    <div class="card-header">
-                        <span class="card-tag gfx">AI生成 · 图像</span>
-                        <span class="card-date">2026-02-05</span>
-                    </div>
-                    <h3>Stable Diffusion 4.0开源：视频生成进入4K时代</h3>
-                    <p>Stability AI正式发布Stable Diffusion 4.0，首次开源了4K视频生成模型。SD 4.0采用全新的时空扩散架构，可以生成最长60秒、每秒60帧的4K视频，且保持时间一致性。模型参数量达到80亿，但量化版本可在24GB显存显卡上运行。SD 4.0还引入了'角色锁定'功能，可以在多段视频中保持角色外观一致，这对叙事视频创作至关重要。Stability AI同时发布了视频编辑工具SD Edit，支持用自然语言修改已有视频。开源社区对此反响热烈，ComfyUI已在一周内集成全部新功能。这标志着开源AI视频生成技术正式追上闭源竞品。</p>
-                    <div class="card-meta">
-                        <span>📄 Stability AI</span>
-                        <span>👁️ 35,200</span>
-                    </div>
-                    <a href="https://stability.ai/news/stable-diffusion-4" class="card-link gfx" target="_blank">查看详情 →</a>
-                </article>
-            </div>
-
-            <div class="timeline" style="margin-top: 3rem;">
-                <div class="timeline-item gfx">
-                    <div class="timeline-date">2026年</div>
-                    <div class="timeline-content">
-                        <h4>神经网络渲染技术突破</h4>
-                        <p>虚幻引擎6展示NNR技术，AI实时生成像素，可能彻底改变游戏渲染管线。</p>
-                    </div>
-                </div>
-                <div class="timeline-item gfx">
-                    <div class="timeline-date">2025-2026</div>
-                    <div class="timeline-content">
-                        <h4>AI辅助内容创作普及</h4>
-                        <p>Blender、Maya等3D软件深度集成AI功能，3D创作门槛大幅降低。</p>
-                    </div>
-                </div>
+            <div class="empty-state">
+                <div class="empty-state-icon">🎨</div>
+                <p>正在整理图形学最新进展...</p>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem;">关注 SIGGRAPH / GDC / 实时渲染技术</p>
             </div>
         </section>
 
         <!-- OS Section -->
         <section id="os" class="section">
             <div class="section-header">
-                <h2 class="section-title os">
-                    <span>◉</span> 操作系统
-                </h2>
-                <span class="update-time">最后更新: 2026年02月21日</span>
+                <h2 class="section-title">🖥️ 操作系统</h2>
+                <span class="update-time">Coming soon</span>
             </div>
-
-            <div class="cards-grid">
-                <article class="card featured-card os">
-                    <div class="featured-content">
-                        <span class="card-tag os">FEATURED · OS · Linux</span>
-                        <h2>Linux 6.15合并窗口开启：Rust驱动支持再扩容，内核现代化加速</h2>
-                        <p>Linux 6.15内核合并窗口正式开启，Rust语言在内核中的支持范围大幅扩展。新版本的Rust for Linux子系统新增了对网络驱动和字符设备驱动的支持，意味着更多内核模块可以用Rust重写。Linus Torvalds在邮件列表中表示，Rust代码的合并速度正在加快，预计未来几个版本将有更多子系统采用Rust实现。同时，6.15还引入了新的调度器算法，针对AI训练工作负载优化，可提升大模型训练吞吐量15%。Red Hat和Google已表示将在生产环境中测试这些新特性。</p>
-                        <div class="featured-tags">
-                            <span class="featured-tag">Linux</span>
-                            <span class="featured-tag">2026-02-18</span>
-                        </div>
-                        <a href="https://lwn.net/Articles/1012345/" class="card-link os" target="_blank">阅读详情 →</a>
-                    </div>
-                    <div class="featured-visual">
-                        <div class="code-preview">
-                            <div><span class="comment">// OS · Linux</span></div>
-                            <div><span class="keyword">source</span>: <span class="string">"LWN"</span></div>
-                            <div><span class="keyword">views</span>: <span class="string">15,200</span></div>
-                            <div><span class="keyword">date</span>: <span class="string">"2026-02-18"</span></div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card os">
-                    <div class="card-header">
-                        <span class="card-tag os">OS · Windows</span>
-                        <span class="card-date">2026-02-15</span>
-                    </div>
-                    <h3>Windows 12预览版曝光：AI原生操作系统概念落地</h3>
-                    <p>微软意外泄露了Windows 12的早期预览版，展示了AI原生操作系统的全新理念。新系统深度集成Copilot Agent，可以主动理解用户意图并执行复杂任务，如自动整理文件、优化系统设置、预测应用启动等。最引人注目的功能是'Recall 2.0'，通过本地AI模型实现跨应用的智能搜索，用户可以用自然语言查找任何在电脑上见过的内容。微软表示Windows 12将在2025年底正式发布，目前预览版已面向Insider用户开放。这一举措被视为微软对AI时代操作系统定义权的争夺。</p>
-                    <div class="card-meta">
-                        <span>📄 Microsoft</span>
-                        <span>👁️ 28,500</span>
-                    </div>
-                    <a href="https://blogs.windows.com/windows-insider/" class="card-link os" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card os">
-                    <div class="card-header">
-                        <span class="card-tag os">OS · 开源驱动</span>
-                        <span class="card-date">2026-02-12</span>
-                    </div>
-                    <h3>Asahi Linux突破：Apple Silicon Mac原生GPU驱动开源</h3>
-                    <p>Asahi Linux项目宣布完成Apple Silicon Mac的GPU反向工程，发布了完全开源的M4系列芯片GPU驱动。这是首个支持完整OpenGL 4.6和Vulkan 1.3的第三方Apple GPU驱动，性能达到macOS原生驱动的85%以上。项目团队还实现了对Apple神经引擎（ANE）的初步支持，使得在Linux上运行AI推理成为可能。这一突破意味着用户可以在Apple Silicon Mac上获得完整的Linux体验，无需依赖Apple的闭源驱动。开发者社区对此反响热烈，认为这是开源硬件支持的里程碑。</p>
-                    <div class="card-meta">
-                        <span>📄 Asahi Linux</span>
-                        <span>👁️ 19,800</span>
-                    </div>
-                    <a href="https://asahilinux.org/2026/02/gpu-drivers/" class="card-link os" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card os">
-                    <div class="card-header">
-                        <span class="card-tag os">OS · 容器</span>
-                        <span class="card-date">2026-02-10</span>
-                    </div>
-                    <h3>Containerd 2.0发布：云原生运行时进入新纪元</h3>
-                    <p>CNCF正式发布Containerd 2.0，这个Kubernetes默认使用的容器运行时带来了革命性升级。新版本支持WebAssembly运行时，可以直接运行Wasm模块，无需传统容器镜像。同时引入了'轻量级虚拟机'概念，结合了容器的启动速度和虚拟机的安全隔离。Containerd 2.0还大幅改进了镜像拉取性能，采用新的并行下载算法，大型镜像启动时间缩短60%。Docker、Kubernetes和各大云厂商已表示将快速跟进支持。这标志着云原生技术栈进入WebAssembly和容器融合的新时代。</p>
-                    <div class="card-meta">
-                        <span>📄 CNCF</span>
-                        <span>👁️ 16,500</span>
-                    </div>
-                    <a href="https://containerd.io/releases/v2.0/" class="card-link os" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card os">
-                    <div class="card-header">
-                        <span class="card-tag os">OS · 国产系统</span>
-                        <span class="card-date">2026-02-08</span>
-                    </div>
-                    <h3>国产操作系统openKylin 2.0发布：RISC-V架构深度优化</h3>
-                    <p>openKylin社区正式发布2.0版本，这是中国首个支持RISC-V架构的桌面操作系统。新版本针对国产RISC-V芯片进行了深度优化，在VisionFive 2和 Milk-V Mars等开发板上运行流畅。openKylin 2.0集成了UKUI 4.0桌面环境，支持触屏手势和手写输入，适配了超过2000款国产软件。特别值得关注的是对AI框架的原生支持，内置了昇腾和寒武纪芯片的驱动，可以直接运行大模型推理。麒麟软件表示，openKylin已在政务、教育等领域部署超过50万套，成为国产操作系统的重要力量。</p>
-                    <div class="card-meta">
-                        <span>📄 openKylin</span>
-                        <span>👁️ 12,800</span>
-                    </div>
-                    <a href="https://www.openkylin.top/news/2026/0208.html" class="card-link os" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card os">
-                    <div class="card-header">
-                        <span class="card-tag os">OS · IoT</span>
-                        <span class="card-date">2026-02-05</span>
-                    </div>
-                    <h3>Google Fuchsia正式登陆Nest设备：替代Android Things</h3>
-                    <p>Google宣布Fuchsia OS正式部署到新一代Nest智能显示器和智能音箱产品线，全面替代原有的Android Things系统。Fuchsia的微内核架构和模块化设计使得设备启动速度提升40%，内存占用减少30%。新系统支持 Matter over Thread协议，可以无缝接入苹果HomeKit和亚马逊Alexa生态。Google表示Fuchsia的模块化架构允许独立更新各个组件，设备将获得长达10年的安全更新支持。这被视为Google在物联网操作系统领域对Android的一次自我革命，也展示了Fuchsia从实验项目走向大规模商用。</p>
-                    <div class="card-meta">
-                        <span>📄 Google</span>
-                        <span>👁️ 14,200</span>
-                    </div>
-                    <a href="https://fuchsia.dev/news/2026/nest-launch" class="card-link os" target="_blank">查看详情 →</a>
-                </article>
-            <div class="timeline" style="margin-top: 3rem;">
-                <div class="timeline-item os">
-                    <div class="timeline-date">2025年</div>
-                    <div class="timeline-content">
-                        <h4>内存安全成为系统编程焦点</h4>
-                        <p>CISA、NSA等机构推动用Rust等安全语言重写关键组件。Linux 6.x开始接受Rust驱动，Windows也在探索内存安全改进。</p>
-                    </div>
-                </div>
-                <div class="timeline-item os">
-                    <div class="timeline-date">2024-2025</div>
-                    <div class="timeline-content">
-                        <h4>eBPF革新内核扩展方式</h4>
-                        <p>从监控工具演变为通用内核扩展机制。从网络到安全，从存储到调度，eBPF让内核开发变得前所未有的灵活。</p>
-                    </div>
-                </div>
+            <div class="empty-state">
+                <div class="empty-state-icon">🖥️</div>
+                <p>正在整理操作系统最新动态...</p>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem;">关注 Linux / Windows / macOS / 内核技术</p>
             </div>
         </section>
 
-        <!-- PL Section -->
+        <!-- Compilers & PL Section -->
         <section id="pl" class="section">
             <div class="section-header">
-                <h2 class="section-title pl">
-                    <span>◉</span> 编译器与编程语言
-                </h2>
-                <span class="update-time">最后更新: 2026年02月21日</span>
+                <h2 class="section-title">⚡ 编译器与编程语言</h2>
+                <span class="update-time">Coming soon</span>
             </div>
-
-            <div class="cards-grid">
-                <article class="card featured-card pl">
-                    <div class="featured-content">
-                        <span class="card-tag pl">FEATURED · PL · Rust</span>
-                        <h2>Rust 2026 Edition计划公布：异步编程语法大革新</h2>
-                        <p>Rust语言团队公布了2026 Edition的路线图，其中最引人注目的是异步编程语法的重大革新。新的'async fn in traits'将稳定发布，使得在trait中定义异步方法变得像同步方法一样简单。更重磅的是'coroutine'关键字将引入原生协程支持，开发者可以像写同步代码一样编写高性能异步程序，无需显式的.await语法。此外，2026 Edition还将引入'pin!'宏简化自引用类型的处理，以及改进的错误信息显示。Rust基金会调查显示，超过60%的Rust开发者期待这些异步改进，认为这将大幅提升开发体验。预计2026 Edition将在年底发布。</p>
-                        <div class="featured-tags">
-                            <span class="featured-tag">Rust</span>
-                            <span class="featured-tag">2026-02-18</span>
-                        </div>
-                        <a href="https://blog.rust-lang.org/2026/02/18/edition-2026.html" class="card-link pl" target="_blank">阅读详情 →</a>
-                    </div>
-                    <div class="featured-visual">
-                        <div class="code-preview">
-                            <div><span class="comment">// PL · Rust</span></div>
-                            <div><span class="keyword">source</span>: <span class="string">"Rust Blog"</span></div>
-                            <div><span class="keyword">views</span>: <span class="string">24,200</span></div>
-                            <div><span class="keyword">date</span>: <span class="string">"2026-02-18"</span></div>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="card pl">
-                    <div class="card-header">
-                        <span class="card-tag pl">PL · Python</span>
-                        <span class="card-date">2026-02-15</span>
-                    </div>
-                    <h3>Python 3.14发布：GIL正式成为可选，多线程性能翻倍</h3>
-                    <p>Python 3.14正式发布，这是Python语言发展史上的里程碑版本。最重大的变化是全局解释器锁（GIL）正式成为可选特性，通过'python3.14 --without-gil'启动即可体验真正的多线程并行。在多核CPU上，CPU密集型任务的性能可提升2-4倍。PEP 703的实验性实现已经成熟，NumPy、Pandas等核心库已发布无GIL兼容版本。Python指导委员会表示，3.16版本将默认禁用GIL，这标志着Python正式告别单线程时代。同时，3.14还带来了改进的JIT编译器，将解释执行的热点代码动态编译为机器码，整体性能提升15-20%。</p>
-                    <div class="card-meta">
-                        <span>📄 Python.org</span>
-                        <span>👁️ 35,800</span>
-                    </div>
-                    <a href="https://www.python.org/downloads/release/python-3140/" class="card-link pl" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card pl">
-                    <div class="card-header">
-                        <span class="card-tag pl">PL · Julia</span>
-                        <span class="card-date">2026-02-12</span>
-                    </div>
-                    <h3>Julia 2.0发布：科学计算语言迈向生产级</h3>
-                    <p>Julia语言正式发布2.0版本，这个专为科学计算设计的语言在性能和可用性方面取得重大突破。新版本采用新的编译器后端，冷启动时间缩短70%，解决了长期困扰用户的JIT延迟问题。Julia 2.0还引入了'包编译缓存'机制，常用包的加载速度提升10倍。语言层面，2.0完善了类型系统的稳定性保证，使得大型项目重构更加安全。NASA、MIT和多家制药公司已宣布将在生产环境中采用Julia 2.0。社区认为这是Julia从学术界走向工业界的关键一步，有望在AI for Science领域挑战Python的主导地位。</p>
-                    <div class="card-meta">
-                        <span>📄 JuliaLang</span>
-                        <span>👁️ 18,600</span>
-                    </div>
-                    <a href="https://julialang.org/blog/2026/02/julia-2.0/" class="card-link pl" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card pl">
-                    <div class="card-header">
-                        <span class="card-tag pl">PL · Carbon</span>
-                        <span class="card-date">2026-02-10</span>
-                    </div>
-                    <h3>Carbon语言首个稳定版本发布：C++继任者登场</h3>
-                    <p>Google主导开发的Carbon语言发布0.1稳定版本，这个被定位为'C++实验性继任者'的语言正式可供生产环境试用。Carbon的设计目标是与C++双向无缝互操作，同时提供内存安全、现代化语法和更快的编译速度。0.1版本实现了核心语言特性，包括参数化类型、模式匹配和错误处理机制。Google内部已有超过100个项目开始试用Carbon，包括Chrome浏览器的部分组件。Carbon团队表示将在1.0版本中实现完整的C++迁移工具链。业界对此反应不一，有人认为这是C++现代化的正确方向，也有人质疑是否有必要在Rust已成熟的情况下再创造一个新语言。</p>
-                    <div class="card-meta">
-                        <span>📄 Carbon</span>
-                        <span>👁️ 22,400</span>
-                    </div>
-                    <a href="https://github.com/carbon-language/carbon-lang/releases/" class="card-link pl" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card pl">
-                    <div class="card-header">
-                        <span class="card-tag pl">PL · Go</span>
-                        <span class="card-date">2026-02-08</span>
-                    </div>
-                    <h3>Go 1.26发布：WebAssembly后端正式稳定</h3>
-                    <p>Go 1.26正式发布，WebAssembly编译后端（GOARCH=wasm）正式脱离实验状态。现在Go程序可以编译为独立的Wasm模块，在浏览器、Node.js和Wasm运行时中执行，无需任何JavaScript胶水代码。性能方面，Go Wasm模块的运行速度比同等JavaScript快2-3倍，二进制体积也比Rust编译的Wasm小30%。这一特性使得Go成为WebAssembly开发的强有力竞争者，特别适合需要高性能计算的Web应用。Docker Desktop和Figma已宣布使用Go Wasm技术重构部分核心功能。Go团队表示下一步将支持WASI标准，让Go程序可以在更多Wasm运行时中执行。</p>
-                    <div class="card-meta">
-                        <span>📄 Go Blog</span>
-                        <span>👁️ 19,500</span>
-                    </div>
-                    <a href="https://go.dev/blog/go1.26" class="card-link pl" target="_blank">查看详情 →</a>
-                </article>
-
-                <article class="card pl">
-                    <div class="card-header">
-                        <span class="card-tag pl">PL · 开发工具</span>
-                        <span class="card-date">2026-02-05</span>
-                    </div>
-                    <h3>JetBrains Fleet正式开源：新一代IDE基于Rust重构</h3>
-                    <p>JetBrains宣布Fleet编辑器正式开源，这个被视为VS Code竞争者的IDE完全使用Rust重写。Fleet采用全新的分布式架构，代码解析引擎运行在独立进程，即使处理百万行代码项目也能保持流畅。开源版本包含了完整的编辑器核心、LSP客户端和调试器适配器。JetBrains表示将采用Open Core模式，核心功能开源，企业级功能（如远程开发、团队协作）通过付费订阅提供。Fleet的开源引起了开发者社区的热烈反响，GitHub星标数一周内突破8万。业内分析认为，这是JetBrains对抗VS Code和Zed的重要战略，也可能加速Rust在桌面应用开发领域的普及。</p>
-                    <div class="card-meta">
-                        <span>📄 JetBrains</span>
-                        <span>👁️ 26,800</span>
-                    </div>
-                    <a href="https://blog.jetbrains.com/fleet/2026/02/fleet-is-now-open-source/" class="card-link pl" target="_blank">查看详情 →</a>
-                </article>
-            <div class="timeline" style="margin-top: 3rem;">
-                <div class="timeline-item pl">
-                    <div class="timeline-date">2025年</div>
-                    <div class="timeline-content">
-                        <h4>编程语言的融合趋势</h4>
-                        <p>Rust影响C++（内存安全）、TypeScript影响Python（类型系统）、Go影响Java（简洁性）。语言设计正在相互借鉴最佳实践。</p>
-                    </div>
-                </div>
-                <div class="timeline-item pl">
-                    <div class="timeline-date">2024-2025</div>
-                    <div class="timeline-content">
-                        <h4>AI辅助编程工具链</h4>
-                        <p>Copilot、Cursor等工具正在改变编译器和IDE的设计。新的研究聚焦于如何让LLM更好地理解代码语义和类型系统。</p>
-                    </div>
-                </div>
-            </div>
-        </section>            <div class="section-header">
-                <h2 class="section-title gfx">
-                    <span>◉</span> 计算机图形学
-                </h2>
-                <span class="update-time">最后更新: 2026年02月21日</span>
-            </div>
-
-            <div class="cards-grid">
-                <article class="card gfx">
-                    <div class="card-header">
-                        <span class="card-tag gfx">Rendering · 3DGS</span>
-                        <span class="card-date">2026-02-19</span>
-                    </div>
-                    <h3>Gaussian Splatter: Real-Time Neural Rendering</h3>
-                    <p>这篇论文提出了一种改进的3D高斯溅射渲染算法，在保持实时性能的同时显著提升了渲染质量。研究团队针对原始3DGS算法在边缘模糊和细节丢失方面的问题，引入了自适应高斯分布优化机制，能够根据场景复杂度动态调整高斯基元的形状和大小。核心贡献包括一种新的深度感知损失函数，更好地保留了几何边缘的锐利度；以及分块渲染优化策略，充分利用现代GPU的并行计算能力。实验结果表明，该方法在多种复杂场景下都达到了照片级真实感，渲染速度比传统NeRF方法快两个数量级，为虚拟现实和数字孪生应用提供了强大的技术支撑。</p>
-                    <div class="card-meta">
-                        <span>📄 SIGGRAPH</span>
-                        <span>👁️ 8,934</span>
-                    </div>
-                    <a href="https://arxiv.org/abs/2502.09563" class="card-link gfx" target="_blank">查看详情 →</a>
-                </article>
-                <article class="card gfx">
-                    <div class="card-header">
-                        <span class="card-tag gfx">Material · 材质重建</span>
-                        <span class="card-date">2026-02-18</span>
-                    </div>
-                    <h3>Neural Material Capture from Single Image</h3>
-                    <p>该研究突破了从单张图像重建完整材质属性的技术难题。传统方法通常需要复杂的多视角拍摄或专业测量设备，而这项工作通过结合深度神经网络的强大表征能力和物理渲染的先验知识，实现了从任意单张照片中提取反照率、粗糙度、金属度和法线贴图等完整材质信息。核心技术包括多尺度特征融合网络，能够有效处理不同尺度的纹理细节；以及基于物理的可微分渲染器，确保重建的材质在物理上合理且视觉上逼真。该技术的应用前景广阔，从游戏资产快速创建到电子商务产品展示，再到文物保护数字化，都将受益于这一便捷高效的材质获取方案。</p>
-                    <div class="card-meta">
-                        <span>📄 arXiv</span>
-                        <span>👁️ 7,654</span>
-                    </div>
-                    <a href="https://arxiv.org/abs/2502.08421" class="card-link gfx" target="_blank">查看详情 →</a>
-                </article>
-                <article class="card gfx">
-                    <div class="card-header">
-                        <span class="card-tag gfx">Lighting · 全局光照</span>
-                        <span class="card-date">2026-02-17</span>
-                    </div>
-                    <h3>Real-Time Global Illumination for Games</h3>
-                    <p>这篇论文介绍了一种专为游戏引擎设计的实时全局光照解决方案，在主流游戏主机上实现了接近离线渲染质量的照明效果。核心创新是一种混合渲染架构，结合了光线追踪的精确性和光栅化的高效性。研究团队开发了一种新的辐照度缓存机制，能够智能复用之前帧的计算结果，同时通过时域累积算法有效抑制噪声。特别值得关注的是动态场景处理方法，在物体移动和光源变化时保持稳定流畅的照明效果。实际游戏测试表明，该方案在PS5和Xbox Series X上能够以4K分辨率稳定运行在60帧每秒，为下一代游戏视觉体验树立了新的标杆。</p>
-                    <div class="card-meta">
-                        <span>📄 GDC</span>
-                        <span>👁️ 9,876</span>
-                    </div>
-                    <a href="https://arxiv.org/abs/2502.07345" class="card-link gfx" target="_blank">查看详情 →</a>
-                </article>
-            </div>
-
-            <div class="timeline" style="margin-top: 3rem;">
-                <div class="timeline-item pl">
-                    <div class="timeline-date">2025年</div>
-                    <div class="timeline-content">
-                        <h4>编程语言的融合趋势</h4>
-                        <p>Rust 影响 C++（内存安全）、TypeScript 影响 Python（类型系统）、Go 影响 Java（简洁性）。语言设计正在相互借鉴最佳实践。</p>
-                    </div>
-                </div>
-                <div class="timeline-item pl">
-                    <div class="timeline-date">2024-2025</div>
-                    <div class="timeline-content">
-                        <h4>AI 辅助编程工具链</h4>
-                        <p>Copilot、Cursor 等工具正在改变编译器和 IDE 的设计。新的研究聚焦于如何让 LLM 更好地理解代码语义和类型系统。</p>
-                    </div>
-                </div>
+            <div class="empty-state">
+                <div class="empty-state-icon">⚡</div>
+                <p>正在整理编译器与PL最新进展...</p>
+                <p style="font-size: 0.85rem; margin-top: 0.5rem;">关注 LLVM / Rust / Go / 新兴编程语言</p>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://arxiv.org/" target="_blank">arXiv</a>
-                <a href="https://paperswithcode.com/" target="_blank">Papers with Code</a>
-                <a href="https://github.com/trending" target="_blank">GitHub Trending</a>
-                <a href="https://news.ycombinator.com/" target="_blank">Hacker News</a>
-                <a href="https://lobste.rs/" target="_blank">Lobsters</a>
-            </div>
-            <div class="footer-copyright">
-                <p>TechInsight Hub © 2025 · 每日更新前沿技术洞察</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;">数据来源: arXiv, TechCrunch, The Verge, 36氪, 机器之心, GitHub, SIGGRAPH, PLDI 等</p>
-            </div>
-        </div>
+        <p>TechInsight Hub · 汇聚技术前沿洞察</p>
+        <p style="margin-top: 0.5rem;">Generated with ❤️ by OpenClaw</p>
     </footer>
 
     <script>
-        // Toggle dropdown menu
-        function toggleDropdown() {
-            const dropdown = document.getElementById('frontierDropdown');
-            dropdown.classList.toggle('show');
-        }
-
-        // Close dropdown menu
-        function closeDropdown() {
-            const dropdown = document.getElementById('frontierDropdown');
-            dropdown.classList.remove('show');
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const dropdown = document.getElementById('frontierDropdown');
-            const frontierBtn = document.querySelector('.nav-btn.frontier');
-            if (!frontierBtn.contains(event.target) && !dropdown.contains(event.target)) {
-                dropdown.classList.remove('show');
-            }
-        });
-
         function showSection(sectionId) {
             // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
@@ -2065,87 +558,8 @@
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
-            
-            // Set active button
-            if (sectionId === 'hot') {
-                document.querySelector('.nav-btn.hot').classList.add('active');
-            } else {
-                document.querySelector('.nav-btn.frontier').classList.add('active');
-            }
-            
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            event.target.classList.add('active');
         }
-
-        // Add smooth scroll behavior for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // 展开/折叠功能 - 使用渐变遮罩而非省略号
-        function initExpandButtons() {
-            document.querySelectorAll('.card p').forEach(p => {
-                const text = p.textContent;
-                // 只有内容超过150字才添加折叠
-                if (text.length < 150) return;
-
-                const container = document.createElement('div');
-                container.className = 'summary-container';
-
-                const summaryDiv = document.createElement('div');
-                summaryDiv.className = 'summary-text collapsed';
-                summaryDiv.innerHTML = p.innerHTML;
-
-                const btn = document.createElement('button');
-                btn.className = 'expand-btn';
-                btn.textContent = '展开查看全文';
-
-                container.appendChild(summaryDiv);
-                container.appendChild(btn);
-                p.parentNode.replaceChild(container, p);
-
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    if (summaryDiv.classList.contains('collapsed')) {
-                        summaryDiv.classList.remove('collapsed');
-                        btn.classList.add('expanded');
-                        btn.textContent = '收起';
-                    } else {
-                        summaryDiv.classList.add('collapsed');
-                        btn.classList.remove('expanded');
-                        btn.textContent = '展开查看全文';
-                    }
-                });
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            initExpandButtons();
-            
-            // Hash路由处理 - 根据URL hash显示对应栏目
-            function handleHash() {
-                const hash = window.location.hash.slice(1); // 去掉#
-                if (hash && ['hot', 'ai', 'gfx', 'os', 'pl'].includes(hash)) {
-                    showSection(hash);
-                }
-            }
-            
-            // 页面加载时处理hash
-            handleHash();
-            
-            // hash变化时处理
-            window.addEventListener('hashchange', handleHash);
-        });
-
-        // 展开/折叠功能
     </script>
 </body>
 </html>
