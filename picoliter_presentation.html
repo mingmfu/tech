@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皮升级液体分配技术</title>
+    <link href="https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css" rel="stylesheet">
+    <link href="https://fonts.loli.net/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'HarmonyOS Sans SC', 'Noto Sans SC', 'Inter', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow: hidden;
+        }
+        
+        .presentation {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+        
+        /* 动态光斑 */
+        .light-spot {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        
+        .light-spot-1 {
+            width: 400px;
+            height: 400px;
+            background: #3b82f6;
+            top: -100px;
+            right: -100px;
+            animation: float1 20s ease-in-out infinite;
+        }
+        
+        .light-spot-2 {
+            width: 350px;
+            height: 350px;
+            background: #8b5cf6;
+            bottom: -80px;
+            left: -80px;
+            animation: float2 25s ease-in-out infinite;
+        }
+        
+        .light-spot-3 {
+            width: 300px;
+            height: 300px;
+            background: #06b6d4;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: float3 18s ease-in-out infinite;
+        }
+        
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            25% { transform: translate(-30px, 50px); }
+            50% { transform: translate(50px, 30px); }
+            75% { transform: translate(20px, -40px); }
+        }
+        
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(40px, -30px); }
+            66% { transform: translate(-20px, 40px); }
+        }
+        
+        @keyframes float3 {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+        
+        /* 文字样式 */
+        .slide-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1.2;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #9ca3af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .slide-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #9ca3af;
+            text-align: center;
+            line-height: 1.6;
+        }
+        
+        .slide-text {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #9ca3af;
+            text-align: center;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+        
+        .big-number {
+            font-size: 6rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+        
+        .step-number {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #3b82f6;
+            opacity: 0.5;
+            line-height: 1;
+        }
+        
+        .highlight {
+            color: #3b82f6;
+            font-weight: 700;
+        }
+        
+        .highlight-purple {
+            color: #8b5cf6;
+            font-weight: 700;
+        }
+        
+        .highlight-cyan {
+            color: #06b6d4;
+            font-weight: 700;
+        }
+        
+        /* 列表样式 */
+        .feature-list {
+            list-style: none;
+            text-align: center;
+            space-y: 1.5rem;
+        }
+        
+        .feature-list li {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #e5e7eb;
+            margin: 1rem 0;
+            padding: 0.5rem 1.5rem;
+            border-left: 3px solid #3b82f6;
+        }
+        
+        /* 对比样式 */
+        .compare-box {
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin: 0.5rem 0;
+        }
+        
+        .compare-left {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .compare-right {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        /* 引用样式 */
+        .quote-mark {
+            font-size: 8rem;
+            line-height: 0.5;
+            color: #374151;
+            opacity: 0.5;
+        }
+        
+        /* 导航 */
+        .nav-hint {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 100;
+        }
+        
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #374151;
+            transition: all 0.3s;
+        }
+        
+        .nav-dot.active {
+            background: #3b82f6;
+            width: 24px;
+            border-radius: 4px;
+        }
+        
+        .page-indicator {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            z-index: 100;
+        }
+        
+        /* 应用图标 */
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* 分隔线 */
+        .divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+        
+        /* 强调文字 */
+        .emphasis {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation">
+        
+        <!-- Slide 1: 封面 -->
+        <div class="slide active" data-slide="1">
+            <div class="light-spot light-spot-1"></div>
+            <div class="light-spot light-spot-2"></div>
+            <div class="app-icon">💧</div>
+            <h1 class="slide-title">皮升级液体<br>分配技术</h1>
+            <div class="divider"></div>
+            <p class="slide-subtitle">微观世界的精准操控革命</p>
+        </div>
+        
+        <!-- Slide 2: 什么是皮升级 -->
+        <div class="slide" data-slide="2">
+            <div class="light-spot light-spot-1"></div>
+            <div class="light-spot light-spot-3"></div>
+            
+            <span class="big-number">10⁻¹²</span>
+            <p class="slide-subtitle" style="font-size: 1.5rem; margin: 1.5rem 0;">升（L）</p>
+            <div class="divider"></div>
+            
+            <p class="slide-text">
+                相当于人类头发直径的 <span class="highlight">1/5</span>
+            </p>
+            <p class="slide-text" style="margin-top: 1rem; font-size: 1rem;">
+                一皮升 ≈ 一个红细胞体积
+            </p>
+        </div>
+        
+        <!-- Slide 3: 四大技术突破 - 标题 -->
+        <div class="slide" data-slide="3">
+            <div class="light-spot light-spot-1"></div>
+            <div class="light-spot light-spot-2"></div>
+            
+            <h1 class="slide-title">四大技术突破</h1>
+            <div class="divider"></div>
+            
+            <p class="slide-text">
+                压电驱动 · MEMS加工 · 智能反馈 · 材料革新
+            </p>
+        </div>
+        
+        <!-- Slide 4: 突破1 - 压电陶瓷驱动 -->
+        <div class="slide" data-slide="4">
+            <div class="light-spot light-spot-1"></div>
+            
+            <span class="step-number">01</span>
+            
+            <h2 class="slide-subtitle" style="font-size: 2rem; font-weight: 700; color: white; margin: 1rem 0;">压电陶瓷驱动</h2>
+            
+            <div class="divider"></div>
+            
+            <p class="slide-text">
+                利用逆压电效应，通过精确控制电压实现<br>
+                <span class="highlight">纳米级位移</span>
+            </p>
+            
+            <p class="slide-text" style="margin-top: 1.5rem; font-size: 1rem;">
+                分配精度：CV < 1% · 频率：最高10kHz
+            </p>
+        </div>
+        
+        <!-- Slide 5: 突破2 - MEMS微纳加工 -->
+        <div class="slide" data-slide="5">
+            <div class="light-spot light-spot-2"></div>
+            
+            <span class="step-number" style="color: #8b5cf6;">02</span>
+            
+            <h2 class="slide-subtitle" style="font-size: 2rem; font-weight: 700; color: white; margin: 1rem 0;">MEMS微纳加工</h2>
+            
+            <div class="divider"></div>
+            
+            <p class="slide-text">
+                单芯片集成 <span class="highlight-purple">数千个</span><br>独立分配通道
+            </p>
+            
+            <p class="slide-text" style="margin-top: 1.5rem; font-size: 1rem;">
+                喷嘴直径：20μm · 通道间距：100μm
+            </p>
+        </div>
+        
+        <!-- Slide 6: 突破3 - 智能反馈控制 -->
+        <div class="slide" data-slide="6">
+            <div class="light-spot light-spot-3"></div>
+            
+            <span class="step-number" style="color: #06b6d4;">03</span>
+            
+            <h2 class="slide-subtitle" style="font-size: 2rem; font-weight: 700; color: white; margin: 1rem 0;">智能反馈控制</h2>
+            
+            <div class="divider"></div>
+            
+            <p class="slide-text">
+                <span class="highlight-cyan">AI算法</span> 实时优化分配参数<br>预测堵塞，自适应维护
+            </p>
+            
+            <p class="slide-text" style="margin-top: 1.5rem; font-size: 1rem;">
+                闭环控制 · 零故障运行
+            </p>
+        </div>
+        
+        <!-- Slide 7: 突破4 - 材料科学 -->
+        <div class="slide" data-slide="7">
+            <div class="light-spot light-spot-1"></div>
+            <div class="light-spot light-spot-2"></div>
+            
+            <span class="step-number" style="color: #10b981;">04</span>
+            
+            <h2 class="slide-subtitle" style="font-size: 2rem; font-weight: 700; color: white; margin: 1rem 0;">材料科学突破</h2>
+            
+            <div class="divider"></div>
+            
+            <p class="slide-text">
+                氧化锆陶瓷喷嘴 · 氟碳聚合物涂层<br>使用寿命延长 <span style="color: #10b981; font-weight: 700;">10倍以上</span>
+            </p>
+            
+            <p class="slide-text" style="margin-top: 1.5rem; font-size: 1rem;">
+                防粘附 · 耐磨损 · 化学惰性
+            </p>
+        </div>
+        
+        <!-- Slide 8: 五大应用场景 - 标题 -->
+        <div class="slide" data-slide="8">
+            <div class="light-spot light-spot-1"></div>
+            <div class="light-spot light-spot-2"></div>
+            
+            <h1 class="slide-title">五大应用场景</h1>
+            
+            <div class="divider"></div>
+            
+            <p class="slide-text">
+                从基因测序到先进封装
+            </p>
+        </div>
+        
+        <!-- Slide 9: 应用场景1-3 -->
+        <div class="slide" data-slide="9">
+            <div class="light-spot light-spot-1"></div>
+            
+            <ul class="feature-list">
+                <li>🧬 基因测序与合成生物学</li>
+                <li>🫀 类器官与器官芯片</li>
+                <li>🧪 微流控诊断与POCT</li>
+            </ul>
+            
+            <p class="slide-text" style="margin-top: 2rem; font-size: 1rem;">
+                数字PCR · 单细胞测序 · 3D生物打印
+            </p>
+        </div>
+        
+        <!-- Slide 10: 应用场景4-5 -->
+        <div class="slide" data-slide="10">
+            <div class="light-spot light-spot-2"></div>
+            
+            <ul class="feature-list">
+                <li>💻 先进封装与微电子</li>
+                <li>💊 药物筛选与高通量实验</li>
+            </ul>
+            
+            <p class="slide-text" style="margin-top: 2rem; font-size: 1rem;">
+                倒装芯片 · 微LED巨量转移 · HTS筛选
+            </p>
+        </div>
+        
+        <!-- Slide 11: 市场潜力 -->
+        <div class="slide" data-slide="11">
+            <div class="light-spot light-spot-1"></div>
+            <div class="light-spot light-spot-3"></div>
+            
+            <p class="slide-subtitle" style="margin-bottom: 1rem;">2028年市场规模</p>
+            
+            <span class="big-number">$120B</span>
+            
+            <div class="divider"></div>
+            
+            <p class="slide-text">
+                年复合增长率 <span class="highlight">18%</span>
+            </p>
+        </div>
+        
+        <!-- Slide 12: 国产崛起对比 -->
+        <div class="slide" data-slide="12">
+            <div class="light-spot light-spot-1"></div>
+            <div class="light-spot light-spot-2"></div>
+            
+            <h2 class="slide-subtitle" style="font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 2rem;">国产厂商崛起</h2>
+            
+            <div class="compare-box compare-left">
+                <p style="color: #fca5a5; font-weight: 600;">国际巨头</p>
+                <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 0.5rem;">Eppendorf · Tecan · Hamilton</p>
+            </div>
+            
+            <div style="margin: 1rem 0; text-align: center; color: #6b7280;">VS</div>
+            
+            <div class="compare-box compare-right">
+                <p style="color: #6ee7b7; font-weight: 600;">国产替代</p>
+                <p style="color: #9ca3af; font-size: 0.9rem; margin-top: 0.5rem;">华大智造 · 奥美泰克 · 迪谱诊断</p>
+            </div>
+        </div>
+        
+        <!-- Slide 13: 金句 -->
+        <div class="slide" data-slide="13">
+            <div class="light-spot light-spot-1"></div>
+            <div class="light-spot light-spot-2"></div>
+            <div class="light-spot light-spot-3"></div>
+            
+            <span class="quote-mark">"</span>
+            
+            <p class="emphasis">
+                从实验室<br>走向产业化
+            </p>
+            
+            <span class="quote-mark" style="transform: rotate(180deg); display: inline-block;">"</span>
+        </div>
+        
+        <!-- Slide 14: 结尾 -->
+        <div class="slide" data-slide="14">
+            <div class="light-spot light-spot-1"></div>
+            <div class="light-spot light-spot-2"></div>
+            
+            <div class="app-icon">🎯</div>
+            
+            <h1 class="slide-title" style="font-size: 2.2rem;">谢谢观看</h1>
+            
+            <div class="divider"></div>
+            
+            <p class="slide-text">
+                皮升级液体分配技术<br>微观世界的精准操控革命
+            </p>
+        </div>
+    </div>
+    
+    <!-- 导航指示器 -->
+    <div class="nav-hint">
+        <span class="nav-dot active"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+    </div>
+    
+    <div class="page-indicator">
+        <span id="current">1</span> / 14
+    </div>
+    
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 14;
+        
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.nav-dot');
+            
+            if (n > totalSlides) currentSlide = 1;
+            if (n < 1) currentSlide = totalSlides;
+            
+            slides.forEach(slide => {
+                slide.classList.remove('active', 'prev');
+                const slideNum = parseInt(slide.dataset.slide);
+                if (slideNum === currentSlide) {
+                    slide.classList.add('active');
+                } else if (slideNum < currentSlide) {
+                    slide.classList.add('prev');
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index + 1 === currentSlide);
+            });
+            
+            document.getElementById('current').textContent = currentSlide;
+        }
+        
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+        
+        // 键盘导航
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+        
+        // 点击导航点
+        document.querySelectorAll('.nav-dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index + 1;
+                showSlide(currentSlide);
+            });
+        });
+        
+        // 触摸滑动支持
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) nextSlide();
+            if (touchEndX > touchStartX + 50) prevSlide();
+        }
+    </script>
+</body>
+</html>
