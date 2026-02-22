@@ -1,124 +1,86 @@
 {
   "news": [
     {
-      "title": "How I use Claude Code: Separation of planning and execution",
+      "title_en": "How I use Claude Code: Separation of planning and execution",
+      "title": "Claude大模型更新：功能全面升级",
       "url": "https://boristane.com/blog/how-i-use-claude-code/",
       "source": "Hacker News",
-      "score": 88,
-      "date": "Feb 22",
-      "region": "国外"
+      "score": 89,
+      "date": "02月22日"
     },
     {
-      "title": "Show HN: Llama 3.1 70B on a single RTX 3090 via NVMe-to-GPU bypassing the CPU",
-      "url": "https://github.com/xaskasdf/ntransformer",
-      "source": "Hacker News",
-      "score": 97,
-      "date": "Feb 22",
-      "region": "国外"
-    },
-    {
-      "title": "zclaw: personal AI assistant in under 888 KB, running on an ESP32",
+      "title_en": "zclaw: personal AI assistant in under 888 KB, running on an ESP32",
+      "title": "AI技术新进展",
       "url": "https://github.com/tnm/zclaw",
       "source": "Hacker News",
-      "score": 96,
-      "date": "Feb 21",
-      "region": "国外"
+      "score": 97,
+      "date": "02月22日"
     },
     {
-      "title": "Who's liable when your AI agent burns down production?",
-      "url": "https://reading.sh/whos-liable-when-your-ai-agent-burns-down-production-039193d82746?sk=4921ed2dbc46f0c618835ac458cf5051",
-      "source": "Hacker News",
-      "score": 21,
-      "date": "Feb 22",
-      "region": "国外"
-    },
-    {
-      "title": "CXMT has been offering DDR4 chips at about half the prevailing market rate",
+      "title_en": "CXMT has been offering DDR4 chips at about half the prevailing market rate",
+      "title": "AI芯片技术新进展",
       "url": "https://www.koreaherald.com/article/10679206",
       "source": "Hacker News",
       "score": 155,
-      "date": "Feb 21",
-      "region": "国外"
+      "date": "02月22日"
     },
     {
-      "title": "Claws are now a new layer on top of LLM agents",
+      "title_en": "Claws are now a new layer on top of LLM agents",
+      "title": "AI智能体技术进展",
       "url": "https://twitter.com/karpathy/status/2024987174077432126",
       "source": "Hacker News",
-      "score": 195,
-      "date": "Feb 21",
-      "region": "国外"
+      "score": 196,
+      "date": "02月22日"
     },
     {
-      "title": "Toyota Mirai hydrogen car depreciation: 65% value loss in a year",
+      "title_en": "Toyota Mirai hydrogen car depreciation: 65% value loss in a year",
+      "title": "AI技术新进展",
       "url": "https://carbuzz.com/toyota-mirai-massive-depreciation-one-year/",
       "source": "Hacker News",
       "score": 95,
-      "date": "Feb 22",
-      "region": "国外"
+      "date": "02月22日"
     },
     {
-      "title": "Uncovering insiders and alpha on Polymarket with AI",
+      "title_en": "Who's liable when your AI agent burns down production?",
+      "title": "AI智能体技术进展",
+      "url": "https://reading.sh/whos-liable-when-your-ai-agent-burns-down-production-039193d82746?sk=4921ed2dbc46f0c618835ac458cf5051",
+      "source": "Hacker News",
+      "score": 24,
+      "date": "02月22日"
+    },
+    {
+      "title_en": "Uncovering insiders and alpha on Polymarket with AI",
+      "title": "AI技术新进展",
       "url": "https://twitter.com/peterjliu/status/2024901585806225723",
       "source": "Hacker News",
       "score": 129,
-      "date": "Feb 21",
-      "region": "国外"
+      "date": "02月22日"
     },
     {
-      "title": "DeepSeek-V3发布：国产大模型性能超越GPT-4o，成本仅为其1/10",
-      "url": "https://www.jiqizhixin.com/articles/2024-12-26-2",
-      "source": "机器之心",
-      "score": 5000,
-      "date": "今天",
-      "tag": "大模型",
-      "region": "国内"
+      "title_en": "Why is Claude an Electron app?",
+      "title": "Claude大模型更新：功能全面升级",
+      "url": "https://www.dbreunig.com/2026/02/21/why-is-claude-an-electron-app.html",
+      "source": "Hacker News",
+      "score": 335,
+      "date": "02月22日"
     },
     {
-      "title": "百度文心一言用户破亿，国产AI应用进入爆发期",
-      "url": "https://36kr.com/p/2645890",
-      "source": "36氪",
-      "score": 4500,
-      "date": "今天",
-      "tag": "产业动态",
-      "region": "国内"
+      "title_en": "AI uBlock Blacklist",
+      "title": "AI技术新进展",
+      "url": "https://github.com/alvi-se/ai-ublock-blacklist",
+      "source": "Hacker News",
+      "score": 222,
+      "date": "02月22日"
     },
     {
-      "title": "阿里云通义千问2.5发布：代码能力登顶全球榜单",
-      "url": "https://www.infoq.cn/article/2024-07-aliyun",
-      "source": "InfoQ",
-      "score": 4200,
-      "date": "今天",
-      "tag": "云服务",
-      "region": "国内"
-    },
-    {
-      "title": "智谱AI完成新融资：估值超200亿，国产AI独角兽崛起",
-      "url": "https://www.jiqizhixin.com/articles/2024-09-05",
-      "source": "机器之心",
-      "score": 3800,
-      "date": "今天",
-      "tag": "投融资",
-      "region": "国内"
-    },
-    {
-      "title": "腾讯混元大模型开放，企业级AI服务竞争白热化",
-      "url": "https://36kr.com/p/2645891",
-      "source": "36氪",
-      "score": 3500,
-      "date": "今天",
-      "tag": "企业服务",
-      "region": "国内"
-    },
-    {
-      "title": "华为盘古大模型3.0发布：面向行业场景的专用模型",
-      "url": "https://www.infoq.cn/article/2024-07-huawei",
-      "source": "InfoQ",
-      "score": 3200,
-      "date": "今天",
-      "tag": "行业应用",
-      "region": "国内"
+      "title_en": "US judge upholds $243M verdict against Tesla over fatal Autopilot crash",
+      "title": "AI技术新进展",
+      "url": "https://www.reuters.com/world/us-judge-upholds-243-million-verdict-against-tesla-over-fatal-autopilot-crash-2026-02-20",
+      "source": "Hacker News",
+      "score": 5,
+      "date": "02月22日"
     }
   ],
   "papers": [],
-  "updated_at": "2026-02-22T10:00:57.435037"
+  "updated_at": "2026-02-22T10:04:45.960887"
 }
