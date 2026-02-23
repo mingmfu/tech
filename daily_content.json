@@ -1,86 +1,124 @@
 {
   "news": [
     {
-      "title_en": "How I use Claude Code: Separation of planning and execution",
-      "title": "Claude大模型更新：功能全面升级",
-      "url": "https://boristane.com/blog/how-i-use-claude-code/",
+      "title": "Google restricting Google AI Pro/Ultra subscribers for using OpenClaw",
+      "url": "https://discuss.ai.google.dev/t/account-restricted-without-warning-google-ai-ultra-oauth-via-openclaw/122778",
       "source": "Hacker News",
-      "score": 89,
-      "date": "02月22日"
+      "score": 237,
+      "date": "Feb 23",
+      "region": "国外"
     },
     {
-      "title_en": "zclaw: personal AI assistant in under 888 KB, running on an ESP32",
-      "title": "AI技术新进展",
-      "url": "https://github.com/tnm/zclaw",
+      "title": "The surprising power of daily rituals",
+      "url": "https://www.bbc.com/future/article/20210914-how-rituals-help-us-to-deal-with-uncertainty-and-stress",
       "source": "Hacker News",
-      "score": 97,
-      "date": "02月22日"
+      "score": 6,
+      "date": "Feb 23",
+      "region": "国外"
     },
     {
-      "title_en": "CXMT has been offering DDR4 chips at about half the prevailing market rate",
-      "title": "AI芯片技术新进展",
-      "url": "https://www.koreaherald.com/article/10679206",
+      "title": "Man accidentally gains control of 7k robot vacuums",
+      "url": "https://www.popsci.com/technology/robot-vacuum-army/",
       "source": "Hacker News",
-      "score": 155,
-      "date": "02月22日"
+      "score": 200,
+      "date": "Feb 22",
+      "region": "国外"
     },
     {
-      "title_en": "Claws are now a new layer on top of LLM agents",
-      "title": "AI智能体技术进展",
-      "url": "https://twitter.com/karpathy/status/2024987174077432126",
+      "title": "NanoClaw moved from Apple Containers to Docker",
+      "url": "https://twitter.com/Gavriel_Cohen/status/2025603982769410356",
       "source": "Hacker News",
-      "score": 196,
-      "date": "02月22日"
+      "score": 107,
+      "date": "Feb 23",
+      "region": "国外"
     },
     {
-      "title_en": "Toyota Mirai hydrogen car depreciation: 65% value loss in a year",
-      "title": "AI技术新进展",
-      "url": "https://carbuzz.com/toyota-mirai-massive-depreciation-one-year/",
+      "title": "Spain has blocked access to freedom.gov",
+      "url": "https://twitter.com/Pirat_Nation/status/2025643188321714642",
       "source": "Hacker News",
-      "score": 95,
-      "date": "02月22日"
+      "score": 114,
+      "date": "Feb 23",
+      "region": "国外"
     },
     {
-      "title_en": "Who's liable when your AI agent burns down production?",
-      "title": "AI智能体技术进展",
-      "url": "https://reading.sh/whos-liable-when-your-ai-agent-burns-down-production-039193d82746?sk=4921ed2dbc46f0c618835ac458cf5051",
+      "title": "We hid backdoors in ~40MB binaries and asked AI + Ghidra to find them",
+      "url": "https://quesma.com/blog/introducing-binaryaudit/",
       "source": "Hacker News",
-      "score": 24,
-      "date": "02月22日"
+      "score": 206,
+      "date": "Feb 22",
+      "region": "国外"
     },
     {
-      "title_en": "Uncovering insiders and alpha on Polymarket with AI",
-      "title": "AI技术新进展",
-      "url": "https://twitter.com/peterjliu/status/2024901585806225723",
+      "title": "How Taalas “prints” LLM onto a chip?",
+      "url": "https://www.anuragk.com/blog/posts/Taalas.html",
       "source": "Hacker News",
-      "score": 129,
-      "date": "02月22日"
+      "score": 393,
+      "date": "Feb 22",
+      "region": "国外"
     },
     {
-      "title_en": "Why is Claude an Electron app?",
-      "title": "Claude大模型更新：功能全面升级",
-      "url": "https://www.dbreunig.com/2026/02/21/why-is-claude-an-electron-app.html",
+      "title": "'Peanut butter' pay raises could cost companies their top performers",
+      "url": "https://www.cnbc.com/2026/02/22/peanut-butter-pay-raises-could-cost-companies-their-top-performers-according-to-experts-its-such-a-shortsighted-strategy.html",
       "source": "Hacker News",
-      "score": 335,
-      "date": "02月22日"
+      "score": 41,
+      "date": "Feb 23",
+      "region": "国外"
     },
     {
-      "title_en": "AI uBlock Blacklist",
-      "title": "AI技术新进展",
-      "url": "https://github.com/alvi-se/ai-ublock-blacklist",
-      "source": "Hacker News",
-      "score": 222,
-      "date": "02月22日"
+      "title": "DeepSeek-V3发布：国产大模型性能超越GPT-4o，成本仅为其1/10",
+      "url": "https://www.jiqizhixin.com/articles/2024-12-26-2",
+      "source": "机器之心",
+      "score": 5000,
+      "date": "今天",
+      "tag": "大模型",
+      "region": "国内"
     },
     {
-      "title_en": "US judge upholds $243M verdict against Tesla over fatal Autopilot crash",
-      "title": "AI技术新进展",
-      "url": "https://www.reuters.com/world/us-judge-upholds-243-million-verdict-against-tesla-over-fatal-autopilot-crash-2026-02-20",
-      "source": "Hacker News",
-      "score": 5,
-      "date": "02月22日"
+      "title": "百度文心一言用户破亿，国产AI应用进入爆发期",
+      "url": "https://36kr.com/p/2645890",
+      "source": "36氪",
+      "score": 4500,
+      "date": "今天",
+      "tag": "产业动态",
+      "region": "国内"
+    },
+    {
+      "title": "阿里云通义千问2.5发布：代码能力登顶全球榜单",
+      "url": "https://www.infoq.cn/article/2024-07-aliyun",
+      "source": "InfoQ",
+      "score": 4200,
+      "date": "今天",
+      "tag": "云服务",
+      "region": "国内"
+    },
+    {
+      "title": "智谱AI完成新融资：估值超200亿，国产AI独角兽崛起",
+      "url": "https://www.jiqizhixin.com/articles/2024-09-05",
+      "source": "机器之心",
+      "score": 3800,
+      "date": "今天",
+      "tag": "投融资",
+      "region": "国内"
+    },
+    {
+      "title": "腾讯混元大模型开放，企业级AI服务竞争白热化",
+      "url": "https://36kr.com/p/2645891",
+      "source": "36氪",
+      "score": 3500,
+      "date": "今天",
+      "tag": "企业服务",
+      "region": "国内"
+    },
+    {
+      "title": "华为盘古大模型3.0发布：面向行业场景的专用模型",
+      "url": "https://www.infoq.cn/article/2024-07-huawei",
+      "source": "InfoQ",
+      "score": 3200,
+      "date": "今天",
+      "tag": "行业应用",
+      "region": "国内"
     }
   ],
   "papers": [],
-  "updated_at": "2026-02-22T10:04:45.960887"
+  "updated_at": "2026-02-23T10:00:28.120223"
 }
