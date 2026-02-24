@@ -546,6 +546,34 @@
             color: var(--accent-ai);
             transform: translateX(4px);
         }
+        .news-summary {
+            position: relative;
+        }
+        .summary-short {
+            margin: 0;
+        }
+        .summary-full {
+            margin-top: 0.5rem;
+        }
+        .summary-full p {
+            margin: 0;
+            line-height: 1.8;
+        }
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent-ai);
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .toggle-btn:hover {
+            text-decoration: underline;
+        }
 </style>
 </head>
 <body>
@@ -594,18 +622,65 @@
             <!-- Hotspots Preview -->
             <div class="section-header">
                 <h2 class="section-title">🔥 本周热点速览</h2>
-                <span class="update-time">最后更新: 2026-02-23</span>
+                <span class="update-time">最后更新: 2026-02-24</span>
             </div>
             
             <div class="cards-grid">
                 <article class="card">
-                    <span class="card-tag ai">AI智能体</span>
-                    <h3>OpenAI发布Operator：AI智能体可自主操控浏览器</h3>
-                    <p>OpenAI正式推出Operator智能体产品，能够像人类一样自主操控浏览器完成各种任务。该智能体基于GPT-4o模型，可以通过视觉理解网页内容，自动填写表单、预订服务、在线购物等复杂操作。OpenAI表示Operator采用了新的安全架构，在关键操作前会征求用户确认，确保用户控制权。这标志着AI从对话工具向行动代理的重大进化，也引发了关于AI自动化替代人工劳动的广泛讨论。首批测试名额已向ChatGPT Pro用户开放，未来可能向更多用...</p>
+                    <span class="card-tag ai">热点</span>
+                    <h3>FreeBSD doesn't have Wi-Fi driver for my old MacBook. AI build one for me</h3>
+                    <p>FreeBSD doesn't have Wi-Fi driver for my old MacBook. AI build one for me...</p>
                     <div class="card-meta">
-                        <span>TechCrunch</span>
-                        <a href="https://techcrunch.com/2025/01/23/openai-operator/" class="card-link" target="_blank">查看 →</a>
+                        <span>Hacker News</span>
+                        <a href="https://vladimir.varank.in/notes/2026/02/freebsd-brcmfmac/" class="card-link" target="_blank">查看 →</a>
                     </div>
+                </article>
+                <article class="card">
+                    <span class="card-tag ai">热点</span>
+                    <h3>Making Wolfram Tech Available as a Foundation Tool for LLM Systems</h3>
+                    <p>Making Wolfram Tech Available as a Foundation Tool for LLM Systems...</p>
+                    <div class="card-meta">
+                        <span>Hacker News</span>
+                        <a href="https://writings.stephenwolfram.com/2026/02/making-wolfram-tech-available-as-a-foundation-tool-for-llm-systems/" class="card-link" target="_blank">查看 →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <span class="card-tag ai">热点</span>
+                    <h3>AI Added 'Basically Zero' to US Economic Growth Last Year, Goldman Sachs Says</h3>
+                    <p>AI Added 'Basically Zero' to US Economic Growth Last Year, Goldman Sachs Says...</p>
+                    <div class="card-meta">
+                        <span>Hacker News</span>
+                        <a href="https://gizmodo.com/ai-added-basically-zero-to-us-economic-growth-last-year-goldman-sachs-says-2000725380" class="card-link" target="_blank">查看 →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <span class="card-tag ai">热点</span>
+                    <h3>Show HN: AI Timeline – 171 LLMs from Transformer (2017) to GPT-5.3 (2026)</h3>
+                    <p>Show HN: AI Timeline – 171 LLMs from Transformer (2017) to GPT-5.3 (2026)...</p>
+                    <div class="card-meta">
+                        <span>Hacker News</span>
+                        <a href="https://llm-timeline.com/" class="card-link" target="_blank">查看 →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <span class="card-tag ai">热点</span>
+                    <h3>NIST Seeking Public Comment on AI Agent Security (Deadline: March 9, 2026)</h3>
+                    <p>NIST Seeking Public Comment on AI Agent Security (Deadline: March 9, 2026)...</p>
+                    <div class="card-meta">
+                        <span>Hacker News</span>
+                        <a href="https://www.federalregister.gov/documents/2026/01/08/2026-00206/request-for-information-regarding-security-considerations-for-artificial-intelligence-agents" class="card-link" target="_blank">查看 →</a>
+                    </div>
+                </article>
+                <article class="card">
+                    <span class="card-tag ai">热点</span>
+                    <h3>I discovered a hidden tragedy tied to Russia's most famous painting</h3>
+                    <p>I discovered a hidden tragedy tied to Russia's most famous painting...</p>
+                    <div class="card-meta">
+                        <span>Hacker News</span>
+                        <a href="https://www.theguardian.com/artanddesign/2026/feb/20/an-unknown-woman-how-i-discovered-a-hidden-tragedy-tied-to-russias-most-famous-painting" class="card-link" target="_blank">查看 →</a>
+                    </div>
+                </article>
+            </div>
                 </article>
                 <article class="card">
                     <span class="card-tag ai">投资</span>
@@ -933,6 +1008,20 @@
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
+        }
+    </script>
+
+    <script>
+        function toggleSummary(id) {
+            const fullSummary = document.getElementById('summary-' + id);
+            const btn = document.querySelector('button[data-target="' + id + '"]');
+            if (fullSummary.style.display === 'none') {
+                fullSummary.style.display = 'block';
+                btn.textContent = '收起 ▲';
+            } else {
+                fullSummary.style.display = 'none';
+                btn.textContent = '展开 ▼';
+            }
         }
     </script>
 </body>
