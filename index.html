@@ -574,6 +574,90 @@
         .toggle-btn:hover {
             text-decoration: underline;
         }
+        .news-summary {
+            position: relative;
+        }
+        .summary-short {
+            margin: 0;
+        }
+        .summary-full {
+            margin-top: 0.5rem;
+        }
+        .summary-full p {
+            margin: 0;
+            line-height: 1.8;
+        }
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent-ai);
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .toggle-btn:hover {
+            text-decoration: underline;
+        }
+        .news-summary {
+            position: relative;
+        }
+        .summary-short {
+            margin: 0;
+        }
+        .summary-full {
+            margin-top: 0.5rem;
+        }
+        .summary-full p {
+            margin: 0;
+            line-height: 1.8;
+        }
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent-ai);
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .toggle-btn:hover {
+            text-decoration: underline;
+        }
+        .news-summary {
+            position: relative;
+        }
+        .summary-short {
+            margin: 0;
+        }
+        .summary-full {
+            margin-top: 0.5rem;
+        }
+        .summary-full p {
+            margin: 0;
+            line-height: 1.8;
+        }
+        .toggle-btn {
+            background: transparent;
+            border: none;
+            color: var(--accent-ai);
+            cursor: pointer;
+            font-size: 0.85rem;
+            padding: 0.25rem 0;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .toggle-btn:hover {
+            text-decoration: underline;
+        }
 </style>
 </head>
 <body>
@@ -1008,6 +1092,48 @@
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
+        }
+    </script>
+
+    <script>
+        function toggleSummary(id) {
+            const fullSummary = document.getElementById('summary-' + id);
+            const btn = document.querySelector('button[data-target="' + id + '"]');
+            if (fullSummary.style.display === 'none') {
+                fullSummary.style.display = 'block';
+                btn.textContent = '收起 ▲';
+            } else {
+                fullSummary.style.display = 'none';
+                btn.textContent = '展开 ▼';
+            }
+        }
+    </script>
+
+    <script>
+        function toggleSummary(id) {
+            const fullSummary = document.getElementById('summary-' + id);
+            const btn = document.querySelector('button[data-target="' + id + '"]');
+            if (fullSummary.style.display === 'none') {
+                fullSummary.style.display = 'block';
+                btn.textContent = '收起 ▲';
+            } else {
+                fullSummary.style.display = 'none';
+                btn.textContent = '展开 ▼';
+            }
+        }
+    </script>
+
+    <script>
+        function toggleSummary(id) {
+            const fullSummary = document.getElementById('summary-' + id);
+            const btn = document.querySelector('button[data-target="' + id + '"]');
+            if (fullSummary.style.display === 'none') {
+                fullSummary.style.display = 'block';
+                btn.textContent = '收起 ▲';
+            } else {
+                fullSummary.style.display = 'none';
+                btn.textContent = '展开 ▼';
+            }
         }
     </script>
 
