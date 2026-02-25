@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "lastUpdated": "2026-02-25T10:07:18.606648Z",
+  "lastUpdated": "2026-02-25T10:08:55.166990Z",
   "categories": [
     {
       "id": "hot",
@@ -281,8 +281,8 @@
           "source": "arXiv",
           "date": "2026-02-25",
           "url": "https://arxiv.org/abs/2501.12948",
-          "isHot": true,
-          "views": 25678
+          "isHot": false,
+          "views": 5000
         },
         {
           "id": "mixture-of-experts-moe-架构新进展",
@@ -294,7 +294,7 @@
           "date": "2026-02-25",
           "url": "https://arxiv.org/abs/2502.08934",
           "isHot": false,
-          "views": 5432
+          "views": 5000
         },
         {
           "id": "sora之后：视频生成模型的技术演进",
@@ -306,7 +306,7 @@
           "date": "2026-02-25",
           "url": "https://arxiv.org/abs/2502.07652",
           "isHot": false,
-          "views": 7654
+          "views": 5000
         },
         {
           "id": "agent系统的记忆机制设计",
@@ -318,7 +318,7 @@
           "date": "2026-02-25",
           "url": "https://arxiv.org/abs/2502.06731",
           "isHot": false,
-          "views": 4321
+          "views": 5000
         },
         {
           "id": "ai芯片的存算一体新架构",
@@ -330,7 +330,7 @@
           "date": "2026-02-25",
           "url": "https://arxiv.org/abs/2501.18485",
           "isHot": false,
-          "views": 3456
+          "views": 5000
         }
       ]
     }
