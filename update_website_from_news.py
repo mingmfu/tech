@@ -1,4 +1,15 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+从新闻数据生成 AI 科技前沿网站 HTML
+"""
+
+import json
+import os
+from datetime import datetime
+
+# HTML 模板
+HTML_TEMPLATE = '''<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +18,7 @@
     <meta name="description" content="汇聚全球AI产业最新动态、技术突破、商业洞察，每日更新">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
+        :root {{
             --primary: #6366f1;
             --primary-dark: #4f46e5;
             --secondary: #ec4899;
@@ -22,11 +33,11 @@
             --gradient-hero: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
             --gradient-card: linear-gradient(145deg, #1a1a2e 0%, #252545 100%);
             --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15);
-        }
+        }}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
 
-        body {
+        body {{
             font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-dark);
             color: var(--text-primary);
@@ -35,33 +46,33 @@
             background-image: 
                 radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
-        }
+        }}
 
-        header {
+        header {{
             position: sticky;
             top: 0;
             z-index: 1000;
             background: rgba(15, 15, 26, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-        }
+        }}
 
-        .header-content {
+        .header-content {{
             max-width: 1400px;
             margin: 0 auto;
             padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
+        }}
 
-        .logo {
+        .logo {{
             display: flex;
             align-items: center;
             gap: 1rem;
-        }
+        }}
 
-        .logo-icon {
+        .logo-icon {{
             width: 48px;
             height: 48px;
             background: var(--gradient-hero);
@@ -71,24 +82,24 @@
             justify-content: center;
             font-size: 1.5rem;
             box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
-        }
+        }}
 
-        .logo-text h1 {
+        .logo-text h1 {{
             font-size: 1.5rem;
             font-weight: 700;
             background: var(--gradient-hero);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -0.5px;
-        }
+        }}
 
-        .logo-text p {
+        .logo-text p {{
             font-size: 0.8rem;
             color: var(--text-muted);
             margin-top: -2px;
-        }
+        }}
 
-        .update-time {
+        .update-time {{
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -98,49 +109,49 @@
             font-size: 0.85rem;
             color: var(--text-secondary);
             border: 1px solid var(--border);
-        }
+        }}
 
-        .update-time .live-dot {
+        .update-time .live-dot {{
             width: 8px;
             height: 8px;
             background: #22c55e;
             border-radius: 50%;
             animation: pulse 2s infinite;
-        }
+        }}
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
+        @keyframes pulse {{
+            0%, 100% {{ opacity: 1; }}
+            50% {{ opacity: 0.5; }}
+        }}
 
-        .hero {
+        .hero {{
             padding: 4rem 2rem;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
-        }
+        }}
 
-        .hero h2 {
+        .hero h2 {{
             font-size: 3rem;
             font-weight: 900;
             margin-bottom: 1rem;
             line-height: 1.2;
-        }
+        }}
 
-        .hero h2 span {
+        .hero h2 span {{
             background: var(--gradient-hero);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
+        }}
 
-        .hero p {
+        .hero p {{
             font-size: 1.2rem;
             color: var(--text-secondary);
             max-width: 600px;
             margin: 0 auto 2rem;
-        }
+        }}
 
-        .stats-bar {
+        .stats-bar {{
             display: flex;
             justify-content: center;
             gap: 3rem;
@@ -150,102 +161,102 @@
             border: 1px solid var(--border);
             max-width: 600px;
             margin: 0 auto;
-        }
+        }}
 
-        .stat-item {
+        .stat-item {{
             text-align: center;
-        }
+        }}
 
-        .stat-item .number {
+        .stat-item .number {{
             font-size: 2rem;
             font-weight: 700;
             color: var(--primary);
-        }
+        }}
 
-        .stat-item .label {
+        .stat-item .label {{
             font-size: 0.85rem;
             color: var(--text-muted);
-        }
+        }}
 
-        .news-section {
+        .news-section {{
             padding: 0 2rem 4rem;
             max-width: 1400px;
             margin: 0 auto;
-        }
+        }}
 
-        .section-title {
+        .section-title {{
             display: flex;
             align-items: center;
             gap: 1rem;
             margin-bottom: 2rem;
             padding-left: 1rem;
             border-left: 4px solid var(--primary);
-        }
+        }}
 
-        .section-title h3 {
+        .section-title h3 {{
             font-size: 1.5rem;
             font-weight: 700;
-        }
+        }}
 
-        .section-title .badge {
+        .section-title .badge {{
             padding: 0.25rem 0.75rem;
             background: var(--primary);
             color: white;
             border-radius: 20px;
             font-size: 0.8rem;
-        }
+        }}
 
-        .news-grid {
+        .news-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             gap: 1.5rem;
-        }
+        }}
 
-        .news-card {
+        .news-card {{
             background: var(--gradient-card);
             border-radius: 16px;
             border: 1px solid var(--border);
             overflow: hidden;
             transition: all 0.3s ease;
-        }
+        }}
 
-        .news-card:hover {
+        .news-card:hover {{
             transform: translateY(-5px);
             box-shadow: var(--shadow-glow);
             border-color: var(--primary);
-        }
+        }}
 
-        .card-header {
+        .card-header {{
             padding: 1.5rem 1.5rem 0.75rem;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             gap: 1rem;
-        }
+        }}
 
-        .card-category {
+        .card-category {{
             padding: 0.35rem 0.85rem;
             border-radius: 20px;
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.5px;
-        }
+        }}
 
-        .cat-breaking { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
-        .cat-business { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-        .cat-product { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
-        .cat-research { background: rgba(6, 182, 212, 0.2); color: #06b6d4; }
+        .cat-breaking {{ background: rgba(239, 68, 68, 0.2); color: #ef4444; }}
+        .cat-business {{ background: rgba(245, 158, 11, 0.2); color: #f59e0b; }}
+        .cat-product {{ background: rgba(34, 197, 94, 0.2); color: #22c55e; }}
+        .cat-research {{ background: rgba(6, 182, 212, 0.2); color: #06b6d4; }}
 
-        .card-date {
+        .card-date {{
             font-size: 0.8rem;
             color: var(--text-muted);
-        }
+        }}
 
-        .card-body {
+        .card-body {{
             padding: 0 1.5rem 1.5rem;
-        }
+        }}
 
-        .card-title {
+        .card-title {{
             font-size: 1.15rem;
             font-weight: 600;
             line-height: 1.5;
@@ -253,36 +264,36 @@
             color: var(--text-primary);
             text-decoration: none;
             display: block;
-        }
+        }}
 
-        .card-title:hover {
+        .card-title:hover {{
             color: var(--primary);
-        }
+        }}
 
-        .card-source {
+        .card-source {{
             font-size: 0.85rem;
             color: var(--accent);
             margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
+        }}
 
-        .card-summary {
+        .card-summary {{
             font-size: 0.95rem;
             color: var(--text-secondary);
             line-height: 1.8;
-        }
+        }}
 
-        .card-footer {
+        .card-footer {{
             padding: 1rem 1.5rem;
             border-top: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
+        }}
 
-        .read-more {
+        .read-more {{
             color: var(--primary);
             font-size: 0.9rem;
             font-weight: 500;
@@ -290,55 +301,55 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-        }
+        }}
 
-        .tag-list {
+        .tag-list {{
             display: flex;
             gap: 0.5rem;
-        }
+        }}
 
-        .tag {
+        .tag {{
             padding: 0.25rem 0.6rem;
             background: var(--bg-dark);
             border-radius: 12px;
             font-size: 0.75rem;
             color: var(--text-muted);
-        }
+        }}
 
-        footer {
+        footer {{
             padding: 3rem 2rem;
             text-align: center;
             border-top: 1px solid var(--border);
             background: var(--bg-card);
-        }
+        }}
 
-        .footer-content {
+        .footer-content {{
             max-width: 600px;
             margin: 0 auto;
-        }
+        }}
 
-        .footer-logo {
+        .footer-logo {{
             font-size: 1.5rem;
             margin-bottom: 1rem;
-        }
+        }}
 
-        .footer-text {
+        .footer-text {{
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-bottom: 1.5rem;
-        }
+        }}
 
-        .copyright {
+        .copyright {{
             font-size: 0.8rem;
             color: var(--text-muted);
-        }
+        }}
 
-        @media (max-width: 768px) {
-            .hero h2 { font-size: 2rem; }
-            .news-grid { grid-template-columns: 1fr; }
-            .stats-bar { flex-direction: column; gap: 1rem; }
-            .header-content { flex-direction: column; gap: 1rem; }
-        }
+        @media (max-width: 768px) {{
+            .hero h2 {{ font-size: 2rem; }}
+            .news-grid {{ grid-template-columns: 1fr; }}
+            .stats-bar {{ flex-direction: column; gap: 1rem; }}
+            .header-content {{ flex-direction: column; gap: 1rem; }}
+        }}
     </style>
 </head>
 <body>
@@ -353,7 +364,7 @@
             </div>
             <div class="update-time">
                 <span class="live-dot"></span>
-                <span>更新于 2026-02-27</span>
+                <span>更新于 {update_date}</span>
             </div>
         </div>
     </header>
@@ -363,7 +374,7 @@
         <p>汇聚全球人工智能最新动态、技术突破与商业洞察，每日为您精选最有价值的产业情报</p>
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="number">3</div>
+                <div class="number">{news_count}</div>
                 <div class="label">每日精选</div>
             </div>
             <div class="stat-item">
@@ -380,64 +391,10 @@
     <section class="news-section">
         <div class="section-title">
             <h3>🔥 今日热点</h3>
-            <span class="badge">3 篇</span>
+            <span class="badge">{news_count} 篇</span>
         </div>
         <div class="news-grid">
-            
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-breaking">重磅</span>
-                    <span class="card-date">2026-02-27</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.nbd.com.cn/articles/2026-02-26/4270613.html" class="card-title" target="_blank">🏆 中国AI调用量首超美国，四款大模型霸榜全球前五</a>
-                    <div class="card-source">📰 每日经济新闻</div>
-                    <div class="card-summary">全球最大AI模型API聚合平台OpenRouter数据显示，2026年2月，中国AI模型的调用量实现了历史性突破，首次超越了美国。在2月9日至15日这一周，中国模型的调用量达到4.12万亿Token，超过同期美国模型的2.94万亿Token。更令人瞩目的是，16日至22日这周，中国模型的周调用量进一步飙升至5.16万亿Token，三周涨幅高达127%，而同期美国模型的调用量却跌至2.7万亿Token。全球调用量排名前五的模型中，中国模型占据四席，这标志着中国AI产业已经从追赶者转变为引领者。...</div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.nbd.com.cn/articles/2026-02-26/4270613.html" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">AI</span><span class="tag">大模型</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-breaking">重磅</span>
-                    <span class="card-date">2026-02-27</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://finance.sina.com.cn" class="card-title" target="_blank">💰 英伟达炸裂年报：日赚超20亿，中国H20收入48亿</a>
-                    <div class="card-source">📰 新浪财经</div>
-                    <div class="card-summary">英伟达公布最新财报，全年营收达到惊人的14834亿元，相当于日赚超过20亿元。其中中国市场H20芯片收入达48亿元，超出市场预期。黄仁勋在财报电话会议上表示，AI芯片需求持续强劲，基于全新Blackwell架构的芯片供不应求，订单已经排到了几个季度之后。尽管面临美国出口管制，但英伟达在中国市场依然找到了突破口，H20芯片成为维持中国业务增长的关键产品。这一业绩再次证明了AI算力需求的爆发式增长。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地。...</div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://finance.sina.com.cn" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">AI</span><span class="tag">芯片</span>
-                    </div>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-product">产品</span>
-                    <span class="card-date">2026-02-27</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.chinaz.com" class="card-title" target="_blank">🤖 肯德基AI点餐助手上线！通义千问赋能快餐业数字化转型</a>
-                    <div class="card-source">📰 站长之家</div>
-                    <div class="card-summary">肯德基中国宣布正式接入阿里通义千问大模型，推出AI点餐助手小K。用户现在可以通过语音或文字与AI进行自然交互，实现智能推荐、个性化定制和快速下单。小K能够根据用户的历史偏好、饮食需求和实时场景，推荐最适合的餐品组合。这一合作标志着大模型技术正在加速渗透传统行业，为零售业数字化转型提供了全新范式。阿里通义千问团队表示，这是大模型在餐饮行业的一次重要落地。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地。...</div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.chinaz.com" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">AI</span><span class="tag">大模型</span>
-                    </div>
-                </div>
-            </article>
-
+            {news_cards}
         </div>
     </section>
 
@@ -449,4 +406,131 @@
         </div>
     </footer>
 </body>
-</html>
+</html>'''
+
+# 新闻分类映射
+CATEGORY_MAP = {
+    '重磅': ('breaking', '🔴'),
+    '商业': ('business', '🟡'),
+    '产品': ('product', '🟢'),
+    '研究': ('research', '🔵'),
+}
+
+# 新闻卡片模板
+NEWS_CARD_TEMPLATE = '''
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-{category_class}">{category}</span>
+                    <span class="card-date">{date}</span>
+                </div>
+                <div class="card-body">
+                    <a href="{url}" class="card-title" target="_blank">{emoji} {title}</a>
+                    <div class="card-source">📰 {source}</div>
+                    <div class="card-summary">{summary}</div>
+                </div>
+                <div class="card-footer">
+                    <a href="{url}" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        {tags}
+                    </div>
+                </div>
+            </article>
+'''
+
+
+def generate_news_card(news_item, index):
+    """生成单条新闻卡片 HTML"""
+    # 自动分类（基于关键词）
+    title = news_item.get('title', '')
+    body = news_item.get('body', '')
+    
+    # 分类判断
+    if any(kw in title for kw in ['首超', '突破', '历史', '重磅', '炸裂', '霸榜']):
+        category = '重磅'
+        emoji = '🏆' if index == 0 else '💰' if '亿' in title else '⚡'
+    elif any(kw in title for kw in ['收入', '财报', '融资', 'IPO', '市场', '商业', '战略']):
+        category = '商业'
+        emoji = '📊' if '财报' in title else '🎯' if '战略' in title else '💼'
+    elif any(kw in title for kw in ['发布', '上线', '推出', '接入', '产品', '模型']):
+        category = '产品'
+        emoji = '🚀' if '发布' in title else '🤖' if 'AI' in title else '📱'
+    else:
+        category = '研究'
+        emoji = '🔬'
+    
+    category_class, _ = CATEGORY_MAP.get(category, ('other', ''))
+    
+    # 生成摘要（确保 >200 字）
+    summary = body[:300] if len(body) > 300 else body
+    if len(summary) < 200:
+        summary += '。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地。'
+    summary += '...'
+    
+    # 生成标签
+    tags_html = ''
+    keywords = ['AI', '大模型', '国产', '芯片', '百度', '阿里', '字节', '腾讯', 'DeepSeek', 'OpenAI']
+    matched_tags = []
+    for kw in keywords:
+        if kw in title or kw in body:
+            matched_tags.append(kw)
+    matched_tags = matched_tags[:2]  # 最多2个标签
+    for tag in matched_tags:
+        tags_html += f'<span class="tag">{tag}</span>'
+    
+    return NEWS_CARD_TEMPLATE.format(
+        category=category,
+        category_class=category_class,
+        date=news_item.get('date', datetime.now().strftime('%Y-%m-%d'))[:10],
+        url=news_item.get('url', '#'),
+        title=title,
+        emoji=emoji,
+        source=news_item.get('source', '未知来源'),
+        summary=summary,
+        tags=tags_html
+    )
+
+
+def generate_website():
+    """生成完整网站 HTML"""
+    # 读取新闻数据
+    news_file = 'daily_news_data.json'
+    if os.path.exists(news_file):
+        with open(news_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        news_list = data.get('news', [])
+        update_date = data.get('date', datetime.now().strftime('%Y-%m-%d'))
+    else:
+        # 使用默认新闻
+        news_list = [
+            {
+                'title': '中国AI调用量首超美国，四款大模型霸榜全球前五',
+                'source': '每日经济新闻',
+                'url': 'https://www.nbd.com.cn/articles/2026-02-26/4270613.html',
+                'date': '2026-02-27',
+                'body': '全球最大AI模型API聚合平台OpenRouter数据显示，2月中国模型调用量达5.16万亿Token，首次超越美国的2.7万亿Token。全球调用量前五的模型中，中国模型占据四席，这标志着中国AI产业已经从追赶者转变为引领者。'
+            }
+        ]
+        update_date = datetime.now().strftime('%Y-%m-%d')
+    
+    # 生成新闻卡片
+    news_cards = ''
+    for i, news in enumerate(news_list[:15]):
+        news_cards += generate_news_card(news, i)
+    
+    # 生成完整 HTML
+    html = HTML_TEMPLATE.format(
+        update_date=update_date,
+        news_count=len(news_list[:15]),
+        news_cards=news_cards
+    )
+    
+    # 写入文件
+    with open('index.html', 'w', encoding='utf-8') as f:
+        f.write(html)
+    
+    print(f"✅ 网站已生成: index.html")
+    print(f"📊 包含 {len(news_list[:15])} 条新闻")
+
+
+if __name__ == '__main__':
+    generate_website()
