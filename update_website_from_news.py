@@ -479,7 +479,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 </html>'''
 
 # 新闻卡片模板（带折叠功能，无省略号）
-NEWS_CARD_TEMPLATE = '''            <article class="news-card">
+NEWS_CARD_TEMPLATE_DIRECT = '''            <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-{category_class}">{category}</span>
                     <span class="card-date">{date}</span>
@@ -494,6 +494,28 @@ NEWS_CARD_TEMPLATE = '''            <article class="news-card">
                 </div>
                 <div class="card-footer">
                     <a href="{url}" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        {tags}
+                    </div>
+                </div>
+            </article>
+'''
+
+NEWS_CARD_TEMPLATE_SEARCH = '''            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-{category_class}">{category}</span>
+                    <span class="card-date">{date}</span>
+                </div>
+                <div class="card-body">
+                    <span class="card-title">{emoji} {title}</span>
+                    <div class="card-source">📰 {source}</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">{summary}</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{url}" class="read-more" target="_blank" style="color: #06b6d4;">🔍 搜索相关报道 →</a>
                     <div class="tag-list">
                         {tags}
                     </div>
@@ -546,7 +568,11 @@ def generate_news_card(news_item, index):
     for tag in matched_tags:
         tags_html += f'<span class="tag">{tag}</span>'
     
-    return NEWS_CARD_TEMPLATE.format(
+    # 选择模板（根据是否为搜索链接）
+    is_search_link = news_item.get('search_link', False)
+    template = NEWS_CARD_TEMPLATE_SEARCH if is_search_link else NEWS_CARD_TEMPLATE_DIRECT
+    
+    return template.format(
         category=category,
         category_class=category_class,
         date=news_item.get('date', datetime.now().strftime('%Y-%m-%d'))[:10],
