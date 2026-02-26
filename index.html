@@ -268,7 +268,7 @@
             gap: 0.5rem;
         }
 
-        /* 折叠展开样式 */
+        /* 折叠展开样式 - 无省略号 */
         .summary-container {
             position: relative;
         }
@@ -278,30 +278,19 @@
             color: var(--text-secondary);
             line-height: 1.8;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s ease, mask-image 0.3s ease, -webkit-mask-image 0.3s ease;
         }
 
         .card-summary.collapsed {
-            max-height: 120px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+            max-height: 100px;
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
         }
 
         .card-summary.expanded {
-            max-height: 1000px;
-            -webkit-line-clamp: unset;
-        }
-
-        .card-summary.collapsed::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40px;
-            background: linear-gradient(transparent, var(--bg-card));
-            pointer-events: none;
+            max-height: 2000px;
+            mask-image: none;
+            -webkit-mask-image: none;
         }
 
         .toggle-btn {
@@ -423,7 +412,7 @@
         <p>汇聚全球人工智能最新动态、技术突破与商业洞察，每日为您精选最有价值的产业情报</p>
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="number">8</div>
+                <div class="number">16</div>
                 <div class="label">每日精选</div>
             </div>
             <div class="stat-item">
@@ -440,11 +429,10 @@
     <section class="news-section">
         <div class="section-title">
             <h3>🔥 今日热点</h3>
-            <span class="badge">8 篇</span>
+            <span class="badge">16 篇</span>
         </div>
         <div class="news-grid">
-            
-            <article class="news-card">
+                        <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-breaking">重磅</span>
                     <span class="card-date">2026-02-27</span>
@@ -464,7 +452,6 @@
                     </div>
                 </div>
             </article>
-
             <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-breaking">重磅</span>
@@ -474,7 +461,7 @@
                     <a href="https://finance.sina.com.cn" class="card-title" target="_blank">💰 英伟达炸裂年报：日赚超20亿，中国H20收入48亿</a>
                     <div class="card-source">📰 新浪财经</div>
                     <div class="summary-container">
-                        <div class="card-summary collapsed">英伟达公布最新财报，全年营收达到惊人的14834亿元，相当于日赚超过20亿元。其中中国市场H20芯片收入达48亿元，超出市场预期。黄仁勋在财报电话会议上表示，AI芯片需求持续强劲，基于全新Blackwell架构的芯片供不应求，订单已经排到了几个季度之后。尽管面临美国出口管制，但英伟达在中国市场依然找到了突破口，H20芯片成为维持中国业务增长的关键产品。这一业绩再次证明了AI算力需求的爆发式增长。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。</div>
+                        <div class="card-summary collapsed">英伟达公布最新财报，全年营收达到惊人的14834亿元，相当于日赚超过20亿元。其中中国市场H20芯片收入达48亿元，超出市场预期。黄仁勋在财报电话会议上表示，AI芯片需求持续强劲，基于全新Blackwell架构的芯片供不应求，订单已经排到了几个季度之后。尽管面临美国出口管制，但英伟达在中国市场依然找到了突破口，H20芯片成为维持中国业务增长的关键产品。这一业绩再次证明了AI算力需求的爆发式增长。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。随着技术成熟和成本下降，AI将更加普及。</div>
                         <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
                     </div>
                 </div>
@@ -485,7 +472,6 @@
                     </div>
                 </div>
             </article>
-
             <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-product">产品</span>
@@ -495,7 +481,7 @@
                     <a href="https://www.chinaz.com" class="card-title" target="_blank">🤖 肯德基AI点餐助手上线！通义千问赋能快餐业数字化转型</a>
                     <div class="card-source">📰 站长之家</div>
                     <div class="summary-container">
-                        <div class="card-summary collapsed">肯德基中国宣布正式接入阿里通义千问大模型，推出AI点餐助手小K。用户现在可以通过语音或文字与AI进行自然交互，实现智能推荐、个性化定制和快速下单。小K能够根据用户的历史偏好、饮食需求和实时场景，推荐最适合的餐品组合。这一合作标志着大模型技术正在加速渗透传统行业，为零售业数字化转型提供了全新范式。阿里通义千问团队表示，这是大模型在餐饮行业的一次重要落地。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。</div>
+                        <div class="card-summary collapsed">肯德基中国宣布正式接入阿里通义千问大模型，推出AI点餐助手小K。用户现在可以通过语音或文字与AI进行自然交互，实现智能推荐、个性化定制和快速下单。小K能够根据用户的历史偏好、饮食需求和实时场景，推荐最适合的餐品组合。这一合作标志着大模型技术正在加速渗透传统行业，为零售业数字化转型提供了全新范式。阿里通义千问团队表示，这是大模型在餐饮行业的一次重要落地。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。随着技术成熟和成本下降，AI将更加普及。</div>
                         <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
                     </div>
                 </div>
@@ -506,7 +492,6 @@
                     </div>
                 </div>
             </article>
-
             <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-product">产品</span>
@@ -527,7 +512,6 @@
                     </div>
                 </div>
             </article>
-
             <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-breaking">重磅</span>
@@ -548,7 +532,6 @@
                     </div>
                 </div>
             </article>
-
             <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-product">产品</span>
@@ -569,7 +552,6 @@
                     </div>
                 </div>
             </article>
-
             <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-research">研究</span>
@@ -590,7 +572,6 @@
                     </div>
                 </div>
             </article>
-
             <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-product">产品</span>
@@ -608,6 +589,166 @@
                     <a href="https://www.pingwest.com" class="read-more" target="_blank">阅读全文 →</a>
                     <div class="tag-list">
                         <span class="tag">AI</span><span class="tag">OpenAI</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-research">研究</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.36kr.com/p/3024614992209409" class="card-title" target="_blank">🔬 李开复揭秘：零一万物to B新打法，不走OpenAI烧钱老路</a>
+                    <div class="card-source">📰 36氪</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">作为大模型to B商业化的开拓者之一，零一万物创始人李开复接受36氪专访，分享了独特的商业化路径。他表示，大模型to B不走传统软件公司的招标竞标路线，而是采取"Boss直销"模式——依靠高管团队多年积累的行业经验和人脉资源，直接对接企业高层决策者。李开复强调，中国企业不需要复制OpenAI的"烧钱换规模"模式，而是应该聚焦垂直场景，用务实的态度打造真正解决客户痛点的AI产品。零一万物近期推出的企业级AI解决方案已实现单客户年均贡献超百万元收入，验证了这种直销模式的有效性。李开复预测，2026年将是中国AI企业级应用的爆发之年。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.36kr.com/p/3024614992209409" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">大模型</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-business">商业</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://finance.sina.com.cn" class="card-title" target="_blank">📊 AI收入占比43%！百度财报揭秘技术长跑如何变为商业兑现</a>
+                    <div class="card-source">📰 新浪财经</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">百度公布2025年第四季度及全年财报，全年总营收1291亿元。四季度，百度总营收327亿元，AI业务收入占百度核心业务收入的43%，超出市场预期。这不仅标志着其十余年AI投入迎来规模化回报，更揭示了一个深层变革：当行业多数企业仍在探索AI落地场景时，百度已率先完成从"技术验证"到"商业兑现"的跨越。文心一言用户突破亿级大关，智能云业务增速超过行业平均水平，自动驾驶业务也开始贡献实质性收入。李彦宏表示，2026年将继续加大AI基础设施投资，预计研发投入将超过200亿元，重点布局多模态大模型和智能体技术。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://finance.sina.com.cn" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">大模型</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-research">研究</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://new.qq.com" class="card-title" target="_blank">🔬 首届AIGC内容产业大会上海开幕：探索AI创作新边界</a>
+                    <div class="card-source">📰 腾讯网</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">首届AIGC内容产业大会即将在上海隆重举办，这场盛会汇聚了国内顶级的AI企业和内容创作者，共同探讨AIGC技术在游戏、影视、广告、教育等领域的深度应用。大会设置了主论坛和多个分论坛，涵盖技术前沿、商业落地、创作实践等多个维度。目前报名人数已位居同类活动榜首，充分展现了业界对AIGC主题的高度关注。大会还将发布《2026年中国AIGC产业发展报告》，为从业者提供权威的行业洞察。参会企业包括百度、阿里、腾讯、字节跳动等互联网巨头，以及众多AI初创公司，预计参会人数将超过5000人。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://new.qq.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">百度</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-business">商业</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://finance.sina.com.cn" class="card-title" target="_blank">🎯 OpenAI伦敦建最大海外研究中心，欧洲战略布局提速</a>
+                    <div class="card-source">📰 新浪财经</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">OpenAI正式宣布将在伦敦建立其美国以外最大的研究中心，计划在未来两年内招聘数百名顶尖研究人员和工程师。这是OpenAI全球化布局的重要一步，也标志着欧洲在其战略中的地位日益提升。OpenAI CEO Sam Altman表示，伦敦拥有世界一流的AI人才和活跃的科研生态，是OpenAI拓展国际业务的理想选择。新研究中心将专注于大模型安全、AI对齐和通用人工智能（AGI）等前沿领域的研究。与此同时，OpenAI还宣布与英国多所高校建立合作关系，共同培养AI人才。分析人士指出，OpenAI此举意在分散地缘政治风险，同时更好地服务欧洲市场。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://finance.sina.com.cn" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">大模型</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-business">商业</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://new.qq.com" class="card-title" target="_blank">💼 字节攻城，阿里筑墙：2026年AI云战役的终局推演</a>
+                    <div class="card-source">📰 腾讯网</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">阿里云宣布三年投入3800亿元用于AI基础设施建设，字节跳动传闻2026年资本开支达1600亿元。表面上看，这是两家巨头在砸钱抢市场，但深究战略底色，会发现这是两种完全不同的进化路径。阿里选择"筑墙"——依托强大的云计算基础设施，打造全栈AI服务体系，服务B端企业客户；字节选择"攻城"——凭借抖音、TikTok等产品矩阵的海量用户，快速推进AI应用落地，抢占C端心智。两种模式没有优劣之分，但都指向同一个目标：在AI时代重新定义自己的商业边界。业内分析认为，这场战役的终局可能是双雄并立，而非一家独大。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://new.qq.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">阿里</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-research">研究</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.36kr.com" class="card-title" target="_blank">🔬 春节AI红包大战收官：45亿投入背后的超级入口之争</a>
+                    <div class="card-source">📰 36氪</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">2026年春节AI红包大战正式落下帷幕，百度、腾讯、阿里、字节跳动等巨头累计投入超过45亿元，创下历史新高。这场被称为"最烧钱"的春节营销战中，各平台纷纷将AI能力融入传统红包玩法，推出AI生成拜年视频、智能祝福语、AR红包等创新功能。百度文心一言推出的"AI拜年"功能使用次数超过10亿次，腾讯元宝的AI红包封面生成量突破5000万张。然而，热闹背后，行业更关心的是：这些投入能否真正转化为用户留存？分析人士指出，AI红包大战本质上是巨头们争夺"超级入口"的排位赛，红包只是获客手段，真正的竞争在于谁能通过AI能力建立起用户粘性。从目前数据来看，春节后各平台AI功能的日活跃用户数平均下降了30%，如何将"春节流量"转化为"日常用户"仍是各平台面临的共同挑战。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.36kr.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">百度</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-research">研究</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://new.qq.com" class="card-title" target="_blank">🔬 DeepSeek V4轻量版启动内测，优先适配国产芯片架构</a>
+                    <div class="card-source">📰 腾讯网</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">DeepSeek V4轻量版正式启动内测，值得关注的是，此次内测优先面向华为昇腾等国产芯片厂商开放。从产业视角看，这更是一次务实的"软硬协同"卡位。DeepSeek的选择意味着从底层算子优化到分布式推理，都将以昇腾等国产芯片为基准进行原生适配。如果这套"昇腾+DeepSeek"的组合跑通，将首次验证国产全栈AI技术的大规模商业化可行性。这不仅是一家企业的产品策略，更可能成为中国AI产业摆脱对海外芯片依赖的关键一步，对国产AI生态建设具有里程碑意义。据参与内测的开发者反馈，V4版本在推理速度和能耗控制方面均有显著提升。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://new.qq.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">国产</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-breaking">重磅</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.jiqizhixin.com" class="card-title" target="_blank">🚀 Anthropic Claude Computer Use正式发布：AI智能体时代的里程碑</a>
+                    <div class="card-source">📰 机器之心</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">人工智能公司Anthropic正式为Claude推出了Computer Use功能，让这款AI助手具备了"看"和操作计算机的能力。这项功能允许Claude像人类一样查看屏幕、移动鼠标、点击按钮和输入文本，可以自主完成复杂的计算机操作任务。Computer Use被业界视为Anthropic进军AI智能体（AI Agent）领域的关键一步，标志着AI从"对话"向"行动"的范式转变。测试显示，配备Computer Use功能的Claude能够独立完成从数据整理、报表生成到网页浏览、信息检索等一系列办公任务，效率接近人类初级白领水平。Anthropic表示，该功能目前仍处于测试阶段，主要面向企业用户提供，未来将逐步开放给更多开发者。这一技术的成熟将深刻改变未来的办公模式和人机协作方式。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.jiqizhixin.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span>
                     </div>
                 </div>
             </article>

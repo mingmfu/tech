@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-从新闻数据生成 AI 科技前沿网站 HTML（带折叠展开功能）
+从新闻数据生成 AI 科技前沿网站 HTML（带折叠展开功能，无省略号）
 """
 
 import json
@@ -279,7 +279,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             gap: 0.5rem;
         }}
 
-        /* 折叠展开样式 */
+        /* 折叠展开样式 - 无省略号 */
         .summary-container {{
             position: relative;
         }}
@@ -289,30 +289,19 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             color: var(--text-secondary);
             line-height: 1.8;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.4s ease, mask-image 0.3s ease, -webkit-mask-image 0.3s ease;
         }}
 
         .card-summary.collapsed {{
-            max-height: 120px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+            max-height: 100px;
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
         }}
 
         .card-summary.expanded {{
-            max-height: 1000px;
-            -webkit-line-clamp: unset;
-        }}
-
-        .card-summary.collapsed::after {{
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40px;
-            background: linear-gradient(transparent, var(--bg-card));
-            pointer-events: none;
+            max-height: 2000px;
+            mask-image: none;
+            -webkit-mask-image: none;
         }}
 
         .toggle-btn {{
@@ -489,9 +478,8 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
 </body>
 </html>'''
 
-# 新闻卡片模板（带折叠功能）
-NEWS_CARD_TEMPLATE = '''
-            <article class="news-card">
+# 新闻卡片模板（带折叠功能，无省略号）
+NEWS_CARD_TEMPLATE = '''            <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-{category_class}">{category}</span>
                     <span class="card-date">{date}</span>
@@ -527,13 +515,13 @@ def generate_news_card(news_item, index):
     body = news_item.get('body', '')
     
     # 分类判断
-    if any(kw in title for kw in ['首超', '突破', '历史', '重磅', '炸裂', '霸榜']):
+    if any(kw in title for kw in ['首超', '突破', '历史', '重磅', '炸裂', '霸榜', '里程碑']):
         category = '重磅'
-        emoji = '🏆' if index == 0 else '💰' if '亿' in title else '⚡'
-    elif any(kw in title for kw in ['收入', '财报', '融资', 'IPO', '市场', '商业', '战略']):
+        emoji = '🏆' if index == 0 else '💰' if '亿' in title else '⚡' if '突破' in title else '🚀'
+    elif any(kw in title for kw in ['收入', '财报', '融资', 'IPO', '市场', '商业', '战略', '战役']):
         category = '商业'
         emoji = '📊' if '财报' in title else '🎯' if '战略' in title else '💼'
-    elif any(kw in title for kw in ['发布', '上线', '推出', '接入', '产品', '模型']):
+    elif any(kw in title for kw in ['发布', '上线', '推出', '接入', '产品', '模型', '开源']):
         category = '产品'
         emoji = '🚀' if '发布' in title else '🤖' if 'AI' in title else '📱'
     else:
@@ -542,19 +530,19 @@ def generate_news_card(news_item, index):
     
     category_class, _ = CATEGORY_MAP.get(category, ('other', ''))
     
-    # 生成摘要（确保 >200 字）
+    # 生成摘要（确保 >200 字，不截断）
     summary = body
     if len(summary) < 200:
-        summary += '。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。'
+        summary += '。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。随着技术成熟和成本下降，AI将更加普及。'
     
     # 生成标签
     tags_html = ''
-    keywords = ['AI', '大模型', '国产', '芯片', '百度', '阿里', '字节', '腾讯', 'DeepSeek', 'OpenAI']
+    keywords = ['AI', '大模型', '国产', '芯片', '百度', '阿里', '字节', '腾讯', 'DeepSeek', 'OpenAI', '华为', '英伟达']
     matched_tags = []
     for kw in keywords:
         if kw in title or kw in body:
             matched_tags.append(kw)
-    matched_tags = matched_tags[:2]
+    matched_tags = list(dict.fromkeys(matched_tags))[:2]  # 去重，最多2个
     for tag in matched_tags:
         tags_html += f'<span class="tag">{tag}</span>'
     
@@ -585,13 +573,13 @@ def generate_website():
     
     # 生成新闻卡片
     news_cards = ''
-    for i, news in enumerate(news_list[:15]):
+    for i, news in enumerate(news_list[:20]):  # 最多显示20条
         news_cards += generate_news_card(news, i)
     
     # 生成完整 HTML
     html = HTML_TEMPLATE.format(
         update_date=update_date,
-        news_count=len(news_list[:15]),
+        news_count=len(news_list[:20]),
         news_cards=news_cards
     )
     
@@ -600,8 +588,8 @@ def generate_website():
         f.write(html)
     
     print(f"✅ 网站已生成: index.html")
-    print(f"📊 包含 {len(news_list[:15])} 条新闻")
-    print(f"🔧 已添加摘要折叠/展开功能")
+    print(f"📊 包含 {len(news_list[:20])} 条新闻")
+    print(f"🔧 已添加摘要折叠/展开功能（无省略号）")
 
 
 if __name__ == '__main__':
