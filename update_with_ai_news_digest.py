@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 使用 ai-news-digest 技能方式获取中文 AI 新闻并更新网站
+自动解析真实文章链接
 """
 
 import json
@@ -9,11 +10,26 @@ import os
 from datetime import datetime
 from duckduckgo_search import DDGS
 
+def resolve_real_url(title, source):
+    """通过搜索获取真实文章URL"""
+    try:
+        query = f"{title} {source}"
+        with DDGS() as ddgs:
+            # 使用文本搜索获取真实链接
+            results = list(ddgs.text(query, region='cn-zh', max_results=3))
+            if results:
+                # 返回第一个结果的真实URL
+                return results[0]['href']
+    except Exception as e:
+        print(f"⚠️ 解析链接失败: {e}")
+    
+    # 如果失败，返回Bing搜索链接
+    return f"https://www.bing.com/search?q={title.replace(' ', '+')}"
+
 def search_ai_news():
     """搜索中文 AI 新闻（ai-news-digest 技能方式）"""
     print("🔍 使用 ai-news-digest 技能搜索新闻...")
     
-    # 中文 AI 新闻源（对应 ai-news-digest 的 trusted sources）
     sources_queries = [
         ('机器之心 AI人工智能', '机器之心'),
         ('36氪 AI大模型', '36氪'),
@@ -31,15 +47,28 @@ def search_ai_news():
                 results = list(ddgs.news(
                     query, 
                     region='cn-zh', 
-                    timelimit='d',  # 过去24小时
+                    timelimit='d',
                     max_results=5
                 ))
                 
                 for r in results:
+                    # 检查URL是否有效
+                    url = r['url']
+                    title = r['title']
+                    
+                    # 如果是根域名或无效链接，尝试解析真实链接
+                    if url in ['https://finance.sina.com.cn', 'https://www.chinaz.com', 
+                               'https://www.jiqizhixin.com', 'https://www.guancha.cn', 
+                               'https://www.36kr.com', 'https://new.qq.com',
+                               'https://www.pingwest.com', 'https://www.sohu.com', 
+                               'https://www.sina.com.cn'] or 'bing.com' in url:
+                        print(f"🔍 解析真实链接: {title[:30]}...")
+                        url = resolve_real_url(title, r.get('source', source_name))
+                    
                     news = {
-                        'title': r['title'],
+                        'title': title,
                         'source': r.get('source', source_name),
-                        'url': r['url'],
+                        'url': url,
                         'date': r['date'][:10] if 'date' in r else datetime.now().strftime('%Y-%m-%d'),
                         'body': r['body']
                     }
@@ -64,7 +93,6 @@ def deduplicate_news(news_list):
     """去重（ai-news-digest 技能方式）"""
     dedup_file = 'skills/ai-news-digest/data/news-sent.txt'
     
-    # 读取已发送的新闻
     sent_headlines = set()
     if os.path.exists(dedup_file):
         with open(dedup_file, 'r', encoding='utf-8') as f:
@@ -73,13 +101,10 @@ def deduplicate_news(news_list):
                     headline = line.split('|')[1].strip()
                     sent_headlines.add(headline)
     
-    # 过滤重复
     filtered = []
     for news in news_list:
-        # 模糊匹配：标题相似度
         is_duplicate = False
         for sent in sent_headlines:
-            # 如果标题有50%以上相似，认为是重复
             if len(set(news['title']) & set(sent)) / len(set(news['title'])) > 0.5:
                 is_duplicate = True
                 break
@@ -92,7 +117,6 @@ def deduplicate_news(news_list):
 
 def curate_news(news_list):
     """精选新闻（ai-news-digest 技能方式）"""
-    # 分类
     categorized = {
         'breaking': [],
         'business': [],
@@ -115,7 +139,6 @@ def curate_news(news_list):
         else:
             categorized['other'].append(news)
     
-    # 精选：每类最多4条，总共15条
     curated = []
     for cat in ['breaking', 'business', 'product', 'research', 'other']:
         curated.extend(categorized[cat][:4])
@@ -124,7 +147,6 @@ def curate_news(news_list):
     
     curated = curated[:15]
     
-    # 确保每条摘要 >200 字
     for news in curated:
         if len(news['body']) < 200:
             news['body'] += '。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。'
@@ -163,7 +185,7 @@ def main():
     print(f"⏰ {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("="*60)
     
-    # 1. 搜索新闻
+    # 1. 搜索新闻（自动解析真实链接）
     news = search_ai_news()
     
     if not news:
