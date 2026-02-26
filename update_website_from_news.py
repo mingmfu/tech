@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-从新闻数据生成 AI 科技前沿网站 HTML
+从新闻数据生成 AI 科技前沿网站 HTML（带折叠展开功能）
 """
 
 import json
@@ -253,7 +253,7 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
         }}
 
         .card-body {{
-            padding: 0 1.5rem 1.5rem;
+            padding: 0 1.5rem 1rem;
         }}
 
         .card-title {{
@@ -279,10 +279,70 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             gap: 0.5rem;
         }}
 
+        /* 折叠展开样式 */
+        .summary-container {{
+            position: relative;
+        }}
+
         .card-summary {{
             font-size: 0.95rem;
             color: var(--text-secondary);
             line-height: 1.8;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }}
+
+        .card-summary.collapsed {{
+            max-height: 120px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }}
+
+        .card-summary.expanded {{
+            max-height: 1000px;
+            -webkit-line-clamp: unset;
+        }}
+
+        .card-summary.collapsed::after {{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(transparent, var(--bg-card));
+            pointer-events: none;
+        }}
+
+        .toggle-btn {{
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }}
+
+        .toggle-btn:hover {{
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }}
+
+        .toggle-btn .arrow {{
+            transition: transform 0.3s ease;
+        }}
+
+        .toggle-btn.expanded .arrow {{
+            transform: rotate(180deg);
         }}
 
         .card-footer {{
@@ -405,18 +465,31 @@ HTML_TEMPLATE = '''<!DOCTYPE html>
             <p class="copyright">© 2026 AI科技前沿 | 每日自动更新 | 由 ai-news-digest 技能驱动</p>
         </div>
     </footer>
+
+    <script>
+        // 折叠展开功能
+        function toggleSummary(btn) {{
+            const container = btn.closest('.summary-container');
+            const summary = container.querySelector('.card-summary');
+            const isExpanded = summary.classList.contains('expanded');
+            
+            if (isExpanded) {{
+                summary.classList.remove('expanded');
+                summary.classList.add('collapsed');
+                btn.classList.remove('expanded');
+                btn.innerHTML = '展开 <span class="arrow">▼</span>';
+            }} else {{
+                summary.classList.remove('collapsed');
+                summary.classList.add('expanded');
+                btn.classList.add('expanded');
+                btn.innerHTML = '收起 <span class="arrow">▲</span>';
+            }}
+        }}
+    </script>
 </body>
 </html>'''
 
-# 新闻分类映射
-CATEGORY_MAP = {
-    '重磅': ('breaking', '🔴'),
-    '商业': ('business', '🟡'),
-    '产品': ('product', '🟢'),
-    '研究': ('research', '🔵'),
-}
-
-# 新闻卡片模板
+# 新闻卡片模板（带折叠功能）
 NEWS_CARD_TEMPLATE = '''
             <article class="news-card">
                 <div class="card-header">
@@ -426,7 +499,10 @@ NEWS_CARD_TEMPLATE = '''
                 <div class="card-body">
                     <a href="{url}" class="card-title" target="_blank">{emoji} {title}</a>
                     <div class="card-source">📰 {source}</div>
-                    <div class="card-summary">{summary}</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">{summary}</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <a href="{url}" class="read-more" target="_blank">阅读全文 →</a>
@@ -437,10 +513,16 @@ NEWS_CARD_TEMPLATE = '''
             </article>
 '''
 
+CATEGORY_MAP = {
+    '重磅': ('breaking', '🔴'),
+    '商业': ('business', '🟡'),
+    '产品': ('product', '🟢'),
+    '研究': ('research', '🔵'),
+}
+
 
 def generate_news_card(news_item, index):
     """生成单条新闻卡片 HTML"""
-    # 自动分类（基于关键词）
     title = news_item.get('title', '')
     body = news_item.get('body', '')
     
@@ -461,10 +543,9 @@ def generate_news_card(news_item, index):
     category_class, _ = CATEGORY_MAP.get(category, ('other', ''))
     
     # 生成摘要（确保 >200 字）
-    summary = body[:300] if len(body) > 300 else body
+    summary = body
     if len(summary) < 200:
-        summary += '。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地。'
-    summary += '...'
+        summary += '。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。'
     
     # 生成标签
     tags_html = ''
@@ -473,7 +554,7 @@ def generate_news_card(news_item, index):
     for kw in keywords:
         if kw in title or kw in body:
             matched_tags.append(kw)
-    matched_tags = matched_tags[:2]  # 最多2个标签
+    matched_tags = matched_tags[:2]
     for tag in matched_tags:
         tags_html += f'<span class="tag">{tag}</span>'
     
@@ -492,7 +573,6 @@ def generate_news_card(news_item, index):
 
 def generate_website():
     """生成完整网站 HTML"""
-    # 读取新闻数据
     news_file = 'daily_news_data.json'
     if os.path.exists(news_file):
         with open(news_file, 'r', encoding='utf-8') as f:
@@ -500,16 +580,7 @@ def generate_website():
         news_list = data.get('news', [])
         update_date = data.get('date', datetime.now().strftime('%Y-%m-%d'))
     else:
-        # 使用默认新闻
-        news_list = [
-            {
-                'title': '中国AI调用量首超美国，四款大模型霸榜全球前五',
-                'source': '每日经济新闻',
-                'url': 'https://www.nbd.com.cn/articles/2026-02-26/4270613.html',
-                'date': '2026-02-27',
-                'body': '全球最大AI模型API聚合平台OpenRouter数据显示，2月中国模型调用量达5.16万亿Token，首次超越美国的2.7万亿Token。全球调用量前五的模型中，中国模型占据四席，这标志着中国AI产业已经从追赶者转变为引领者。'
-            }
-        ]
+        news_list = []
         update_date = datetime.now().strftime('%Y-%m-%d')
     
     # 生成新闻卡片
@@ -530,6 +601,7 @@ def generate_website():
     
     print(f"✅ 网站已生成: index.html")
     print(f"📊 包含 {len(news_list[:15])} 条新闻")
+    print(f"🔧 已添加摘要折叠/展开功能")
 
 
 if __name__ == '__main__':

@@ -242,7 +242,7 @@
         }
 
         .card-body {
-            padding: 0 1.5rem 1.5rem;
+            padding: 0 1.5rem 1rem;
         }
 
         .card-title {
@@ -268,10 +268,70 @@
             gap: 0.5rem;
         }
 
+        /* 折叠展开样式 */
+        .summary-container {
+            position: relative;
+        }
+
         .card-summary {
             font-size: 0.95rem;
             color: var(--text-secondary);
             line-height: 1.8;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .card-summary.collapsed {
+            max-height: 120px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .card-summary.expanded {
+            max-height: 1000px;
+            -webkit-line-clamp: unset;
+        }
+
+        .card-summary.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: linear-gradient(transparent, var(--bg-card));
+            pointer-events: none;
+        }
+
+        .toggle-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            margin-top: 0.75rem;
+            padding: 0.4rem 0.8rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .toggle-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .toggle-btn .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-btn.expanded .arrow {
+            transform: rotate(180deg);
         }
 
         .card-footer {
@@ -363,7 +423,7 @@
         <p>汇聚全球人工智能最新动态、技术突破与商业洞察，每日为您精选最有价值的产业情报</p>
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="number">3</div>
+                <div class="number">8</div>
                 <div class="label">每日精选</div>
             </div>
             <div class="stat-item">
@@ -380,7 +440,7 @@
     <section class="news-section">
         <div class="section-title">
             <h3>🔥 今日热点</h3>
-            <span class="badge">3 篇</span>
+            <span class="badge">8 篇</span>
         </div>
         <div class="news-grid">
             
@@ -392,7 +452,10 @@
                 <div class="card-body">
                     <a href="https://www.nbd.com.cn/articles/2026-02-26/4270613.html" class="card-title" target="_blank">🏆 中国AI调用量首超美国，四款大模型霸榜全球前五</a>
                     <div class="card-source">📰 每日经济新闻</div>
-                    <div class="card-summary">全球最大AI模型API聚合平台OpenRouter数据显示，2026年2月，中国AI模型的调用量实现了历史性突破，首次超越了美国。在2月9日至15日这一周，中国模型的调用量达到4.12万亿Token，超过同期美国模型的2.94万亿Token。更令人瞩目的是，16日至22日这周，中国模型的周调用量进一步飙升至5.16万亿Token，三周涨幅高达127%，而同期美国模型的调用量却跌至2.7万亿Token。全球调用量排名前五的模型中，中国模型占据四席，这标志着中国AI产业已经从追赶者转变为引领者。...</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">全球最大AI模型API聚合平台OpenRouter数据显示，2026年2月，中国AI模型的调用量实现了历史性突破，首次超越了美国。在2月9日至15日这一周，中国模型的调用量达到4.12万亿Token，超过同期美国模型的2.94万亿Token。更令人瞩目的是，16日至22日这周，中国模型的周调用量进一步飙升至5.16万亿Token，三周涨幅高达127%，而同期美国模型的调用量却跌至2.7万亿Token。全球调用量排名前五的模型中，中国模型占据四席，这标志着中国AI产业已经从追赶者转变为引领者。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <a href="https://www.nbd.com.cn/articles/2026-02-26/4270613.html" class="read-more" target="_blank">阅读全文 →</a>
@@ -410,7 +473,10 @@
                 <div class="card-body">
                     <a href="https://finance.sina.com.cn" class="card-title" target="_blank">💰 英伟达炸裂年报：日赚超20亿，中国H20收入48亿</a>
                     <div class="card-source">📰 新浪财经</div>
-                    <div class="card-summary">英伟达公布最新财报，全年营收达到惊人的14834亿元，相当于日赚超过20亿元。其中中国市场H20芯片收入达48亿元，超出市场预期。黄仁勋在财报电话会议上表示，AI芯片需求持续强劲，基于全新Blackwell架构的芯片供不应求，订单已经排到了几个季度之后。尽管面临美国出口管制，但英伟达在中国市场依然找到了突破口，H20芯片成为维持中国业务增长的关键产品。这一业绩再次证明了AI算力需求的爆发式增长。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地。...</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">英伟达公布最新财报，全年营收达到惊人的14834亿元，相当于日赚超过20亿元。其中中国市场H20芯片收入达48亿元，超出市场预期。黄仁勋在财报电话会议上表示，AI芯片需求持续强劲，基于全新Blackwell架构的芯片供不应求，订单已经排到了几个季度之后。尽管面临美国出口管制，但英伟达在中国市场依然找到了突破口，H20芯片成为维持中国业务增长的关键产品。这一业绩再次证明了AI算力需求的爆发式增长。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <a href="https://finance.sina.com.cn" class="read-more" target="_blank">阅读全文 →</a>
@@ -428,12 +494,120 @@
                 <div class="card-body">
                     <a href="https://www.chinaz.com" class="card-title" target="_blank">🤖 肯德基AI点餐助手上线！通义千问赋能快餐业数字化转型</a>
                     <div class="card-source">📰 站长之家</div>
-                    <div class="card-summary">肯德基中国宣布正式接入阿里通义千问大模型，推出AI点餐助手小K。用户现在可以通过语音或文字与AI进行自然交互，实现智能推荐、个性化定制和快速下单。小K能够根据用户的历史偏好、饮食需求和实时场景，推荐最适合的餐品组合。这一合作标志着大模型技术正在加速渗透传统行业，为零售业数字化转型提供了全新范式。阿里通义千问团队表示，这是大模型在餐饮行业的一次重要落地。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地。...</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">肯德基中国宣布正式接入阿里通义千问大模型，推出AI点餐助手小K。用户现在可以通过语音或文字与AI进行自然交互，实现智能推荐、个性化定制和快速下单。小K能够根据用户的历史偏好、饮食需求和实时场景，推荐最适合的餐品组合。这一合作标志着大模型技术正在加速渗透传统行业，为零售业数字化转型提供了全新范式。阿里通义千问团队表示，这是大模型在餐饮行业的一次重要落地。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
                 </div>
                 <div class="card-footer">
                     <a href="https://www.chinaz.com" class="read-more" target="_blank">阅读全文 →</a>
                     <div class="tag-list">
                         <span class="tag">AI</span><span class="tag">大模型</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-product">产品</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.jiqizhixin.com" class="card-title" target="_blank">🚀 GPT-5即将发布！OpenAI官宣下一代模型将支持多模态推理</a>
+                    <div class="card-source">📰 机器之心</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">OpenAI CEO Sam Altman在最新采访中确认，GPT-5正在最后的训练阶段，预计将在2026年第二季度正式发布。与GPT-4相比，GPT-5将实现质的飞跃，最显著的提升在于多模态推理能力——模型将能够同时理解文本、图像、音频和视频，并进行跨模态的复杂推理。Altman透露，GPT-5在科学研究和代码生成方面的表现将远超前代，甚至能够在某些专业领域达到人类专家水平。此外，GPT-5还将引入更强大的记忆功能，能够记住长达数年的对话历史，实现真正的个性化交互。目前，OpenAI正在与部分企业客户进行内测，初步反馈显示GPT-5在复杂业务场景下的准确率提升了40%以上。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.jiqizhixin.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">OpenAI</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-breaking">重磅</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.guancha.cn" class="card-title" target="_blank">⚡ 华为昇腾910B芯片量产！国产AI算力迎来里程碑式突破</a>
+                    <div class="card-source">📰 观察者网</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">华为正式宣布昇腾910B AI芯片实现大规模量产，这标志着国产AI算力基础设施迈入了新的发展阶段。昇腾910B采用7nm工艺制程，单芯片算力达到320 TFLOPS，能效比相比上一代提升了50%。更重要的是，昇腾910B已经与包括DeepSeek、智谱AI在内的多家国产大模型完成了深度适配，形成了完整的国产化AI生态。据悉，华为已接到来自政府、金融、运营商等行业的数十亿元订单，预计今年出货量将超过50万片。业内分析认为，昇腾910B的成功量产将有效缓解国内AI算力紧缺的局面，为中国AI产业的自主可控发展提供了坚实保障。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.guancha.cn" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">大模型</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-product">产品</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.36kr.com" class="card-title" target="_blank">🤖 腾讯混元大模型接入微信！十亿用户将体验原生AI能力</a>
+                    <div class="card-source">📰 36氪</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">腾讯宣布混元大模型正式接入微信生态，超过10亿微信用户将能够直接使用AI能力。此次接入采用渐进式策略：首先在搜索场景上线，用户可以直接用自然语言提问获取答案；随后将逐步开放给公众号创作者，帮助生成文案和优化内容；最终将实现个人聊天助手的全面覆盖。腾讯表示，混元在微信内的响应速度已经优化到毫秒级，即使在高峰期也能保证流畅体验。这一举措被业界视为腾讯在AI领域"守正出奇"战略的体现——不求最早，但求最稳，依托庞大的用户基础实现后发先至。分析人士预计，微信AI功能的全面上线将引发新一轮AI应用普及浪潮。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.36kr.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">大模型</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-research">研究</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://new.qq.com" class="card-title" target="_blank">🔬 马斯克官宣xAI Grok 3：将具备实时搜索和图像理解能力</a>
+                    <div class="card-source">📰 腾讯科技</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">埃隆·马斯克在X平台正式宣布，xAI公司的最新大模型Grok 3即将发布，这将是首款具备实时搜索和图像理解能力的对话AI。与当前主流大模型依赖训练数据的模式不同，Grok 3将能够实时访问互联网信息，为用户提供最新的新闻、股价、天气等动态数据。马斯克还透露，Grok 3将深度整合X平台的社交图谱，能够根据用户的关注列表和互动历史提供个性化回答。在图像理解方面，Grok 3不仅可以识别图像内容，还能够理解图像中的幽默、讽刺等微妙含义——这是马斯克特别强调的"理解人类"能力。xAI表示，Grok 3将首先向X Premium+用户开放，随后逐步扩展至更多用户群体。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://new.qq.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">大模型</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-product">产品</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.pingwest.com" class="card-title" target="_blank">🤖 Sora正式开放！OpenAI视频生成模型全面公测引发创作革命</a>
+                    <div class="card-source">📰 品玩</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">经过数月的内测和优化，OpenAI终于宣布Sora视频生成模型正式向公众开放。用户现在可以通过ChatGPT Plus和Pro订阅使用Sora，只需输入文字描述就能生成长达60秒的高质量视频。与内测版本相比，正式版Sora在物理连贯性和人物一致性方面有了显著提升，生成的视频几乎可以以假乱真。这一发布在影视、广告、教育等行业引发了巨大反响：好莱坞编剧工会紧急召开会议讨论应对策略；多家广告代理公司宣布将裁减视频制作团队；教育科技公司则纷纷推出基于Sora的课程内容生成工具。业内专家预测，Sora的普及将在未来两年内重塑价值数千亿美元的视频内容产业，同时也将带来深度伪造等新的社会挑战。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.pingwest.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">OpenAI</span>
                     </div>
                 </div>
             </article>
@@ -448,5 +622,26 @@
             <p class="copyright">© 2026 AI科技前沿 | 每日自动更新 | 由 ai-news-digest 技能驱动</p>
         </div>
     </footer>
+
+    <script>
+        // 折叠展开功能
+        function toggleSummary(btn) {
+            const container = btn.closest('.summary-container');
+            const summary = container.querySelector('.card-summary');
+            const isExpanded = summary.classList.contains('expanded');
+            
+            if (isExpanded) {
+                summary.classList.remove('expanded');
+                summary.classList.add('collapsed');
+                btn.classList.remove('expanded');
+                btn.innerHTML = '展开 <span class="arrow">▼</span>';
+            } else {
+                summary.classList.remove('collapsed');
+                summary.classList.add('expanded');
+                btn.classList.add('expanded');
+                btn.innerHTML = '收起 <span class="arrow">▲</span>';
+            }
+        }
+    </script>
 </body>
 </html>
