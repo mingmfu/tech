@@ -37,7 +37,6 @@
                 radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
         }
 
-        /* Header */
         header {
             position: sticky;
             top: 0;
@@ -100,7 +99,6 @@
             color: var(--text-primary);
         }
 
-        /* Hero Section */
         .hero {
             padding: 4rem 2rem;
             text-align: center;
@@ -138,7 +136,6 @@
             gap: 0.5rem;
         }
 
-        /* Overview Cards */
         .overview-section {
             padding: 0 2rem 3rem;
             max-width: 1400px;
@@ -179,7 +176,6 @@
             line-height: 1.7;
         }
 
-        /* Research Sections */
         .research-section {
             padding: 3rem 2rem;
             max-width: 1400px;
@@ -268,7 +264,6 @@
             color: var(--text-secondary);
         }
 
-        /* Trends Section */
         .trends-section {
             padding: 3rem 2rem;
             max-width: 1400px;
@@ -303,7 +298,6 @@
             color: var(--text-muted);
         }
 
-        /* Footer */
         footer {
             padding: 3rem 2rem;
             text-align: center;
@@ -397,7 +391,7 @@
         </div>
     </section>
 
-    <!-- 各领域详细内容 -->
+    <!-- 领域1: 大语言模型架构 -->
     <section class="research-section">
         <div class="section-title">
             <span class="icon">🧠</span>
@@ -419,11 +413,10 @@
                 <tr><td>Meta AI</td><td>LLaMA 4 MoE架构、多模态研究</td></tr>
                 <tr><td>深度求索</td><td>DeepSeek-V3、DeepSeek-R1（强化学习驱动推理）</td></tr>
                 <tr><td>阿里巴巴</td><td>Qwen3系列、多模态通义模型</td></tr>
-                <tr><td>Anthropic</td><td>Claude 3.5/4的Constitutional AI架构</td></tr>
             </table>
 
             <div class="highlight-box">
-                <strong>关键论文：</strong>"Mixture of Experts: A Review"（MoE综述）、"Scaling Test-Time Compute"（OpenAI推理优化）、"Mamba: Linear-Time Sequence Modeling"（状态空间模型）
+                <strong>关键论文：</strong>"Mixture of Experts: A Review"、"Scaling Test-Time Compute"、"Mamba: Linear-Time Sequence Modeling"
             </div>
 
             <h4>技术趋势总结</h4>
@@ -432,13 +425,190 @@
                 <li><strong>长上下文竞赛</strong>：上下文窗口从128K向1M+ tokens扩展</li>
                 <li><strong>推理能力强化</strong>：强化学习+思维链优化，自主推理能力大幅提升</li>
                 <li><strong>端侧部署</strong>：模型压缩、量化技术使大模型可在消费级硬件运行</li>
-                <li><strong>AI Agent架构</strong>：支持工具调用、多轮规划、自我修正的Agent框架</li>
             </ul>
         </div>
     </section>
 
-    <!-- 更多领域可以类似添加 -->
+    <!-- 领域2: AI芯片与算力优化 -->
+    <section class="research-section">
+        <div class="section-title">
+            <span class="icon">⚡</span>
+            <h3>二、AI芯片与算力优化 (AI Chips & Optimization)</h3>
+        </div>        
+        <div class="research-content">
+            <h4>最新技术突破</h4>
+            <p><strong>1. 异构内存设计</strong>：斯坦福大学团队提出OpenGCRAM编译器，结合SRAM和Gain Cell RAM技术，为AI加速器提供更高效的片上异构内存系统，显著降低系统成本和能耗。</p>
+            
+            <p><strong>2. 可重构指令集架构</strong>：剑桥大学开发LUTstructions架构，实现FPGA上的自加载可重构指令，大幅提升处理器对任意任务的表达能力。</p>
+            
+            <p><strong>3. 硬件感知异构量化</strong>：SigmaQuant框架针对边缘DNN推理场景，采用分层异构量化策略，根据不同层的鲁棒性分配不同位宽，在低比特条件下平衡精度与资源消耗。</p>
 
+            <h4>主要研究机构与论文</h4>
+            <table class="institution-table">
+                <tr><th>机构</th><th>研究方向</th></tr>
+                <tr><td>Stanford</td><td>异构内存架构、AI加速器设计</td></tr>
+                <tr><td>剑桥大学</td><td>可重构计算、FPGA指令集</td></tr>
+                <tr><td>NVIDIA</td><td>GPU优化、TensorRT推理加速</td></tr>
+                <tr><td>Meta & AMD</td><td>TorchTitan：1000+ GPU MoE预训练</td></tr>
+                <tr><td>华为/寒武纪</td><td>国产AI芯片、端侧推理优化</td></tr>
+            </table>
+
+            <h4>技术趋势总结</h4>
+            <ul>
+                <li><strong>内存墙突破</strong>：异构内存架构成为主流方案，解决AI芯片内存瓶颈</li>
+                <li><strong>边缘部署优化</strong>：从算法走向软硬协同，硬件感知量化与编译器优化深度结合</li>
+                <li><strong>可重构计算</strong>：FPGA/ASIC混合架构在灵活性与效率间取得平衡</li>
+                <li><strong>大规模分布式</strong>：MoE+RL的系统级优化成为工业界竞争焦点</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 领域3: 操作系统 -->
+    <section class="research-section">
+        <div class="section-title">
+            <span class="icon">💻</span>
+            <h3>三、操作系统 (Operating Systems)</h3>
+        </div>        
+        <div class="research-content">
+            <h4>最新OS架构创新</h4>
+            <p><strong>1. AI-Native OS</strong>：UniLabOS专为自主实验室设计，实现高层规划与底层执行的统一；AIORA架构提出面向6G的AI原生多利益相关者编排框架；Composable OS Kernel探索面向自主智能的可组合内核设计。</p>
+            
+            <p><strong>2. Rust内核突破</strong>：Asterinas是Linux ABI兼容的Rust Framekernel OS，大幅减小可信计算基(TCB)；Rex项目致力于安全可用的内核扩展；Rust for Linux项目进入主线内核。</p>
+            
+            <p><strong>3. LLM驱动系统</strong>：Vulcan通过LLM驱动搜索实现实例最优的资源管理启发式；KubeIntellect和KubeGuard探索LLM辅助的Kubernetes智能管理与安全加固。</p>
+
+            <h4>主要研究机构与论文</h4>
+            <table class="institution-table">
+                <tr><th>机构</th><th>代表成果</th></tr>
+                <tr><td>MIT/Stanford</td><td>AI-Native OS架构、seL4微内核</td></tr>
+                <tr><td>北京大学/清华</td><td>UniLabOS、AI原生系统研究</td></tr>
+                <tr><td>Microsoft Azure</td><td>LLM驱动资源管理、云原生OS</td></tr>
+                <tr><td>华为</td><td>HarmonyOS NEXT、分布式OS</td></tr>
+            </table>
+
+            <div class="highlight-box">
+                <strong>关键论文：</strong>"Asterinas: A Linux ABI-Compatible, Rust-Based Framekernel OS"、"UniLabOS: An AI-Native Operating System for Autonomous Laboratories"、"Vulcan: Instance-Optimal Systems Heuristics Through LLM-Driven Search"
+            </div>
+
+            <h4>技术趋势总结</h4>
+            <ul>
+                <li><strong>AI原生架构</strong>：从"AI辅助"向"AI核心"演进，OS设计以AI能力为中心</li>
+                <li><strong>Rust实用化</td>：Rust在系统内核层加速应用，内存安全成为系统编程标配</li>
+                <li><strong>LLM与资源管理</strong>：LLM与系统资源管理深度结合，推动自治化运维</li>
+                <li><strong>云原生演进</strong>：Serverless、弹性计算、WebAssembly成为OS设计关键考量</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 领域4: 计算机图形学 -->
+    <section class="research-section">
+        <div class="section-title">
+            <span class="icon">🎨</span>
+            <h3>四、计算机图形学 (Computer Graphics)</h3>
+        </div>        
+        <div class="research-content">
+            <h4>最新技术突破</h4>
+            <p><strong>1. 3D Gaussian Splatting持续主导</strong>：SIGGRAPH 2025高斯泼溅相关研究占据主导地位，包括《Painting with 3D Gaussian Splat Brushes》、《SpotLessSplats》等；RenderFormer提出基于Transformer的神经渲染框架，实现三角网格的全局光照渲染。</p>
+            
+            <p><strong>2. 神经渲染与AIGC融合</strong>：Transformer架构深入渲染管线，实现更高质量的实时渲染；生成式AI与3D资产生成结合（如BANG: Dividing 3D Assets via Generative Exploded Dynamics）。</p>
+            
+            <p><strong>3. 物理仿真创新</strong>：Gaussian Fluids开发基于高斯空间表示的无网格流体求解器，突破传统流体模拟限制。</p>
+
+            <h4>主要研究机构与论文</h4>
+            <table class="institution-table">
+                <tr><th>机构</th><th>代表成果</th></tr>
+                <tr><td>INRIA GraphDeco</td><td>3D Gaussian Splatting技术发源地</td></tr>
+                <tr><td>NVIDIA多伦多AI实验室</td><td>神经渲染、DLSS、Omniverse</td></tr>
+                <tr><td>MIT CSAIL/斯坦福</td><td>图形学基础算法、物理仿真</td></tr>
+                <tr><td>清华大学</td><td>AIGC图形学、神经渲染研究</td></tr>
+            </table>
+
+            <div class="highlight-box">
+                <strong>SIGGRAPH 2025热门论文：</strong>"Don't Splat your Gaussians"、"RenderFormer"、"Gaussian Fluids"、"SpotLessSplats"
+            </div>
+
+            <h4>技术趋势总结</h4>
+            <ul>
+                <li><strong>实时神经渲染</strong>：高斯泼溅技术成为主流，1080p@100fps成为可能</li>
+                <li><strong>AI驱动生成</strong>：AIGC与3D生成深度融合，从文本/图像生成3D资产</li>
+                <li><strong>显式神经表示</strong>：从隐式表示(NeRF)向显式表示(3DGS)范式转变</li>
+                <li><strong>元宇宙就绪</strong>：数字孪生、虚拟人技术日趋成熟，为XR应用奠定基础</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 领域5: 编译器与编程语言 -->
+    <section class="research-section">
+        <div class="section-title">
+            <span class="icon">🔧</span>
+            <h3>五、编译器与编程语言 (Compilers & PL)</h3>
+        </div>        
+        <div class="research-content">
+            <h4>最新编译优化与语言特性</h4>
+            <p><strong>1. AI驱动的编译优化</strong>：Google的MLIR生态持续扩展；AutoVectorization with LLMs成为热点，利用大模型预测最优向量化策略；LLVM社区集成强化学习优化器，在代码布局、寄存器分配等传统难题上取得突破。</p>
+            
+            <p><strong>2. Rust语言发展</strong>：Rust 2024 Edition正式发布，带来`gen`关键字（原生协程支持）、改进的异步trait、更灵活的借用检查器；Rust for Linux进入主线内核，嵌入式和系统编程领域adoption激增。</p>
+            
+            <p><strong>3. 新型语言特性</strong>：Zig的comptime元编程、Mojo的Python兼容AI加速器编程、Carbon的C++渐进式替代方案均获得广泛关注。</p>
+
+            <h4>主要研究机构与论文</h4>
+            <table class="institution-table">
+                <tr><th>机构</th><th>研究方向</th></tr>
+                <tr><td>MIT CSAIL</td><td>差分隐私类型系统、可验证编译器</td></tr>
+                <tr><td>Stanford</td><td>基于LLM的程序合成与验证</td></tr>
+                <tr><td>CMU</td><td>Rust形式化语义、borrow checker优化</td></tr>
+                <tr><td>Google DeepMind</td><td>AlphaDev后续，AI发现排序算法</td></tr>
+            </table>
+
+            <div class="highlight-box">
+                <strong>PLDI 2025焦点：</strong>神经符号编译优化、大模型代码生成的可解释性、形式化验证与LLM的结合、Rust语言的形式化基础
+            </div>
+
+            <h4>技术趋势总结</h4>
+            <ul>
+                <li><strong>AI×编译器</strong>：LLM用于启发式搜索、代码优化、缺陷检测，编译器从静态优化转向"智能协作"</li>
+                <li><strong>内存安全语言崛起</strong>：Rust/Go/Zig逐步替代C/C++，系统编程进入安全时代</li>
+                <li><strong>异构编程</strong>：统一CPU/GPU/TPU编程模型成为刚需，Mojo等语言应运而生</li>
+                <li><strong>可验证软件</strong>：形式化方法从研究走向工业实践，关键系统追求数学级正确性</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 领域6: 软件工程 -->
+    <section class="research-section">
+        <div class="section-title">
+            <span class="icon">🛠️</span>
+            <h3>六、软件工程 (Software Engineering)</h3>
+        </div>        
+        <div class="research-content">
+            <h4>AI辅助软件开发最新进展</h4>
+            <p><strong>1. AI编程助手普及</strong>：GitHub Copilot超过100万付费用户，代码采纳率35%+；Cursor IDE作为AI-native代码编辑器，上下文感知能力突出；Amazon CodeWhisperer、Google Codey等多平台AI编程支持。</p>
+            
+            <p><strong>2. 自动化代码生成</strong>：从需求到代码，自然语言需求直接生成可运行代码；测试自动生成，基于代码分析和AI的单元测试、集成测试生成；文档自动生成，代码注释、API文档、架构图的自动维护。</p>
+            
+            <p><strong>3. DevOps智能化</strong>：AIOps智能监控、异常检测、根因分析；智能CI/CD，AI优化构建流程、预测部署风险；混沌工程+AI，智能化故障注入和恢复测试。</p>
+
+            <h4>主要研究机构与会议</h4>
+            <table class="institution-table">
+                <tr><th>机构/会议</th><th>研究方向</th></tr>
+                <tr><td>ICSE 2025</td><td>第50届国际软件工程会议（加拿大渥太华）</td></tr>
+                <tr><td>FORGE 2025</td><td>AI基础模型与软件工程国际会议</td></tr>
+                <tr><td>LLM4Code</td><td>大语言模型代码应用研讨会</td></tr>
+                <tr><td>Microsoft Research</td><td>AI辅助开发工具、人机协作编程</td></tr>
+                <tr><td>南京大学/北大</td><td>软件工程智能化（中国）</td></tr>
+            </table>
+
+            <h4>技术趋势总结</h4>
+            <ul>
+                <li><strong>AI原生开发</strong>：从"AI辅助"到"AI优先"的开发范式转变，编程环境全面智能化</li>
+                <li><strong>低代码/无代码</strong>：业务人员可直接构建应用，专业开发者聚焦复杂系统架构</li>
+                <li><strong>人机协作</strong>：开发者角色从"编码者"转向"AI编排者"和"系统架构师"</li>
+                <li><strong>软件可解释性</strong>：AI生成代码的可理解性、可维护性成为关注焦点，代码审查自动化</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 共性趋势 -->
     <section class="trends-section">
         <div class="section-title">
             <span class="icon">🌟</span>
