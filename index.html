@@ -88,6 +88,22 @@
             margin-top: -2px;
         }
 
+        nav { display: flex; gap: 0.5rem; }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            background: var(--bg-card);
+            color: var(--text-primary);
+        }
+
         .update-time {
             display: flex;
             align-items: center;
@@ -400,6 +416,10 @@
                     <p>每日人工智能产业情报</p>
                 </div>
             </div>
+            <nav>
+                <a href="index.html">🏠 首页</a>
+                <a href="research.html">🔬 学术研究</a>
+            </nav>
             <div class="update-time">
                 <span class="live-dot"></span>
                 <span>更新于 2026-02-27</span>
