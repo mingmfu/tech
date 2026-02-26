@@ -3,53 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechInsight Hub - AI产业情报与技术前沿</title>
-    <meta name="description" content="汇聚AI产业情报、学术前沿、计算机图形、操作系统、编译器领域的技术洞察">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>AI科技前沿 - 每日人工智能产业情报</title>
+    <meta name="description" content="汇聚全球AI产业最新动态、技术突破、商业洞察，每日更新">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: #1a1a24;
-            --bg-hover: #252530;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #06b6d4;
+            --bg-dark: #0f0f1a;
+            --bg-card: #1a1a2e;
+            --bg-hover: #252545;
             --text-primary: #ffffff;
-            --text-secondary: #a0a0b0;
-            --text-muted: #6b6b7b;
-            --accent-ai: #3b82f6;
-            --accent-ai-glow: rgba(59, 130, 246, 0.3);
-            --accent-gfx: #8b5cf6;
-            --accent-os: #10b981;
-            --accent-pl: #f59e0b;
-            --accent-hot: #ec4899;
-            --border: #2a2a3a;
-            --gradient-ai: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            --gradient-hot: linear-gradient(135deg, #ec4899, #f43f5e);
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border: #2e2e4a;
+            --gradient-hero: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            --gradient-card: linear-gradient(145deg, #1a1a2e 0%, #252545 100%);
+            --shadow-glow: 0 0 40px rgba(99, 102, 241, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.8;
             min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.05) 0%, transparent 50%);
         }
 
-        /* Header */
         header {
             position: sticky;
             top: 0;
-            z-index: 100;
-            background: rgba(10, 10, 15, 0.95);
+            z-index: 1000;
+            background: rgba(15, 15, 26, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
         }
 
         .header-content {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -58,1118 +58,607 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 1rem;
         }
 
         .logo-icon {
-            width: 36px;
-            height: 36px;
-            background: var(--gradient-ai);
-            border-radius: 8px;
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-hero);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
         }
 
-        .logo-text {
-            font-size: 1.1rem;
+        .logo-text h1 {
+            font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #fff 0%, #a0a0b0 100%);
+            background: var(--gradient-hero);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
         }
 
-        nav { display: flex; gap: 0.25rem; }
-
-        .nav-btn {
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .nav-btn:hover, .nav-btn.active {
-            background: var(--bg-card);
-            color: var(--text-primary);
-        }
-
-        .nav-btn.ai:hover, .nav-btn.ai.active { color: var(--accent-ai); }
-        .nav-btn.gfx:hover, .nav-btn.gfx.active { color: var(--accent-gfx); }
-        .nav-btn.os:hover, .nav-btn.os.active { color: var(--accent-os); }
-        .nav-btn.pl:hover, .nav-btn.pl.active { color: var(--accent-pl); }
-
-        /* Main Content */
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Weekly Report - Hero Section */
-        .weekly-hero {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .weekly-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
-        }
-
-        .weekly-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-
-        .weekly-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            background: var(--gradient-ai);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0.5rem;
-        }
-
-        .weekly-subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .weekly-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.375rem 0.875rem;
-            background: rgba(236, 72, 153, 0.15);
-            border: 1px solid rgba(236, 72, 153, 0.3);
-            border-radius: 100px;
+        .logo-text p {
             font-size: 0.8rem;
-            color: var(--accent-hot);
-        }
-
-        .weekly-summary {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 3px solid var(--accent-ai);
-        }
-
-        .weekly-summary p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-
-        .weekly-summary strong {
-            color: var(--text-primary);
-        }
-
-        .weekly-actions {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .btn-primary {
-            padding: 0.75rem 1.5rem;
-            background: var(--gradient-ai);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: opacity 0.2s;
-        }
-
-        .btn-primary:hover { opacity: 0.9; }
-
-        .btn-secondary {
-            padding: 0.75rem 1.5rem;
-            background: var(--bg-hover);
-            color: var(--text-secondary);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            font-weight: 500;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s;
-        }
-
-        .btn-secondary:hover {
-            background: var(--bg-card);
-            color: var(--text-primary);
-        }
-
-        /* Section Content */
-        .section { display: none; }
-        .section.active { display: block; animation: fadeIn 0.3s ease; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: var(--text-muted);
+            margin-top: -2px;
         }
 
         .update-time {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* Cards Grid */
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1rem;
-        }
-
-        .card {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
             background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.25rem;
-            transition: all 0.2s;
-        }
-
-        .card:hover {
-            border-color: var(--accent-ai);
-            transform: translateY(-2px);
-        }
-
-        .card-tag {
-            display: inline-block;
-            padding: 0.25rem 0.625rem;
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-        }
-
-        .card-tag.ai { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
-        .card-tag.gfx { background: rgba(139, 92, 246, 0.15); color: #a78bfa; }
-        .card-tag.os { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-        .card-tag.pl { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-
-        .card h3 {
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .card p {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 0.75rem;
-        }
-
-        .card-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .card-link {
-            color: var(--accent-ai);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-        }
-
-        .card-link:hover { text-decoration: underline; }
-
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 4rem 2rem;
-            color: var(--text-muted);
-        }
-
-        .empty-state-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        footer p {
-            color: var(--text-muted);
-            font-size: 0.875rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                padding: 1rem;
-            }
-
-            nav { flex-wrap: wrap; justify-content: center; }
-
-            .weekly-header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .weekly-title { font-size: 1.5rem; }
-
-            .cards-grid { grid-template-columns: 1fr; }
-
-            main { padding: 1rem; }
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--bg-primary); }
-        ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
-    
-        /* 今日热点解读样式 */
-        .insight-section {
-            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid rgba(236, 72, 153, 0.3);
             border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
         }
-        
-        .insight-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #ec4899, #8b5cf6, #3b82f6);
+
+        .update-time .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
-        
-        .insight-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
-        
-        .insight-icon {
-            font-size: 2.5rem;
-            line-height: 1;
+
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        
-        .insight-info h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-            background: linear-gradient(135deg, #ec4899, #f43f5e);
+
+        .hero h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero h2 span {
+            background: var(--gradient-hero);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
-        .insight-update {
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-item .label {
             font-size: 0.85rem;
             color: var(--text-muted);
         }
-        
-        .insight-content {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
+
+        .news-section {
+            padding: 0 2rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        
-        .insight-content h3 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 1.5rem 0 0.75rem;
-        }
-        
-        .insight-content ul {
-            margin: 0.75rem 0;
-            padding-left: 1.5rem;
-        }
-        
-        .insight-content li {
-            margin: 0.5rem 0;
-            position: relative;
-        }
-        
-        .insight-content li::before {
-            content: '▸';
-            position: absolute;
-            left: -1rem;
-            color: var(--accent-hot);
-        }
-        
-        .insight-tags {
+
+        .section-title {
             display: flex;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .insight-tag {
-            padding: 0.375rem 0.75rem;
-            background: rgba(236, 72, 153, 0.15);
-            border-radius: 100px;
-            font-size: 0.8rem;
-            color: var(--accent-hot);
-        }
-        
-        /* 推荐阅读样式 */
-        .recommended-section {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
+            align-items: center;
+            gap: 1rem;
             margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 4px solid var(--primary);
         }
-        
-        .section-subtitle {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
+
+        .section-title h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
         }
-        
-        .recommended-list {
+
+        .section-title .badge {
+            padding: 0.25rem 0.75rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: var(--gradient-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--primary);
+        }
+
+        .card-header {
+            padding: 1.5rem 1.5rem 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             gap: 1rem;
         }
-        
-        @media (max-width: 768px) {
-            .recommended-list {
-                grid-template-columns: 1fr;
-            }
+
+        .card-category {
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
-        
-        .recommended-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem;
-            background: var(--bg-secondary);
-            border-radius: 12px;
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s;
-            border: 1px solid transparent;
-        }
-        
-        .recommended-item:hover {
-            background: var(--bg-hover);
-            border-color: var(--border);
-            transform: translateX(4px);
-        }
-        
-        .recommended-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .recommended-content {
-            flex: 1;
-            min-width: 0;
-        }
-        
-        .recommended-content h4 {
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        
-        .recommended-source {
+
+        .cat-breaking { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
+        .cat-business { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+        .cat-product { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .cat-research { background: rgba(6, 182, 212, 0.2); color: #06b6d4; }
+
+        .card-date {
             font-size: 0.8rem;
             color: var(--text-muted);
         }
-        
-        .recommended-arrow {
-            font-size: 1.25rem;
+
+        .card-body {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: block;
+        }
+
+        .card-title:hover {
+            color: var(--primary);
+        }
+
+        .card-source {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-summary {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .card-footer {
+            padding: 1rem 1.5rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-more {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tag-list {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.6rem;
+            background: var(--bg-dark);
+            border-radius: 12px;
+            font-size: 0.75rem;
             color: var(--text-muted);
-            transition: all 0.2s;
         }
-        
-        .recommended-item:hover .recommended-arrow {
-            color: var(--accent-ai);
-            transform: translateX(4px);
+
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            background: var(--bg-card);
         }
-        .news-summary {
-            position: relative;
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .summary-short {
-            margin: 0;
+
+        .footer-logo {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
-        .summary-full {
-            margin-top: 0.5rem;
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
         }
-        .summary-full p {
-            margin: 0;
-            line-height: 1.8;
+
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
-        .toggle-btn {
-            background: transparent;
-            border: none;
-            color: var(--accent-ai);
-            cursor: pointer;
-            font-size: 0.85rem;
-            padding: 0.25rem 0;
-            margin-top: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
+
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 2rem; }
+            .news-grid { grid-template-columns: 1fr; }
+            .stats-bar { flex-direction: column; gap: 1rem; }
+            .header-content { flex-direction: column; gap: 1rem; }
         }
-        .toggle-btn:hover {
-            text-decoration: underline;
-        }
-        .news-summary {
-            position: relative;
-        }
-        .summary-short {
-            margin: 0;
-        }
-        .summary-full {
-            margin-top: 0.5rem;
-        }
-        .summary-full p {
-            margin: 0;
-            line-height: 1.8;
-        }
-        .toggle-btn {
-            background: transparent;
-            border: none;
-            color: var(--accent-ai);
-            cursor: pointer;
-            font-size: 0.85rem;
-            padding: 0.25rem 0;
-            margin-top: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-        .toggle-btn:hover {
-            text-decoration: underline;
-        }
-        .news-summary {
-            position: relative;
-        }
-        .summary-short {
-            margin: 0;
-        }
-        .summary-full {
-            margin-top: 0.5rem;
-        }
-        .summary-full p {
-            margin: 0;
-            line-height: 1.8;
-        }
-        .toggle-btn {
-            background: transparent;
-            border: none;
-            color: var(--accent-ai);
-            cursor: pointer;
-            font-size: 0.85rem;
-            padding: 0.25rem 0;
-            margin-top: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-        .toggle-btn:hover {
-            text-decoration: underline;
-        }
-        .news-summary {
-            position: relative;
-        }
-        .summary-short {
-            margin: 0;
-        }
-        .summary-full {
-            margin-top: 0.5rem;
-        }
-        .summary-full p {
-            margin: 0;
-            line-height: 1.8;
-        }
-        .toggle-btn {
-            background: transparent;
-            border: none;
-            color: var(--accent-ai);
-            cursor: pointer;
-            font-size: 0.85rem;
-            padding: 0.25rem 0;
-            margin-top: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-        .toggle-btn:hover {
-            text-decoration: underline;
-        }
-</style>
+    </style>
 </head>
 <body>
     <header>
         <div class="header-content">
             <div class="logo">
-                <div class="logo-icon">TI</div>
-                <div class="logo-text">TechInsight Hub</div>
+                <div class="logo-icon">🚀</div>
+                <div class="logo-text">
+                    <h1>AI科技前沿</h1>
+                    <p>每日人工智能产业情报</p>
+                </div>
             </div>
-            <nav>
-                <button class="nav-btn ai active" onclick="showSection('weekly')">🔥 AI周报</button>
-                <button class="nav-btn" onclick="showSection('ai')">🤖 AI学术</button>
-                <button class="nav-btn gfx" onclick="showSection('gfx')">🎨 图形</button>
-                <button class="nav-btn os" onclick="showSection('os')">🖥️ OS</button>
-                <button class="nav-btn pl" onclick="showSection('pl')">⚡ 编译器</button>
-            </nav>
+            <div class="update-time">
+                <span class="live-dot"></span>
+                <span>更新于 2026年2月27日</span>
+            </div>
         </div>
     </header>
 
-    <main>
-        <!-- AI Weekly Report Section -->
-        <section id="weekly" class="section active">
-            <div class="weekly-hero">
-                <div class="weekly-header">
-                    <div>
-                        <h1 class="weekly-title">📊 AI产业情报周报</h1>
-                        <p class="weekly-subtitle">2025年2月15-21日 · 第8周</p>
-                    </div>
-                    <span class="weekly-badge">🔥 Anthropic 300亿美元创纪录融资</span>
-                </div>
-                
-                <div class="weekly-summary">
-                    <p><strong>Anthropic 300亿美元创AI融资纪录，企业AI市场进入验证期。</strong>本周OpenAI与Anthropic密集发布基础模型：GPT-4.5强调无监督学习scaling，Claude Opus/Sonnet 4.6双模型主打编码与Agent能力。更值得关注的是Anthropic开源的MCP协议，有望成为AI连接数据源的"HTTP标准"，标志着AI生态从模型竞争向基础设施整合演进。企业级AI的真实付费意愿已被验证——Anthropic年收入运转率140亿美元，连续三年年增长超10倍。</p>
-                </div>
-                
-                <div class="weekly-actions">
-                    <a href="ai_weekly_report_20250221.md" class="btn-primary" target="_blank">
-                        📄 查看完整报告
-                    </a>
-                    <a href="https://github.com/mingmfu/tech" class="btn-secondary" target="_blank">
-                        🐙 GitHub
-                    </a>
-                </div>
+    <section class="hero">
+        <h2>探索 <span>AI</span> 的无限可能</h2>
+        <p>汇聚全球人工智能最新动态、技术突破与商业洞察，每日为您精选最有价值的产业情报</p>
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="number">15</div>
+                <div class="label">每日精选</div>
             </div>
+            <div class="stat-item">
+                <div class="number">200+</div>
+                <div class="label">字深度摘要</div>
+            </div>
+            <div class="stat-item">
+                <div class="number">24h</div>
+                <div class="label">实时更新</div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Hotspots Preview -->
-            <div class="section-header">
-                <h2 class="section-title">🔥 AI热点（国内10条 + 国际10条）</h2>
-                <span class="update-time">最后更新: 2026-02-25</span>
-            </div>
-            
-            <div class="cards-grid">
-                <article class="card">
-                    <span class="card-tag ai">大模型</span>
-                    <h3>DeepSeek-V3发布：国产大模型性能超越GPT-4o，成本仅为其1/10</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">DeepSeek正式发布V3版本大模型，在多项权威评测中性能超越GPT-4o，引发国内外AI圈震动。该模型采用创新的MoE架构，总参数量达671B，每次推理仅激活37B参数，大幅降低了计算成本。据测试，DeepSeek-V3在数学推理、代码...</p>
-                        <div class="summary-full" id="summary-0" style="display: none;">
-                            <p>DeepSeek正式发布V3版本大模型，在多项权威评测中性能超越GPT-4o，引发国内外AI圈震动。该模型采用创新的MoE架构，总参数量达671B，每次推理仅激活37B参数，大幅降低了计算成本。据测试，DeepSeek-V3在数学推理、代码生成和中文理解等任务上表现出色，尤其在中文语境下的表现超越了国际主流模型。更令人瞩目的是，其API调用成本仅为GPT-4o的十分之一，这将极大降低开发者和企业使用大模型的门槛。DeepSeek团队表示，该模型已全面开源，为国产AI技术的发展树立了新的标杆，也证明中国在大模型核心技术上已达到世界领先水平。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(0)" data-target="0">展开 ▼</button>
+    <section class="news-section">
+        <div class="section-title">
+            <h3>🔥 今日热点</h3>
+            <span class="badge">15 篇</span>
+        </div>
+        <div class="news-grid">
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-breaking">重磅</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.nbd.com.cn/articles/2026-02-26/4270613.html" class="card-title" target="_blank">🏆 历史性突破！中国AI调用量首超美国，国产大模型霸榜全球前五</a>
+                    <div class="card-source">📰 每日经济新闻</div>
+                    <div class="card-summary">全球最大的AI模型API聚合平台OpenRouter数据显示，2026年2月，中国AI模型的调用量实现了历史性突破，首次超越了美国。在2月9日至15日这一周，中国模型的调用量达到4.12万亿Token，超过同期美国模型的2.94万亿Token。更令人瞩目的是，16日至22日这周，中国模型的周调用量进一步飙升至5.16万亿Token，三周涨幅高达127%，而同期美国模型的调用量却跌至2.7万亿Token。全球调用量排名前五的模型中，中国模型占据四席，这标志着中国AI产业已经从追赶者转变为引领者，国产AI技术的国际竞争力获得全球认可。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.nbd.com.cn/articles/2026-02-26/4270613.html" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">国产AI</span>
+                        <span class="tag">大模型</span>
                     </div>
-                    <div class="card-meta">
-                        <span>机器之心</span>
-                        <a href="https://www.jiqizhixin.com/articles/2024-12-26-2" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">用户增长</span>
-                    <h3>百度文心一言用户破亿，国产AI应用进入爆发期</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">百度宣布文心一言累计用户已突破1亿大关，日活跃用户超过3000万，成为国内用户规模最大的AI对话产品。这一里程碑标志着国产AI应用正式进入大规模普及阶段。文心一言4.0版本在理解、生成、逻辑和记忆四大核心能力上持续提升，支持128K长上下文...</p>
-                        <div class="summary-full" id="summary-1" style="display: none;">
-                            <p>百度宣布文心一言累计用户已突破1亿大关，日活跃用户超过3000万，成为国内用户规模最大的AI对话产品。这一里程碑标志着国产AI应用正式进入大规模普及阶段。文心一言4.0版本在理解、生成、逻辑和记忆四大核心能力上持续提升，支持128K长上下文窗口，能够处理更复杂的文档分析任务。百度同时披露，文心一言企业客户数已超过15万家，覆盖金融、教育、医疗等多个行业。百度CEO李彦宏表示，2025年将是AI应用爆发的元年，文心一言将继续深耕中文场景，为用户提供更智能、更贴心的AI服务体验，推动中国AI产业迈向新高度。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(1)" data-target="1">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>36氪</span>
-                        <a href="https://36kr.com/p/2645890" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">技术突破</span>
-                    <h3>阿里云通义千问2.5发布：代码能力登顶全球榜单</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">阿里云正式发布通义千问2.5版本，在HumanEval、MBPP等代码能力评测榜单中登顶全球第一，超越了GPT-4o和Claude 3.5 Sonnet等国际顶尖模型。新版本在Python、Java、C++等主流编程语言上的代码生成准确率达...</p>
-                        <div class="summary-full" id="summary-2" style="display: none;">
-                            <p>阿里云正式发布通义千问2.5版本，在HumanEval、MBPP等代码能力评测榜单中登顶全球第一，超越了GPT-4o和Claude 3.5 Sonnet等国际顶尖模型。新版本在Python、Java、C++等主流编程语言上的代码生成准确率达到历史新高，尤其在复杂算法实现和Bug修复方面表现突出。通义千问2.5还增强了多模态能力，可以理解代码截图并生成对应实现。阿里云CTO周靖人表示，通义千问已开源多个版本，累计下载量超过3000万次，是国内最受欢迎的开源大模型之一。此次突破标志着国产大模型在代码智能领域已达到世界领先水平，将为开发者提供更强大的AI编程助手。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(2)" data-target="2">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>InfoQ</span>
-                        <a href="https://www.infoq.cn/article/2024-07-aliyun" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">投融资</span>
-                    <h3>智谱AI完成新融资：估值超200亿，国产AI独角兽崛起</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">智谱AI宣布完成新一轮数十亿元融资，投后估值超过200亿元人民币，成为国内估值最高的大模型创业公司之一。本轮融资由阿里、腾讯、小米等科技巨头联合领投，多家知名VC跟投。智谱表示，新资金将主要用于下一代基础模型GLM-5的研发、算力基础设施建...</p>
-                        <div class="summary-full" id="summary-3" style="display: none;">
-                            <p>智谱AI宣布完成新一轮数十亿元融资，投后估值超过200亿元人民币，成为国内估值最高的大模型创业公司之一。本轮融资由阿里、腾讯、小米等科技巨头联合领投，多家知名VC跟投。智谱表示，新资金将主要用于下一代基础模型GLM-5的研发、算力基础设施建设以及商业化拓展。公司同时发布GLM-4-9B开源模型，在同等参数规模下性能全球领先。智谱AI的ChatGLM系列已累计获得超过1000万用户，企业API调用量日均超过10亿次。CEO张鹏表示，智谱致力于打造世界一流的国产大模型，在保持技术领先的同时推动AI技术的普惠应用，让更多人享受到AI带来的便利。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(3)" data-target="3">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>机器之心</span>
-                        <a href="https://www.jiqizhixin.com/articles/2024-09-05" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">企业服务</span>
-                    <h3>腾讯混元大模型开放，企业级AI服务竞争白热化</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">腾讯正式宣布混元大模型全面对外开放，通过腾讯云向企业和开发者提供API服务。混元大模型在中文创作、数学推理和代码生成等方面表现出色，已支持文生图、图生文等多模态能力。腾讯同时推出基于混元的C端产品「元宝」APP，深度整合微信生态内容，为用户...</p>
-                        <div class="summary-full" id="summary-4" style="display: none;">
-                            <p>腾讯正式宣布混元大模型全面对外开放，通过腾讯云向企业和开发者提供API服务。混元大模型在中文创作、数学推理和代码生成等方面表现出色，已支持文生图、图生文等多模态能力。腾讯同时推出基于混元的C端产品「元宝」APP，深度整合微信生态内容，为用户提供AI对话、文档解析、图片生成等多元化服务。腾讯云披露，混元大模型已服务超过2000家企业客户，涵盖游戏、广告、金融等多个领域。腾讯高级执行副总裁汤道生表示，混元将坚持自研路线，持续优化中文理解和长文本处理能力，打造更懂中国用户的AI助手，在企业级AI服务市场与百度、阿里展开激烈竞争。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(4)" data-target="4">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>36氪</span>
-                        <a href="https://36kr.com/p/2645891" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">行业应用</span>
-                    <h3>华为盘古大模型3.0发布：面向行业场景的专用模型</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">华为云发布盘古大模型3.0版本，采用全新架构设计，专为金融、政务、制造、矿山等行业场景优化。盘古3.0推出多个行业专属模型，包括盘古金融大模型、盘古矿山大模型等，在各自领域的专业任务上表现远超通用大模型。华为云CEO张平安表示，盘古大模型已...</p>
-                        <div class="summary-full" id="summary-5" style="display: none;">
-                            <p>华为云发布盘古大模型3.0版本，采用全新架构设计，专为金融、政务、制造、矿山等行业场景优化。盘古3.0推出多个行业专属模型，包括盘古金融大模型、盘古矿山大模型等，在各自领域的专业任务上表现远超通用大模型。华为云CEO张平安表示，盘古大模型已在超过1000个行业场景落地，服务超过500家企业客户。新版本在昇腾AI芯片上的推理效率提升50%，大幅降低了企业部署成本。华为同时发布ModelArts Studio一站式开发平台，帮助企业快速构建和部署专属大模型应用。这标志着国产行业大模型进入规模化应用阶段，为各行业数字化转型提供了强有力的AI基础设施支撑。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(5)" data-target="5">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>InfoQ</span>
-                        <a href="https://www.infoq.cn/article/2024-07-huawei" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">产品发布</span>
-                    <h3>字节跳动豆包大模型日活破千万，成增长最快AI应用</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">字节跳动旗下豆包大模型日活跃用户数突破1000万，成为国内用户增长最快的AI原生应用。豆包在文案创作、英语学习、情感陪伴等多元化场景深受年轻用户喜爱，尤其是在小红书、抖音等内容创作场景中应用广泛。字节同时推出豆包编程助手，支持代码补全、Bu...</p>
-                        <div class="summary-full" id="summary-6" style="display: none;">
-                            <p>字节跳动旗下豆包大模型日活跃用户数突破1000万，成为国内用户增长最快的AI原生应用。豆包在文案创作、英语学习、情感陪伴等多元化场景深受年轻用户喜爱，尤其是在小红书、抖音等内容创作场景中应用广泛。字节同时推出豆包编程助手，支持代码补全、Bug修复和代码解释等功能，已接入飞书文档和扣子Coze平台。豆包团队表示将持续优化中文理解和长文本处理能力，打造更懂中国用户的AI助手。字节跳动副总裁朱骏表示，豆包将依托字节强大的内容生态和技术实力，在激烈的AI应用市场竞争中保持领先地位，持续引领行业发展，目标是成为中国人手一个的AI助手。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(6)" data-target="6">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>36氪</span>
-                        <a href="https://36kr.com/p/2618234" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">技术突破</span>
-                    <h3>商汤科技「日日新5.5」发布：原生多模态大模型领先业界</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">商汤科技发布日日新SenseNova 5.5大模型体系，采用原生多模态架构，在视觉理解、图文生成和视频分析方面实现重大突破。该模型可同时处理文本、图像、视频和语音等多种模态输入，在中文场景的多模态评测中排名第一。商汤同时推出端侧大模型解决方...</p>
-                        <div class="summary-full" id="summary-7" style="display: none;">
-                            <p>商汤科技发布日日新SenseNova 5.5大模型体系，采用原生多模态架构，在视觉理解、图文生成和视频分析方面实现重大突破。该模型可同时处理文本、图像、视频和语音等多种模态输入，在中文场景的多模态评测中排名第一。商汤同时推出端侧大模型解决方案，支持在手机、平板等设备上本地运行，隐私性更强。目前日日新已服务超过3000家企业客户，覆盖智慧城市、智能驾驶、智慧医疗等多个领域。商汤CEO徐立表示，日日新5.5的发布标志着国产多模态大模型首次在核心能力上全面超越国际主流产品，彰显了中国AI技术的创新实力，为多行业数字化转型提供了强大支撑。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(7)" data-target="7">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>机器之心</span>
-                        <a href="https://www.jiqizhixin.com/articles/2025-02-18-5" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">政务应用</span>
-                    <h3>科大讯飞星火大模型中标多个省级政务项目</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">科大讯飞宣布星火认知大模型成功中标多个省级政务智能化项目，涉及智能客服、公文写作、政策解读等多个应用场景。这标志着国产大模型在政务领域的应用进入规模化落地阶段。星火大模型在教育、医疗等垂直行业的落地案例已超过10000个，积累了丰富的行业经...</p>
-                        <div class="summary-full" id="summary-8" style="display: none;">
-                            <p>科大讯飞宣布星火认知大模型成功中标多个省级政务智能化项目，涉及智能客服、公文写作、政策解读等多个应用场景。这标志着国产大模型在政务领域的应用进入规模化落地阶段。星火大模型在教育、医疗等垂直行业的落地案例已超过10000个，积累了丰富的行业经验。科大讯飞表示将持续优化大模型的行业适配能力，为数字政府建设提供安全可控的AI基础设施。公司同时发布星火V4.0版本，在中文理解和知识问答方面表现突出。董事长刘庆峰表示，科大讯飞将坚持自主创新，推动AI技术在公共治理领域的深度应用，助力政务服务智能化升级，为构建智慧社会贡献力量，实现科技惠民的美好愿景。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(8)" data-target="8">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>InfoQ</span>
-                        <a href="https://www.infoq.cn/article/2025-02-xinghuo" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">长文本</span>
-                    <h3>月之暗面Kimi发布k1.5：长文本处理能力再创新高</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">月之暗面科技发布Kimi k1.5推理模型，将上下文窗口扩展至200万字，再次刷新大模型长文本处理的世界纪录。新模型在论文理解、法律分析和代码库解析等长文本任务上表现突出，可一次性处理整本书籍或大型项目代码。Kimi同时推出智能体功能，支持...</p>
-                        <div class="summary-full" id="summary-9" style="display: none;">
-                            <p>月之暗面科技发布Kimi k1.5推理模型，将上下文窗口扩展至200万字，再次刷新大模型长文本处理的世界纪录。新模型在论文理解、法律分析和代码库解析等长文本任务上表现突出，可一次性处理整本书籍或大型项目代码。Kimi同时推出智能体功能，支持联网搜索、文件处理和代码执行等复杂任务。月之暗面表示k1.5在长文本理解和推理方面已超越GPT-4，达到世界领先水平。公司同时宣布完成超10亿美元融资，估值达到30亿美元。创始人杨植麟表示，Kimi将继续深耕长文本技术，为知识工作者、研究人员和开发者提供强大的AI辅助工具，大幅提升工作效率和创新能力。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(9)" data-target="9">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>36氪</span>
-                        <a href="https://36kr.com/p/2620456" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">AI智能体</span>
-                    <h3>OpenAI发布Operator：AI智能体可自主操控浏览器</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">OpenAI正式推出Operator智能体产品，能够像人类一样自主操控浏览器完成各种任务。该智能体基于GPT-4o模型，可以通过视觉理解网页内容，自动填写表单、预订服务、在线购物等复杂操作。Operator采用了新的安全架构，在关键操作前会...</p>
-                        <div class="summary-full" id="summary-10" style="display: none;">
-                            <p>OpenAI正式推出Operator智能体产品，能够像人类一样自主操控浏览器完成各种任务。该智能体基于GPT-4o模型，可以通过视觉理解网页内容，自动填写表单、预订服务、在线购物等复杂操作。Operator采用了新的安全架构，在关键操作前会征求用户确认，确保用户控制权。这标志着AI从对话工具向行动代理的重大进化，也引发了关于AI自动化替代人工劳动的广泛讨论。OpenAI表示Operator能够理解复杂的网页结构，处理多步骤任务，甚至可以在遇到问题时自行查找解决方案。首批测试名额已向ChatGPT Pro用户开放，每月200美元的订阅费显示出OpenAI对这款产品的高端定位，未来可能向更多用户推广。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(10)" data-target="10">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>TechCrunch</span>
-                        <a href="https://techcrunch.com/2025/01/23/openai-operator/" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">投资</span>
-                    <h3>Stargate项目官宣：OpenAI与软银投资5000亿美元建AI基础设施</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">美国总统特朗普宣布Stargate项目正式启动，由OpenAI、软银和甲骨文联合投资5000亿美元建设美国AI基础设施。该项目计划在美国建设20座超大规模数据中心，为AI训练和推理提供算力支持。首期投资1000亿美元将立即启动，这是美国历史...</p>
-                        <div class="summary-full" id="summary-11" style="display: none;">
-                            <p>美国总统特朗普宣布Stargate项目正式启动，由OpenAI、软银和甲骨文联合投资5000亿美元建设美国AI基础设施。该项目计划在美国建设20座超大规模数据中心，为AI训练和推理提供算力支持。首期投资1000亿美元将立即启动，这是美国历史上最大的科技基础设施投资之一。Stargate项目预计将创造10万个就业岗位，大幅提升美国AI竞争力。软银孙正义将担任项目董事长，OpenAI负责技术运营，甲骨文提供云计算支持。该项目显示了美国政府和企业对AI领导地位的重视，旨在对抗中国在该领域的快速发展，同时带动整个AI产业链的繁荣，巩固美国在全球AI竞赛中的领先地位。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(11)" data-target="11">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>The Verge</span>
-                        <a href="https://www.theverge.com/2025/1/21/stargate-openai-trump" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">大模型</span>
-                    <h3>Google Gemini 2.0 Flash发布：多模态能力全面升级</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">Google正式发布Gemini 2.0 Flash正式版，在速度、推理和多模态能力方面实现全面提升。该模型支持原生图像和音频输出，可以生成图像、语音和音乐，标志着多模态AI进入新阶段。在代码生成和数学推理方面，2.0 Flash已超越GP...</p>
-                        <div class="summary-full" id="summary-12" style="display: none;">
-                            <p>Google正式发布Gemini 2.0 Flash正式版，在速度、推理和多模态能力方面实现全面提升。该模型支持原生图像和音频输出，可以生成图像、语音和音乐，标志着多模态AI进入新阶段。在代码生成和数学推理方面，2.0 Flash已超越GPT-4o，在多项基准测试中取得新高。Google同时推出了Deep Research功能，能够自动进行多轮搜索并生成研究报告，直接挑战OpenAI的同类功能。Gemini 2.0已向所有开发者开放，并通过Google AI Studio和Vertex AI提供服务。Google DeepMind CEO Demis Hassabis表示，Gemini 2.0代表了AI技术的重大进步，将帮助开发者和企业构建更强大的AI应用，与OpenAI的竞争日趋激烈。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(12)" data-target="12">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>Google Blog</span>
-                        <a href="https://blog.google/technology/ai/gemini-2-flash/" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">大模型</span>
-                    <h3>xAI Grok 3发布：马斯克称将是最强AI模型</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">埃隆·马斯克正式推出xAI的Grok 3模型，称其为地球上最聪明的AI。Grok 3在孟菲斯的超级数据中心使用20万块GPU进行训练，算力是前代Grok 2的10倍。马斯克表示Grok 3在数学、科学和编程测试中都取得了最高分，推理能力已超...</p>
-                        <div class="summary-full" id="summary-13" style="display: none;">
-                            <p>埃隆·马斯克正式推出xAI的Grok 3模型，称其为地球上最聪明的AI。Grok 3在孟菲斯的超级数据中心使用20万块GPU进行训练，算力是前代Grok 2的10倍。马斯克表示Grok 3在数学、科学和编程测试中都取得了最高分，推理能力已超越OpenAI o1 Pro。xAI同时宣布完成60亿美元融资，估值达到500亿美元，成为仅次于OpenAI的第二大AI独角兽。Grok 3将整合到X平台，为Premium用户提供高级AI服务，与ChatGPT展开直接竞争。马斯克还表示Grok具有独特的幽默感，能够回答其他AI系统回避的敏感问题，这将吸引更多追求真实和开放AI体验的用户。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(13)" data-target="13">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>Reuters</span>
-                        <a href="https://www.reuters.com/technology/artificial-intelligence/musk-xai-grok-3/" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">开源模型</span>
-                    <h3>Meta Llama 4即将发布：支持原生多模态，参数规模创新高</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">Meta即将发布的Llama 4模型细节在网上泄露，引发AI社区热议。据悉Llama 4将采用混合专家架构，总参数量创新高，但每次推理仅激活部分参数，兼顾性能和效率。模型将支持原生多模态，可同时处理文本、图像和视频，在统一架构下实现跨模态理...</p>
-                        <div class="summary-full" id="summary-14" style="display: none;">
-                            <p>Meta即将发布的Llama 4模型细节在网上泄露，引发AI社区热议。据悉Llama 4将采用混合专家架构，总参数量创新高，但每次推理仅激活部分参数，兼顾性能和效率。模型将支持原生多模态，可同时处理文本、图像和视频，在统一架构下实现跨模态理解和生成。最令人期待的是Llama 4将保持开源策略，向研究者和商业用户免费开放，这将成为OpenAI和Google闭源策略的有力挑战。Meta CEO扎克伯格表示，开源AI将加速技术创新，让更多人受益于AI技术。Llama系列累计下载量已超过6.5亿次，是全球最受欢迎的开源大模型，Llama 4的发布可能重塑大模型市场的竞争格局。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(14)" data-target="14">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>The Information</span>
-                        <a href="https://www.theinformation.com/articles/meta-llama-4-leak" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">AI智能体</span>
-                    <h3>Anthropic Claude新增计算机操控能力：AI可像人类一样用电脑</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">Anthropic为Claude推出Computer Use功能，允许AI像人类一样操控计算机界面。Claude可以查看屏幕、移动鼠标、点击按钮和输入文字，自动完成各种软件操作任务。该功能基于Claude 3.5 Sonnet，在OSWor...</p>
-                        <div class="summary-full" id="summary-15" style="display: none;">
-                            <p>Anthropic为Claude推出Computer Use功能，允许AI像人类一样操控计算机界面。Claude可以查看屏幕、移动鼠标、点击按钮和输入文字，自动完成各种软件操作任务。该功能基于Claude 3.5 Sonnet，在OSWorld基准测试中表现优于OpenAI和Google的同类系统，成功率达到人类水平的85%。Anthropic表示这项技术的应用场景包括软件测试、数据录入、流程自动化和办公助手等。用户只需用自然语言描述任务，Claude就能自主规划并执行多步骤操作。这标志着AI智能体技术进入实用化阶段，但也引发了关于安全和滥用的担忧。Anthropic表示已内置多重安全防护机制，确保AI不会执行有害操作。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(15)" data-target="15">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>Anthropic</span>
-                        <a href="https://www.anthropic.com/news/computer-use" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">AI搜索</span>
-                    <h3>Perplexity发布深度研究功能：挑战OpenAI和Google</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">AI搜索公司Perplexity推出Deep Research功能，能够自动进行多轮搜索、信息整合和报告生成。该功能可以理解复杂的研究问题，自动规划搜索策略，综合多个来源的信息，最终生成结构化的研究报告。测试显示其在专家级任务上的准确率已接...</p>
-                        <div class="summary-full" id="summary-16" style="display: none;">
-                            <p>AI搜索公司Perplexity推出Deep Research功能，能够自动进行多轮搜索、信息整合和报告生成。该功能可以理解复杂的研究问题，自动规划搜索策略，综合多个来源的信息，最终生成结构化的研究报告。测试显示其在专家级任务上的准确率已接近OpenAI的Deep Research，但价格仅为十分之一。Perplexity表示这一功能将免费开放给所有用户，挑战Google和OpenAI在AI研究助手市场的地位。CEO Aravind Srinivas表示，Perplexity致力于让知识获取变得更加高效和民主化。新功能支持导出PDF、Word等格式，方便用户进一步编辑和分享。这将为研究人员、学生、记者等知识工作者提供高效的AI研究工具，大幅提升信息获取效率。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(16)" data-target="16">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>Wired</span>
-                        <a href="https://www.wired.com/story/perplexity-deep-research/" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">产品发布</span>
-                    <h3>Apple Intelligence中文版即将推出：Siri迎来重大升级</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">苹果宣布Apple Intelligence中文版本将于2025年4月随iOS 18.4正式推出。升级后的Siri将具备更强的上下文理解能力和跨应用操作功能，能够理解更复杂的自然语言指令。中文版由阿里通义千问提供云端大模型支持，确保符合中国...</p>
-                        <div class="summary-full" id="summary-17" style="display: none;">
-                            <p>苹果宣布Apple Intelligence中文版本将于2025年4月随iOS 18.4正式推出。升级后的Siri将具备更强的上下文理解能力和跨应用操作功能，能够理解更复杂的自然语言指令。中文版由阿里通义千问提供云端大模型支持，确保符合中国法规要求。苹果表示中文用户将能体验到写作助手、图片生成、智能摘要等功能，大幅提升iPhone、iPad和Mac的智能体验。这一合作标志着国际科技巨头开始深度整合中国本土AI能力，也显示了国产大模型的技术实力获得国际认可。苹果CEO库克表示，Apple Intelligence将重新定义用户与设备的交互方式，为中文用户带来前所未有的智能体验。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(17)" data-target="17">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>Bloomberg</span>
-                        <a href="https://www.bloomberg.com/news/apple-intelligence-china" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">硬件</span>
-                    <h3>NVIDIA RTX 5090发布：AI算力翻倍，生成式AI进入消费级</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">NVIDIA正式发布RTX 5090旗舰显卡，AI算力达到惊人的2375 AI TOPS，是上代RTX 4090的两倍。新卡配备32GB GDDR7显存，可以轻松在本地运行70B参数的大模型，为AI开发者和创作者带来革命性的体验。DLSS ...</p>
-                        <div class="summary-full" id="summary-18" style="display: none;">
-                            <p>NVIDIA正式发布RTX 5090旗舰显卡，AI算力达到惊人的2375 AI TOPS，是上代RTX 4090的两倍。新卡配备32GB GDDR7显存，可以轻松在本地运行70B参数的大模型，为AI开发者和创作者带来革命性的体验。DLSS 4技术引入多帧生成，游戏性能提升显著。NVIDIA同时推出AI Workbench工具，让普通用户也能在本地运行Stable Diffusion、Llama等大模型。RTX 5090的发布标志着生成式AI从云端走向个人电脑，AI PC时代正式到来。黄仁勋表示，RTX 5090将为数百万开发者和创作者带来更强大的本地AI计算能力，推动AI应用的创新和普及，让每个人都能享受AI带来的便利。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(18)" data-target="18">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>NVIDIA</span>
-                        <a href="https://www.nvidia.com/geforce/rtx-5090/" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-                <article class="card">
-                    <span class="card-tag ai">机器人</span>
-                    <h3>Figure AI发布Helix人形机器人：可自主完成家务任务</h3>
-                    <div class="news-summary">
-                        <p class="summary-short">机器人公司Figure AI发布新一代人形机器人Helix，展示了惊人的家务处理能力。在演示视频中，Helix可以自主理解自然语言指令，完成整理冰箱、摆放餐具、叠衣服等复杂任务，全程无需预编程。该机器人结合了视觉语言模型和机器人控制技术，能...</p>
-                        <div class="summary-full" id="summary-19" style="display: none;">
-                            <p>机器人公司Figure AI发布新一代人形机器人Helix，展示了惊人的家务处理能力。在演示视频中，Helix可以自主理解自然语言指令，完成整理冰箱、摆放餐具、叠衣服等复杂任务，全程无需预编程。该机器人结合了视觉语言模型和机器人控制技术，能够泛化到新环境和未见过的新物体，展现出强大的适应能力。Figure表示Helix将于2025年底开始交付，首批客户包括仓储和零售企业，家庭版预计2026年推出。这被认为是通用机器人走向家庭应用的重要里程碑，标志着具身智能技术的重大突破。创始人Brett Adcock表示，Helix的目标是让机器人真正走进千家万户，成为人类的得力助手。</p>
-                        </div>
-                        <button class="toggle-btn" onclick="toggleSummary(19)" data-target="19">展开 ▼</button>
-                    </div>
-                    <div class="card-meta">
-                        <span>TechCrunch</span>
-                        <a href="https://techcrunch.com/2025/01/30/figure-helix-robot/" class="card-link" target="_blank">查看原文 →</a>
-                    </div>
-                </article>
-            </div>
-            
-            <!-- Featured Tech Report -->
-            <div class="section-header" style="margin-top: 2rem;">
-                <h2 class="section-title">🔬 深度技术报告</h2>
-                <span class="update-time">2025-02-22</span>
-            </div>
-            
-            <article class="card" style="border-left: 3px solid var(--accent-hot);">
-                <span class="card-tag" style="background: rgba(236, 72, 153, 0.15); color: var(--accent-hot);">精密制造</span>
-                <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">💧 皮升级液体分配技术：微观世界的精准操控革命</h3>
-                <p style="font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
-                    <strong>皮升级（picoliter，10⁻¹²升）液体分配技术正成为精密制造和生命科学领域的核心使能技术。</strong>通过压电陶瓷驱动、微机电系统（MEMS）和智能反馈控制的融合创新，现代皮升级分配系统已实现±1%以内的体积精度和每秒数千次的分配频率。
-                </p>
-                <p style="font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
-                    这项技术的核心突破在于压电陶瓷致动器的应用——利用压电材料的逆压电效应，通过精确控制电压实现纳米级位移。配合快速响应阀门和高刚度喷嘴结构，可在毫秒级时间内完成液滴生成和断裂，实现超高速精密分配。MEMS技术的成熟使皮升级分配器的微型化和集成化成为可能，单个芯片可集成数百至数千个独立分配通道。
-                </p>
-                <p style="font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
-                    <strong>应用场景方面：</strong>在基因测序与合成生物学领域，皮升级分配是高通量基因测序和DNA合成的核心支撑，单芯片可同时处理数万个样本；在类器官与器官芯片领域，实现3D细胞培养和复杂多细胞结构的精确构建；在微流控诊断领域，支撑数字PCR和单分子检测，每个液滴作为独立的PCR反应室；在先进封装领域，用于倒装芯片底部填充和微LED巨量转移。
-                </p>
-                <p style="font-size: 0.95rem; line-height: 1.8;">
-                    市场规模预计2028年将突破120亿美元。国际领先厂商包括Eppendorf、Tecan、Hamilton等，国产厂商如华大智造、奥美泰克正在快速崛起，在基因测序和药物筛选领域实现国产替代。
-                </p>
-                <div class="card-meta" style="margin-top: 1.5rem;">
-                    <span>精密仪器 · 微纳制造 · 生命科学</span>
-                    <a href="picoliter_liquid_dispensing_report.md" class="card-link" target="_blank">查看完整报告 →</a>
                 </div>
             </article>
-        </section>
 
-        <!-- AI Academic Section -->
-        <section id="ai" class="section">
-            <div class="section-header">
-                <h2 class="section-title">🤖 AI学术前沿</h2>
-                <span class="update-time">Coming soon</span>
-            </div>
-            <div class="empty-state">
-                <div class="empty-state-icon">📚</div>
-                <p>正在整理最新AI学术论文...</p>
-                <p style="font-size: 0.85rem; margin-top: 0.5rem;">关注 arXiv cs.AI / cs.LG / cs.CL 最新动态</p>
-            </div>
-        </section>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-breaking">重磅</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://finance.sina.com.cn" class="card-title" target="_blank">💰 日赚20亿！英伟达发布炸裂年报，中国H20芯片收入超预期</a>
+                    <div class="card-source">📰 新浪财经</div>
+                    <div class="card-summary">英伟达公布最新财报，全年营收达到惊人的14834亿元，相当于日赚超过20亿元。其中中国市场H20芯片收入达48亿元，超出市场预期。黄仁勋在财报电话会议上表示，AI芯片需求持续强劲，基于全新Blackwell架构的芯片供不应求，订单已经排到了几个季度之后。尽管面临美国出口管制，但英伟达在中国市场依然找到了突破口，H20芯片成为维持中国业务增长的关键产品。这一业绩再次证明了AI算力需求的爆发式增长，也为全球AI基础设施建设热潮提供了有力佐证。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://finance.sina.com.cn" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">英伟达</span>
+                        <span class="tag">AI芯片</span>
+                    </div>
+                </div>
+            </article>
 
-        <!-- Graphics Section -->
-        <section id="gfx" class="section">
-            <div class="section-header">
-                <h2 class="section-title">🎨 计算机图形学</h2>
-                <span class="update-time">Coming soon</span>
-            </div>
-            <div class="empty-state">
-                <div class="empty-state-icon">🎨</div>
-                <p>正在整理图形学最新进展...</p>
-                <p style="font-size: 0.85rem; margin-top: 0.5rem;">关注 SIGGRAPH / GDC / 实时渲染技术</p>
-            </div>
-        </section>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-product">产品</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.chinaz.com" class="card-title" target="_blank">🍗 肯德基AI点餐助手上线！通义千问赋能快餐业数字化转型</a>
+                    <div class="card-source">📰 站长之家</div>
+                    <div class="card-summary">肯德基中国宣布正式接入阿里通义千问大模型，推出AI点餐助手"小K"。用户现在可以通过语音或文字与AI进行自然交互，实现智能推荐、个性化定制和快速下单。"小K"能够根据用户的历史偏好、 dietary 需求和实时场景，推荐最适合的餐品组合。这一合作标志着大模型技术正在加速渗透传统行业，为零售业数字化转型提供了全新范式。阿里通义千问团队表示，这是大模型在餐饮行业的一次重要落地，未来将继续探索更多商业场景应用，让AI技术真正服务于 everyday life。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.chinaz.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">通义千问</span>
+                        <span class="tag">阿里</span>
+                    </div>
+                </div>
+            </article>
 
-        <!-- OS Section -->
-        <section id="os" class="section">
-            <div class="section-header">
-                <h2 class="section-title">🖥️ 操作系统</h2>
-                <span class="update-time">Coming soon</span>
-            </div>
-            <div class="empty-state">
-                <div class="empty-state-icon">🖥️</div>
-                <p>正在整理操作系统最新动态...</p>
-                <p style="font-size: 0.85rem; margin-top: 0.5rem;">关注 Linux / Windows / macOS / 内核技术</p>
-            </div>
-        </section>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-research">研究</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://new.qq.com" class="card-title" target="_blank">📱 端侧AI新突破！阿里云Qwen3.5家族强悍系列模型来袭</a>
+                    <div class="card-source">📰 腾讯网</div>
+                    <div class="card-summary">阿里云正式发布Qwen3.5系列模型，这是专为端侧设备优化的轻量级大模型家族。新系列在保持高性能的同时大幅降低计算资源需求，能够流畅运行在智能手机、IoT设备等边缘设备上。Qwen3.5包括多个尺寸版本，从适合手表耳机的超轻量版到支持复杂任务的标准版，覆盖全场景需求。阿里云表示，这标志着大模型正在从云端走向端侧，让AI能力真正触手可及。该技术将推动手机AI助手、智能家居、可穿戴设备等产品的智能化升级，为用户带来更低延迟、更高隐私保护的AI体验。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://new.qq.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">阿里云</span>
+                        <span class="tag">端侧AI</span>
+                    </div>
+                </div>
+            </article>
 
-        <!-- Compilers & PL Section -->
-        <section id="pl" class="section">
-            <div class="section-header">
-                <h2 class="section-title">⚡ 编译器与编程语言</h2>
-                <span class="update-time">Coming soon</span>
-            </div>
-            <div class="empty-state">
-                <div class="empty-state-icon">⚡</div>
-                <p>正在整理编译器与PL最新进展...</p>
-                <p style="font-size: 0.85rem; margin-top: 0.5rem;">关注 LLVM / Rust / Go / 新兴编程语言</p>
-            </div>
-        </section>
-    </main>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-business">商业</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.36kr.com/p/3024614992209409" class="card-title" target="_blank">🎯 李开复揭秘：零一万物to B新打法，不走OpenAI"烧模型"老路</a>
+                    <div class="card-source">📰 36氪</div>
+                    <div class="card-summary">作为大模型to B商业化的开拓者之一，零一万物创始人李开复接受36氪专访，分享了独特的商业化路径。他表示，大模型to B不走传统软件公司的招标竞标路线，而是采取"Boss直销"模式——依靠高管团队多年积累的行业经验和人脉资源，直接对接企业高层决策者。这种"自上而下"的打法能够快速建立信任，缩短销售周期。李开复强调，中国企业不需要复制OpenAI的"烧钱换规模"模式，而是应该聚焦垂直场景，用务实的态度打造真正解决客户痛点的AI产品，这才是国产大模型的破局之道。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.36kr.com/p/3024614992209409" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">零一万物</span>
+                        <span class="tag">李开复</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-business">商业</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://finance.sina.com.cn" class="card-title" target="_blank">📊 AI收入占比43%！百度财报揭秘技术长跑如何变为商业兑现</a>
+                    <div class="card-source">📰 新浪财经</div>
+                    <div class="card-summary">百度公布2025年第四季度及全年财报，全年总营收1291亿元。四季度，百度总营收327亿元，AI业务收入占百度核心业务收入的43%，超出市场预期。这不仅标志着其十余年AI投入迎来规模化回报，更揭示了一个深层变革：当行业多数企业仍在探索AI落地场景时，百度已率先完成从"技术验证"到"商业兑现"的跨越。文心一言用户突破亿级大关，智能云业务增速超过行业平均水平，自动驾驶业务也开始贡献实质性收入。李彦宏表示，2026年将是百度AI全面商业化的关键之年。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://finance.sina.com.cn" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">百度</span>
+                        <span class="tag">文心一言</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-product">产品</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://new.qq.com" class="card-title" target="_blank">🎉 上海总榜TOP1！首届AIGC内容产业大会火热报名中</a>
+                    <div class="card-source">📰 腾讯网</div>
+                    <div class="card-summary">首届AIGC内容产业大会即将在上海隆重举办，这场盛会汇聚了国内顶级的AI企业和内容创作者，共同探讨AIGC技术在游戏、影视、广告、教育等领域的深度应用。大会设置了主论坛和多个分论坛，涵盖技术前沿、商业落地、创作实践等多个维度。目前报名人数已位居同类活动榜首，充分展现了业界对AIGC主题的高度关注。大会还将发布《2026年中国AIGC产业发展报告》，为从业者提供权威的行业洞察。这不仅是技术交流的盛会，更是连接创意与科技、探索AI赋能内容创作未来的重要平台。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://new.qq.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AIGC</span>
+                        <span class="tag">内容创作</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-breaking">重磅</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://finance.sina.com.cn" class="card-title" target="_blank">🌍 OpenAI伦敦建最大海外研究中心，欧洲战略布局提速</a>
+                    <div class="card-source">📰 新浪财经</div>
+                    <div class="card-summary">OpenAI正式宣布将在伦敦建立其美国以外最大的研究中心，计划在未来两年内招聘数百名顶尖研究人员和工程师。这一战略布局表明，欧洲市场在全球AI竞争中的地位日益重要。OpenAI CEO Sam Altman表示，伦敦拥有世界一流的AI人才和活跃的学术生态，是扩展全球研发网络的理想选择。该中心将专注于基础研究和安全对齐，同时与欧洲当地的研究机构和高校开展深度合作。这一举措也被视为OpenAI应对欧盟AI法案监管、加强与欧洲政策制定者沟通的重要步骤。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://finance.sina.com.cn" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">OpenAI</span>
+                        <span class="tag">欧洲</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-business">商业</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://new.qq.com" class="card-title" target="_blank">⚔️ 字节攻城，阿里筑墙：2026年AI云战役的终局推演</a>
+                    <div class="card-source">📰 腾讯网</div>
+                    <div class="card-summary">阿里云宣布三年投入3800亿元用于AI基础设施建设，字节跳动传闻2026年资本开支达1600亿元。表面上看，这是两家巨头在砸钱抢市场，但深究战略底色，会发现这是两种完全不同的进化路径。阿里选择"筑墙"——依托强大的云计算基础设施，打造全栈AI服务体系，服务B端企业客户；字节选择"攻城"——凭借抖音、TikTok等产品矩阵的海量用户，快速推进AI应用落地，抢占C端心智。两种模式没有优劣之分，但都指向同一个目标：在AI时代重新定义自己的商业边界。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://new.qq.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">阿里云</span>
+                        <span class="tag">字节跳动</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-business">商业</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.36kr.com" class="card-title" target="_blank">🧧 豪掷80亿后发现，AI大战的胜负不靠红包</a>
+                    <div class="card-source">📰 36氪</div>
+                    <div class="card-summary">2026年马年春节，一场总投入超80亿元的AI红包大战在字节跳动、阿里、腾讯、百度四大巨头间上演。尽管各家策略迥异——有的主打社交裂变，有的聚焦场景渗透，有的押注内容生态——但目标高度一致：让更多人真正学会用AI，并习惯AI成为生活的一部分。这场大战的背后，折射出互联网巨头对AI时代的焦虑与决心。红包只是获客手段，真正的竞争在于谁能率先建立用户心智、打造 killer app。当补贴退潮后，留存下来的活跃用户才是衡量AI产品价值的真正标尺。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.36kr.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">春节营销</span>
+                        <span class="tag">AI应用</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-product">产品</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.36kr.com" class="card-title" target="_blank">🤖 春节营销「最猛一战」：千问豆包正面硬刚、机器人百花齐放</a>
+                    <div class="card-source">📰 36氪</div>
+                    <div class="card-summary">借由巨头平台间掀起规模空前的AI战争、和在马年春晚等顶流舞台上演的科技大秀，史上最长春节假期演变为前所未有的科技企业春节营销大战。千问App推出25元免单卡活动，用户可让AI进行奶茶餐饮、零食百货下单、观影和出行订票等消费时直接抵扣；豆包则主打社交裂变，通过邀请好友解锁更多AI功能。与此同时，春晚舞台上人形机器人的惊艳亮相，让"AI+机器人"概念深入人心。这场营销大战不仅是用户争夺战，更是AI产品力和生态力的全面较量。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.36kr.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">千问</span>
+                        <span class="tag">豆包</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-research">研究</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.sohu.com" class="card-title" target="_blank">📈 2026年中国AI市场规模将破6000亿，复合增长率18.5%领跑全球</a>
+                    <div class="card-source">📰 搜狐</div>
+                    <div class="card-summary">中国人工智能产业已成为国家战略科技力量的核心组成部分，其发展深度融合政策引导、技术突破与市场需求。根据中国信通院《中国人工智能产业发展白皮书》最新预测，2026年中国AI市场规模将突破6000亿元，2021-2026年复合增长率达18.5%，显著高于全球平均增速。这一增长态势得益于《新一代人工智能发展规划》的持续推进，以及大模型技术爆发带来的应用场景井喷。报告指出，金融、医疗、教育、制造等传统行业的AI渗透率正快速提升，成为推动市场增长的主要引擎。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.sohu.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">产业报告</span>
+                        <span class="tag">市场预测</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-product">产品</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://new.qq.com" class="card-title" target="_blank">🔬 DeepSeek V4轻量版启动内测，优先适配国产芯片架构</a>
+                    <div class="card-source">📰 腾讯网</div>
+                    <div class="card-summary">DeepSeek V4轻量版正式启动内测，值得关注的是，此次内测优先面向华为昇腾等国产芯片厂商开放。从产业视角看，这更是一次务实的"软硬协同"卡位。DeepSeek的选择意味着从底层算子优化到分布式推理，都将以昇腾等国产芯片为基准进行原生适配。如果这套"昇腾+DeepSeek"的组合跑通，将首次验证国产全栈AI技术的大规模商业化可行性。这不仅是一家企业的产品策略，更可能成为中国AI产业摆脱对海外芯片依赖的关键一步，对国产AI生态建设具有里程碑意义。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://new.qq.com" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">DeepSeek</span>
+                        <span class="tag">华为</span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-breaking">重磅</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.sina.com.cn" class="card-title" target="_blank">⚡ 国产厂商团结对外！DeepSeek V4向华为等提供优先测试权限</a>
+                    <div class="card-source">📰 新浪财经</div>
+                    <div class="card-summary">人工智能行业惯例是开发者与英伟达、AMD等领先芯片制造商共享主要模型的预发布版本，以确保软件在广泛使用的硬件上高效运行。但DeepSeek的V4版本却采取了截然不同的策略——向包括华为技术在内的国内供应商提供了提前访问权限，却把英伟达和AMD拒之门外。这一举动在外媒看来，是中国试图"让美国硬件和模型在本土市场处于劣势"的一步棋。但从产业自主可控的角度看，这更是一次构建国产AI生态的战略布局，标志着国产AI产业链从"单点突破"走向"集群协作"。</div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.sina.com.cn" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">国产芯片</span>
+                        <span class="tag">生态建设</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
 
     <footer>
-        <p>TechInsight Hub · 汇聚技术前沿洞察</p>
-        <p style="margin-top: 0.5rem;">Generated with ❤️ by OpenClaw</p>
+        <div class="footer-content">
+            <div class="footer-logo">🚀 AI科技前沿</div>
+            <p class="footer-text">每日追踪全球 AI 产业动态，为您呈现最有价值的人工智能情报</p>
+            <p class="copyright">© 2026 AI科技前沿 | 每日自动更新 | 由 ai-news-digest 技能驱动</p>
+        </div>
     </footer>
-
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Update nav buttons
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-        }
-    </script>
-
-    <script>
-        function toggleSummary(id) {
-            const fullSummary = document.getElementById('summary-' + id);
-            const btn = document.querySelector('button[data-target="' + id + '"]');
-            if (fullSummary.style.display === 'none') {
-                fullSummary.style.display = 'block';
-                btn.textContent = '收起 ▲';
-            } else {
-                fullSummary.style.display = 'none';
-                btn.textContent = '展开 ▼';
-            }
-        }
-    </script>
-
-    <script>
-        function toggleSummary(id) {
-            const fullSummary = document.getElementById('summary-' + id);
-            const btn = document.querySelector('button[data-target="' + id + '"]');
-            if (fullSummary.style.display === 'none') {
-                fullSummary.style.display = 'block';
-                btn.textContent = '收起 ▲';
-            } else {
-                fullSummary.style.display = 'none';
-                btn.textContent = '展开 ▼';
-            }
-        }
-    </script>
-
-    <script>
-        function toggleSummary(id) {
-            const fullSummary = document.getElementById('summary-' + id);
-            const btn = document.querySelector('button[data-target="' + id + '"]');
-            if (fullSummary.style.display === 'none') {
-                fullSummary.style.display = 'block';
-                btn.textContent = '收起 ▲';
-            } else {
-                fullSummary.style.display = 'none';
-                btn.textContent = '展开 ▼';
-            }
-        }
-    </script>
-
-    <script>
-        function toggleSummary(id) {
-            const fullSummary = document.getElementById('summary-' + id);
-            const btn = document.querySelector('button[data-target="' + id + '"]');
-            if (fullSummary.style.display === 'none') {
-                fullSummary.style.display = 'block';
-                btn.textContent = '收起 ▲';
-            } else {
-                fullSummary.style.display = 'none';
-                btn.textContent = '展开 ▼';
-            }
-        }
-    </script>
 </body>
 </html>
