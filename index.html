@@ -88,22 +88,6 @@
             margin-top: -2px;
         }
 
-        nav { display: flex; gap: 0.5rem; }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            transition: all 0.2s;
-            font-size: 0.9rem;
-        }
-
-        nav a:hover {
-            background: var(--bg-card);
-            color: var(--text-primary);
-        }
-
         .update-time {
             display: flex;
             align-items: center;
@@ -416,10 +400,6 @@
                     <p>每日人工智能产业情报</p>
                 </div>
             </div>
-            <nav>
-                <a href="index.html">🏠 首页</a>
-                <a href="research.html">🔬 学术研究</a>
-            </nav>
             <div class="update-time">
                 <span class="live-dot"></span>
                 <span>更新于 2026-02-27</span>
@@ -432,7 +412,7 @@
         <p>汇聚全球人工智能最新动态、技术突破与商业洞察，每日为您精选最有价值的产业情报</p>
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="number">20</div>
+                <div class="number">8</div>
                 <div class="label">每日精选</div>
             </div>
             <div class="stat-item">
@@ -448,77 +428,117 @@
 
     <section class="news-section">
         <div class="section-title">
-            <h3>🇨🇳 国内热点</h3>
-            <span class="badge">10 篇</span>
+            <h3>🔥 今日热点</h3>
+            <span class="badge">8 篇</span>
         </div>
         <div class="news-grid">
+                        <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-breaking">重磅</span>
+                    <span class="card-date">2026-02-26</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://news.qq.com/rain/a/20260226A07OJP00" class="card-title" target="_blank">🏆 来了!年度重磅新书!如果这本书被证实，人类世界将彻底颠覆……</a>
+                    <div class="card-source">📰 腾讯网</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">历史会记得2026年，这是人类最后一次与AI"平起平坐"。历史会记得这个名字——哈萨比斯，他正在改写你我命运。全世界都已笃定：不了解哈萨比斯的人，就是亲手摧毁自己的未来。一切都在这本重磅新书《哈萨比斯：谷歌AI之脑》中，中文版先于英文版全球首发!这是关于他唯一的官方授权传记（只有这里的内容可信）。两度入围普...。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://news.qq.com/rain/a/20260226A07OJP00" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span>
+                    </div>
+                </div>
+            </article>
             <article class="news-card">
                 <div class="card-header">
                     <span class="card-category cat-product">产品</span>
+                    <span class="card-date">2026-02-26</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.msn.cn/zh-cn/技术/人工智能/国产大模型位居全球榜首-前10位中有8款来自中国/ar-AA1X8yGD" class="card-title" target="_blank">📱 国产大模型位居全球榜首 前10位中有8款来自中国</a>
+                    <div class="card-source">📰 人民网</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">近日，全球最大AI开源社区HuggingFace公布新一期开源大模型榜单，阿里最新开源的原生多模态模型千问3.5位居全球榜首，成为近期最受全球AI开发者关注的开源大模型。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。随着技术成熟和成本下降，AI将更加普及。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.msn.cn/zh-cn/技术/人工智能/国产大模型位居全球榜首-前10位中有8款来自中国/ar-AA1X8yGD" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">大模型</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-product">产品</span>
+                    <span class="card-date">2026-02-26</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://www.msn.cn/zh-cn/money/通用/拒绝概念炒作-联想智库发布-2026-企业-ai-十大趋势-从-提效-转向-创收-智能体结果付费时代来临/ar-AA1X8NwQ" class="card-title" target="_blank">🚀 拒绝概念炒作! 联想智库发布 2026 企业 AI 十大趋势：从"提效"转向 ...</a>
+                    <div class="card-source">📰 ITBear科技资讯</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">AI 技术正在从实验室的"概念验证"全面转向工业界的"深耕细作"。2026年2月26日，据企查查报道，联想智库 正式发布《2026企业 AI 十大趋势》。 报告指出，企业级 AI 已进入价值创造的跨越期，如何将 AI 与业务战略、组织架构及产业生态深度协同，将成为未来一年企业竞争的核心命题。 核心洞察:十大趋势重塑商业逻辑 联想智库揭示了 AI。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://www.msn.cn/zh-cn/money/通用/拒绝概念炒作-联想智库发布-2026-企业-ai-十大趋势-从-提效-转向-创收-智能体结果付费时代来临/ar-AA1X8NwQ" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-research">研究</span>
+                    <span class="card-date">2026-02-27</span>
+                </div>
+                <div class="card-body">
+                    <a href="https://news.qq.com/rain/a/20260227A01RDP00" class="card-title" target="_blank">🔬 OpenAI将把伦敦打造成其美国以外最大的研究中心</a>
+                    <div class="card-source">📰 腾讯网</div>
+                    <div class="summary-container">
+                        <div class="card-summary collapsed">ChatGPT开发商OpenAI周四宣布，将把伦敦打造为其美国以外最大的研究中心，并称英国的科技生态系统是投资和研发新型人工智能系统的理想环境。此举助力英国致力于打造 "人工智能强国"、成为前沿研究聚集地的目标，当前全球各国政府正争相吸引主流大模型开发商的投资。（新浪财经）。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。随着技术成熟和成本下降，AI将更加普及。</div>
+                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="https://news.qq.com/rain/a/20260227A01RDP00" class="read-more" target="_blank">阅读全文 →</a>
+                    <div class="tag-list">
+                        <span class="tag">AI</span><span class="tag">大模型</span>
+                    </div>
+                </div>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-category cat-research">研究</span>
                     <span class="card-date">2026-02-20</span>
                 </div>
                 <div class="card-body">
-                    <a href="https://www.msn.cn/zh-cn/技术/人工智能/谷歌再掀ai浪潮-gemini-3-1-pro登场-姚顺宇预告后续惊喜不断/ar-AA1WIXuk" class="card-title" target="_blank">📱 谷歌再掀AI浪潮：Gemini 3.1 Pro登场，姚顺宇预告后续惊喜不断</a>
+                    <a href="https://www.msn.cn/zh-cn/技术/人工智能/谷歌再掀ai浪潮-gemini-3-1-pro登场-姚顺宇预告后续惊喜不断/ar-AA1WIXuk" class="card-title" target="_blank">🔬 谷歌再掀AI浪潮：Gemini 3.1 Pro登场，姚顺宇预告后续惊喜不断</a>
                     <div class="card-source">📰 ITBear科技资讯</div>
                     <div class="summary-container">
-                        <div class="card-summary collapsed">谷歌近日正式推出新一代人工智能模型Gemini 3.1 Pro，标志着其在科学计算与工程应用领域实现重大突破。这款升级版核心智能系统通过强化推理能力，为解决复杂问题提供了更高效的解决方案。测试数据显示，在ARC-AGI-2基准测试中，新模型取得77.1%的验证成绩，推理性能较前代提升超过一倍，展现出在陌生逻辑模式识别方面的显著优势。。市场分析认为，这一动态将对行业格局产生深远影响，投资者应密切关注后续发展。相关企业有望借此东风实现新的突破。</div>
+                        <div class="card-summary collapsed">谷歌近日正式推出新一代人工智能模型Gemini 3.1 Pro，标志着其在科学计算与工程应用领域实现重大突破。这款升级版核心智能系统通过强化推理能力，为解决复杂问题提供了更高效的解决方案。测试数据显示，在ARC-AGI-2基准测试中，新模型取得77.1%的验证成绩，推理性能较前代提升超过一倍，展现出在陌生逻辑模式识别方面的显著优势。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。</div>
                         <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
                     </div>
                 </div>
                 <div class="card-footer">
                     <a href="https://www.msn.cn/zh-cn/技术/人工智能/谷歌再掀ai浪潮-gemini-3-1-pro登场-姚顺宇预告后续惊喜不断/ar-AA1WIXuk" class="read-more" target="_blank">阅读全文 →</a>
                     <div class="tag-list">
-                        <span class="tag">国内</span><span class="tag">产品</span>
+                        <span class="tag">AI</span>
                     </div>
                 </div>
             </article>
             <article class="news-card">
                 <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.sohu.com/a/990236120_122014422" class="card-title" target="_blank">📰 超越IMO金牌？谷歌创超难FirstProof数学挑战新纪录</a>
-                    <div class="card-source">📰 搜狐</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">近日，来自谷歌 DeepMind ，由 Gemini 3 Deep Think 驱动的最新数学研究智能体 Aletheia 在首届 FirstProof 挑战中，自主解决了 10 道高难度研究问题中的 6 道，成为创下了该数学挑战赛的最佳纪录。。这一突破性进展展示了人工智能技术的快速发展，为相关行业带来了新的发展机遇。业内专家表示，这将进一步加速AI技术的产业化进程。随着人工智能技术的不断发展，这一领域的创新将持续推动行业进步，为用户带来更优质的智能体验。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.sohu.com/a/990236120_122014422" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国内</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-product">产品</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.36kr.com/p/3699962531540867" class="card-title" target="_blank">📱 把大模型刻进芯片，可行吗？</a>
-                    <div class="card-source">📰 36氪</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">从前沿AI研发的角度来看，将大模型刻进芯片的技术路线显然并不可行，但这并不意味着该方案毫无市场， 在大量模型需求相对固定的场景中，它恰好能解决大模型推理延迟过长的痛点，展现出独特的应用价值。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。随着技术成熟和成本下降，AI将更加普及。随着人工智能技术的不断发展，这一领域的创新将持续推动行业进步，为用户带来更优质的智能体验。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.36kr.com/p/3699962531540867" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国内</span><span class="tag">产品</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-business">商业</span>
+                    <span class="card-category cat-research">研究</span>
                     <span class="card-date">2026-02-27</span>
                 </div>
                 <div class="card-body">
-                    <a href="https://www.36kr.com/newsflashes/3700821169860227" class="card-title" target="_blank">💼 中信建投：AI算力需求增长强劲，算力产业链部分公司业绩高增</a>
+                    <a href="https://www.36kr.com/newsflashes/3700821169860227" class="card-title" target="_blank">🔬 中信建投：AI算力需求增长强劲，算力产业链部分公司业绩高增</a>
                     <div class="card-source">📰 36氪</div>
                     <div class="summary-container">
                         <div class="card-summary collapsed">36氪获悉，中信建投研报称，近期，算力板块走势比较纠结。中信建投预计一是因为市场对2027年的需求展望仍存分歧，二是板块持仓较重。中信建投认为调整是机会。目前，AI大模型仍在持续迭代升级，算力需求旺盛，站在中期视角中信建投仍建议持续重视AI板块。一方面，中信建投持续推荐AI算力板块，包括北美算力产业链与国内算力产业链的核心公司；另一方面，中信建投也建议关注AI应用板块，特别是端侧AI Agent的</div>
@@ -528,339 +548,51 @@
                 <div class="card-footer">
                     <a href="https://www.36kr.com/newsflashes/3700821169860227" class="read-more" target="_blank">阅读全文 →</a>
                     <div class="tag-list">
-                        <span class="tag">国内</span><span class="tag">商业</span>
+                        <span class="tag">AI</span><span class="tag">大模型</span>
                     </div>
                 </div>
             </article>
             <article class="news-card">
                 <div class="card-header">
-                    <span class="card-category cat-product">产品</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.geekpark.net/news/360353" class="card-title" target="_blank">📱 当 AI 开始报复人类，开源世界的第一起「自主攻击」事件</a>
-                    <div class="card-source">📰 极客公园</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">不要小瞧一个 AI 代理的勇气和决心。 在 AI 时代，开源社区太难了， 不仅因为 Vibe Coding 正在杀死开源社区 ，甚至开源社区管理员，还会被 AI 攻击。 如果几年前有人跟我说，「你以后可能会被一个 AI 代理写文章攻击」，我大概会把这句话当成科幻小说的情节。但现在，这个听起来荒诞的场景，真的发生了。 近日，开源项目 matplotlib 的维护者 Scott Shambaugh 最</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.geekpark.net/news/360353" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国内</span><span class="tag">产品</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-breaking">突发</span>
+                    <span class="card-category cat-research">研究</span>
                     <span class="card-date">2026-02-27</span>
                 </div>
                 <div class="card-body">
-                    <a href="https://www.geekpark.net/news/360378" class="card-title" target="_blank">🔥 中国 AI 调用量首超美国；今年国产手机全面涨价，最低涨超千元；奈 ...</a>
-                    <div class="card-source">📰 极客公园</div>
+                    <a href="https://www.xinhuanet.com/tech/20260227/00396e65931145b5b2f1f586e8c456f7/c.html" class="card-title" target="_blank">🔬 春节AI热潮后多点冷思考</a>
+                    <div class="card-source">📰 新华网</div>
                     <div class="summary-container">
-                        <div class="card-summary collapsed">根据行业分析机构 Counterpoint Research 的最新报告，2026 年全球智能手机均价将同比上涨 6.9%，其中中国市场涨幅将显著高于全球平均水平，核心原因是上游供应链成本的持续飙升，尤其是内存芯片价格的暴涨的影响，预计 3 月后中国市场新品手机均价将较 2025 年同档位机型上涨 15%-25%。（来源：新浪科技）。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。随着技术成熟和成本下降，AI将更加普及。</div>
+                        <div class="card-summary collapsed">春晚舞台与技术的融合，把AI热潮推向新高度。这背后，是中国AI技术的长足进步。热闹之后，行业还需回归长期主义。我国拥有全球最完整的工业体系和丰富多元的应用场景，这才是AI落地生根的最大沃土。AI要告别补贴内卷，走技术筑基、制造深耕的路子。   马年春晚的AI味很浓。从总投入近百亿元的红包大战，到舞台上以假乱真的花神、骏马等AI生成影像，再到各显神通唱大戏的人形机器人，AI的身影无处不在，令世人惊艳</div>
                         <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="https://www.geekpark.net/news/360378" class="read-more" target="_blank">阅读全文 →</a>
+                    <a href="https://www.xinhuanet.com/tech/20260227/00396e65931145b5b2f1f586e8c456f7/c.html" class="read-more" target="_blank">阅读全文 →</a>
                     <div class="tag-list">
-                        <span class="tag">国内</span><span class="tag">突发</span>
+                        <span class="tag">AI</span>
                     </div>
                 </div>
             </article>
             <article class="news-card">
                 <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
+                    <span class="card-category cat-research">研究</span>
                     <span class="card-date">2026-02-26</span>
                 </div>
                 <div class="card-body">
-                    <a href="https://finance.sina.com.cn/cj/2026-02-26/doc-inhpcqkk7354830.shtml" class="card-title" target="_blank">📰 大厂血拼"龙虾肉"：7.9元掀桌与硅谷暗战，AI Agent的全球生态卡位战</a>
-                    <div class="card-source">📰 新浪财经</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">从OpenAI到 微软 、谷歌，全球科技巨头集体涌入这片新蓝海。这绝非一次简单的产品功能迭代，而是AI技术正彻底打破"只做聊天辅助"的边界，演变为连接用户与物理世界任务的"自主执行枢纽"。一场定义未来十年人机交互入口的全球卡位战，已然打响。。此次进展体现了国内外科技企业在人工智能领域的激烈竞争，也显示出该技术的广阔应用前景。未来，相关技术将在更多场景中得到应用。随着人工智能技术的不断发展，这一领域的创新将持续推动行业进步，为用户带来更优质的智能体验。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://finance.sina.com.cn/cj/2026-02-26/doc-inhpcqkk7354830.shtml" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国内</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.sohu.com/a/990220010_355140" class="card-title" target="_blank">📰 黄仁勋反驳"AI 吞噬软件"：传统软件模式要退场了，实时生成接管 ...</a>
+                    <a href="https://www.sohu.com/a/990220010_355140" class="card-title" target="_blank">🔬 黄仁勋反驳"AI 吞噬软件"：传统软件模式要退场了，实时生成接管 ...</a>
                     <div class="card-source">📰 搜狐</div>
                     <div class="summary-container">
-                        <div class="card-summary collapsed">"我认为市场判断错了，"他反驳了"AI 智能体会蚕食企业软件行业"的担忧，提出一个更"反直觉"的判断：大量软件公司会利用 agentic AI 来开发自身软件并提升效率。企业不会用 agents 去替代工具，而是用 agents 去使用工具，也就是说 agents 是"工具使用者"。。这一突破性进展展示了人工智能技术的快速发展，为相关行业带来了新的发展机遇。业内专家表示，这将进一步加速AI技术的产业化进程。</div>
+                        <div class="card-summary collapsed">"我认为市场判断错了，"他反驳了"AI 智能体会蚕食企业软件行业"的担忧，提出一个更"反直觉"的判断：大量软件公司会利用 agentic AI 来开发自身软件并提升效率。企业不会用 agents 去替代工具，而是用 agents 去使用工具，也就是说 agents 是"工具使用者"。。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。</div>
                         <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
                     </div>
                 </div>
                 <div class="card-footer">
                     <a href="https://www.sohu.com/a/990220010_355140" class="read-more" target="_blank">阅读全文 →</a>
                     <div class="tag-list">
-                        <span class="tag">国内</span><span class="tag">AI</span>
+                        <span class="tag">AI</span>
                     </div>
                 </div>
             </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-product">产品</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://news.qq.com/rain/a/20260226A040Y500" class="card-title" target="_blank">📱 OpenAI 发布了 Codex 应用服务器架构，用于统一 AI 智能体界面</a>
-                    <div class="card-source">📰 腾讯网</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">作者 | Eran Stiller译者 | 刘雅梦OpenAI 最近发布了 Codex 应用服务器的详细架构描述，这是一个双向协议，它将 Codex 编码智能体的核心逻辑与其各种客户端界面解耦。应用服务器现在支持每一个 Codex 体验，包括命令行界面（CLI）、VS Code 扩展、Web 应用、macOS 桌面应用，以及来自 JetBrains 和苹果 Xcode 的第三方。市场分析认为，这一动态将对行业格局产生深远影响，投资者应密切关注后续发展。相关企业有望借此东风实现新的突破。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://news.qq.com/rain/a/20260226A040Y500" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国内</span><span class="tag">产品</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://finance.sina.com.cn/tech/roll/2026-02-26/doc-inhpcqkn4377542.shtml" class="card-title" target="_blank">📰 腾讯字节，同时踩下刹车</a>
-                    <div class="card-source">📰 新浪财经</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">长达数年的中国大厂海外游戏"军备竞赛"，按下暂停键。近日，腾讯天美旗下位于加拿大的蒙特利尔工作室被爆已停止运营，多名前员工在社交媒体上证实了这一消息，并直言"虽早有预料，但现实依然令人难以接受"。对此，《科创板日报》记者也向腾讯方面寻求置评，但截至发稿，暂未得到回应。几乎在同一时间节点，字节跳动的"卖子"传闻也进入终局。2月中旬，字节跳动被曝与沙特公共投资基金（PIF）旗下Savvy Games。市场分析认为，这一动态将对行业格局产生深远影响，投资者应密切关注后续发展。相关企业有望借此东风实现新的突破。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://finance.sina.com.cn/tech/roll/2026-02-26/doc-inhpcqkn4377542.shtml" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国内</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </section>
 
-    <section class="news-section">
-        <div class="section-title">
-            <h3>🌍 国际热点</h3>
-            <span class="badge">10 篇</span>
-        </div>
-        <div class="news-grid">
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-27</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://siliconcanals.com/sc-n-chinas-deepseek-triggers-global-ai-price-war-as-tech-giants-slash-api-costs/" class="card-title" target="_blank">📰 China's DeepSeek triggers global AI price war as tech giants slash API costs</a>
-                    <div class="card-source">📰 Silicon Canals</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">DeepSeek's ultra-cheap AI models have triggered a global price war, forcing OpenAI, Google, and Anthropic to slash API costs. The cascading repricing event is reshaping AI economics worldwide, with profound implications for startups,</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://siliconcanals.com/sc-n-chinas-deepseek-triggers-global-ai-price-war-as-tech-giants-slash-api-costs/" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国际</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.macworld.com/article/3030272/2026-ipad-a19-design-display-specs-release-price.html" class="card-title" target="_blank">📰 2026 iPad: Everything we know about Apple's next entry-level tablet</a>
-                    <div class="card-source">📰 Macworld</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">Macworld reports that the 2026 entry-level iPad is expected to feature Apple's A19 chip with 6-core CPU, 5-core GPU, and 8GB RAM, delivering a significant 50% performance boost over the current A16 model. The upgraded RAM will enable Apple Intelligence ...</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.macworld.com/article/3030272/2026-ipad-a19-design-display-specs-release-price.html" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国际</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://arstechnica.com/ai/2026/02/google-releases-nano-banana-2-ai-image-generator-promises-pro-results-with-flash-speed/" class="card-title" target="_blank">📰 Google releases Nano Banana 2 AI image generator, promises Pro results with Flash speed</a>
-                    <div class="card-source">📰 Ars Technica</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">Nano Banana 2 is more accurately known as Gemini 3.1 Flash Image—the previous Nano Banana models were based on the 3.0 branch. According to Google, the new release is capable of results similar to Nano Banana Pro but with the speed of the non-pro Flash variant.</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://arstechnica.com/ai/2026/02/google-releases-nano-banana-2-ai-image-generator-promises-pro-results-with-flash-speed/" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国际</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.techradar.com/pro/google-releases-gemini-enterprise-mobile-apps-to-bring-ai-to-all-your-key-work-tasks" class="card-title" target="_blank">📰 Google releases Gemini Enterprise mobile apps to bring AI to all your key work tasks</a>
-                    <div class="card-source">📰 TechRadar</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">Google has launched a dedicated Gemini Enterprise app specifically for business users, serving more of an agentic purpose than the regular consumer-facing Gemini app.。此次进展体现了国内外科技企业在人工智能领域的激烈竞争，也显示出该技术的广阔应用前景。未来，相关技术将在更多场景中得到应用。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.techradar.com/pro/google-releases-gemini-enterprise-mobile-apps-to-bring-ai-to-all-your-key-work-tasks" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国际</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://venturebeat.com/orchestration/anthropic-says-claude-code-transformed-programming-now-claude-cowork-is" class="card-title" target="_blank">📰 Anthropic says Claude Code transformed programming. Now Claude Cowork is coming for the rest of the enterprise.</a>
-                    <div class="card-source">📰 VentureBeat</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">Anthropic is making its boldest enterprise push yet with Claude Cowork, rolling out private plug-in marketplaces, deep integrations, and AI agent tools that are reshaping corporate adoption and rattling software markets.</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://venturebeat.com/orchestration/anthropic-says-claude-code-transformed-programming-now-claude-cowork-is" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国际</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.businesstoday.in/technology/news/story/san-francisco-based-founder-claims-anthropics-claude-update-crushed-her-startup-518052-2026-02-26" class="card-title" target="_blank">📰 San Francisco-based founder claims Anthropic's Claude update crushed her startup</a>
-                    <div class="card-source">📰 Business Today</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">Once scaling as a fast-growing venture with hundreds of clients, experienced a steep drop to 20% within hours after Anthropic's Claude update.。这一突破性进展展示了人工智能技术的快速发展，为相关行业带来了新的发展机遇。业内专家表示，这将进一步加速AI技术的产业化进程。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.businesstoday.in/technology/news/story/san-francisco-based-founder-claims-anthropics-claude-update-crushed-her-startup-518052-2026-02-26" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国际</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.newsbytesapp.com/news/business/meta-and-reliance-are-now-joint-owners-of-a-new-company/tldr" class="card-title" target="_blank">📰 Meta and Reliance are now joint owners of a new company</a>
-                    <div class="card-source">📰 NewsBytes</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">Reliance Industries Ltd (RIL) has restructured its AI subsidiary, with Meta Platforms picking up a 30% stake for Rs 256.6 crore.。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。随着技术成熟和成本下降，AI将更加普及。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.newsbytesapp.com/news/business/meta-and-reliance-are-now-joint-owners-of-a-new-company/tldr" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国际</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.wired.com/story/made-in-china-how-chinese-ai-chatbots-censor-themselves/" class="card-title" target="_blank">📰 How Chinese AI Chatbots Censor Themselves</a>
-                    <div class="card-source">📰 Wired</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">Researchers from Stanford and Princeton found that Chinese AI models are more likely than their Western counterparts to dodge political questions or deliver inaccurate answers.。市场分析认为，这一动态将对行业格局产生深远影响，投资者应密切关注后续发展。相关企业有望借此东风实现新的突破。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.wired.com/story/made-in-china-how-chinese-ai-chatbots-censor-themselves/" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国际</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-27</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.techrepublic.com/article/news-nvidia-vera-rubin-ai-system-10x-performance/" class="card-title" target="_blank">📰 Nvidia's Vera Rubin Promises 10x Efficiency as AI Power Demands Surge</a>
-                    <div class="card-source">📰 TechRepublic</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">Nvidia unveils Vera Rubin, a next-gen AI system promising 10x performance per watt, modular design, and liquid cooling to power future data centers.。这一发展趋势反映了人工智能技术在产业应用中的不断深化，预示着未来将有更多创新应用落地，推动整个行业向更高水平迈进。随着技术成熟和成本下降，AI将更加普及。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.techrepublic.com/article/news-nvidia-vera-rubin-ai-system-10x-performance/" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国际</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
-            <article class="news-card">
-                <div class="card-header">
-                    <span class="card-category cat-research">AI</span>
-                    <span class="card-date">2026-02-26</span>
-                </div>
-                <div class="card-body">
-                    <a href="https://www.msn.com/en-us/money/general/why-nvidia-s-huge-numbers-don-t-settle-the-latest-ai-fears/ar-AA1X78wK" class="card-title" target="_blank">📰 Why Nvidia's huge numbers don't settle the latest AI fears</a>
-                    <div class="card-source">📰 The Wall Street Journal</div>
-                    <div class="summary-container">
-                        <div class="card-summary collapsed">Record sales and booming cash flow come as worries have shifted to AI's destabilizing impact.。市场分析认为，这一动态将对行业格局产生深远影响，投资者应密切关注后续发展。相关企业有望借此东风实现新的突破。随着人工智能技术的不断发展，这一领域的创新将持续推动行业进步，为用户带来更优质的智能体验。随着人工智能技术的不断发展，这一领域的创新将持续推动行业进步，为用户带来更优质的智能体验。</div>
-                        <button class="toggle-btn" onclick="toggleSummary(this)">展开 <span class="arrow">▼</span></button>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a href="https://www.msn.com/en-us/money/general/why-nvidia-s-huge-numbers-don-t-settle-the-latest-ai-fears/ar-AA1X78wK" class="read-more" target="_blank">阅读全文 →</a>
-                    <div class="tag-list">
-                        <span class="tag">国际</span><span class="tag">AI</span>
-                    </div>
-                </div>
-            </article>
         </div>
     </section>
 
@@ -872,7 +604,7 @@
         </div>
     </footer>
 
-<script>
+    <script>
         // 折叠展开功能
         function toggleSummary(btn) {
             const container = btn.closest('.summary-container');
