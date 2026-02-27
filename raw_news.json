@@ -1,0 +1,276 @@
+{
+  "international": [
+    {
+      "title": "China's DeepSeek triggers global AI price war as tech giants slash API costs",
+      "url": "https://siliconcanals.com/sc-n-chinas-deepseek-triggers-global-ai-price-war-as-tech-giants-slash-api-costs/",
+      "source": "Silicon Canals",
+      "date": "2026-02-27",
+      "body": "DeepSeek's ultra-cheap AI models have triggered a global price war, forcing OpenAI, Google, and Anthropic to slash API costs. The cascading repricing event is reshaping AI economics worldwide, with profound implications for startups,",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "2026 iPad: Everything we know about Apple's next entry-level tablet",
+      "url": "https://www.macworld.com/article/3030272/2026-ipad-a19-design-display-specs-release-price.html",
+      "source": "Macworld",
+      "date": "2026-02-26",
+      "body": "Macworld reports that the 2026 entry-level iPad is expected to feature Apple's A19 chip with 6-core CPU, 5-core GPU, and 8GB RAM, delivering a significant 50% performance boost over the current A16 model. The upgraded RAM will enable Apple Intelligence ...",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Google releases Nano Banana 2 AI image generator, promises Pro results with Flash speed",
+      "url": "https://arstechnica.com/ai/2026/02/google-releases-nano-banana-2-ai-image-generator-promises-pro-results-with-flash-speed/",
+      "source": "Ars Technica",
+      "date": "2026-02-26",
+      "body": "Nano Banana 2 is more accurately known as Gemini 3.1 Flash Image—the previous Nano Banana models were based on the 3.0 branch. According to Google, the new release is capable of results similar to Nano Banana Pro but with the speed of the non-pro Flash variant.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Google releases Gemini Enterprise mobile apps to bring AI to all your key work tasks",
+      "url": "https://www.techradar.com/pro/google-releases-gemini-enterprise-mobile-apps-to-bring-ai-to-all-your-key-work-tasks",
+      "source": "TechRadar",
+      "date": "2026-02-26",
+      "body": "Google has launched a dedicated Gemini Enterprise app specifically for business users, serving more of an agentic purpose than the regular consumer-facing Gemini app.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Anthropic says Claude Code transformed programming. Now Claude Cowork is coming for the rest of the enterprise.",
+      "url": "https://venturebeat.com/orchestration/anthropic-says-claude-code-transformed-programming-now-claude-cowork-is",
+      "source": "VentureBeat",
+      "date": "2026-02-26",
+      "body": "Anthropic is making its boldest enterprise push yet with Claude Cowork, rolling out private plug-in marketplaces, deep integrations, and AI agent tools that are reshaping corporate adoption and rattling software markets.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "San Francisco-based founder claims Anthropic's Claude update crushed her startup",
+      "url": "https://www.businesstoday.in/technology/news/story/san-francisco-based-founder-claims-anthropics-claude-update-crushed-her-startup-518052-2026-02-26",
+      "source": "Business Today",
+      "date": "2026-02-26",
+      "body": "Once scaling as a fast-growing venture with hundreds of clients, experienced a steep drop to 20% within hours after Anthropic's Claude update.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Meta and Reliance are now joint owners of a new company",
+      "url": "https://www.newsbytesapp.com/news/business/meta-and-reliance-are-now-joint-owners-of-a-new-company/tldr",
+      "source": "NewsBytes",
+      "date": "2026-02-26",
+      "body": "Reliance Industries Ltd (RIL) has restructured its AI subsidiary, with Meta Platforms picking up a 30% stake for Rs 256.6 crore.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "How Chinese AI Chatbots Censor Themselves",
+      "url": "https://www.wired.com/story/made-in-china-how-chinese-ai-chatbots-censor-themselves/",
+      "source": "Wired",
+      "date": "2026-02-26",
+      "body": "Researchers from Stanford and Princeton found that Chinese AI models are more likely than their Western counterparts to dodge political questions or deliver inaccurate answers.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Nvidia's Vera Rubin Promises 10x Efficiency as AI Power Demands Surge",
+      "url": "https://www.techrepublic.com/article/news-nvidia-vera-rubin-ai-system-10x-performance/",
+      "source": "TechRepublic",
+      "date": "2026-02-27",
+      "body": "Nvidia unveils Vera Rubin, a next-gen AI system promising 10x performance per watt, modular design, and liquid cooling to power future data centers.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Why Nvidia's huge numbers don't settle the latest AI fears",
+      "url": "https://www.msn.com/en-us/money/general/why-nvidia-s-huge-numbers-don-t-settle-the-latest-ai-fears/ar-AA1X78wK",
+      "source": "The Wall Street Journal",
+      "date": "2026-02-26",
+      "body": "Record sales and booming cash flow come as worries have shifted to AI's destabilizing impact.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Microsoft's \"Copilot Tasks\" AI uses its own computer to get things done",
+      "url": "https://www.theverge.com/tech/885741/microsoft-copilot-tasks-ai",
+      "source": "The Verge",
+      "date": "2026-02-26",
+      "body": "Copilot Tasks appears to be Microsoft's response to the agentic AI capabilities launched in recent months, including Claude Cowork, ChatGPT Agent Mode, Perplexity Computer, and the Gemini-powered \"auto-browse\" feature in Google Chrome.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Microsoft just launched a to-do list tool that completes itself using AI — introduces Copilot Tasks",
+      "url": "https://www.windowscentral.com/artificial-intelligence/microsoft-copilot/microsoft-just-launched-a-to-do-list-tool-that-completes-itself-using-ai-introduces-copilot-tasks",
+      "source": "Windows Central",
+      "date": "2026-02-27",
+      "body": "Copilot Tasks is a new AI feature that breaks down your task, creates a step by step process to complete that task on your behalf.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Elon Musk's XAI signs deal with Pentagon to use Grok chatbot in classified systems",
+      "url": "https://www.msn.com/en-us/technology/artificial-intelligence/elon-musk-s-xai-signs-deal-with-pentagon-to-use-grok-chatbot-in-classified-systems/ar-AA1XagbO",
+      "source": "The Cool Down",
+      "date": "2026-02-27",
+      "body": "\"Bias in AI systems is inevitable.\" Elon Musk's xAI signs deal with Pentagon to use Grok chatbot in classified systems first appeared on The Cool Down.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Grok Asked to 'Remove the Ape' From SOTU Photo, Takes Out Al Green",
+      "url": "https://www.newsweek.com/grok-al-green-ape-prompt-state-of-the-union-photo-trump-11587238",
+      "source": "Newsweek",
+      "date": "2026-02-26",
+      "body": "The incident comes weeks after a global outcry over Grok creating non-consensual sexualized deepfake imagery of women and children.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    },
+    {
+      "title": "Google researcher supports former OpenAI engineer after exit over mental health, triggers fresh scrutiny of pressure inside top AI firms: 'We get paid a lot, but the toll is ...",
+      "url": "https://www.indiatimes.com/trending/google-researcher-supports-former-openai-engineer-after-exit-over-mental-health-triggers-fresh-scrutiny-of-pressure-inside-top-ai-firms-we-get-paid-a-lot-but-the-toll-is-enormous/articleshow/128814076.html",
+      "source": "Indiatimes",
+      "date": "2026-02-26",
+      "body": "An Indian Google researcher backs a former OpenAI engineer who quit over burnout and mental health concerns, triggering fresh scrutiny of intense pressure, long hours and emotional strain inside elite AI research labs.",
+      "region": "国际",
+      "tag": "国际 · AI"
+    }
+  ],
+  "domestic": [
+    {
+      "title": "谷歌再掀AI浪潮：Gemini 3.1 Pro登场，姚顺宇预告后续惊喜不断",
+      "url": "https://www.msn.cn/zh-cn/技术/人工智能/谷歌再掀ai浪潮-gemini-3-1-pro登场-姚顺宇预告后续惊喜不断/ar-AA1WIXuk",
+      "source": "ITBear科技资讯",
+      "date": "2026-02-20",
+      "body": "谷歌近日正式推出新一代人工智能模型Gemini 3.1 Pro，标志着其在科学计算与工程应用领域实现重大突破。这款升级版核心智能系统通过强化推理能力，为解决复杂问题提供了更高效的解决方案。测试数据显示，在ARC-AGI-2基准测试中，新模型取得77.1%的验证成绩，推理性能较前代提升超过一倍，展现出在陌生逻辑模式识别方面的显著优势。",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "超越IMO金牌？谷歌创超难FirstProof数学挑战新纪录",
+      "url": "https://www.sohu.com/a/990236120_122014422",
+      "source": "搜狐",
+      "date": "2026-02-26",
+      "body": "近日，来自谷歌 DeepMind ，由 Gemini 3 Deep Think 驱动的最新数学研究智能体 Aletheia 在首届 FirstProof 挑战中，自主解决了 10 道高难度研究问题中的 6 道，成为创下了该数学挑战赛的最佳纪录。",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "把大模型刻进芯片，可行吗？",
+      "url": "https://www.36kr.com/p/3699962531540867",
+      "source": "36氪",
+      "date": "2026-02-26",
+      "body": "从前沿AI研发的角度来看，将大模型刻进芯片的技术路线显然并不可行，但这并不意味着该方案毫无市场， 在大量模型需求相对固定的场景中，它恰好能解决大模型推理延迟过长的痛点，展现出独特的应用价值。",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "中信建投：AI算力需求增长强劲，算力产业链部分公司业绩高增",
+      "url": "https://www.36kr.com/newsflashes/3700821169860227",
+      "source": "36氪",
+      "date": "2026-02-27",
+      "body": "36氪获悉，中信建投研报称，近期，算力板块走势比较纠结。中信建投预计一是因为市场对2027年的需求展望仍存分歧，二是板块持仓较重。中信建投认为调整是机会。目前，AI大模型仍在持续迭代升级，算力需求旺盛，站在中期视角中信建投仍建议持续重视AI板块。一方面，中信建投持续推荐AI算力板块，包括北美算力产业链与国内算力产业链的核心公司；另一方面，中信建投也建议关注AI应用板块，特别是端侧AI Agent的",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "当 AI 开始报复人类，开源世界的第一起「自主攻击」事件",
+      "url": "https://www.geekpark.net/news/360353",
+      "source": "极客公园",
+      "date": "2026-02-26",
+      "body": "不要小瞧一个 AI 代理的勇气和决心。 在 AI 时代，开源社区太难了， 不仅因为 Vibe Coding 正在杀死开源社区 ，甚至开源社区管理员，还会被 AI 攻击。 如果几年前有人跟我说，「你以后可能会被一个 AI 代理写文章攻击」，我大概会把这句话当成科幻小说的情节。但现在，这个听起来荒诞的场景，真的发生了。 近日，开源项目 matplotlib 的维护者 Scott Shambaugh 最",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "中国 AI 调用量首超美国；今年国产手机全面涨价，最低涨超千元；奈 ...",
+      "url": "https://www.geekpark.net/news/360378",
+      "source": "极客公园",
+      "date": "2026-02-27",
+      "body": "根据行业分析机构 Counterpoint Research 的最新报告，2026 年全球智能手机均价将同比上涨 6.9%，其中中国市场涨幅将显著高于全球平均水平，核心原因是上游供应链成本的持续飙升，尤其是内存芯片价格的暴涨的影响，预计 3 月后中国市场新品手机均价将较 2025 年同档位机型上涨 15%-25%。（来源：新浪科技）",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "大厂血拼\"龙虾肉\"：7.9元掀桌与硅谷暗战，AI Agent的全球生态卡位战",
+      "url": "https://finance.sina.com.cn/cj/2026-02-26/doc-inhpcqkk7354830.shtml",
+      "source": "新浪财经",
+      "date": "2026-02-26",
+      "body": "从OpenAI到 微软 、谷歌，全球科技巨头集体涌入这片新蓝海。这绝非一次简单的产品功能迭代，而是AI技术正彻底打破\"只做聊天辅助\"的边界，演变为连接用户与物理世界任务的\"自主执行枢纽\"。一场定义未来十年人机交互入口的全球卡位战，已然打响。",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "黄仁勋反驳\"AI 吞噬软件\"：传统软件模式要退场了，实时生成接管 ...",
+      "url": "https://www.sohu.com/a/990220010_355140",
+      "source": "搜狐",
+      "date": "2026-02-26",
+      "body": "\"我认为市场判断错了，\"他反驳了\"AI 智能体会蚕食企业软件行业\"的担忧，提出一个更\"反直觉\"的判断：大量软件公司会利用 agentic AI 来开发自身软件并提升效率。企业不会用 agents 去替代工具，而是用 agents 去使用工具，也就是说 agents 是\"工具使用者\"。",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "OpenAI 发布了 Codex 应用服务器架构，用于统一 AI 智能体界面",
+      "url": "https://news.qq.com/rain/a/20260226A040Y500",
+      "source": "腾讯网",
+      "date": "2026-02-26",
+      "body": "作者 | Eran Stiller译者 | 刘雅梦OpenAI 最近发布了 Codex 应用服务器的详细架构描述，这是一个双向协议，它将 Codex 编码智能体的核心逻辑与其各种客户端界面解耦。应用服务器现在支持每一个 Codex 体验，包括命令行界面（CLI）、VS Code 扩展、Web 应用、macOS 桌面应用，以及来自 JetBrains 和苹果 Xcode 的第三方",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "腾讯字节，同时踩下刹车",
+      "url": "https://finance.sina.com.cn/tech/roll/2026-02-26/doc-inhpcqkn4377542.shtml",
+      "source": "新浪财经",
+      "date": "2026-02-26",
+      "body": "长达数年的中国大厂海外游戏\"军备竞赛\"，按下暂停键。近日，腾讯天美旗下位于加拿大的蒙特利尔工作室被爆已停止运营，多名前员工在社交媒体上证实了这一消息，并直言\"虽早有预料，但现实依然令人难以接受\"。对此，《科创板日报》记者也向腾讯方面寻求置评，但截至发稿，暂未得到回应。几乎在同一时间节点，字节跳动的\"卖子\"传闻也进入终局。2月中旬，字节跳动被曝与沙特公共投资基金（PIF）旗下Savvy Games",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "中国AI调用量井喷，四款大模型进入全球前五，关注恒生科技ETF ...",
+      "url": "https://news.qq.com/rain/a/20260227A02FF100",
+      "source": "腾讯网",
+      "date": "2026-02-27",
+      "body": "2月27日，港股主要指数小幅高开，恒生科技指数高开0.15%，中证港股通互联网指数高开0.13%。OpenRouter最新数据显示，2026年2月16日至22日当周，中国模型周调用量达5.16万亿Token，三周大涨127%，首次超越美国模型的2.7万亿Token。周调用量排名前五的模型中，中国厂商占据四席——MiniMax M2.5、月之暗面Kimi",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "独家!阿里内测\"妙呀AI\"，要做AI界的\"泡泡玛特\"？",
+      "url": "https://finance.sina.com.cn/tech/roll/2026-02-27/doc-inhpfhts3852741.shtml",
+      "source": "新浪网",
+      "date": "2026-02-27",
+      "body": "《读佳》获悉，阿里近期悄然开启潮玩AI平台\"妙呀AI\"的保密内测，该产品聚焦潮玩领域的AI捏娃功能，以\"轻松捏娃潮玩妙呀\"为核心体验方向，目前正处于小范围测试阶段。 需要说明的是，其最终上线品质、正式上线时间及后续产品形态均以阿里官方发布为准",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "香港创新科技及工业局局长：紧抓AI机遇 建设智慧香港",
+      "url": "https://finance.sina.com.cn/roll/2026-02-26/doc-inhpefhe4280803.shtml",
+      "source": "新浪财经",
+      "date": "2026-02-26",
+      "body": "中新社香港2月26日电 (记者 魏华都)25日公布的香港特区政府2026/2027财政年度财政预算案以\"创科驱动\"作为主题之一。香港特区政府创新科技及工业局局长孙东26日出席财政预算案相关措施记者会时表示，香港将从三大重点方向发展创科，一是紧抓AI(人工智能)发展机遇，完善创科生态圈，推进香港\"新型工业化\"及推动数字经济发展，建设智慧香港。二是发挥独特优势，积极融入国家发展大局，做好连通中国内地与",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "百度地图文心AI副驾服务上亿次，陪你从\"春晚\"聊到\"人类能登 ...",
+      "url": "https://news.qq.com/rain/a/20260226A05LJI00",
+      "source": "腾讯网",
+      "date": "2026-02-26",
+      "body": "春节假期落幕，不少人结束了返乡、出游的旅程，而旅途上的一个\"特殊伙伴\"，意外走进了大众视野。2月26日，百度地图文心AI副驾公布了春节假期的运营成绩单：互动服务总量突破上亿次，日活跃用户环比暴涨54倍，岳云鹏AI副驾更是成为春节期间最热IP，累计陪伴超800万用户出行，这不再是单纯的导航工具，更成了很多人车上不可...",
+      "region": "国内",
+      "tag": "国内 · AI"
+    },
+    {
+      "title": "全文|百度Q4业绩会实录：自文心大模型发布以来已在AI投入超百亿",
+      "url": "https://finance.sina.com.cn/tech/2026-02-27/doc-inhpemqa4195807.shtml?finpagefr=p_108",
+      "source": "新浪财经",
+      "date": "2026-02-26",
+      "body": "百度发布2025年第四季度及全年财报，显示2025年总营收达1291亿元，AI业务营收达400亿元；四季度，百度总营收327亿元，同比增长5%，AI业务收入占百度一般性业务收入的43%，超出市场预期。",
+      "region": "国内",
+      "tag": "国内 · AI"
+    }
+  ]
+}
