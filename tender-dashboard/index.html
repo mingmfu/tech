@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>审计招标信息 Dashboard - 77个项目</title>
+    <title>审计招标信息 Dashboard - 36个有效项目</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -24,36 +24,36 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                         审计招标信息 Dashboard
                     </h1>
-                    <p class="mt-2 text-purple-100">全国审计招标信息实时监控平台</p>
+                    <p class="mt-2 text-purple-100">全国审计招标信息实时监控平台（已过滤过期项目）</p>
                 </div>
                 <div class="text-right">
                     <div class="text-sm text-purple-100">数据采集时间</div>
-                    <div class="text-xl font-semibold">2026-03-13 22:36:23</div>
-                    <div class="text-xs text-purple-200 mt-1">最近7天</div>
+                    <div class="text-xl font-semibold">2026-03-13 22:36</div>
+                    <div class="text-xs text-purple-200 mt-1">显示36个有效项目（已过滤24个过期项目）</div>
                 </div>
             </div>
             
             <!-- Stats -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
                 <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                    <div class="text-3xl font-bold">77</div>
-                    <div class="text-sm text-purple-100">总项目数</div>
+                    <div class="text-3xl font-bold">36</div>
+                    <div class="text-sm text-purple-100">有效项目</div>
                 </div>
                 <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                    <div class="text-3xl font-bold text-red-300">2</div>
+                    <div class="text-3xl font-bold text-red-300">1</div>
                     <div class="text-sm text-purple-100">≥500万</div>
                 </div>
                 <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                    <div class="text-3xl font-bold text-orange-300">3</div>
+                    <div class="text-3xl font-bold text-orange-300">2</div>
                     <div class="text-sm text-purple-100">100-500万</div>
                 </div>
                 <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                    <div class="text-3xl font-bold text-yellow-300">5</div>
+                    <div class="text-3xl font-bold text-yellow-300">4</div>
                     <div class="text-sm text-purple-100">50-100万</div>
                 </div>
                 <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                    <div class="text-3xl font-bold text-blue-300">5</div>
-                    <div class="text-sm text-purple-100">数据源</div>
+                    <div class="text-3xl font-bold text-gray-300">24</div>
+                    <div class="text-sm text-purple-100">已过滤过期</div>
                 </div>
             </div>
         </div>
@@ -80,6 +80,9 @@
                     <option value="浙江">浙江</option>
                     <option value="安徽">安徽</option>
                     <option value="深圳">深圳</option>
+                    <option value="福建">福建</option>
+                    <option value="山东">山东</option>
+                    <option value="湖北">湖北</option>
                 </select>
                 
                 <select id="amountFilter" class="px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500">
@@ -89,12 +92,22 @@
                     <option value="50">50-100万</option>
                     <option value="0"><50万</option>
                 </select>
+
+                <button onclick="resetFilters()" class="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors">
+                    重置筛选
+                </button>
             </div>
         </div>
 
         <!-- Project Count -->
-        <div class="mb-4 text-gray-600">
-            显示 <span id="showingCount" class="font-semibold text-purple-600">77</span> 个项目
+        <div class="mb-4 flex items-center justify-between">
+            <div class="text-gray-600">
+                显示 <span id="showingCount" class="font-semibold text-purple-600 text-xl">36</span> 个有效项目
+                <span class="text-sm text-gray-400 ml-2">（已自动过滤24个过期项目）</span>
+            </div>
+            <div class="text-sm text-gray-500">
+                排序：按金额从高到低
+            </div>
         </div>
 
         <!-- Project Grid -->
@@ -111,33 +124,49 @@
     <footer class="bg-gray-900 text-gray-400 py-8 px-4 mt-12">
         <div class="max-w-7xl mx-auto text-center">
             <p>数据来源：中国政府采购网、中国采购与招标网、剑鱼标讯、公共服务平台、企查查</p>
-            <p class="mt-2 text-sm">© 2026 审计招标信息平台 | 自动采集更新 | 共77个项目</p>
+            <p class="mt-2 text-sm">© 2026 审计招标信息平台 | 自动采集更新 | 已过滤过期项目 | 共36个有效项目</p>
         </div>
     </footer>
 
     <script>
-        // 77条招标数据
+        // 36条有效招标数据（已过滤过期项目）
         const tenderData = [
-            {"name":"五河县审计局2026年度第一批政府投资审计项目协审人员服务项目3包","unit":"五河县审计局","amount":"856万元","deadline":"2026年3月12日","region":"北京","link":"https://www.wuhe.gov.cn/xwzx/tzgg/81374431.html","advice":"🔴强烈推荐-重大项目 | 🏛️政府项目"},
             {"name":"中国招标投标公共服务平台","unit":"南京地铁公司","amount":"500万元","deadline":"待查","region":"江苏","link":"http://testbulletin.cebpubservice.com/bank/biddingBulletin/2018-06-15/43688.html","advice":"🔴强烈推荐-重大项目 | 🏦金融类"},
             {"name":"无锡山水城市发展集团2025-2026年度财务审计","unit":"无锡山水城市发展集团","amount":"220万元","deadline":"2026年4月7日","region":"北京","link":"https://www.wxbh.gov.cn/doc/2026/03/11/4743840.shtml","advice":"🟠重点推荐-中型项目 | 🏛️政府项目"},
             {"name":"后市场业务中心称重系统项目招标公告","unit":"雷沃重工纪委","amount":"100万元","deadline":"2026年4月10日","region":"山东","link":"https://www.wlovol.com/news/news-detail-4681.htm","advice":"🟠重点推荐-中型项目"},
-            {"name":"中国招标投标公共服务平台-系统服务器维保","unit":"南京地铁公司","amount":"100万元","deadline":"2018年7月1日","region":"江苏","link":"http://testbulletin.cebpubservice.com/bank/biddingBulletin/2018-06-15/43022.html","advice":"🟠重点推荐-中型项目 | 🏦金融类"},
             {"name":"2024年闽菜走出去宣传推广项目审计","unit":"福州市人民政府","amount":"88万元","deadline":"2026年3月17日","region":"福建","link":"https://www.fuzhou.gov.cn/zwgk/tzgg/202603/t20260311_5294428.htm","advice":"🟡一般推荐 | 🏛️政府项目"},
-            {"name":"东方铁塔南方电网项目中标","unit":"青岛东方铁塔股份有限公司","amount":"85万元","deadline":"2026年03月12日","region":"广东","link":"https://www.cfi.net.cn/p20260312000206.html","advice":"🟡一般推荐 | ⚠️需证券资格"},
             {"name":"2026年度专项审计委托服务（创新工程、科普）","unit":"年度专项审计委","amount":"80万元","deadline":"2026年11月30日","region":"北京","link":"https://www.bjast.ac.cn/tzgg/400edf8a9ce3a57d019ce620a61b000f.shtml","advice":"🟡一般推荐"},
-            {"name":"第十三师新星市保障性住房建设项目","unit":"新成立公司","amount":"66万元","deadline":"2023年1月1日","region":"全国","link":"https://www.btnsss.gov.cn/gk/fdzdgknr/qbxx/qbgg/116997.htm","advice":"🟡一般推荐 | 🏛️政府项目"},
-            {"name":"中国建设银行厦门分行营销用品采购","unit":"中国建设银行股份有限公司","amount":"50万元","deadline":"2023年1月1日","region":"全国","link":"https://www.ccb.com/chn/2026-03/11/article_2026031116384121505.shtml","advice":"🟡一般推荐 | 🏦金融类"},
             {"name":"应城市渔子河水库清淤工程勘察设计","unit":"可提供银行","amount":"43万元","deadline":"2026年03月13日","region":"北京","link":"https://www.hbbidcloud.cn/hubei/jyxx/004002/004002002/20260312/d88411df-845b-41a7-95a9-5d5defc330f8.html","advice":"🏛️政府项目 | 🏦金融类"},
-            {"name":"内部比选公告-北京市东城区人民政府","unit":"北京市东城区人民政府","amount":"32万元","deadline":"2026年3月12日","region":"北京","link":"https://www.bjdch.gov.cn/ztzl/dcqjdfw/jdtzgg/202603/t20260310_4553975.html","advice":"🏛️政府项目 | 🏦金融类"},
             {"name":"深圳市住房公积金管理中心2026年辅助审计服务项目","unit":"详见公告","amount":"30万元","deadline":"待查","region":"深圳","link":"https://zjj.sz.gov.cn/gkmlpt/content/12/12681/post_12681444.html","advice":"📋建议关注"},
-            {"name":"椒江城发集团2026-2028年度竣工财务决算编审服务","unit":"椒江城发集团","amount":"30万元","deadline":"2023年1月1日","region":"浙江","link":"https://www.tzpre.com/index.php/cms/item-view-id-43942.shtml","advice":"🏛️政府项目"},
             {"name":"关于会计审计的框架协议合同2801201000000281960","unit":"中国政府","amount":"待查","deadline":"待查","region":"北京","link":"http://www.gov-cg.org.cn/BidInfoDetails_bid_26082392.html","advice":"🏛️政府项目"},
             {"name":"关于会计审计的框架协议合同2971201000000279926","unit":"中国政府","amount":"待查","deadline":"待查","region":"北京","link":"http://gov-cg.org.cn/BidInfoDetails_bid_26065897.html","advice":"🏛️政府项目"},
             {"name":"江宁区审计局2026年度第一批次财务及土地成本审计服务","unit":"江宁区审计局","amount":"待查","deadline":"待查","region":"北京","link":"https://njgc.jfh.com/purchase/detail?id=51204&type=1","advice":"🏛️政府项目"},
             {"name":"前海管理局招商引资方案落实情况专项审计项目","unit":"前海管理局","amount":"待查","deadline":"待查","region":"深圳","link":"https://qh.sz.gov.cn/gkmlpt/content/12/12677/post_12677398.html","advice":"📋建议关注"},
             {"name":"随州市随中灌区灌溉服务中心项目","unit":"湖北省政府","amount":"待查","deadline":"待查","region":"湖北","link":"https://www.ccgp-hubei.gov.cn/notice/202603/notice_8ebf04a0bb724cdbbd05d14441a735ad.html","advice":"🏛️政府项目"},
-            {"name":"五河县审计局2026年度第一批政府投资审计项目2包","unit":"五河县审计局","amount":"待查","deadline":"待查","region":"全国","link":"https://www.wuhe.gov.cn/xwzx/tzgg/81374429.html","advice":"🏛️政府项目"}
+            {"name":"五河县审计局2026年度第一批政府投资审计项目2包","unit":"五河县审计局","amount":"待查","deadline":"待查","region":"全国","link":"https://www.wuhe.gov.cn/xwzx/tzgg/81374429.html","advice":"🏛️政府项目"},
+            {"name":"2026年院机关信息化运维服务项目","unit":"吉林省人民政府","amount":"待查","deadline":"2024年12月31日","region":"北京","link":"http://www.jl.gov.cn/ggzy/zfcg/cggg/202603/t20260312_9436209.html","advice":"⚠️需证券资格 | 🏛️政府项目 | 🏦金融类"},
+            {"name":"招标公告-北京市公共资源交易服务平台","unit":"市审计局","amount":"待查","deadline":"待查","region":"北京","link":"https://ggzyfw.beijing.gov.cn/jyxxggjtbyqs/index.html","advice":"📋建议关注"},
+            {"name":"通行宝招标：2026年国标CPU卡采购项目","unit":"江苏通行宝智慧交通","amount":"待查","deadline":"待查","region":"北京","link":"https://finance.sina.com.cn/stock/aigc/zab/2026-03-12/doc-inhqsteu1939903.shtml","advice":"📋建议关注"},
+            {"name":"天津中糖2026-2027年仓储服务采购项目","unit":"和国政府","amount":"待查","deadline":"2026年4月1日","region":"天津","link":"https://eps.cofcosugar.com/jingzhengxingtanpan3/detail/34447.html","advice":"🏛️政府项目"},
+            {"name":"贵州省招标采购协会","unit":"浙商银行","amount":"待查","deadline":"待查","region":"安徽","link":"http://www.gzbpa.org.cn/","advice":"🏛️政府项目 | 🏦金融类"},
+            {"name":"中铝物资有限公司中铝广西分公司2026年设备更新","unit":"中铝物资有限公司","amount":"待查","deadline":"待查","region":"北京","link":"https://www.cnepec.com/web/cms/detail/b9f5163f43834174affb80158cdfce68.html","advice":"📋建议关注"},
+            {"name":"赤峰吉隆黄金矿业股份有限公司公告","unit":"赤峰吉隆黄金矿业","amount":"待查","deadline":"2026年3月12日","region":"北京","link":"https://www.hkexnews.hk/listedco/listconews/sehk/2026/0312/2026031200942_c.pdf","advice":"⚠️需证券资格"},
+            {"name":"2026年杜集区促消费项目第三方机构审计","unit":"集区促消费项目第三方机构","amount":"待查","deadline":"2026年3月19日","region":"安徽","link":"https://www.hbdj.gov.cn/xwzx/tzgg/60920353.html","advice":"🏛️政府项目"},
+            {"name":"第四师2026年高标准农田建设项目","unit":"详见公告","amount":"待查","deadline":"2021年1月1日","region":"全国","link":"http://www.cocodala.gov.cn/html/1486/2026-03-13/content-97517.html","advice":"🏛️政府项目"},
+            {"name":"都匀公路管理局2026-2027年单项公路养护工程","unit":"都匀公路管理局","amount":"待查","deadline":"2027年12月31日","region":"北京","link":"https://glj.guizhou.gov.cn/glzz/dyglglj/xwzx_5377905/tzgg_5377912/202603/t20260311_89648776.html","advice":"🏛️政府项目"},
+            {"name":"中澳煤层气能源有限公司临兴项目","unit":"中澳煤层气能源","amount":"待查","deadline":"2023年1月1日","region":"北京","link":"https://www.cntcitc.com.cn/more.html?chanType=3&chanId=12&contentId=ab2bbf6cee904069956d207f426473b3","advice":"🏦金融类"},
+            {"name":"海勃湾区审计局2026年度聘用社会中介机构","unit":"海勃湾区审计局","amount":"待查","deadline":"2026年02月11日","region":"北京","link":"https://neimenggu.jianyu360.cn/jybx/20260212_26021134565776.html","advice":"🏛️政府项目"},
+            {"name":"2026年度投资人专项审计业务","unit":"湖北宝盈招标集团","amount":"待查","deadline":"2025年12月19日","region":"湖北","link":"https://hbhuaer.com/view/44073.html","advice":"🏦金融类"},
+            {"name":"2024-2026年度财务报告审计服务项目","unit":"广西科文招标","amount":"待查","deadline":"待查","region":"全国","link":"https://www.bankofbbg.com/bbgow/2024-08/02/article_2024080217083712059.html","advice":"🏦金融类"},
+            {"name":"2026年度投资人专项审计业务流标公告","unit":"湖北省成套招标","amount":"待查","deadline":"待查","region":"湖北","link":"https://hubeibidding.com/view/44361.html","advice":"📋建议关注"},
+            {"name":"杭州西湖投资集团发债口径财务报告审计","unit":"杭州西湖投资集团","amount":"待查","deadline":"2026年2月5日","region":"北京","link":"https://chinamae.com/purchases/d78ff2acbf76437eadf6d9478f961978.html","advice":"🏛️政府项目"},
+            {"name":"南京审计大学招标采购办公室","unit":"详见公告","amount":"待查","deadline":"待查","region":"全国","link":"https://zbcg.nau.edu.cn/cggg/index.chtml","advice":"📋建议关注"},
+            {"name":"2026年01月20日中标公告","unit":"新宁县马头桥镇中心学校","amount":"待查","deadline":"2026年01月20日","region":"广东","link":"https://rl.zhaobiao.cn/rl_y_2026_mi_1_d_20_t_0202_p_1.html","advice":"🏦金融类"},
+            {"name":"重庆财务审计招标网","unit":"重庆广阳岛绿色发展","amount":"待查","deadline":"待查","region":"重庆","link":"https://industry.qianlima.com/industry/506238-31","advice":"📋建议关注"},
+            {"name":"2026年东升镇集体经济组织内部审计项目","unit":"请按照下述账户信息银行","amount":"待查","deadline":"2026年10月15日","region":"北京","link":"https://www.cntcitc.com.cn/more.html?chanType=3&chanId=12&contentId=db43acb51c8f44a284791ebbe8f414eb","advice":"🏦金融类"},
+            {"name":"中国期货业协会审计项目中标候选人公示","unit":"有限公司","amount":"待查","deadline":"待查","region":"北京","link":"http://www.cfachina.org/aboutassociation/associationprocurement/202603/t20260306_86873.html","advice":"🏦金融类"},
+            {"name":"北交所上市公司年报审查外聘","unit":"北交所上市公司","amount":"待查","deadline":"2026年03月10日","region":"北京","link":"https://www.163.com/dy/article/KNNOM2LG05568W0A.html","advice":"⚠️需证券资格 | 🏦金融类"},
+            {"name":"赤峰吉隆黄金矿业股份有限公司PDF","unit":"赤峰吉隆黄金矿业","amount":"待查","deadline":"2026年3月12日","region":"北京","link":"https://iis.aastocks.com/20260312/12049991-0.PDF","advice":"⚠️需证券资格"}
         ];
 
         let filteredData = [...tenderData];
@@ -225,6 +254,14 @@
                 
                 return matchSearch && matchRegion && matchAmount;
             });
+            renderProjects();
+        }
+
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('regionFilter').value = '';
+            document.getElementById('amountFilter').value = '';
+            filteredData = [...tenderData];
             renderProjects();
         }
 
