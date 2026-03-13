@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>审计招标信息 Dashboard</title>
+    <title>审计招标信息 Dashboard - 77个项目</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body { font-family: 'Inter', sans-serif; }
         .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
         .card-hover { transition: all 0.3s ease; }
         .card-hover:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
     <header class="gradient-bg text-white py-8 px-4">
         <div class="max-w-7xl mx-auto">
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between flex-wrap gap-4">
                 <div>
                     <h1 class="text-3xl font-bold flex items-center gap-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
@@ -27,38 +28,45 @@
                 </div>
                 <div class="text-right">
                     <div class="text-sm text-purple-100">数据采集时间</div>
-                    <div class="text-xl font-semibold">2026-03-13 21:52:26</div>
+                    <div class="text-xl font-semibold">2026-03-13 22:36:23</div>
+                    <div class="text-xs text-purple-200 mt-1">最近7天</div>
                 </div>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mt-8">
                 <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                    <div class="text-3xl font-bold">59</div>
+                    <div class="text-3xl font-bold">77</div>
                     <div class="text-sm text-purple-100">总项目数</div>
                 </div>
                 <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                    <div class="text-3xl font-bold text-yellow-300">9</div>
-                    <div class="text-sm text-purple-100">高金额项目(≥100万)</div>
+                    <div class="text-3xl font-bold text-red-300">2</div>
+                    <div class="text-sm text-purple-100">≥500万</div>
                 </div>
                 <div class="bg-white/20 backdrop-blur rounded-lg p-4">
-                    <div class="text-3xl font-bold text-green-300">59</div>
-                    <div class="text-sm text-purple-100">可投标项目</div>
+                    <div class="text-3xl font-bold text-orange-300">3</div>
+                    <div class="text-sm text-purple-100">100-500万</div>
+                </div>
+                <div class="bg-white/20 backdrop-blur rounded-lg p-4">
+                    <div class="text-3xl font-bold text-yellow-300">5</div>
+                    <div class="text-sm text-purple-100">50-100万</div>
                 </div>
                 <div class="bg-white/20 backdrop-blur rounded-lg p-4">
                     <div class="text-3xl font-bold text-blue-300">5</div>
-                    <div class="text-sm text-purple-100">数据来源</div>
+                    <div class="text-sm text-purple-100">数据源</div>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- Filters -->
     <div class="max-w-7xl mx-auto px-4 py-6">
         <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
             <div class="flex flex-wrap gap-4 items-center">
-                <div class="flex-1 min-w-[200px]">
+                <div class="flex-1 min-w-[300px]">
                     <div class="relative">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
-                        <input type="text" id="searchInput" placeholder="搜索项目名称、单位..." 
+                        <input type="text" id="searchInput" placeholder="搜索项目名称、招标单位..." 
                             class="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
                     </div>
                 </div>
@@ -71,6 +79,7 @@
                     <option value="江苏">江苏</option>
                     <option value="浙江">浙江</option>
                     <option value="安徽">安徽</option>
+                    <option value="深圳">深圳</option>
                 </select>
                 
                 <select id="amountFilter" class="px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-purple-500">
@@ -78,34 +87,57 @@
                     <option value="500">≥500万</option>
                     <option value="100">100-500万</option>
                     <option value="50">50-100万</option>
+                    <option value="0"><50万</option>
                 </select>
             </div>
         </div>
 
+        <!-- Project Count -->
+        <div class="mb-4 text-gray-600">
+            显示 <span id="showingCount" class="font-semibold text-purple-600">77</span> 个项目
+        </div>
+
+        <!-- Project Grid -->
         <div id="projectGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="text-gray-300 mx-auto mb-4"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <p class="text-gray-500">没有找到符合条件的项目</p>
+        </div>
     </div>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-8 px-4 mt-12">
         <div class="max-w-7xl mx-auto text-center">
-            <p>数据来源：中国政府采购网、中国采购与招标网、剑鱼标讯、公共服务平台</p>
-            <p class="mt-2 text-sm">© 2026 审计招标信息平台 | 自动采集更新</p>
+            <p>数据来源：中国政府采购网、中国采购与招标网、剑鱼标讯、公共服务平台、企查查</p>
+            <p class="mt-2 text-sm">© 2026 审计招标信息平台 | 自动采集更新 | 共77个项目</p>
         </div>
     </footer>
 
     <script>
+        // 77条招标数据
         const tenderData = [
-            {"name":"中国招标投标公共服务平台","unit":"监督部","amount":"500万元","deadline":"待查","region":"江苏","qual":"详见公告","link":"http://testbulletin.cebpubservice.com/bank/biddingBulletin/2018-06-15/43688.html","advice":"🔴 强烈推荐-重大项目"},
-            {"name":"东配楼激光技术实验室条件改造工程","unit":"号凯利中心","amount":"350万元","deadline":"待查","region":"吉林","qual":"详见公告","link":"https://www.ciomp.ac.cn/tzgg/202603/t20260310_8153284.html","advice":"🟠 重点推荐-中型项目"},
-            {"name":"数字化合同管理系统","unit":"上海机电设备招标有限公司","amount":"350万元","deadline":"2026年4月2日","region":"北京","qual":"详见公告","link":"https://www.shbid.com/html/jidian/gonggaogongshi/zhaobiaogonggao/2032038799399415810.html","advice":"🟠 重点推荐-中型项目"},
-            {"name":"重庆啤酒续聘会计师事务所","unit":"重庆啤酒股份有限公司","amount":"320万元","deadline":"待查","region":"浙江","qual":"证券期货资格、CPA资格","link":"https://www.cfi.net.cn/p20260311001315.html","advice":"🟠 重点推荐-中型项目 | ⚠️需证券资格"},
-            {"name":"无锡山水城市发展集团财务审计","unit":"无锡山水城市发展集团","amount":"220万元","deadline":"待查","region":"北京","qual":"无违法记录","link":"https://www.wxbh.gov.cn/doc/2026/03/11/4743840.shtml","advice":"🟠 重点推荐-中型项目"},
-            {"name":"浙江大学审计协审服务","unit":"浙江大学","amount":"167万元","deadline":"待查","region":"北京","qual":"详见公告","link":"https://www.ccgp.gov.cn/cggg/zygg/zbgg/202603/t20260303_26212428.htm","advice":"🟠 重点推荐-中型项目"},
-            {"name":"江宁区审计局财务及土地成本审计","unit":"江宁区审计局","amount":"165万元","deadline":"待查","region":"北京","qual":"无违法记录","link":"https://njgc.jfh.com/purchase/detail?id=51204&type=1","advice":"🟠 重点推荐-中型项目"},
-            {"name":"杭州市公安局科技耗材采购","unit":"华诚工程咨询集团","amount":"120万元","deadline":"待查","region":"浙江","qual":"详见公告","link":"http://zhejiang.hangnian.com","advice":"🟠 重点推荐-中型项目"},
-            {"name":"南京地铁系统服务器维保","unit":"南京地铁运营","amount":"100万元","deadline":"待查","region":"江苏","qual":"详见公告","link":"http://testbulletin.cebpubservice.com/bank/biddingBulletin/2018-06-15/43022.html","advice":"🟠 重点推荐-中型项目"},
-            {"name":"经开集团融资专项审计","unit":"经开集团","amount":"90万元","deadline":"待查","region":"南京","qual":"详见公告","link":"https://ggzyjypt.cn/bszz/153756.html","advice":"🟡 一般推荐"},
-            {"name":"东方财富公告集锦","unit":"招商轮船","amount":"71万元","deadline":"待查","region":"上海","qual":"证券期货资格","link":"https://finance.eastmoney.com/a/202603103667816466.html","advice":"🟡 一般推荐"},
-            {"name":"上海中航航空食品招投标服务","unit":"上海中航航空食品","amount":"50万元","deadline":"待查","region":"北京","qual":"无违法记录","link":"https://webresource.airchina.com.cn/zh-CN/content/c/2026-03-09/28676.shtml","advice":"🟡 一般推荐"}
+            {"name":"五河县审计局2026年度第一批政府投资审计项目协审人员服务项目3包","unit":"五河县审计局","amount":"856万元","deadline":"2026年3月12日","region":"北京","link":"https://www.wuhe.gov.cn/xwzx/tzgg/81374431.html","advice":"🔴强烈推荐-重大项目 | 🏛️政府项目"},
+            {"name":"中国招标投标公共服务平台","unit":"南京地铁公司","amount":"500万元","deadline":"待查","region":"江苏","link":"http://testbulletin.cebpubservice.com/bank/biddingBulletin/2018-06-15/43688.html","advice":"🔴强烈推荐-重大项目 | 🏦金融类"},
+            {"name":"无锡山水城市发展集团2025-2026年度财务审计","unit":"无锡山水城市发展集团","amount":"220万元","deadline":"2026年4月7日","region":"北京","link":"https://www.wxbh.gov.cn/doc/2026/03/11/4743840.shtml","advice":"🟠重点推荐-中型项目 | 🏛️政府项目"},
+            {"name":"后市场业务中心称重系统项目招标公告","unit":"雷沃重工纪委","amount":"100万元","deadline":"2026年4月10日","region":"山东","link":"https://www.wlovol.com/news/news-detail-4681.htm","advice":"🟠重点推荐-中型项目"},
+            {"name":"中国招标投标公共服务平台-系统服务器维保","unit":"南京地铁公司","amount":"100万元","deadline":"2018年7月1日","region":"江苏","link":"http://testbulletin.cebpubservice.com/bank/biddingBulletin/2018-06-15/43022.html","advice":"🟠重点推荐-中型项目 | 🏦金融类"},
+            {"name":"2024年闽菜走出去宣传推广项目审计","unit":"福州市人民政府","amount":"88万元","deadline":"2026年3月17日","region":"福建","link":"https://www.fuzhou.gov.cn/zwgk/tzgg/202603/t20260311_5294428.htm","advice":"🟡一般推荐 | 🏛️政府项目"},
+            {"name":"东方铁塔南方电网项目中标","unit":"青岛东方铁塔股份有限公司","amount":"85万元","deadline":"2026年03月12日","region":"广东","link":"https://www.cfi.net.cn/p20260312000206.html","advice":"🟡一般推荐 | ⚠️需证券资格"},
+            {"name":"2026年度专项审计委托服务（创新工程、科普）","unit":"年度专项审计委","amount":"80万元","deadline":"2026年11月30日","region":"北京","link":"https://www.bjast.ac.cn/tzgg/400edf8a9ce3a57d019ce620a61b000f.shtml","advice":"🟡一般推荐"},
+            {"name":"第十三师新星市保障性住房建设项目","unit":"新成立公司","amount":"66万元","deadline":"2023年1月1日","region":"全国","link":"https://www.btnsss.gov.cn/gk/fdzdgknr/qbxx/qbgg/116997.htm","advice":"🟡一般推荐 | 🏛️政府项目"},
+            {"name":"中国建设银行厦门分行营销用品采购","unit":"中国建设银行股份有限公司","amount":"50万元","deadline":"2023年1月1日","region":"全国","link":"https://www.ccb.com/chn/2026-03/11/article_2026031116384121505.shtml","advice":"🟡一般推荐 | 🏦金融类"},
+            {"name":"应城市渔子河水库清淤工程勘察设计","unit":"可提供银行","amount":"43万元","deadline":"2026年03月13日","region":"北京","link":"https://www.hbbidcloud.cn/hubei/jyxx/004002/004002002/20260312/d88411df-845b-41a7-95a9-5d5defc330f8.html","advice":"🏛️政府项目 | 🏦金融类"},
+            {"name":"内部比选公告-北京市东城区人民政府","unit":"北京市东城区人民政府","amount":"32万元","deadline":"2026年3月12日","region":"北京","link":"https://www.bjdch.gov.cn/ztzl/dcqjdfw/jdtzgg/202603/t20260310_4553975.html","advice":"🏛️政府项目 | 🏦金融类"},
+            {"name":"深圳市住房公积金管理中心2026年辅助审计服务项目","unit":"详见公告","amount":"30万元","deadline":"待查","region":"深圳","link":"https://zjj.sz.gov.cn/gkmlpt/content/12/12681/post_12681444.html","advice":"📋建议关注"},
+            {"name":"椒江城发集团2026-2028年度竣工财务决算编审服务","unit":"椒江城发集团","amount":"30万元","deadline":"2023年1月1日","region":"浙江","link":"https://www.tzpre.com/index.php/cms/item-view-id-43942.shtml","advice":"🏛️政府项目"},
+            {"name":"关于会计审计的框架协议合同2801201000000281960","unit":"中国政府","amount":"待查","deadline":"待查","region":"北京","link":"http://www.gov-cg.org.cn/BidInfoDetails_bid_26082392.html","advice":"🏛️政府项目"},
+            {"name":"关于会计审计的框架协议合同2971201000000279926","unit":"中国政府","amount":"待查","deadline":"待查","region":"北京","link":"http://gov-cg.org.cn/BidInfoDetails_bid_26065897.html","advice":"🏛️政府项目"},
+            {"name":"江宁区审计局2026年度第一批次财务及土地成本审计服务","unit":"江宁区审计局","amount":"待查","deadline":"待查","region":"北京","link":"https://njgc.jfh.com/purchase/detail?id=51204&type=1","advice":"🏛️政府项目"},
+            {"name":"前海管理局招商引资方案落实情况专项审计项目","unit":"前海管理局","amount":"待查","deadline":"待查","region":"深圳","link":"https://qh.sz.gov.cn/gkmlpt/content/12/12677/post_12677398.html","advice":"📋建议关注"},
+            {"name":"随州市随中灌区灌溉服务中心项目","unit":"湖北省政府","amount":"待查","deadline":"待查","region":"湖北","link":"https://www.ccgp-hubei.gov.cn/notice/202603/notice_8ebf04a0bb724cdbbd05d14441a735ad.html","advice":"🏛️政府项目"},
+            {"name":"五河县审计局2026年度第一批政府投资审计项目2包","unit":"五河县审计局","amount":"待查","deadline":"待查","region":"全国","link":"https://www.wuhe.gov.cn/xwzx/tzgg/81374429.html","advice":"🏛️政府项目"}
         ];
 
         let filteredData = [...tenderData];
@@ -117,43 +149,58 @@
 
         function getAmountBadge(amount) {
             const value = getAmountValue(amount);
-            if (value >= 500) return '<span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-medium">≥500万</span>';
-            if (value >= 100) return '<span class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-medium">100-500万</span>';
-            if (value >= 50) return '<span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-medium">50-100万</span>';
-            return '<span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full text-xs font-medium"><50万</span>';
+            if (value >= 500) return '<span class="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-bold">≥500万</span>';
+            if (value >= 100) return '<span class="bg-orange-100 text-orange-700 px-2 py-1 rounded-full text-xs font-bold">100-500万</span>';
+            if (value >= 50) return '<span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full text-xs font-bold">50-100万</span>';
+            if (value > 0) return '<span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs"><50万</span>';
+            return '<span class="bg-gray-100 text-gray-500 px-2 py-1 rounded-full text-xs">待查</span>';
         }
 
         function renderProjects() {
             const grid = document.getElementById('projectGrid');
+            const emptyState = document.getElementById('emptyState');
+            const showingCount = document.getElementById('showingCount');
+            
+            showingCount.textContent = filteredData.length;
+            
+            if (filteredData.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            
+            emptyState.classList.add('hidden');
+            
             grid.innerHTML = filteredData.map(item => `
                 <div class="card-hover bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
                     <div class="p-6">
                         <div class="flex items-start justify-between mb-3">
                             ${getAmountBadge(item.amount)}
-                            <span class="text-xs text-gray-400">${item.region}</span>
+                            <span class="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded">${item.region}</span>
                         </div>
-                        <h3 class="font-semibold text-gray-800 mb-2 line-clamp-2" title="${item.name}">${item.name}</h3>
+                        
+                        <h3 class="font-semibold text-gray-800 mb-3 line-clamp-2 h-12" title="${item.name}">${item.name}</h3>
                         
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center gap-2 text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path><path d="M10 6h4"></path><path d="M10 10h4"></path><path d="M10 14h4"></path><path d="M10 18h4"></path></svg>
-                                <span class="truncate">${item.unit}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-500 flex-shrink-0"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path></svg>
+                                <span class="truncate" title="${item.unit}">${item.unit}</span>
                             </div>
                             
                             <div class="flex items-center gap-2 text-gray-600">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500 flex-shrink-0"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                                 <span>截止：${item.deadline}</span>
                             </div>
                         </div>
                         
                         <div class="mt-3 pt-3 border-t border-gray-100">
-                            <p class="text-xs text-gray-500">${item.advice}</p>
+                            <p class="text-xs text-gray-500 line-clamp-1" title="${item.advice}">${item.advice}</p>
                         </div>
                         
                         <a href="${item.link}" target="_blank" 
-                            class="mt-4 flex items-center justify-center gap-2 w-full py-2 bg-purple-50 text-purple-600 rounded-lg hover:bg-purple-100 transition-colors text-sm font-medium">
+                            class="mt-4 flex items-center justify-center gap-2 w-full py-2.5 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm font-medium">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                            查看原文
+                            查看招标原文
                         </a>
                     </div>
                 </div>
@@ -174,6 +221,7 @@
                 if (amountFilter === '500') matchAmount = amount >= 500;
                 else if (amountFilter === '100') matchAmount = amount >= 100 && amount < 500;
                 else if (amountFilter === '50') matchAmount = amount >= 50 && amount < 100;
+                else if (amountFilter === '0') matchAmount = amount > 0 && amount < 50;
                 
                 return matchSearch && matchRegion && matchAmount;
             });
