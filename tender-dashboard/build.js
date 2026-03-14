@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-// 读取JSON数据
-const jsonPath = './tender_collection_expert_20260314_152000.json';
+// 读取新的JSON数据
+const jsonPath = '/Users/brightfu/.openclaw/workspace/hxzb_spider/output/anhui_audit_full_20260314_152202.json';
 const jsonData = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
 
 // 读取模板和样式
@@ -18,47 +18,44 @@ fs.writeFileSync('./index.html', html, 'utf8');
 console.log('✅ index.html 生成成功');
 
 function generateHTML(data, template, styles) {
-  const projects = data['项目列表'];
-  const meta = data['采集元数据'];
+  const projects = data.projects;
+  const meta = data.meta;
   
   // 统计数据
   const stats = calculateStats(projects);
   
-  // 排序获取Top 3
-  const top3 = getTopRecommendations(projects);
+  // 生成所有项目卡片（按截止日期排序）
+  const sortedProjects = projects.sort((a, b) => {
+    const dateA = new Date(a.bid_deadline || '2099-12-31');
+    const dateB = new Date(b.bid_deadline || '2099-12-31');
+    return dateA - dateB;
+  });
   
-  // 生成所有项目卡片
-  const projectCards = projects.map((p, index) => generateProjectCard(p, index)).join('\n');
-  
-  // 生成Top 3卡片
-  const topRecommendations = top3.map((p, index) => 
-    generateRecommendationCard(p, index + 1)
-  ).join('\n');
+  const projectCards = sortedProjects.map((p, index) => generateProjectCard(p, index)).join('\n');
   
   // 替换模板变量
   let html = template;
   html = html.replace('{{styles}}', styles);
   html = html.replace('{{title}}', '安徽审计招标信息仪表板 - 专业版');
   html = html.replace(/{{siteName}}/g, '安徽审计招标信息仪表板');
-  html = html.replace(/{{subtitle}}/g, '合信招标网安徽地区审计项目 | 实时更新');
-  html = html.replace(/{{updateTime}}/g, meta['采集时间']);
+  html = html.replace(/{{subtitle}}/g, `合信招标网安徽地区审计项目 | 共${meta.keywords.length}类关键词 | 实时更新`);
+  html = html.replace(/{{updateTime}}/g, meta.generated_at);
   html = html.replace(/{{totalProjects}}/g, projects.length);
   html = html.replace(/{{highAmountCount}}/g, stats.highAmount);
   html = html.replace(/{{midAmountCount}}/g, stats.midAmount);
   html = html.replace(/{{unknownAmountCount}}/g, stats.unknownAmount);
-  html = html.replace('{{topRecommendations}}', topRecommendations);
   html = html.replace('{{projectCards}}', projectCards);
   
   return html;
 }
 
 function calculateStats(projects) {
-  let highAmount = 0; // >=30
-  let midAmount = 0;  // 10-30
+  let highAmount = 0; // >=30万
+  let midAmount = 0;  // 10-30万
   let unknownAmount = 0;
   
   projects.forEach(p => {
-    const amount = parseFloat(p['项目详情']['项目金额']) || 0;
+    const amount = parseAmount(p.budget_amount);
     if (amount >= 30) highAmount++;
     else if (amount >= 10) midAmount++;
     else if (amount === 0) unknownAmount++;
@@ -67,169 +64,125 @@ function calculateStats(projects) {
   return { highAmount, midAmount, unknownAmount };
 }
 
-function getTopRecommendations(projects) {
-  return projects
-    .filter(p => p['评分'] && p['评分']['总分'])
-    .sort((a, b) => b['评分']['总分'] - a['评分']['总分'])
-    .slice(0, 3);
+function parseAmount(amountStr) {
+  if (!amountStr || amountStr.includes('标项名称') || amountStr === '') return 0;
+  
+  // 提取数字
+  const match = amountStr.match(/(\d+\.?\d*)/);
+  if (!match) return 0;
+  
+  let value = parseFloat(match[1]);
+  
+  // 转换单位
+  if (amountStr.includes('万元')) {
+    return value; // 已经是万元
+  } else if (amountStr.includes('元')) {
+    return value / 10000; // 转换为万元
+  }
+  
+  return value;
 }
 
-function generateRecommendationCard(project, rank) {
-  const info = project['基本信息'];
-  const detail = project['项目详情'];
-  const score = project['评分'];
-  const other = project['其他信息'];
-  
-  const amount = detail['项目金额'] ? `${detail['项目金额']}万元` : '金额待查';
-  const amountClass = getAmountClass(detail['项目金额']);
-  
-  // 生成评分详情
-  const scoreBreakdown = Object.entries(score['各维度得分'])
-    .map(([key, value]) => {
-      const percentage = (value / 20) * 100; // 假设满分20
-      return `
-        <div class="score-item">
-          <span>${key}</span>
-          <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="color: #60a5fa; font-weight: 600;">${value}</span>
-            <div class="score-bar">
-              <div class="score-fill" style="width: ${percentage}%"></div>
-            </div>
-          </div>
-        </div>
-      `;
-    }).join('');
-  
-  return `
-    <div class="rec-card rank-${rank}">
-      <div class="rank-badge">${rank}</div>
-      <h3 class="project-title" style="padding-right: 3rem;">${info['项目名称']}</h3>
-      <div class="meta-item" style="margin: 0.5rem 0;">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
-          <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
-          <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
-        </svg>
-        ${project['单位信息']['招标单位']}
-      </div>
-      <div style="margin: 1rem 0;">
-        <span class="amount-badge ${amountClass}">${amount}</span>
-      </div>
-      <div class="score-display">
-        ${score['总分']}
-        <span class="score-label">/ 100分</span>
-      </div>
-      <div class="score-breakdown">
-        ${scoreBreakdown}
-      </div>
-      <a href="${other['公告原文链接']}" target="_blank" class="btn-primary" style="margin-top: 1rem;">
-        查看详情
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-      </a>
-    </div>
-  `;
+function formatAmount(amountStr) {
+  const value = parseAmount(amountStr);
+  if (value === 0) return '待查';
+  if (value >= 10000) {
+    return `${(value / 10000).toFixed(2)}亿元`;
+  }
+  return `${value.toFixed(2)}万元`;
+}
+
+function getAmountClass(amountStr) {
+  const value = parseAmount(amountStr);
+  if (value >= 30) return 'amount-high';
+  if (value >= 10) return 'amount-mid';
+  if (value > 0) return 'amount-low';
+  return 'amount-unknown';
 }
 
 function generateProjectCard(project, index) {
-  const info = project['基本信息'];
-  const detail = project['项目详情'];
-  const score = project['评分'];
-  const other = project['其他信息'];
-  const unit = project['单位信息'];
-  const requirements = project['投标要求'];
-  
-  const amount = detail['项目金额'] ? `${detail['项目金额']}万元` : '待查';
-  const amountClass = getAmountClass(detail['项目金额']);
-  const scoreValue = score ? score['总分'] : 0;
+  const amount = formatAmount(project.budget_amount);
+  const amountClass = getAmountClass(project.budget_amount);
   const projectId = `project-${index}`;
   
   // 生成详情字段HTML
   const detailFields = [];
   
-  if (requirements['资质要求']) {
-    detailFields.push(`<div class="detail-field"><strong>资质要求：</strong>${requirements['资质要求']}</div>`);
+  if (project.qualification && project.qualification.trim()) {
+    detailFields.push(`<div class="detail-field"><strong>资质要求：</strong>${project.qualification}</div>`);
   }
-  if (requirements['业绩要求']) {
-    detailFields.push(`<div class="detail-field"><strong>业绩要求：</strong>${requirements['业绩要求']}</div>`);
+  if (project.service_period && project.service_period.trim()) {
+    detailFields.push(`<div class="detail-field"><strong>服务期限：</strong>${project.service_period}</div>`);
   }
-  if (requirements['人员要求']) {
-    detailFields.push(`<div class="detail-field"><strong>人员要求：</strong>${requirements['人员要求']}</div>`);
+  if (project.category && project.category.trim()) {
+    detailFields.push(`<div class="detail-field"><strong>项目类别：</strong>${project.category}</div>`);
   }
-  if (requirements['投标保证金']) {
-    detailFields.push(`<div class="detail-field"><strong>投标保证金：</strong>${requirements['投标保证金']}</div>`);
+  if (project.keyword && project.keyword.trim()) {
+    detailFields.push(`<div class="detail-field"><strong>匹配关键词：</strong>${project.keyword}</div>`);
   }
-  if (requirements['文件售价']) {
-    detailFields.push(`<div class="detail-field"><strong>文件售价：</strong>${requirements['文件售价']}</div>`);
-  }
-  if (requirements['递交方式']) {
-    detailFields.push(`<div class="detail-field"><strong>递交方式：</strong>${requirements['递交方式']}</div>`);
-  }
-  if (detail['质量标准']) {
-    detailFields.push(`<div class="detail-field"><strong>质量标准：</strong>${detail['质量标准']}</div>`);
-  }
-  if (other['备注']) {
-    detailFields.push(`<div class="detail-field" style="color: #fbbf24;"><strong>备注：</strong>${other['备注']}</div>`);
+  if (project.extracted_at && project.extracted_at.trim()) {
+    detailFields.push(`<div class="detail-field" style="color: #64748b; font-size: 0.75rem;"><strong>数据提取时间：</strong>${project.extracted_at}</div>`);
   }
   
   const detailsHtml = detailFields.length > 0 
     ? detailFields.join('') 
-    : '<div class="detail-field" style="color: #64748b;">暂无详细要求信息</div>';
+    : '<div class="detail-field" style="color: #64748b;">暂无详细信息，请查看招标原文</div>';
+  
+  // 判断是否即将截止（3天内）
+  const isUrgent = isDeadlineUrgent(project.bid_deadline);
+  const deadlineClass = isUrgent ? 'style="color: #ef4444; font-weight: 600;"' : '';
+  const deadlineIcon = isUrgent ? '⚠️ ' : '';
   
   return `
     <div class="project-card" id="${projectId}">
       <div class="card-header">
         <span class="amount-badge ${amountClass}">${amount}</span>
-        <span class="score-badge">${scoreValue}分</span>
+        <span class="tag" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">${project.region}</span>
       </div>
       
-      <h3 class="project-title">${info['项目名称']}</h3>
+      <h3 class="project-title">${project.project_name}</h3>
       
       <div class="tags">
-        <span class="tag">${detail['服务范围'] || '审计服务'}</span>
-        ${detail['服务期限'] ? `<span class="tag">${detail['服务期限']}</span>` : ''}
-        ${info['发布日期'] ? `<span class="tag" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">发布：${info['发布日期']}</span>` : ''}
+        ${project.category ? `<span class="tag">${project.category}</span>` : ''}
+        ${project.keyword ? `<span class="tag" style="background: rgba(139, 92, 246, 0.2); color: #a78bfa;">${project.keyword}</span>` : ''}
+        ${project.publish_date ? `<span class="tag" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">发布：${project.publish_date}</span>` : ''}
       </div>
       
       <div class="project-meta">
+        ${project.tender_org ? `
         <div class="meta-item">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
             <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
             <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
           </svg>
-          ${unit['招标单位']}
+          ${project.tender_org}
         </div>
+        ` : ''}
         
-        <div class="meta-item">
+        <div class="meta-item" ${deadlineClass}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
             <line x1="16" y1="2" x2="16" y2="6"/>
             <line x1="8" y1="2" x2="8" y2="6"/>
             <line x1="3" y1="10" x2="21" y2="10"/>
           </svg>
-          截止：${info['截止时间']}
+          ${deadlineIcon}截止：${project.bid_deadline || '待定'}
         </div>
         
-        ${detail['项目地点'] ? `
+        ${project.project_code ? `
         <div class="meta-item">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
+            <path d="M4 7V4h3M4 17v3h3M20 7V4h-3M20 17v3h-3M9 9h6v6H9z"/>
           </svg>
-          ${detail['项目地点']}
+          编号：${project.project_code}
         </div>
         ` : ''}
       </div>
       
-      ${detail['项目概况'] ? `<p style="color: #94a3b8; font-size: 0.875rem; margin: 1rem 0; line-height: 1.5;">${detail['项目概况']}</p>` : ''}
-      
       <!-- Expandable Details -->
       <div class="details-section" id="details-${projectId}" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-        <h4 style="font-size: 0.875rem; color: #60a5fa; margin-bottom: 0.75rem; font-weight: 600;">📋 详细要求</h4>
+        <h4 style="font-size: 0.875rem; color: #60a5fa; margin-bottom: 0.75rem; font-weight: 600;">📋 详细信息</h4>
         <div style="font-size: 0.8125rem; line-height: 1.6; color: #cbd5e1;">
           ${detailsHtml}
         </div>
@@ -244,7 +197,9 @@ function generateProjectCard(project, index) {
           <span id="btn-text-${projectId}">查看详情</span>
         </button>
         
-        <a href="${other['公告原文链接']}" target="_blank" class="btn-primary" style="flex: 1;" title="需要登录：账号13167733815 / 密码dx13167733815">
+        <a href="${project.detail_url}" target="_blank" class="btn-primary" style="flex: 1;" 
+           onclick="showLoginHelp(event)"
+           title="点击后将跳转到招标网站，需要手动登录">
           招标原文
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
@@ -257,10 +212,17 @@ function generateProjectCard(project, index) {
   `;
 }
 
-function getAmountClass(amount) {
-  const value = parseFloat(amount) || 0;
-  if (value >= 30) return 'amount-high';
-  if (value >= 10) return 'amount-mid';
-  if (value > 0) return 'amount-low';
-  return 'amount-unknown';
+function isDeadlineUrgent(deadlineStr) {
+  if (!deadlineStr) return false;
+  
+  try {
+    const deadline = new Date(deadlineStr);
+    const now = new Date();
+    const diffTime = deadline - now;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    
+    return diffDays >= 0 && diffDays <= 3;
+  } catch (e) {
+    return false;
+  }
 }
