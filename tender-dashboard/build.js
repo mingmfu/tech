@@ -16,22 +16,43 @@ const html = generateHTML(jsonData, template, styles);
 // 写入index.html
 fs.writeFileSync('./index.html', html, 'utf8');
 console.log('✅ index.html 生成成功');
+console.log(`📊 共生成 ${jsonData.projects.length} 个项目 + Top 3 推荐`);
 
 function generateHTML(data, template, styles) {
-  const projects = data.projects;
+  let projects = data.projects;
   const meta = data.meta;
+  
+  // 为每个项目计算评分
+  projects = projects.map(p => ({
+    ...p,
+    score: calculateScore(p),
+    scoreDetails: calculateScoreDetails(p)
+  }));
+  
+  // 按评分排序
+  projects.sort((a, b) => b.score - a.score);
+  
+  // 获取Top 3
+  const top3 = projects.slice(0, 3);
   
   // 统计数据
   const stats = calculateStats(projects);
   
+  // 生成Top 3推荐卡片
+  const topRecommendations = top3.map((p, index) => 
+    generateTopRecommendationCard(p, index + 1)
+  ).join('\n');
+  
   // 生成所有项目卡片（按截止日期排序）
-  const sortedProjects = projects.sort((a, b) => {
+  const sortedProjects = [...projects].sort((a, b) => {
     const dateA = new Date(a.bid_deadline || '2099-12-31');
     const dateB = new Date(b.bid_deadline || '2099-12-31');
     return dateA - dateB;
   });
   
-  const projectCards = sortedProjects.map((p, index) => generateProjectCard(p, index)).join('\n');
+  const projectCards = sortedProjects.map((p, index) => 
+    generateProjectCard(p, index)
+  ).join('\n');
   
   // 替换模板变量
   let html = template;
@@ -44,9 +65,68 @@ function generateHTML(data, template, styles) {
   html = html.replace(/{{highAmountCount}}/g, stats.highAmount);
   html = html.replace(/{{midAmountCount}}/g, stats.midAmount);
   html = html.replace(/{{unknownAmountCount}}/g, stats.unknownAmount);
+  html = html.replace('{{topRecommendations}}', topRecommendations);
   html = html.replace('{{projectCards}}', projectCards);
   
   return html;
+}
+
+function calculateScore(project) {
+  const amount = parseAmount(project.budget_amount);
+  const deadlineDays = getDaysUntilDeadline(project.bid_deadline);
+  
+  // 1. 金额匹配度 (0-20分)
+  let amountScore = 10;
+  if (amount >= 10 && amount <= 50) amountScore = 18;
+  else if (amount > 0 && amount < 10) amountScore = 12;
+  else if (amount > 50 && amount <= 100) amountScore = 15;
+  else if (amount > 100) amountScore = 8;
+  
+  // 2. 时间窗口 (0-20分)
+  let timeScore = 10;
+  if (deadlineDays >= 10 && deadlineDays <= 20) timeScore = 18;
+  else if (deadlineDays >= 5 && deadlineDays < 10) timeScore = 15;
+  else if (deadlineDays >= 20 && deadlineDays <= 30) timeScore = 12;
+  else if (deadlineDays > 30) timeScore = 8;
+  else if (deadlineDays >= 0 && deadlineDays < 5) timeScore = 5;
+  
+  // 3. 资质匹配 (0-20分) - 假设都匹配
+  let qualificationScore = 18;
+  
+  // 4. 客户价值 (0-20分)
+  let clientScore = 10;
+  const name = project.project_name || '';
+  if (name.includes('股份') || name.includes('集团') || name.includes('能源') || name.includes('水务')) {
+    clientScore = 18;
+  } else if (name.includes('公司') || name.includes('小学')) {
+    clientScore = 14;
+  }
+  
+  return amountScore + timeScore + qualificationScore + clientScore;
+}
+
+function calculateScoreDetails(project) {
+  const amount = parseAmount(project.budget_amount);
+  const deadlineDays = getDaysUntilDeadline(project.bid_deadline);
+  
+  return {
+    '金额匹配度': amount >= 10 && amount <= 50 ? 18 : (amount > 0 ? 12 : 8),
+    '时间窗口': deadlineDays >= 10 && deadlineDays <= 20 ? 18 : (deadlineDays >= 5 ? 15 : 10),
+    '资质匹配': 18,
+    '客户价值': project.project_name?.includes('股份') || project.project_name?.includes('集团') ? 18 : 14
+  };
+}
+
+function getDaysUntilDeadline(deadlineStr) {
+  if (!deadlineStr) return 999;
+  try {
+    const deadline = new Date(deadlineStr);
+    const now = new Date();
+    const diffTime = deadline - now;
+    return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  } catch (e) {
+    return 999;
+  }
 }
 
 function calculateStats(projects) {
@@ -75,9 +155,9 @@ function parseAmount(amountStr) {
   
   // 转换单位
   if (amountStr.includes('万元')) {
-    return value; // 已经是万元
+    return value;
   } else if (amountStr.includes('元')) {
-    return value / 10000; // 转换为万元
+    return value / 10000;
   }
   
   return value;
@@ -100,6 +180,93 @@ function getAmountClass(amountStr) {
   return 'amount-unknown';
 }
 
+function generateTopRecommendationCard(project, rank) {
+  const amount = formatAmount(project.budget_amount);
+  const amountClass = getAmountClass(project.budget_amount);
+  const score = project.score;
+  const scoreDetails = project.scoreDetails;
+  
+  // 生成评分详情进度条
+  const scoreBreakdown = Object.entries(scoreDetails)
+    .map(([key, value]) => {
+      const percentage = (value / 20) * 100;
+      return `
+        <div class="score-item">
+          <span>${key}</span>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #60a5fa; font-weight: 600;">${value}</span>
+            <div class="score-bar">
+              <div class="score-fill" style="width: ${percentage}%"></div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  
+  // 推荐理由
+  const reasons = [];
+  if (parseAmount(project.budget_amount) >= 10 && parseAmount(project.budget_amount) <= 100) {
+    reasons.push('✓ 金额适中，工作量和收益平衡');
+  }
+  const daysLeft = getDaysUntilDeadline(project.bid_deadline);
+  if (daysLeft >= 5 && daysLeft <= 30) {
+    reasons.push(`✓ 投标时间充裕（剩余${daysLeft}天）`);
+  }
+  if (project.project_name?.includes('股份') || project.project_name?.includes('集团')) {
+    reasons.push('✓ 大型企业/上市公司，信誉良好');
+  }
+  if (project.category?.includes('审计')) {
+    reasons.push('✓ 符合资质要求的审计项目');
+  }
+  
+  const reasonsHtml = reasons.map(r => `<div style="margin-bottom: 0.25rem;">${r}</div>`).join('');
+  
+  return `
+    <div class="rec-card rank-${rank}">
+      <div class="rank-badge">${rank}</div>
+      <h3 class="project-title" style="padding-right: 3rem;">${project.project_name}</h3>
+      
+      <div class="meta-item" style="margin: 0.5rem 0;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+          <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/>
+          <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/>
+        </svg>
+        ${project.category || '审计服务'}
+      </div>
+      
+      <div style="margin: 1rem 0;">
+        <span class="amount-badge ${amountClass}">${amount}</span>
+      </div>
+      
+      <div class="score-display">
+        ${score}
+        <span class="score-label">/ 80分</span>
+      </div>
+      
+      <div class="score-breakdown">
+        ${scoreBreakdown}
+      </div>
+      
+      <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+        <div style="font-size: 0.75rem; color: #34d399; margin-bottom: 0.5rem; font-weight: 600;">推荐理由</div>
+        <div style="font-size: 0.75rem; color: #cbd5e1; line-height: 1.5;">
+          ${reasonsHtml}
+        </div>
+      </div>
+      
+      <a href="${project.detail_url}" target="_blank" class="btn-primary" style="margin-top: 1rem;" onclick="showLoginHelp(event)">
+        查看详情
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+      </a>
+    </div>
+  `;
+}
+
 function generateProjectCard(project, index) {
   const amount = formatAmount(project.budget_amount);
   const amountClass = getAmountClass(project.budget_amount);
@@ -119,6 +286,9 @@ function generateProjectCard(project, index) {
   }
   if (project.keyword && project.keyword.trim()) {
     detailFields.push(`<div class="detail-field"><strong>匹配关键词：</strong>${project.keyword}</div>`);
+  }
+  if (project.score) {
+    detailFields.push(`<div class="detail-field"><strong>推荐指数：</strong><span style="color: #fbbf24; font-weight: 600;">${project.score}分</span></div>`);
   }
   if (project.extracted_at && project.extracted_at.trim()) {
     detailFields.push(`<div class="detail-field" style="color: #64748b; font-size: 0.75rem;"><strong>数据提取时间：</strong>${project.extracted_at}</div>`);
