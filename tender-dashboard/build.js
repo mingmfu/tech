@@ -28,7 +28,7 @@ function generateHTML(data, template, styles) {
   const top3 = getTopRecommendations(projects);
   
   // 生成所有项目卡片
-  const projectCards = projects.map(p => generateProjectCard(p)).join('\n');
+  const projectCards = projects.map((p, index) => generateProjectCard(p, index)).join('\n');
   
   // 生成Top 3卡片
   const topRecommendations = top3.map((p, index) => 
@@ -134,19 +134,53 @@ function generateRecommendationCard(project, rank) {
   `;
 }
 
-function generateProjectCard(project) {
+function generateProjectCard(project, index) {
   const info = project['基本信息'];
   const detail = project['项目详情'];
   const score = project['评分'];
   const other = project['其他信息'];
   const unit = project['单位信息'];
+  const requirements = project['投标要求'];
   
   const amount = detail['项目金额'] ? `${detail['项目金额']}万元` : '待查';
   const amountClass = getAmountClass(detail['项目金额']);
   const scoreValue = score ? score['总分'] : 0;
+  const projectId = `project-${index}`;
+  
+  // 生成详情字段HTML
+  const detailFields = [];
+  
+  if (requirements['资质要求']) {
+    detailFields.push(`<div class="detail-field"><strong>资质要求：</strong>${requirements['资质要求']}</div>`);
+  }
+  if (requirements['业绩要求']) {
+    detailFields.push(`<div class="detail-field"><strong>业绩要求：</strong>${requirements['业绩要求']}</div>`);
+  }
+  if (requirements['人员要求']) {
+    detailFields.push(`<div class="detail-field"><strong>人员要求：</strong>${requirements['人员要求']}</div>`);
+  }
+  if (requirements['投标保证金']) {
+    detailFields.push(`<div class="detail-field"><strong>投标保证金：</strong>${requirements['投标保证金']}</div>`);
+  }
+  if (requirements['文件售价']) {
+    detailFields.push(`<div class="detail-field"><strong>文件售价：</strong>${requirements['文件售价']}</div>`);
+  }
+  if (requirements['递交方式']) {
+    detailFields.push(`<div class="detail-field"><strong>递交方式：</strong>${requirements['递交方式']}</div>`);
+  }
+  if (detail['质量标准']) {
+    detailFields.push(`<div class="detail-field"><strong>质量标准：</strong>${detail['质量标准']}</div>`);
+  }
+  if (other['备注']) {
+    detailFields.push(`<div class="detail-field" style="color: #fbbf24;"><strong>备注：</strong>${other['备注']}</div>`);
+  }
+  
+  const detailsHtml = detailFields.length > 0 
+    ? detailFields.join('') 
+    : '<div class="detail-field" style="color: #64748b;">暂无详细要求信息</div>';
   
   return `
-    <div class="project-card">
+    <div class="project-card" id="${projectId}">
       <div class="card-header">
         <span class="amount-badge ${amountClass}">${amount}</span>
         <span class="score-badge">${scoreValue}分</span>
@@ -157,6 +191,7 @@ function generateProjectCard(project) {
       <div class="tags">
         <span class="tag">${detail['服务范围'] || '审计服务'}</span>
         ${detail['服务期限'] ? `<span class="tag">${detail['服务期限']}</span>` : ''}
+        ${info['发布日期'] ? `<span class="tag" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa;">发布：${info['发布日期']}</span>` : ''}
       </div>
       
       <div class="project-meta">
@@ -190,16 +225,34 @@ function generateProjectCard(project) {
         ` : ''}
       </div>
       
-      ${detail['项目概况'] ? `<p style="color: #64748b; font-size: 0.875rem; margin: 1rem 0; line-height: 1.5;">${detail['项目概况']}</p>` : ''}
+      ${detail['项目概况'] ? `<p style="color: #94a3b8; font-size: 0.875rem; margin: 1rem 0; line-height: 1.5;">${detail['项目概况']}</p>` : ''}
       
-      <a href="${other['公告原文链接']}" target="_blank" class="btn-primary">
-        查看招标原文
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-          <polyline points="15 3 21 3 21 9"/>
-          <line x1="10" y1="14" x2="21" y2="3"/>
-        </svg>
-      </a>
+      <!-- Expandable Details -->
+      <div class="details-section" id="details-${projectId}" style="display: none; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+        <h4 style="font-size: 0.875rem; color: #60a5fa; margin-bottom: 0.75rem; font-weight: 600;">📋 详细要求</h4>
+        <div style="font-size: 0.8125rem; line-height: 1.6; color: #cbd5e1;">
+          ${detailsHtml}
+        </div>
+      </div>
+      
+      <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+        <button onclick="toggleDetails('${projectId}')" class="btn-primary" style="flex: 1; background: #334155;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          <span id="btn-text-${projectId}">查看详情</span>
+        </button>
+        
+        <a href="${other['公告原文链接']}" target="_blank" class="btn-primary" style="flex: 1;" title="需要登录：账号13167733815 / 密码dx13167733815">
+          招标原文
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
     </div>
   `;
 }

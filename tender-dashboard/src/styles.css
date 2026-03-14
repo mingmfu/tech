@@ -267,6 +267,17 @@ body {
   color: var(--text-secondary);
 }
 
+/* Detail Fields */
+.detail-field {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+.detail-field strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;

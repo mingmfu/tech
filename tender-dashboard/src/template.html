@@ -32,6 +32,25 @@
             </div>
         </div>
         
+        <!-- Login Info Alert -->
+        <div style="max-width: 1400px; margin: 1.5rem auto 0; padding: 0 1.5rem;">
+            <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 0.5rem; padding: 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="16" x2="12" y2="12"/>
+                    <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+                <div style="flex: 1;">
+                    <div style="font-weight: 600; color: #60a5fa; margin-bottom: 0.25rem;">💡 提示：查看招标原文需要登录</div>
+                    <div style="font-size: 0.875rem; color: #94a3b8;">
+                        账号：<span style="color: #fbbf24; font-weight: 600;">13167733815</span> | 
+                        密码：<span style="color: #fbbf24; font-weight: 600;">dx13167733815</span>
+                        <span style="margin-left: 1rem; color: #64748b;">（已在下方展示详细内容，无需频繁跳转）</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <!-- Stats -->
         <div class="stats-bar">
             <div class="stat-card">
@@ -87,5 +106,20 @@
         <p style="margin-top: 0.5rem; font-size: 0.875rem;">© 2026 安徽审计招标信息平台 | 共{{totalProjects}}个项目</p>
         <p style="margin-top: 0.5rem; font-size: 0.75rem; color: #64748b;">最后更新：{{updateTime}}</p>
     </footer>
+
+    <script>
+        function toggleDetails(projectId) {
+            const detailsSection = document.getElementById('details-' + projectId);
+            const btnText = document.getElementById('btn-text-' + projectId);
+            
+            if (detailsSection.style.display === 'none') {
+                detailsSection.style.display = 'block';
+                btnText.textContent = '收起详情';
+            } else {
+                detailsSection.style.display = 'none';
+                btnText.textContent = '查看详情';
+            }
+        }
+    </script>
 </body>
 </html>
